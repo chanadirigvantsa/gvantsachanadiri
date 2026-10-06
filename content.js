@@ -27,12 +27,15 @@ window.SITE = {
   ],
   "SP": [
     { "id": "hennessy", "n": "Hennessy", "y": "2022", "d": "NBA campaign: social media content strategy", "u": "https://" },
-    { "id": "visa", "n": "VISA", "y": "2022", "d": "Content strategy and creative direction for Instagram", "u": "https://" }
+    { "id": "visa", "n": "VISA", "y": "2022", "d": "Content strategy and creative direction for Instagram", "u": "https://" },
+    { "id": "bmw", "n": "BMW", "y": "2024", "d": "Content strategy for BMW Experience", "u": "https://" }
   ],
   "IG": [
     ["Reel", "Hennessy x NBA", "Social media content strategy", "hennessy1", "https://www.instagram.com/reel/CjnvuZDoAI5/", "hennessy"],
     ["Reel", "VISA", "Content strategy, creative direction", "visa1", "https://www.instagram.com/reel/CjsSPuqIMLe/", "visa"],
-    ["Reel", "VISA", "Content strategy, creative direction", "visa2", "https://www.instagram.com/reel/Cj9-ikPj04w/", "visa"]
+    ["Reel", "VISA", "Content strategy, creative direction", "visa2", "https://www.instagram.com/reel/Cj9-ikPj04w/", "visa"],
+    ["Reel", "BMW Experience", "Content strategy", "bmw1", "https://www.instagram.com/reel/C8U2yV3IPYn/", "bmw"],
+    ["Reel", "BMW Experience", "Content strategy", "bmw2", "https://www.instagram.com/reel/C8SeusfoqU8/", "bmw"]
   ],
   "M": {
     // CV link on the About and Contact pages. Upload your CV to the repo as cv.pdf.
