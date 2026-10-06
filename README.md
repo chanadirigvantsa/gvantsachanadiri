@@ -8,7 +8,8 @@ A one-page portfolio site for a content manager and creative producer. It's plai
 | --- | --- |
 | `index.html` | The site: layout, styles and the built-in editor |
 | `content.js` | Your text, projects, links and image list. It overrides the defaults in `index.html` |
-| `images/` | Your photos, videos and CV PDF |
+| `cv.pdf` | Your CV. The "Download CV (PDF)" link on the About and Contact pages opens this file |
+| `images/` | Your photos and videos |
 
 ## Put it online (GitHub Pages)
 
@@ -26,6 +27,15 @@ A one-page portfolio site for a content manager and creative producer. It's plai
 4. Click **Download content.js**.
 5. Upload the downloaded `content.js` to the repo, replacing the old file. If you chose photos, videos or a CV, upload those exact files (same file names) into the `images/` folder.
 6. Commit. The live site updates within a minute or two.
+
+## Projects and social projects
+
+- **Work projects:** in edit mode, open **Work** and click **+ Add project**. The new project page opens so you can fill it in.
+- **Social projects** (for example Porsche, BMW): the **Social** page lists them like the Work page, and each one opens its own page of posts. In edit mode, click **+ Add social project**; its page opens so you can set the name, year, description and account link, then click **+ Add post** for each post. The **Project: … ⟳** button under a post moves it to another project.
+
+## Add or update your CV
+
+In the repo, click **Add file → Upload files**, drop in your CV PDF renamed to `cv.pdf`, and click **Commit changes**. Uploading a new `cv.pdf` later replaces the old one.
 
 **Discard draft** throws away your browser draft and goes back to what is published.
 
