@@ -50,7 +50,12 @@ window.SITE = {
       "t": "I have always been fascinated by the dialogue between art and fashion—the ways in which the two disciplines intersect, influence, and reinterpret one another.\n\nDriven by this interest, I recently created Dialogue en Pause, a platform dedicated to telling stories of artistic and fashion interventions. It explores the moments where art enters into conversation with fashion, creating new narratives, perspectives, and forms of expression.\n\nThe name Dialogue en Pause is inspired by Gabrielle Chanel’s house, La Pausa—a place associated with creativity, encounters, and the meeting of art and fashion. Drawing from this spirit, the platform offers a space to pause, look closer, and explore the evolving dialogue between these two worlds.\n\nAs a content manager and storyteller, I believe the present—and the future—lies in niche, intimate forms of storytelling. In a world saturated with content, the most meaningful stories are often found in the details: a personal perspective, a handwritten note, a still image, a moving frame, or a conversation.\n\nDialogue en Pause is a platform created to explore these different languages of storytelling through the dialogue between art and fashion. It is a space where stories can take shape through handwriting, photography, film, interviews, animation, archival material, and other forms of visual and editorial expression.\n\nRather than following a single editorial format, Dialogue en Pause embraces experimentation. It is a living space for stories, ideas, and perspectives that sit between art and fashion—small, distinctive narratives that invite the audience to slow down and look closer.",
       "hd": "@dialoguenpause",
       "iu": "https://www.instagram.com/dialoguenpause/",
-      "lk": []
+      "lk": [
+        { "id": "dep1", "t": "", "u": "https://www.instagram.com/p/Dd-a4fZiHTf/" },
+        { "id": "dep2", "t": "", "u": "https://www.instagram.com/p/DeKaNkQDr1t/" },
+        { "id": "dep3", "t": "", "u": "https://www.instagram.com/p/DeBAsyOgjeW/" },
+        { "id": "dep4", "t": "", "u": "https://www.instagram.com/p/DeAG1xbjmpl/" }
+      ]
     }
   ],
   "M": {
