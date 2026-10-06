@@ -25,6 +25,12 @@ window.SITE = {
       "lk": []
     }
   ],
+  "SP": [
+    { "id": "hennessy", "n": "Hennessy", "y": "", "d": "Instagram content", "u": "https://" }
+  ],
+  "IG": [
+    ["Reel", "Hennessy", "", "hennessy1", "https://www.instagram.com/reel/CjnvuZDoAI5/", "hennessy"]
+  ],
   "M": {
     // CV link on the About and Contact pages. Upload your CV to the repo as cv.pdf.
     "cv": { "u": "cv.pdf", "t": "f" },
