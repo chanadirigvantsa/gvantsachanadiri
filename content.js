@@ -26,10 +26,13 @@ window.SITE = {
     }
   ],
   "SP": [
-    { "id": "hennessy", "n": "Hennessy", "y": "2022", "d": "NBA campaign: social media content strategy", "u": "https://" }
+    { "id": "hennessy", "n": "Hennessy", "y": "2022", "d": "NBA campaign: social media content strategy", "u": "https://" },
+    { "id": "visa", "n": "VISA", "y": "", "d": "Instagram reels", "u": "https://" }
   ],
   "IG": [
-    ["Reel", "Hennessy x NBA", "Social media content strategy", "hennessy1", "https://www.instagram.com/reel/CjnvuZDoAI5/", "hennessy"]
+    ["Reel", "Hennessy x NBA", "Social media content strategy", "hennessy1", "https://www.instagram.com/reel/CjnvuZDoAI5/", "hennessy"],
+    ["Reel", "VISA", "", "visa1", "https://www.instagram.com/reel/CjsSPuqIMLe/", "visa"],
+    ["Reel", "VISA", "", "visa2", "https://www.instagram.com/reel/Cj9-ikPj04w/", "visa"]
   ],
   "M": {
     // CV link on the About and Contact pages. Upload your CV to the repo as cv.pdf.
