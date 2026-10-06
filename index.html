@@ -119,7 +119,7 @@ footer{text-transform:none;letter-spacing:0;font-size:12px;font-weight:600}
 <header id="hd"></header>
 <main id="app"></main><footer id="ft"></footer>
 <input type="file" id="fi" accept="image/*,video/*,application/pdf" style="position:fixed;left:-500px;top:0;opacity:0;width:1px;height:1px"><div id="eb"></div><div id="tb"><b>Text style</b><button data-b="1"><b>Bold</b></button><button data-b="0">Regular</button><button class="sw" data-c="#000000" style="background:#000" aria-label="Black"></button><button class="sw" data-c="#2a14e6" style="background:#2a14e6" aria-label="Blue"></button><button class="sw" data-c="#d11a2a" style="background:#d11a2a" aria-label="Red"></button><button class="sw" data-c="#8a8a8a" style="background:#8a8a8a" aria-label="Grey"></button><button class="sw" data-c="#ffffff" style="background:#fff" aria-label="White"></button><input type="color" id="cp" aria-label="Custom colour"><button data-c="">Reset</button></div><div id="ts" role="status"></div>
-<script src="content.js"></script>
+<script>document.write('<script src="content.js?v='+Date.now()+'"><\/script>')</script>
 <script>
 var DEF={name:"Your Name",title:"Content Manager & Creative Producer",sub:"Fashion, beauty, culture",
 intro:"I manage and produce content from first plan to final delivery, for fashion and beauty houses that care how things look and how they run.",
@@ -157,13 +157,13 @@ var IG=[["Reel","Launch teaser","Plan, edit notes"],["Carousel","Collection stor
 
 DEF.P=P;DEF.IG=IG;DEF.SP=[{id:"porsche",n:"Porsche",y:"2026",d:"Instagram content and campaign rollout",u:"https://"},{id:"bmw",n:"BMW",y:"2025",d:"Social content and launch posts",u:"https://"}];
 var D=[["All","All"],["c","Content management"],["p","Creative production"]],SL={c:"Content management",p:"Creative production",b:"Content management + production"},G={Managed:"c",Produced:"p",Coordinated:"p",Contributed:"x"},GL={c:"Content management",p:"Creative production",x:"Creative contribution"},f="All";
-var LOCAL=!window.claude&&/[?&]edit\b/.test(location.search),KEY="portfolio-draft",PREV={};
+var BASE=JSON.stringify(window.SITE||null),LOCAL=!window.claude&&/[?&]edit\b/.test(location.search),KEY="portfolio-draft",PREV={};
 function src(m){return PREV[m.u]||m.u||"/_blob/"+m.id}
 var selp=null,S=JSON.parse(JSON.stringify(DEF)),ed=false,can=false,db,assets,doc,tm,cur,app=document.getElementById("app");
 function esc(x){return String(x==null?"":x).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
 function get(p){return p.split(".").reduce(function(o,k){return o&&o[k]},S)}
 function put(p,v){var a=p.split("."),o=S;for(var i=0;i<a.length-1;i++)o=o[a[i]];o[a[a.length-1]]=v}
-function save(){clearTimeout(tm);tm=setTimeout(function(){if(LOCAL){try{localStorage.setItem(KEY,JSON.stringify(S));toast("Saved in this browser. Download content.js to publish.")}catch(x){toast("Could not save")}}else if(doc)doc.set({j:JSON.stringify(S)}).then(function(){toast("Saved")},function(){toast("Could not save")})},500)}
+function save(){clearTimeout(tm);tm=setTimeout(function(){if(LOCAL){try{localStorage.setItem(KEY,JSON.stringify({base:BASE,S:S}));toast("Saved in this browser. Download content.js to publish.")}catch(x){toast("Could not save")}}else if(doc)doc.set({j:JSON.stringify(S)}).then(function(){toast("Saved")},function(){toast("Could not save")})},500)}
 function toast(t,ms){var e=document.getElementById("ts");e.textContent=t;e.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(function(){e.style.display="none"},ms||1600)}
 function E(p){var q=S.st&&S.st[p],sy=q?' style="'+(q.c?"color:"+q.c+";":"")+(q.b===1?"font-weight:700;":q.b===0?"font-weight:400;":"")+'"':"";return '<span data-p="'+p+'"'+sy+(ed?' contenteditable="true" class="ed"':'')+'>'+esc(get(p))+'</span>'}
 function M(k,label,cls,x){var m=S.M[k],i=m?(m.t=="v"?'<video src="'+esc(src(m))+'" data-a="'+(m.u?"/_blob/"+m.id:"")+'" muted loop autoplay playsinline'+(ed?' controls':'')+'></video>':'<img alt="'+esc(label)+'" src="'+esc(src(m))+'" data-a="'+(m.u?"/_blob/"+m.id:"")+'">'):'<span>'+esc(label)+'</span>';
@@ -268,7 +268,7 @@ document.addEventListener("error",function(e){var t=e.target;if(!t||(t.tagName!=
 document.getElementById("fi").addEventListener("change",function(e){var fl=e.target.files[0],key=cur;e.target.value="";if(!fl)return;if(!assets){toast("Uploads are not available here",4000);return}toast("Uploading "+Math.round(fl.size/1048576*10)/10+" MB...",60000);
 (LOCAL?Promise.resolve([fl,{type:fl.type}]):prep(fl)).then(function(p){return assets.upload(p[0],p[1])}).then(function(r){var ct=r.contentType||"";S.M[key]={id:r.id,u:r.url,t:ct.indexOf("video")==0?"v":ct=="application/pdf"?"f":"i"};save();rr();toast(LOCAL?"Now add "+fl.name+" to the images folder in the repo":"Uploaded",LOCAL?6000:1600)},function(er){toast((er&&ER[er.code])||("Upload failed"+(er&&er.code?" ("+er.code+")":"")),6000)})});
 if(window.SITE)S=Object.assign(S,window.SITE);
-if(LOCAL){try{var dr=localStorage.getItem(KEY);if(dr)S=Object.assign(S,JSON.parse(dr))}catch(x){}can=true;assets={upload:function(b,o){var u="images/"+encodeURIComponent(b.name);PREV[u]=URL.createObjectURL(b);return Promise.resolve({id:b.name,url:u,contentType:o.type})}}}
+if(LOCAL){try{var dr=localStorage.getItem(KEY);if(dr){dr=JSON.parse(dr);if(dr.base===BASE&&dr.S)S=Object.assign(S,dr.S);else{localStorage.setItem(KEY+"-old",JSON.stringify(dr));localStorage.removeItem(KEY);setTimeout(function(){toast("The site was updated since your last edit, so your old browser draft was set aside. You are now editing the latest version.",8000)},300)}}}catch(x){}can=true;assets={upload:function(b,o){var u="images/"+encodeURIComponent(b.name);PREV[u]=URL.createObjectURL(b);return Promise.resolve({id:b.name,url:u,contentType:o.type})}}}
 window.addEventListener("hashchange",function(){window.scrollTo(0,0);route()});norm();route();
 (async function(){try{var c=window.claude;if(!c)return;var u=await c.use("user");db=await c.use("db");assets=await c.use("assets");
 if(db){doc=db.doc("site/main");var s=await doc.get();if(s.exists){var sv=JSON.parse(s.data().j);if(!sv.PP&&sv.per)sv.PP=[{id:"0",k:"personal",h:sv.per.h,t:sv.per.t,m:sv.per.m}];S=Object.assign(S,sv);norm()}}
