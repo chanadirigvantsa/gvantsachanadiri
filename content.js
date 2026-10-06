@@ -3,8 +3,40 @@
 // click "Download content.js", and replace this file with the downloaded one.
 window.SITE = {
   "name": "Gvantsa Chanadiri",
-  // CV link on the About and Contact pages. Upload your CV to the repo as cv.pdf.
+  "bw": false,
+  "P": [
+    {
+      "id": "moet",
+      "s": "p",
+      "b": "Moët & Chandon",
+      "t": "Summer campaign: digital art and mood video",
+      "d": "Digital art",
+      "y": "2020",
+      "r": "Campaign artwork, social content",
+      "o": "Summer, told through illustrated Moët moments: city nights, rooftop picnics, beach days and celebrations. Nine digital artworks and a mood video for social media.",
+      "role": [
+        ["Produced", "Nine illustrated scenes for the summer campaign"],
+        ["Produced", "Mood video for social media"]
+      ],
+      "c": "Moët & Chandon",
+      "yt": "https://youtu.be/xefuBOJzwKU",
+      "gl": "wide",
+      "g": ["2", "3", "4", "5", "6", "7", "8", "9"],
+      "lk": []
+    }
+  ],
   "M": {
-    "cv": { "u": "cv.pdf", "t": "f" }
+    // CV link on the About and Contact pages. Upload your CV to the repo as cv.pdf.
+    "cv": { "u": "cv.pdf", "t": "f" },
+    "hero": { "u": "images/moet/moet-04.jpg", "t": "i" },
+    "prmoeth": { "u": "images/moet/moet-01.jpg", "t": "i" },
+    "prmoet2": { "u": "images/moet/moet-02.jpg", "t": "i" },
+    "prmoet3": { "u": "images/moet/moet-03.jpg", "t": "i" },
+    "prmoet4": { "u": "images/moet/moet-04.jpg", "t": "i" },
+    "prmoet5": { "u": "images/moet/moet-05.jpg", "t": "i" },
+    "prmoet6": { "u": "images/moet/moet-06.jpg", "t": "i" },
+    "prmoet7": { "u": "images/moet/moet-07.jpg", "t": "i" },
+    "prmoet8": { "u": "images/moet/moet-08.jpg", "t": "i" },
+    "prmoet9": { "u": "images/moet/moet-09.jpg", "t": "i" }
   }
 };
