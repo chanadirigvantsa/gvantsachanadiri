@@ -28,6 +28,11 @@ A one-page portfolio site for a content manager and creative producer. It's plai
 5. Upload the downloaded `content.js` to the repo, replacing the old file. If you chose photos, videos or a CV, upload those exact files (same file names) into the `images/` folder.
 6. Commit. The live site updates within a minute or two.
 
+## Projects and social projects
+
+- **Work projects:** in edit mode, open **Work** and click **+ Add project**. The new project page opens so you can fill it in.
+- **Social projects** (for example Porsche, BMW): on the **Social** page in edit mode, click **+ Add social project**, rename it, then use **+ Add post to …** for each post. The **Project: … ⟳** button under a post moves it to another project. Visitors can filter the Social page by project.
+
 ## Add or update your CV
 
 In the repo, click **Add file → Upload files**, drop in your CV PDF renamed to `cv.pdf`, and click **Commit changes**. Uploading a new `cv.pdf` later replaces the old one.
