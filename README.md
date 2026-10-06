@@ -33,6 +33,10 @@ A one-page portfolio site for a content manager and creative producer. It's plai
 - **Work projects:** in edit mode, open **Work** and click **+ Add project**. The new project page opens so you can fill it in.
 - **Social projects** (for example Porsche, BMW): the **Social** page lists them like the Work page, and each one opens its own page of posts. In edit mode, click **+ Add social project**; its page opens so you can set the name, year, description and account link, then click **+ Add post** for each post. The **Project: … ⟳** button under a post moves it to another project.
 
+## Story highlights
+
+Each social project page can show Instagram-style story highlights (round covers under the description). In edit mode, on a social project page, click **+ Add story highlight**, give it a title, then **+ Add story** for each story (photo or video, ideally 9:16). Visitors tap a highlight to play its stories full-screen. A highlight with no stories but with an Instagram highlight link opens that link instead.
+
 ## Add or update your CV
 
 In the repo, click **Add file → Upload files**, drop in your CV PDF renamed to `cv.pdf`, and click **Commit changes**. Uploading a new `cv.pdf` later replaces the old one.
