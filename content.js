@@ -26,10 +26,10 @@ window.SITE = {
     }
   ],
   "SP": [
-    { "id": "hennessy", "n": "Hennessy", "y": "", "d": "Instagram content", "u": "https://" }
+    { "id": "hennessy", "n": "Hennessy", "y": "2022", "d": "NBA campaign: social media content strategy", "u": "https://" }
   ],
   "IG": [
-    ["Reel", "Hennessy", "", "hennessy1", "https://www.instagram.com/reel/CjnvuZDoAI5/", "hennessy"]
+    ["Reel", "Hennessy x NBA", "Social media content strategy", "hennessy1", "https://www.instagram.com/reel/CjnvuZDoAI5/", "hennessy"]
   ],
   "M": {
     // CV link on the About and Contact pages. Upload your CV to the repo as cv.pdf.
