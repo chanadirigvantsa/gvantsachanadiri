@@ -31,7 +31,7 @@ A one-page portfolio site for a content manager and creative producer. It's plai
 ## Projects and social projects
 
 - **Work projects:** in edit mode, open **Work** and click **+ Add project**. The new project page opens so you can fill it in.
-- **Social projects** (for example Porsche, BMW): on the **Social** page in edit mode, click **+ Add social project**, rename it, then use **+ Add post to …** for each post. The **Project: … ⟳** button under a post moves it to another project. Visitors can filter the Social page by project.
+- **Social projects** (for example Porsche, BMW): the **Social** page lists them like the Work page, and each one opens its own page of posts. In edit mode, click **+ Add social project**; its page opens so you can set the name, year, description and account link, then click **+ Add post** for each post. The **Project: … ⟳** button under a post moves it to another project.
 
 ## Add or update your CV
 
