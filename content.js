@@ -6,6 +6,21 @@ window.SITE = {
   "bw": false,
   "P": [
     {
+      "id": "mini",
+      "s": "b",
+      "b": "MINI",
+      "t": "Campaign and editorial photography",
+      "d": "Photo",
+      "y": "",
+      "r": "",
+      "o": "",
+      "role": [],
+      "c": "Hammock Magazine",
+      "gl": "natural",
+      "g": ["1", "2", "3", "4", "7", "8", "5", "10", "11", "12", "9"],
+      "lk": []
+    },
+    {
       "id": "moet",
       "s": "p",
       "b": "Moët & Chandon",
@@ -71,6 +86,18 @@ window.SITE = {
     }
   ],
   "M": {
+    "prminih": { "u": "images/mini/mini-06.jpg", "t": "i" },
+    "prmini1": { "u": "images/mini/mini-01.jpg", "t": "i" },
+    "prmini2": { "u": "images/mini/mini-02.jpg", "t": "i" },
+    "prmini3": { "u": "images/mini/mini-03.jpg", "t": "i" },
+    "prmini4": { "u": "images/mini/mini-04.jpg", "t": "i" },
+    "prmini5": { "u": "images/mini/mini-05.jpg", "t": "i" },
+    "prmini7": { "u": "images/mini/mini-07.jpg", "t": "i", "wide": true },
+    "prmini8": { "u": "images/mini/mini-08.jpg", "t": "i", "wide": true },
+    "prmini9": { "u": "images/mini/mini-09.jpg", "t": "i", "wide": true },
+    "prmini10": { "u": "images/mini/mini-10.jpg", "t": "i" },
+    "prmini11": { "u": "images/mini/mini-11.jpg", "t": "i" },
+    "prmini12": { "u": "images/mini/mini-12.jpg", "t": "i" },
     // CV link on the About and Contact pages. Upload your CV to the repo as cv.pdf.
     "cv": { "u": "cv.pdf", "t": "f" },
     "hlcberlinale1": { "u": "images/berlinale/berlinale-logo.jpg", "t": "i" },
