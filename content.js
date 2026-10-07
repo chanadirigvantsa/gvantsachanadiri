@@ -57,7 +57,8 @@ window.SITE = {
         { "id": "dep1", "t": "", "u": "https://www.instagram.com/p/Dd-a4fZiHTf/" },
         { "id": "dep2", "t": "", "u": "https://www.instagram.com/p/DeKaNkQDr1t/" },
         { "id": "dep3", "t": "", "u": "https://www.instagram.com/p/DeBAsyOgjeW/" },
-        { "id": "dep4", "t": "", "u": "https://www.instagram.com/p/DeAG1xbjmpl/" }
+        { "id": "dep4", "t": "", "u": "https://www.instagram.com/p/DeAG1xbjmpl/" },
+        { "id": "dep5", "t": "", "u": "https://www.instagram.com/p/DeLG22NAsXX/" }
       ]
     }
   ],
