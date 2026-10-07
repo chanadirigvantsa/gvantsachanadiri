@@ -70,6 +70,7 @@ window.SITE = {
   "M": {
     // CV link on the About and Contact pages. Upload your CV to the repo as cv.pdf.
     "cv": { "u": "cv.pdf", "t": "f" },
+    "hlcberlinale1": { "u": "images/berlinale/berlinale-logo.jpg", "t": "i" },
     "hlcbmwexp": { "u": "images/bmw/bmw-logo.svg", "t": "i" },
     "hero": { "u": "images/moet/moet-04.jpg", "t": "i" },
     "prmoeth": { "u": "images/moet/moet-01.jpg", "t": "i" },
