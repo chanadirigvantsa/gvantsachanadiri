@@ -70,7 +70,9 @@ window.SITE = {
       "c": "",
       "gl": "natural",
       "g": ["2", "3", "4", "9", "5", "6", "7", "8"],
-      "lk": []
+      "lk": [
+        { "id": "erborian1", "ty": "Instagram post", "t": "Erborian reel", "s": "Instagram", "u": "https://www.instagram.com/reel/DRfRPI5ANMr/" }
+      ]
     },
     {
       "id": "visa",
