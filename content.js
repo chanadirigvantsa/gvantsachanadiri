@@ -6,6 +6,23 @@ window.SITE = {
   "bw": false,
   "P": [
     {
+      "id": "tommyjeans",
+      "s": "b",
+      "b": "Tommy Jeans",
+      "t": "Campaign content",
+      "d": "Photo",
+      "y": "",
+      "r": "Content strategy and production",
+      "o": "",
+      "role": [],
+      "c": "",
+      "gl": "natural",
+      "g": ["1"],
+      "lk": [
+        { "id": "tommyjeans1", "ty": "Instagram post", "t": "Tommy Jeans reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C3Ac39wo3u3/" }
+      ]
+    },
+    {
       "id": "thebodyshop",
       "s": "c",
       "b": "The Body Shop",
@@ -182,6 +199,8 @@ window.SITE = {
     }
   ],
   "M": {
+    "prtommyjeansh": { "u": "images/tommyjeans/tommyjeans-02.jpg", "t": "i" },
+    "prtommyjeans1": { "u": "images/tommyjeans/tommyjeans-01.jpg", "t": "i", "wide": true },
     "prthebodyshoph": { "u": "images/thebodyshop/thebodyshop-02.jpg", "t": "i" },
     "prthebodyshop1": { "u": "images/thebodyshop/thebodyshop-01.jpg", "t": "i" },
     "prerborianh": { "u": "images/erborian/erborian-01.jpg", "t": "i" },
