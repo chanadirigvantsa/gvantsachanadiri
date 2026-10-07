@@ -6,6 +6,22 @@ window.SITE = {
   "bw": false,
   "P": [
     {
+      "id": "thebodyshop",
+      "s": "c",
+      "b": "The Body Shop",
+      "t": "Video content",
+      "d": "Video",
+      "y": "",
+      "r": "",
+      "o": "",
+      "role": [],
+      "c": "",
+      "yt": ["https://youtu.be/bkxummNJVuk", "https://youtu.be/rz-E1WPiv0k", "https://youtu.be/03DNWpoFP8E", "https://youtu.be/4K6jf9dU_U8", "https://youtu.be/n7d7bv15p1Q"],
+      "gl": "natural",
+      "g": ["1"],
+      "lk": []
+    },
+    {
       "id": "melvita",
       "s": "c",
       "b": "Melvita",
@@ -166,6 +182,8 @@ window.SITE = {
     }
   ],
   "M": {
+    "prthebodyshoph": { "u": "images/thebodyshop/thebodyshop-02.jpg", "t": "i" },
+    "prthebodyshop1": { "u": "images/thebodyshop/thebodyshop-01.jpg", "t": "i" },
     "prerborianh": { "u": "images/erborian/erborian-01.jpg", "t": "i" },
     "prerborian2": { "u": "images/erborian/erborian-02.jpg", "t": "i" },
     "prerborian3": { "u": "images/erborian/erborian-03.jpg", "t": "i" },
