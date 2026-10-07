@@ -21,6 +21,21 @@ window.SITE = {
       "lk": []
     },
     {
+      "id": "porsche",
+      "s": "c",
+      "b": "Porsche",
+      "t": "Video content",
+      "d": "Video",
+      "y": "2024",
+      "r": "Content management",
+      "o": "",
+      "role": [],
+      "c": "",
+      "yt": "https://youtu.be/JdZNGuG9KFU",
+      "g": [],
+      "lk": []
+    },
+    {
       "id": "moet",
       "s": "p",
       "b": "Moët & Chandon",
