@@ -53,6 +53,22 @@ window.SITE = {
       "gl": "wide",
       "g": ["2", "3", "4", "5", "6", "7", "8", "9"],
       "lk": []
+    },
+    {
+      "id": "monkeypopup",
+      "s": "b",
+      "b": "Monkey Shoulder",
+      "t": "Pop-up shop: Hammock's Tropical Palace",
+      "d": "Brand activation",
+      "y": "2019",
+      "r": "Brand activation management and creative strategy",
+      "o": "",
+      "role": [],
+      "c": "Hammock Magazine",
+      "yt": ["https://youtu.be/0BvSPy8cf6k", "https://youtu.be/QPxStHZZY6U"],
+      "gl": "natural",
+      "g": ["3", "7", "2", "5", "4", "6"],
+      "lk": []
     }
   ],
   "SP": [
@@ -101,6 +117,13 @@ window.SITE = {
     }
   ],
   "M": {
+    "prmonkeypopuph": { "u": "images/monkeyshoulder-popup/popup-01.jpg", "t": "i" },
+    "prmonkeypopup2": { "u": "images/monkeyshoulder-popup/popup-02.jpg", "t": "i" },
+    "prmonkeypopup3": { "u": "images/monkeyshoulder-popup/popup-03.jpg", "t": "i" },
+    "prmonkeypopup4": { "u": "images/monkeyshoulder-popup/popup-04.jpg", "t": "i" },
+    "prmonkeypopup5": { "u": "images/monkeyshoulder-popup/popup-05.jpg", "t": "i" },
+    "prmonkeypopup6": { "u": "images/monkeyshoulder-popup/popup-06.jpg", "t": "i" },
+    "prmonkeypopup7": { "u": "images/monkeyshoulder-popup/popup-07.jpg", "t": "i" },
     "prminih": { "u": "images/mini/mini-06.jpg", "t": "i" },
     "prmini1": { "u": "images/mini/mini-01.jpg", "t": "i" },
     "prmini2": { "u": "images/mini/mini-02.jpg", "t": "i" },
