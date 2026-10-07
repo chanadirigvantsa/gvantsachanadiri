@@ -32,7 +32,10 @@ window.SITE = {
       "hl": [
         { "id": "bmwexp", "t": "BMW Experience", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY4NjY4ODY0OTc1ODcx?story_media_id=3726033781165934727", "f": [] }
       ] },
-    { "id": "monkeyshoulder", "n": "Monkey Shoulder", "y": "2022", "d": "Instagram campaign concept and content calendar", "u": "https://" },
+    { "id": "monkeyshoulder", "n": "Monkey Shoulder", "y": "2022", "d": "Instagram campaign concept and content calendar", "u": "https://",
+      "hl": [
+        { "id": "monkey1", "t": "Monkey Shoulder", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MTAxMDE3Mzg0MzA1MDM3?story_media_id=2790831856510126501", "f": [] }
+      ] },
     { "id": "berlinale", "n": "Berlinale", "y": "", "d": "Instagram stories", "u": "https://",
       "hl": [
         { "id": "berlinale1", "t": "Berlinale", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY5ODAxMjM1NDgxNDY5?story_media_id=3309109697287613886", "f": [] }
@@ -71,6 +74,7 @@ window.SITE = {
     // CV link on the About and Contact pages. Upload your CV to the repo as cv.pdf.
     "cv": { "u": "cv.pdf", "t": "f" },
     "hlcberlinale1": { "u": "images/berlinale/berlinale-logo.jpg", "t": "i" },
+    "hlcmonkey1": { "u": "images/monkeyshoulder/monkeyshoulder-logo.jpg", "t": "i" },
     "hlcbmwexp": { "u": "images/bmw/bmw-logo.svg", "t": "i" },
     "hero": { "u": "images/moet/moet-04.jpg", "t": "i" },
     "prmoeth": { "u": "images/moet/moet-01.jpg", "t": "i" },
