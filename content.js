@@ -6,6 +6,25 @@ window.SITE = {
   "bw": false,
   "P": [
     {
+      "id": "melvita",
+      "s": "c",
+      "b": "Melvita",
+      "t": "Editorial and social media content",
+      "d": "Social",
+      "y": "",
+      "r": "Content strategy, editorial and social media content",
+      "o": "",
+      "role": [],
+      "c": "",
+      "gl": "natural",
+      "g": ["1", "3", "4", "5", "6"],
+      "lk": [
+        { "id": "melvita1", "ty": "Instagram post", "t": "Melvita reel", "s": "Instagram", "u": "https://www.instagram.com/reel/DK9L8dAtDOD/" },
+        { "id": "melvita2", "ty": "Instagram post", "t": "Melvita reel", "s": "Instagram", "u": "https://www.instagram.com/reel/DK_wCg1MHO8/" },
+        { "id": "melvita3", "ty": "Instagram post", "t": "Melvita reel", "s": "Instagram", "u": "https://www.instagram.com/reel/DLPMv4iNRjO/" }
+      ]
+    },
+    {
       "id": "mini",
       "s": "b",
       "b": "MINI",
@@ -117,6 +136,12 @@ window.SITE = {
     }
   ],
   "M": {
+    "prmelvitah": { "u": "images/melvita/melvita-02.jpg", "t": "i" },
+    "prmelvita1": { "u": "images/melvita/melvita-01.jpg", "t": "i" },
+    "prmelvita3": { "u": "images/melvita/melvita-03.jpg", "t": "i" },
+    "prmelvita4": { "u": "images/melvita/melvita-04.jpg", "t": "i", "wide": true },
+    "prmelvita5": { "u": "images/melvita/melvita-05.jpg", "t": "i" },
+    "prmelvita6": { "u": "images/melvita/melvita-06.jpg", "t": "i" },
     "prmonkeypopuph": { "u": "images/monkeyshoulder-popup/popup-01.jpg", "t": "i" },
     "prmonkeypopup2": { "u": "images/monkeyshoulder-popup/popup-02.jpg", "t": "i" },
     "prmonkeypopup3": { "u": "images/monkeyshoulder-popup/popup-03.jpg", "t": "i" },
