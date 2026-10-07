@@ -6,6 +6,23 @@ window.SITE = {
   "bw": false,
   "P": [
     {
+      "id": "afflelou",
+      "s": "c",
+      "b": "Afflelou Paris",
+      "t": "Eyewear campaign",
+      "d": "Photo",
+      "y": "",
+      "r": "",
+      "o": "",
+      "role": [],
+      "c": "",
+      "gl": "natural",
+      "g": ["1", "2", "3", "4"],
+      "lk": [
+        { "id": "afflelou1", "ty": "Instagram post", "t": "Afflelou Paris reel", "s": "Instagram", "u": "https://www.instagram.com/reel/CylVX6ML7uK/" }
+      ]
+    },
+    {
       "id": "tommyjeans",
       "s": "b",
       "b": "Tommy Jeans",
@@ -201,6 +218,10 @@ window.SITE = {
     }
   ],
   "M": {
+    "prafflelou1": { "u": "images/afflelou/afflelou-01.jpg", "t": "i" },
+    "prafflelou2": { "u": "images/afflelou/afflelou-02.jpg", "t": "i" },
+    "prafflelou3": { "u": "images/afflelou/afflelou-03.jpg", "t": "i" },
+    "prafflelou4": { "u": "images/afflelou/afflelou-04.jpg", "t": "i" },
     "prtommyjeansh": { "u": "images/tommyjeans/tommyjeans-02.jpg", "t": "i" },
     "prtommyjeans1": { "u": "images/tommyjeans/tommyjeans-01.jpg", "t": "i", "wide": true },
     "prthebodyshoph": { "u": "images/thebodyshop/thebodyshop-02.jpg", "t": "i" },
