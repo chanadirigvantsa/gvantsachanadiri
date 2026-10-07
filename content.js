@@ -103,7 +103,8 @@ window.SITE = {
       "role": [],
       "c": "",
       "yt": ["https://youtu.be/h6c97OslT94", "https://youtu.be/_u-0jIrRos8", "https://youtu.be/O0OU0cRffI0", "https://youtu.be/Dvzh21KFhaA"],
-      "g": [],
+      "gl": "natural",
+      "g": ["2", "3", "4", "5", "6", "7", "8", "9"],
       "lk": []
     },
     {
@@ -218,6 +219,15 @@ window.SITE = {
     }
   ],
   "M": {
+    "prvisah": { "u": "images/visa/visa-01.jpg", "t": "i" },
+    "prvisa2": { "u": "images/visa/visa-02.jpg", "t": "i" },
+    "prvisa3": { "u": "images/visa/visa-03.jpg", "t": "i" },
+    "prvisa4": { "u": "images/visa/visa-04.jpg", "t": "i", "wide": true },
+    "prvisa5": { "u": "images/visa/visa-05.jpg", "t": "i" },
+    "prvisa6": { "u": "images/visa/visa-06.jpg", "t": "i" },
+    "prvisa7": { "u": "images/visa/visa-07.jpg", "t": "i", "wide": true },
+    "prvisa8": { "u": "images/visa/visa-08.jpg", "t": "i" },
+    "prvisa9": { "u": "images/visa/visa-09.jpg", "t": "i" },
     "prafflelou1": { "u": "images/afflelou/afflelou-01.jpg", "t": "i" },
     "prafflelou2": { "u": "images/afflelou/afflelou-02.jpg", "t": "i" },
     "prafflelou3": { "u": "images/afflelou/afflelou-03.jpg", "t": "i" },
