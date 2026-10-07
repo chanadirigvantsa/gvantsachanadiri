@@ -40,6 +40,21 @@ window.SITE = {
       "lk": []
     },
     {
+      "id": "visa",
+      "s": "c",
+      "b": "Visa",
+      "t": "Video content",
+      "d": "Video",
+      "y": "",
+      "r": "Content strategy",
+      "o": "",
+      "role": [],
+      "c": "",
+      "yt": ["https://youtu.be/h6c97OslT94", "https://youtu.be/_u-0jIrRos8", "https://youtu.be/O0OU0cRffI0", "https://youtu.be/Dvzh21KFhaA"],
+      "g": [],
+      "lk": []
+    },
+    {
       "id": "mini",
       "s": "b",
       "b": "MINI",
