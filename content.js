@@ -48,7 +48,7 @@ window.SITE = {
   "CAT": [{"id":"art","n":"Art"},{"id":"fashion","n":"Fashion"},{"id":"photography","n":"Photography"},{"id":"cinema","n":"Cinema"},{"id":"architecture","n":"Architecture"},{"id":"interviews","n":"Interviews"}],
   // Writing & Editorial pieces
   // Editorial Features: headline + photo grid
-  "EF": [{"id":"sarajishvili","h":"Project Sarajishvili","imgs":["images/sarajishvili/sarajishvili-01.jpg","images/sarajishvili/sarajishvili-02.jpg","images/sarajishvili/sarajishvili-03.jpg","images/sarajishvili/sarajishvili-04.jpg","images/sarajishvili/sarajishvili-05.jpg","images/sarajishvili/sarajishvili-06.jpg"]},{"id":"idealtd","h":"Interview with IDEA.LTD","imgs":["images/idealtd/idealtd-01.jpg","images/idealtd/idealtd-02.jpg","images/idealtd/idealtd-03.jpg","images/idealtd/idealtd-04.jpg"],"pos":["85% center","center","center 40%","center"]}],
+  "EF": [{"id":"sarajishvili","h":"Project Sarajishvili","imgs":["images/sarajishvili/sarajishvili-01.jpg","images/sarajishvili/sarajishvili-02.jpg","images/sarajishvili/sarajishvili-03.jpg","images/sarajishvili/sarajishvili-04.jpg","images/sarajishvili/sarajishvili-05.jpg","images/sarajishvili/sarajishvili-06.jpg"]},{"id":"idealtd","h":"Interview with IDEA.LTD","imgs":["images/idealtd/idealtd-01.jpg","images/idealtd/idealtd-02.jpg","images/idealtd/idealtd-03.jpg","images/idealtd/idealtd-04.jpg","images/idealtd/idealtd-05.jpg","images/idealtd/idealtd-06.jpg"],"pos":["85% center","center","center 40%","center","center 65%","center"]}],
   "A": [
     { "id": "ed1", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/C_cv55jI2_Y/" },
     { "id": "ed2", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/C_S-_jjIw8q/" },
