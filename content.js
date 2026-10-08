@@ -2,6 +2,28 @@
 // Easiest way to change it: open index.html?edit in a browser, edit the page,
 // click "Download content.js", and replace this file with the downloaded one.
 window.SITE = {
+  // Order of the Work list. "p" = Work project id, "s" = Social Media project id.
+  "ORDER": [
+    {"p": "moet", "s": "moet"},
+    {"s": "hennessy"},
+    {"p": "monkeypopup", "s": "monkeyshoulder"},
+    {"p": "erborian"},
+    {"p": "melvita"},
+    {"p": "thebodyshop"},
+    {"p": "tommyjeans"},
+    {"p": "afflelou"},
+    {"p": "visa", "s": "visa"},
+    {"p": "porsche"},
+    {"s": "lamborghini"},
+    {"p": "mini"},
+    {"s": "bmw"},
+    {"s": "tbc"},
+    {"p": "venicebiennale"},
+    {"p": "venicearchitecture"},
+    {"p": "milandesignweek"},
+    {"s": "mbfw"},
+    {"s": "berlinale"}
+  ],
   "name": "Gvantsa Chanadiri",
   "bw": false,
   "P": [
@@ -237,7 +259,7 @@ window.SITE = {
   ],
   "SP": [
     { "id": "hennessy", "n": "Hennessy", "y": "2022", "d": "NBA campaign: social media content strategy", "u": "https://" },
-    { "id": "visa", "n": "VISA", "y": "2022", "d": "Content strategy and creative direction for Instagram", "u": "https://" },
+    { "id": "visa", "n": "Visa", "y": "2022", "d": "Content strategy and creative direction for Instagram", "u": "https://" },
     { "id": "bmw", "n": "BMW", "y": "2024", "d": "Content strategy for BMW Experience", "u": "https://",
       "hl": [
         { "id": "bmwexp", "t": "BMW Experience", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY4NjY4ODY0OTc1ODcx?story_media_id=3726033781165934727", "f": [] }
