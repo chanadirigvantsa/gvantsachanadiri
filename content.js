@@ -16,6 +16,7 @@ window.SITE = {
       "o": "",
       "role": [],
       "c": "",
+      "yt": ["https://youtu.be/ndRkjAUeWMk"],
       "g": [],
       "lk": [
         { "id": "venicearch1", "ty": "Instagram post", "t": "Venice Architecture Biennale post", "s": "Instagram", "u": "https://www.instagram.com/p/DJbkEycCf6T/" }
