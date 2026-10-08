@@ -344,13 +344,13 @@ window.SITE = {
     }
   ],
   "SP": [
-    { "id": "hennessy", "n": "Hennessy", "y": "2022", "d": "NBA campaign: social media content strategy", "u": "https://" },
-    { "id": "visa", "n": "Visa", "y": "2022", "d": "Content strategy and creative direction for Instagram", "u": "https://" },
-    { "id": "bmw", "n": "BMW", "y": "2024", "d": "Content strategy for BMW Experience", "u": "https://",
+    { "id": "hennessy", "r": "Social media content strategy", "n": "Hennessy", "y": "2022", "d": "NBA campaign: social media content strategy", "u": "https://" },
+    { "id": "visa", "r": "Content strategy and creative direction", "n": "Visa", "y": "2022", "d": "Content strategy and creative direction for Instagram", "u": "https://" },
+    { "id": "bmw", "r": "Content strategy", "n": "BMW", "y": "2024", "d": "Content strategy for BMW Experience", "u": "https://",
       "hl": [
         { "id": "bmwexp", "t": "BMW Experience", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY4NjY4ODY0OTc1ODcx?story_media_id=3726033781165934727", "f": [] }
       ] },
-    { "id": "monkeyshoulder", "n": "Monkey Shoulder", "y": "2022", "d": "Instagram campaign concept and content calendar", "u": "https://",
+    { "id": "monkeyshoulder", "r": "Instagram campaign concept and content calendar", "n": "Monkey Shoulder", "y": "2022", "d": "Instagram campaign concept and content calendar", "u": "https://",
       "hl": [
         { "id": "monkey1", "t": "Monkey Shoulder", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MTAxMDE3Mzg0MzA1MDM3?story_media_id=2790831856510126501", "f": [] }
       ] },
