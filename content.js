@@ -2,6 +2,7 @@
 // Easiest way to change it: open index.html?edit in a browser, edit the page,
 // click "Download content.js", and replace this file with the downloaded one.
 window.SITE = {
+  "L": { "email": "chanadirigvanca@gmail.com", "li": "https://www.linkedin.com/in/your-profile", "ig": "https://instagram.com/your-handle" },
   // Order of the Work list. "p" = Work project id, "s" = Social Media project id.
   "ORDER": [
     {"p": "moet", "s": "moet"},
