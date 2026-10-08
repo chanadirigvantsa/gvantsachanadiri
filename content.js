@@ -86,11 +86,30 @@ window.SITE = {
     {"p": "venicearchitecture"},
     {"p": "milandesignweek"},
     {"s": "mbfw"},
-    {"s": "berlinale"}
+    {"s": "berlinale"},
+    {"p": "wissol"}
   ],
   "name": "Gvantsa Chanadiri",
   "bw": false,
   "P": [
+    {
+      "id": "wissol",
+      "s": "c",
+      "b": "Wissol Group",
+      "t": "Campaign content",
+      "d": "Photo",
+      "y": "",
+      "r": "",
+      "o": "",
+      "role": [],
+      "c": "",
+      "gl": "natural",
+      "g": ["1", "2", "3", "5", "6"],
+      "lk": [
+        { "id": "wissol1", "ty": "Instagram post", "t": "Wissol Group video", "s": "Instagram", "u": "https://www.instagram.com/tv/CfrSMdiFReQ/" },
+        { "id": "wissol2", "ty": "Instagram post", "t": "Wissol Group post", "s": "Instagram", "u": "https://www.instagram.com/p/Cf1LojBIuPO/" }
+      ]
+    },
     {
       "id": "milandesignweek",
       "s": "c",
@@ -385,6 +404,12 @@ window.SITE = {
     }
   ],
   "M": {
+    "prwissolh": { "u": "images/wissol/wissol-04.jpg", "t": "i" },
+    "prwissol1": { "u": "images/wissol/wissol-01.jpg", "t": "i" },
+    "prwissol2": { "u": "images/wissol/wissol-02.jpg", "t": "i" },
+    "prwissol3": { "u": "images/wissol/wissol-03.jpg", "t": "i", "wide": true },
+    "prwissol5": { "u": "images/wissol/wissol-05.jpg", "t": "i", "wide": true },
+    "prwissol6": { "u": "images/wissol/wissol-06.jpg", "t": "i" },
     "prvisah": { "u": "images/visa/visa-01.jpg", "t": "i" },
     "prvisa2": { "u": "images/visa/visa-02.jpg", "t": "i" },
     "prvisa3": { "u": "images/visa/visa-03.jpg", "t": "i" },
