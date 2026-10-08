@@ -6,6 +6,21 @@ window.SITE = {
   "bw": false,
   "P": [
     {
+      "id": "venicebiennale",
+      "s": "c",
+      "b": "Venice Art Biennale",
+      "t": "Video content",
+      "d": "Video",
+      "y": "",
+      "r": "",
+      "o": "",
+      "role": [],
+      "c": "",
+      "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E"],
+      "g": [],
+      "lk": []
+    },
+    {
       "id": "afflelou",
       "s": "c",
       "b": "Afflelou Paris",
