@@ -116,7 +116,7 @@ var af="All",asec="";
 var ASEC=[["features","Editorial Features"],["curated","Articles & Curated Content"]];
 function secOf(a){return a.sec||"curated"}
 function curSec(){if(!asec){asec=(S.EF||[]).length||S.A.some(function(a){return secOf(a)=="features"})?"features":"curated"}return asec}
-function efBlock(){if(curSec()!="features")return "";return (S.EF||[]).map(function(f){return '<div class="ef"><h2 class="serif">'+esc(f.h)+'</h2><div class="efg">'+(f.imgs||[]).map(function(u){return '<button data-lb="'+esc(u)+'"><img src="'+esc(u)+'" alt="'+esc(f.h)+'" loading="lazy"></button>'}).join("")+'</div></div>'}).join("")}
+function efBlock(){if(curSec()!="features")return "";return (S.EF||[]).map(function(f){return '<div class="ef"><h2 class="serif">'+esc(f.h)+'</h2><div class="efg">'+(f.imgs||[]).map(function(u,k){var ps=(f.pos||[])[k];return '<button data-lb="'+esc(u)+'"><img src="'+esc(u)+'" alt="'+esc(f.h)+'" loading="lazy"'+(ps?' style="object-position:'+esc(ps)+'"':'')+'></button>'}).join("")+'</div></div>'}).join("")}
 function lb(u){var o=document.createElement("div");o.id="lb";o.innerHTML='<img src="'+esc(u)+'" alt="">';o.onclick=function(){o.remove()};document.body.appendChild(o)}
 function secTabs(){return '<div class="stabs">'+ASEC.map(function(x){return '<button data-as="'+x[0]+'" class="'+(curSec()==x[0]?"on":"")+'">'+x[1]+'</button>'}).join("")+'</div>'}
 function safe(u){u=String(u||"").trim().replace(/^(https?:\/\/)+(?=https?:\/\/)/i,"");if(/^@[\w.]+$/.test(u))u="https://instagram.com/"+u.slice(1);else if(!/^[a-z][a-z0-9+.-]*:/i.test(u)&&/^[\w-]+(\.[\w-]+)+/.test(u))u="https://"+u;return /^https?:\/\/[^\s]+\.[^\s]+/i.test(u)?esc(u).replace(/"/g,"&quot;"):"#"}
