@@ -18,7 +18,15 @@ window.SITE = {
       "c": "",
       "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E"],
       "g": [],
-      "lk": []
+      "lk": [
+        { "id": "venice1", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/CsdsF6zI0PM/" },
+        { "id": "venice2", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Csgl-MwoxVa/" },
+        { "id": "venice3", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Csiv4eGIcxA/" },
+        { "id": "venice4", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Cs3CIaTom_T/" },
+        { "id": "venice5", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Cc29J9toID0/" },
+        { "id": "venice6", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Cc0fCiFIBv7/" },
+        { "id": "venice7", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Ccnxw7NI150/" }
+      ]
     },
     {
       "id": "afflelou",
