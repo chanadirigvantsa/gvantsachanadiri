@@ -230,7 +230,8 @@ window.SITE = {
       "hl": [
         { "id": "berlinale1", "t": "Berlinale", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY5ODAxMjM1NDgxNDY5?story_media_id=3309109697287613886", "f": [] }
       ] },
-    { "id": "tbc", "n": "TBC", "y": "", "d": "Instagram content", "u": "https://" }
+    { "id": "tbc", "n": "TBC", "y": "", "d": "Instagram content", "u": "https://" },
+    { "id": "lamborghini", "n": "Lamborghini", "y": "", "d": "Instagram content", "u": "https://" }
   ],
   "IG": [
     ["Reel", "Hennessy x NBA", "Social media content strategy", "hennessy1", "https://www.instagram.com/reel/CjnvuZDoAI5/", "hennessy"],
@@ -245,7 +246,8 @@ window.SITE = {
     ["Reel", "TBC", "", "tbc1", "https://www.instagram.com/reel/C5F89SOIg1f/", "tbc"],
     ["Reel", "TBC", "", "tbc2", "https://www.instagram.com/reel/ChNVKKyIV-A/", "tbc"],
     ["Reel", "TBC", "", "tbc3", "https://www.instagram.com/reel/CcAYrcYoEXD/", "tbc"],
-    ["Post", "TBC", "", "tbc4", "https://www.instagram.com/p/B_kXMsVhQvd/", "tbc"]
+    ["Post", "TBC", "", "tbc4", "https://www.instagram.com/p/B_kXMsVhQvd/", "tbc"],
+    ["Reel", "Lamborghini", "", "lambo1", "https://www.instagram.com/reel/DLIghs8tmoY/", "lamborghini"]
   ],
   "PP": [
     {
