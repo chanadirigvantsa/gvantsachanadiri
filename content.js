@@ -3,11 +3,26 @@
 // click "Download content.js", and replace this file with the downloaded one.
 window.SITE = {
   // Menu and page titles
-  "T": { "n1": "Projects", "n2": "Social Media", "n3": "Personal Project", "n4": "About Me", "w1": "Projects", "s1": "Social Media", "p0": "Personal Project", "n6": "Writing & Editorial", "ar1": "Writing & Editorial", "h7": "Writing & Editorial", "h3": "Social Media", "h4": "All social media" },
+  "T": { "n1": "Projects", "n2": "Social Media", "n3": "Personal Project", "n4": "About Me", "w1": "Projects", "s1": "Social Media", "p0": "Personal Project", "n6": "Writing & Editorial", "ar1": "Writing & Editorial", "h7": "Writing & Editorial", "ar2": "Editorial stories on art, fashion, photography, cinema and architecture.", "h3": "Social Media", "h4": "All social media" },
   // Social Media projects shown on the home page
   "HOMEIG": ["hennessy", "lamborghini", "visa"],
   "L": { "email": "Chanadirigvanca@gmail.com", "li": "https://www.linkedin.com/in/your-profile", "ig": "https://instagram.com/your-handle" },
   // Order of the Work list. "p" = Work project id, "s" = Social Media project id.
+  // Writing & Editorial pieces
+  "A": [
+    { "id": "ed1", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/C_cv55jI2_Y/" },
+    { "id": "ed2", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/C_S-_jjIw8q/" },
+    { "id": "ed3", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/C_P36KuMORN/" },
+    { "id": "ed4", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/C-2H3ggoke-/" },
+    { "id": "ed5", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/C9ZpIYjIg_D/" },
+    { "id": "ed6", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/C14LHpJoVzF/" },
+    { "id": "ed7", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/Cx3SvpXI-kd/" },
+    { "id": "ed8", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CwhTH1HIVCl/" },
+    { "id": "ed9", "t": "", "pub": "", "dt": "", "cat": "architecture", "u": "https://www.instagram.com/p/CwMoGAHo1Cm/" },
+    { "id": "ed10", "t": "", "pub": "", "dt": "", "cat": "architecture", "u": "https://www.instagram.com/p/CwFUczUoF4I/" },
+    { "id": "ed11", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/Cv9TmjxIguX/" },
+    { "id": "ed12", "t": "", "pub": "", "dt": "", "cat": "architecture", "u": "https://www.instagram.com/p/Cv7e9QkI1UF/" }
+  ],
   "ORDER": [
     {"p": "moet", "s": "moet"},
     {"s": "hennessy"},
