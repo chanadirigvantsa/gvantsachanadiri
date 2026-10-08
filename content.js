@@ -85,7 +85,7 @@ window.SITE = {
     { "id": "ed35", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/CNZyfOuBnhy/" },
     { "id": "ed36", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CMw41O0BFGn/" },
     { "id": "ed37", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/CM1yAUrhyue/" },
-    { "id": "ed38", "t": "", "pub": "", "dt": "", "cat": "interviews", "u": "https://www.instagram.com/p/CLeUTgWB7NX/" },
+    { "id": "ed38", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CLeUTgWB7NX/" },
     { "id": "ed39", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CK1WQprhDyA/" },
     { "id": "ed40", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CKoZ89rBgfE/" },
     { "id": "ed41", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/CKl4PKKh2-F/" },
