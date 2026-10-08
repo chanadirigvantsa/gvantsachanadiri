@@ -2,6 +2,8 @@
 // Easiest way to change it: open index.html?edit in a browser, edit the page,
 // click "Download content.js", and replace this file with the downloaded one.
 window.SITE = {
+  // Menu order
+  "NAV": ["work", "social", "personal", "articles", "about"],
   // Menu and page titles
   "T": { "n1": "Projects", "n2": "Social Media", "n3": "Personal Project", "n4": "About Me", "w1": "Projects", "s1": "Social Media", "p0": "Personal Project", "n6": "Writing & Editorial", "ar1": "Writing & Editorial", "h7": "Writing & Editorial", "ar2": "Editorial stories on art, fashion, photography, cinema and architecture.", "h3": "Social Media", "h4": "All social media" },
   // Social Media projects shown on the home page
