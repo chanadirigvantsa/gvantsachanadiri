@@ -273,6 +273,7 @@ window.SITE = {
     ["Post", "TBC", "", "tbc4", "https://www.instagram.com/p/B_kXMsVhQvd/", "tbc"],
     ["Reel", "Lamborghini", "", "lambo1", "https://www.instagram.com/reel/DLIghs8tmoY/", "lamborghini"],
     ["Reel", "Mercedes-Benz Fashion Week", "", "mbfw1", "https://www.instagram.com/reel/C61JnV8oEMb/", "mbfw"],
+    ["Reel", "Mercedes-Benz Fashion Week", "", "mbfw2", "https://www.instagram.com/reel/Cr3AZzYIuOB/", "mbfw"],
     ["Reel", "Moët & Chandon", "", "moet1", "https://www.instagram.com/reel/Cgt0sSioW1i/", "moet"]
   ],
   "PP": [
