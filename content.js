@@ -3,7 +3,9 @@
 // click "Download content.js", and replace this file with the downloaded one.
 window.SITE = {
   // Menu and page titles
-  "T": { "n1": "Project", "n2": "Social Media", "n3": "Personal Project", "n4": "About Me", "w1": "Project", "s1": "Social Media", "p0": "Personal Project", "n6": "Writing & Editorial", "ar1": "Writing & Editorial", "h7": "Writing & Editorial" },
+  "T": { "n1": "Project", "n2": "Social Media", "n3": "Personal Project", "n4": "About Me", "w1": "Project", "s1": "Social Media", "p0": "Personal Project", "n6": "Writing & Editorial", "ar1": "Writing & Editorial", "h7": "Writing & Editorial", "h3": "Social Media", "h4": "All social media" },
+  // Social Media projects shown on the home page
+  "HOMEIG": ["hennessy", "lamborghini", "visa"],
   "L": { "email": "Chanadirigvanca@gmail.com", "li": "https://www.linkedin.com/in/your-profile", "ig": "https://instagram.com/your-handle" },
   // Order of the Work list. "p" = Work project id, "s" = Social Media project id.
   "ORDER": [
