@@ -6,6 +6,22 @@ window.SITE = {
   "bw": false,
   "P": [
     {
+      "id": "venicearchitecture",
+      "s": "c",
+      "b": "Venice Architecture Biennale",
+      "t": "Social media content",
+      "d": "Social",
+      "y": "",
+      "r": "",
+      "o": "",
+      "role": [],
+      "c": "",
+      "g": [],
+      "lk": [
+        { "id": "venicearch1", "ty": "Instagram post", "t": "Venice Architecture Biennale post", "s": "Instagram", "u": "https://www.instagram.com/p/DJbkEycCf6T/" }
+      ]
+    },
+    {
       "id": "venicebiennale",
       "s": "c",
       "b": "Venice Art Biennale",
