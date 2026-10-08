@@ -6,6 +6,26 @@ window.SITE = {
   "bw": false,
   "P": [
     {
+      "id": "milandesignweek",
+      "s": "c",
+      "b": "Milan Design Week",
+      "t": "Social media content",
+      "d": "Social",
+      "y": "",
+      "r": "",
+      "o": "",
+      "role": [],
+      "c": "",
+      "g": [],
+      "lk": [
+        { "id": "milan1", "ty": "Instagram post", "t": "Milan Design Week reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C58OXMvoega/" },
+        { "id": "milan2", "ty": "Instagram post", "t": "Milan Design Week reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C56TZCzI_BT/" },
+        { "id": "milan3", "ty": "Instagram post", "t": "Milan Design Week reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C56Kv0gorrZ/" },
+        { "id": "milan4", "ty": "Instagram post", "t": "Milan Design Week reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C50VfVmoutL/" },
+        { "id": "milan5", "ty": "Instagram post", "t": "Milan Design Week reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C51I6dvoTwb/" }
+      ]
+    },
+    {
       "id": "venicearchitecture",
       "s": "c",
       "b": "Venice Architecture Biennale",
