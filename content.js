@@ -398,6 +398,7 @@ window.SITE = {
     { "id": "lamborghini", "n": "Lamborghini", "y": "", "d": "Instagram content", "u": "https://" },
     { "id": "mbfw", "n": "Mercedes-Benz Fashion Week", "y": "", "d": "Social media content", "u": "https://",
       "yt": ["https://youtu.be/2JqDN6lyRfo"],
+      "pg": [{"h": "Backstage Photos", "imgs": ["images/mbfw/backstage-01.jpg","images/mbfw/backstage-02.jpg","images/mbfw/backstage-03.jpg","images/mbfw/backstage-04.jpg","images/mbfw/backstage-05.jpg","images/mbfw/backstage-06.jpg","images/mbfw/backstage-07.jpg","images/mbfw/backstage-08.jpg","images/mbfw/backstage-09.jpg","images/mbfw/backstage-10.jpg"], "pos": ["center 40%","center 35%","center 40%","center 40%","center 40%","center 25%","center 45%","center 40%","center 35%","30% center"]}],
       "links": [ { "t": "Watch on TikTok", "u": "https://vm.tiktok.com/ZN8kpnS74/" } ] },
     { "id": "moet", "n": "Moët & Chandon", "y": "", "d": "Instagram content", "u": "https://" },
     { "id": "volvo", "n": "Volvo", "y": "", "d": "Instagram content", "u": "https://" }
