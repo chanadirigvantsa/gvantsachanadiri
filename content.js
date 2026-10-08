@@ -22,6 +22,7 @@ window.SITE = {
     {"s": "lamborghini"},
     {"p": "mini"},
     {"s": "bmw"},
+    {"s": "volvo"},
     {"s": "tbc"},
     {"p": "venicebiennale"},
     {"p": "venicearchitecture"},
@@ -282,7 +283,8 @@ window.SITE = {
     { "id": "mbfw", "n": "Mercedes-Benz Fashion Week", "y": "", "d": "Social media content", "u": "https://",
       "yt": ["https://youtu.be/2JqDN6lyRfo"],
       "links": [ { "t": "Watch on TikTok", "u": "https://vm.tiktok.com/ZN8kpnS74/" } ] },
-    { "id": "moet", "n": "Moët & Chandon", "y": "", "d": "Instagram content", "u": "https://" }
+    { "id": "moet", "n": "Moët & Chandon", "y": "", "d": "Instagram content", "u": "https://" },
+    { "id": "volvo", "n": "Volvo", "y": "", "d": "Instagram content", "u": "https://" }
   ],
   "IG": [
     ["Reel", "Hennessy x NBA", "Social media content strategy", "hennessy1", "https://www.instagram.com/reel/CjnvuZDoAI5/", "hennessy"],
@@ -301,6 +303,8 @@ window.SITE = {
     ["Reel", "Lamborghini", "", "lambo1", "https://www.instagram.com/reel/DLIghs8tmoY/", "lamborghini"],
     ["Reel", "Mercedes-Benz Fashion Week", "", "mbfw1", "https://www.instagram.com/reel/C61JnV8oEMb/", "mbfw"],
     ["Reel", "Mercedes-Benz Fashion Week", "", "mbfw2", "https://www.instagram.com/reel/Cr3AZzYIuOB/", "mbfw"],
+    ["Reel", "Volvo", "", "volvo1", "https://www.instagram.com/reel/DOzY6_bAtal/", "volvo"],
+    ["Post", "Volvo", "", "volvo2", "https://www.instagram.com/p/DOzSQWPDM9x/", "volvo"],
     ["Reel", "Moët & Chandon", "", "moet1", "https://www.instagram.com/reel/Cgt0sSioW1i/", "moet"]
   ],
   "PP": [
