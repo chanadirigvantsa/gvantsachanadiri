@@ -6,7 +6,9 @@ A one-page portfolio site for a content manager and creative producer. It's plai
 
 | File | What it is |
 | --- | --- |
-| `index.html` | The site: layout, styles and the built-in editor |
+| `index.html` | Page shell; loads the files below (always fresh, so updates show without waiting for the browser cache) |
+| `app.css` | Site styles |
+| `app.js` | Site code and the built-in editor |
 | `content.js` | Your text, projects, links and image list. It overrides the defaults in `index.html` |
 | `cv.pdf` | Your CV. The "Download CV (PDF)" link on the About and Contact pages opens this file |
 | `images/` | Your photos and videos |
