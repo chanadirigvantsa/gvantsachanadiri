@@ -184,7 +184,8 @@ window.SITE = {
       "gl": "natural",
       "g": ["1"],
       "lk": [
-        { "id": "tommyjeans1", "ty": "Instagram post", "t": "Tommy Jeans reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C3Ac39wo3u3/" }
+        { "id": "tommyjeans1", "ty": "Instagram post", "t": "Tommy Jeans reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C3Ac39wo3u3/" },
+        { "id": "tommyjeans2", "ty": "Instagram post", "t": "Tommy Jeans post", "s": "Instagram", "u": "https://www.instagram.com/p/CnwB28HoOuM/" }
       ]
     },
     {
