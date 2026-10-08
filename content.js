@@ -8,6 +8,8 @@ window.SITE = {
   "HOMEIG": ["hennessy", "lamborghini", "visa"],
   "L": { "email": "Chanadirigvanca@gmail.com", "li": "https://www.linkedin.com/in/your-profile", "ig": "https://instagram.com/your-handle" },
   // Order of the Work list. "p" = Work project id, "s" = Social Media project id.
+  // Writing & Editorial filter categories
+  "CAT": [{"id":"art","n":"Art"},{"id":"fashion","n":"Fashion"},{"id":"photography","n":"Photography"},{"id":"cinema","n":"Cinema"},{"id":"architecture","n":"Architecture"},{"id":"interviews","n":"Interviews"}],
   // Writing & Editorial pieces
   "A": [
     { "id": "ed1", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/C_cv55jI2_Y/" },
@@ -31,7 +33,23 @@ window.SITE = {
     { "id": "ed19", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CYdzXgQIkTq/" },
     { "id": "ed20", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CYWNGtwoxYy/" },
     { "id": "ed21", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CXx6RoRI0mr/" },
-    { "id": "ed22", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CWD1a8HIiwP/" }
+    { "id": "ed22", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CWD1a8HIiwP/" },
+    { "id": "ed23", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/CUsTMyiodgf/" },
+    { "id": "ed24", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CUPlgiAI_sw/" },
+    { "id": "ed25", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CTwkjc5ouuX/" },
+    { "id": "ed26", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/CTuO9V-IQN8/" },
+    { "id": "ed27", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/CTmAE2qoXKF/" },
+    { "id": "ed28", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CTSC_ftoDHT/" },
+    { "id": "ed29", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CTE1qKVoKCK/" },
+    { "id": "ed30", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/CSjFJ_VIJNe/" },
+    { "id": "ed31", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/CQyEZJcLrCc/" },
+    { "id": "ed32", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/CO0dq2oh9hg/" },
+    { "id": "ed33", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/COcpyjdBv28/" },
+    { "id": "ed34", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CNkvSLPho4M/" },
+    { "id": "ed35", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/CNZyfOuBnhy/" },
+    { "id": "ed36", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CMw41O0BFGn/" },
+    { "id": "ed37", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/CM1yAUrhyue/" },
+    { "id": "ed38", "t": "", "pub": "", "dt": "", "cat": "interviews", "u": "https://www.instagram.com/p/CLeUTgWB7NX/" }
   ],
   "ORDER": [
     {"p": "moet", "s": "moet"},
