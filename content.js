@@ -49,7 +49,16 @@ window.SITE = {
     { "id": "ed35", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/CNZyfOuBnhy/" },
     { "id": "ed36", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CMw41O0BFGn/" },
     { "id": "ed37", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/CM1yAUrhyue/" },
-    { "id": "ed38", "t": "", "pub": "", "dt": "", "cat": "interviews", "u": "https://www.instagram.com/p/CLeUTgWB7NX/" }
+    { "id": "ed38", "t": "", "pub": "", "dt": "", "cat": "interviews", "u": "https://www.instagram.com/p/CLeUTgWB7NX/" },
+    { "id": "ed39", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CK1WQprhDyA/" },
+    { "id": "ed40", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CKoZ89rBgfE/" },
+    { "id": "ed41", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/CKl4PKKh2-F/" },
+    { "id": "ed42", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CKWY0FxBhlL/" },
+    { "id": "ed43", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CJnp5hkBuSi/" },
+    { "id": "ed44", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CGpuWBShL3A/" },
+    { "id": "ed45", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CFmHY--BetO/" },
+    { "id": "ed46", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CD36yFrBSy5/" },
+    { "id": "ed47", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/CDWgfYoBqFs/" }
   ],
   "ORDER": [
     {"p": "moet", "s": "moet"},
