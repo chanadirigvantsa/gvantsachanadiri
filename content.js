@@ -21,7 +21,17 @@ window.SITE = {
     { "id": "ed9", "t": "", "pub": "", "dt": "", "cat": "architecture", "u": "https://www.instagram.com/p/CwMoGAHo1Cm/" },
     { "id": "ed10", "t": "", "pub": "", "dt": "", "cat": "architecture", "u": "https://www.instagram.com/p/CwFUczUoF4I/" },
     { "id": "ed11", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/Cv9TmjxIguX/" },
-    { "id": "ed12", "t": "", "pub": "", "dt": "", "cat": "architecture", "u": "https://www.instagram.com/p/Cv7e9QkI1UF/" }
+    { "id": "ed12", "t": "", "pub": "", "dt": "", "cat": "architecture", "u": "https://www.instagram.com/p/Cv7e9QkI1UF/" },
+    { "id": "ed13", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/Cm_9kIzIJG-/" },
+    { "id": "ed14", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CmMPXygoVF-/" },
+    { "id": "ed15", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/ChwVtVuIUk_/" },
+    { "id": "ed16", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CgomP0lIVN1/" },
+    { "id": "ed17", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/Cf6ozBSoW2m/" },
+    { "id": "ed18", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/CcC3zSWoN2B/" },
+    { "id": "ed19", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CYdzXgQIkTq/" },
+    { "id": "ed20", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CYWNGtwoxYy/" },
+    { "id": "ed21", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CXx6RoRI0mr/" },
+    { "id": "ed22", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CWD1a8HIiwP/" }
   ],
   "ORDER": [
     {"p": "moet", "s": "moet"},
