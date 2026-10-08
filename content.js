@@ -2,6 +2,37 @@
 // Easiest way to change it: open index.html?edit in a browser, edit the page,
 // click "Download content.js", and replace this file with the downloaded one.
 window.SITE = {
+  // About Me page
+  "ABOUT": {
+    "h": "Head of Content & Creative Strategy",
+    "sub": "Hammock Magazine & Studio Agency · 5 years",
+    "sec": [
+      {
+        "h": "Social-First Brand & Content Strategy",
+        "t": "Led content strategies for launches, campaigns and key brand moments, translating brand identity into clear narratives, content pillars and tone of voice across web, print and social platforms, including Instagram, TikTok and creator-led formats."
+      },
+      {
+        "h": "Editorial Leadership & Storytelling",
+        "t": "Led editorial planning and wrote, edited and managed content across web, print and social media. Drew on a background in journalism and inspiration from art, culture and society to shape narratives that combine editorial rigor with creativity."
+      },
+      {
+        "h": "Creative Direction & Digital Brand Image",
+        "t": "Developed concepts and visual directions across campaign assets, short-form content and always-on storytelling, ensuring platform relevance and a distinctive, consistent brand expression."
+      },
+      {
+        "h": "Production & Cross-Functional Delivery",
+        "t": "Led end-to-end content production, from brief and concept through post-production and delivery. Partnered with clients, contributors, influencers and external partners, translating complex briefs into clear, impactful, audience-focused content."
+      },
+      {
+        "h": "Team Management",
+        "t": "Managed and mentored a team of 10, including permanent staff (content managers, social media managers, editors, directors and camera operators) and freelance creative producers, stylists and makeup artists. Oversaw priorities, workflows and creative quality across content development and delivery."
+      },
+      {
+        "h": "Performance & Optimization",
+        "t": "Ensured content performance and visibility across digital platforms through SEO and GEO practices, supporting broader brand and corporate communication objectives."
+      }
+    ]
+  },
   "title": "Head of Content & Creative Strategy",
   // Menu order
   "NAV": ["work", "social", "personal", "articles", "about"],
