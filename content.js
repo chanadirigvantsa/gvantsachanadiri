@@ -269,9 +269,9 @@ window.SITE = {
       "hl": [
         { "id": "monkey1", "t": "Monkey Shoulder", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MTAxMDE3Mzg0MzA1MDM3?story_media_id=2790831856510126501", "f": [] }
       ] },
-    { "id": "berlinale", "n": "Berlinale", "y": "", "d": "Instagram stories", "u": "https://",
+    { "id": "berlinale", "n": "Berlin Film Festival", "y": "", "d": "Instagram stories", "u": "https://",
       "hl": [
-        { "id": "berlinale1", "t": "Berlinale", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY5ODAxMjM1NDgxNDY5?story_media_id=3309109697287613886", "f": [] }
+        { "id": "berlinale1", "t": "Berlin Film Festival", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY5ODAxMjM1NDgxNDY5?story_media_id=3309109697287613886", "f": [] }
       ] },
     { "id": "tbc", "n": "TBC", "y": "", "d": "Instagram content", "u": "https://" },
     { "id": "lamborghini", "n": "Lamborghini", "y": "", "d": "Instagram content", "u": "https://" },
