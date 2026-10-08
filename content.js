@@ -58,7 +58,13 @@ window.SITE = {
     { "id": "ed44", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CGpuWBShL3A/" },
     { "id": "ed45", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CFmHY--BetO/" },
     { "id": "ed46", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/CD36yFrBSy5/" },
-    { "id": "ed47", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/CDWgfYoBqFs/" }
+    { "id": "ed47", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/CDWgfYoBqFs/" },
+    { "id": "ed48", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/C-u1FvrIHvt/" },
+    { "id": "ed49", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/C9hx9-0orWE/" },
+    { "id": "ed50", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/C8WXXnaIVvF/" },
+    { "id": "ed51", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/C2Cbj6dIW48/" },
+    { "id": "ed52", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/CxsKfL4I_rD/" },
+    { "id": "ed53", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/Cw2Tn7so2WX/" }
   ],
   "ORDER": [
     {"p": "moet", "s": "moet"},
