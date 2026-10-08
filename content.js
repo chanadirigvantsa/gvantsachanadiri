@@ -83,13 +83,13 @@ window.SITE = {
     {"p": "mini"},
     {"s": "bmw"},
     {"s": "volvo"},
+    {"p": "wissol"},
     {"s": "tbc"},
     {"p": "venicebiennale"},
     {"p": "venicearchitecture"},
     {"p": "milandesignweek"},
     {"s": "mbfw"},
-    {"s": "berlinale"},
-    {"p": "wissol"}
+    {"s": "berlinale"}
   ],
   "name": "Gvantsa Chanadiri",
   "bw": false,
