@@ -129,3 +129,4 @@ footer{text-transform:none;letter-spacing:0;font-size:12px;font-weight:600}
 
 .ef{margin:10px 0 50px}.ef h2{margin:0 0 14px;font-size:clamp(24px,3vw,34px)}.efg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}.efg button{padding:0;border:0;background:none;cursor:zoom-in;display:block}.efg img{width:100%;height:190px;object-fit:cover;display:block}@media(max-width:600px){.efg{grid-template-columns:repeat(3,1fr);gap:4px}.efg img{height:120px}}
 #lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:16px}#lb img{max-width:100%;max-height:100%;object-fit:contain}
+.efg.line{display:flex;overflow-x:auto;scrollbar-width:thin;padding-bottom:4px}.efg.line+.efg.line{margin-top:8px}.efg.line button{flex:0 0 160px}@media(max-width:600px){.efg.line button{flex:0 0 112px}.efg.line img{height:120px}}
