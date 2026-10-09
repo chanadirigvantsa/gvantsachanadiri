@@ -117,7 +117,7 @@ var ASEC=[["features","Editorial Features"],["curated","Articles & Curated Conte
 function secOf(a){return a.sec||"curated"}
 function curSec(){if(!asec){asec=(S.EF||[]).length||S.A.some(function(a){return secOf(a)=="features"})?"features":"curated"}return asec}
 function phGroup(f,line){return '<div class="ef"><h2 class="serif">'+esc(f.h)+'</h2>'+(line&&f.magid?magCover(f.magid):'')+(f.sets||[f]).map(function(s){return '<div class="efg'+(line?' line':'')+'">'+(s.imgs||[]).map(function(u,k){var ps=(s.pos||[])[k];return '<button data-lb="'+esc(u)+'"><img src="'+esc(u)+'" alt="'+esc(f.h)+'" loading="lazy"'+(ps?' style="object-position:'+esc(ps)+'"':'')+'></button>'}).join("")+'</div>'}).join("")+'</div>'}
-function efBlock(){if(curSec()!="features")return "";return magShelf()+(S.EF||[]).map(function(f){return phGroup(f,1)}).join("")}
+function efBlock(){if(curSec()!="features")return "";return (S.EF||[]).map(function(f){return phGroup(f,1)}).join("")}
 function pgBlock(q){return (q.pg||[]).length?'<div style="margin-top:60px">'+q.pg.map(function(f){return phGroup(f)}).join("")+'</div>':''}
 function magOf(id){return (S.MAG||[]).filter(function(m){return m.id==id})[0]}
 function magCover(id){var m=magOf(id);return m?'<button class="magc" data-mag="'+esc(m.id)+'"><img src="'+esc(m.cover)+'" alt="'+esc(m.h)+'" loading="lazy"><span>Read the interview<br><b>Open magazine \u2192</b></span></button>':''}
