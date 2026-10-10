@@ -143,8 +143,8 @@ window.SITE = {
     {"s": "volvo"},
     {"p": "wissol"},
     {"s": "tbc"},
-    {"p": "venicebiennale"},
-    {"p": "venicearchitecture"},
+    {"p": "venicebiennale", "s": "venicebiennale"},
+    {"p": "venicearchitecture", "s": "venicearchitecture"},
     {"p": "milandesignweek"},
     {"s": "mbfw"},
     {"s": "berlinale"}
@@ -402,6 +402,10 @@ window.SITE = {
     }
   ],
   "SP": [
+    { "id": "venicebiennale", "r": "", "n": "Venice Art Biennale", "y": "", "d": "Social media content", "u": "https://",
+      "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E"] },
+    { "id": "venicearchitecture", "r": "", "n": "Venice Architecture Biennale", "y": "", "d": "Social media content", "u": "https://",
+      "yt": ["https://youtu.be/ndRkjAUeWMk"] },
     { "id": "hennessy", "r": "Social media content strategy", "n": "Hennessy", "y": "2022", "d": "NBA campaign: social media content strategy", "u": "https://" },
     { "id": "visa", "r": "Content strategy and creative direction", "n": "Visa", "y": "2022", "d": "Content strategy and creative direction for Instagram", "u": "https://" },
     { "id": "bmw", "r": "Content strategy", "n": "BMW", "y": "2024", "d": "Content strategy for BMW Experience", "u": "https://",
@@ -426,6 +430,15 @@ window.SITE = {
     { "id": "volvo", "n": "Volvo", "y": "", "d": "Instagram content", "u": "https://" }
   ],
   "IG": [
+    ["Reel", "Venice Art Biennale", "", "vab1", "https://www.instagram.com/reel/CsdsF6zI0PM/", "venicebiennale"],
+    ["Reel", "Venice Art Biennale", "", "vab2", "https://www.instagram.com/reel/Csgl-MwoxVa/", "venicebiennale"],
+    ["Reel", "Venice Art Biennale", "", "vab3", "https://www.instagram.com/reel/Csiv4eGIcxA/", "venicebiennale"],
+    ["Reel", "Venice Art Biennale", "", "vab4", "https://www.instagram.com/reel/Cs3CIaTom_T/", "venicebiennale"],
+    ["Reel", "Venice Art Biennale", "", "vab5", "https://www.instagram.com/reel/Cc29J9toID0/", "venicebiennale"],
+    ["Reel", "Venice Art Biennale", "", "vab6", "https://www.instagram.com/reel/Cc0fCiFIBv7/", "venicebiennale"],
+    ["Reel", "Venice Art Biennale", "", "vab7", "https://www.instagram.com/reel/Ccnxw7NI150/", "venicebiennale"],
+    ["Reel", "Venice Art Biennale", "", "vab8", "https://www.instagram.com/reel/C6Enf7coCw2/", "venicebiennale"],
+    ["Post", "Venice Architecture Biennale", "", "varch1", "https://www.instagram.com/p/DJbkEycCf6T/", "venicearchitecture"],
     ["Reel", "Hennessy x NBA", "Social media content strategy", "hennessy1", "https://www.instagram.com/reel/CjnvuZDoAI5/", "hennessy"],
     ["Reel", "VISA", "Content strategy, creative direction", "visa1", "https://www.instagram.com/reel/CjsSPuqIMLe/", "visa"],
     ["Reel", "VISA", "Content strategy, creative direction", "visa2", "https://www.instagram.com/reel/Cj9-ikPj04w/", "visa"],
