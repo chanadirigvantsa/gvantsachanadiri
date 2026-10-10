@@ -45,7 +45,7 @@ window.SITE = {
   "L": { "email": "Chanadirigvanca@gmail.com", "li": "https://www.linkedin.com/in/your-profile", "ig": "https://instagram.com/your-handle" },
   // Order of the Work list. "p" = Work project id, "s" = Social Media project id.
   // Writing & Editorial filter categories
-  "CAT": [{"id":"art","n":"Art"},{"id":"fashion","n":"Fashion"},{"id":"photography","n":"Photography"},{"id":"cinema","n":"Cinema"},{"id":"architecture","n":"Architecture"},{"id":"sport","n":"Sport"},{"id":"interviews","n":"Interviews"}],
+  "CAT": [{"id":"art","n":"Art"},{"id":"fashion","n":"Fashion"},{"id":"photography","n":"Photography"},{"id":"cinema","n":"Cinema"},{"id":"architecture","n":"Architecture"},{"id":"sport","n":"Sport"},{"id":"gastronomy","n":"Gastronomy"},{"id":"interviews","n":"Interviews"}],
   // Writing & Editorial pieces
   // Magazine articles (flipbooks): cover + page images, opened at #mag-<id>
   "MAG": [
@@ -129,7 +129,12 @@ window.SITE = {
     { "id": "ed64", "t": "", "pub": "", "dt": "", "cat": "sport", "u": "https://www.instagram.com/p/C7LuRf5IkYx/" },
     { "id": "ed65", "t": "", "pub": "", "dt": "", "cat": "architecture", "u": "https://www.instagram.com/p/C6Jeu6GoJ3p/" },
     { "id": "ed66", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/C3pcXY9I0ZH/" },
-    { "id": "ed67", "t": "", "pub": "", "dt": "", "cat": "sport", "u": "https://www.instagram.com/p/C22VryTINzx/" }
+    { "id": "ed67", "t": "", "pub": "", "dt": "", "cat": "sport", "u": "https://www.instagram.com/p/C22VryTINzx/" },
+    { "id": "ed68", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/p/CztZj6QIF2i/" },
+    { "id": "ed69", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/p/Czs3xb-IZIW/" },
+    { "id": "ed70", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/p/CygPd-iotbE/" },
+    { "id": "ed71", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/reel/CyJm8RnIMlg/" },
+    { "id": "ed72", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/p/Cq7c_anotlz/" }
   ],
   "ORDER": [
     {"p": "moet", "s": "moet", "m": 1},
