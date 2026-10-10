@@ -472,6 +472,7 @@ window.SITE = {
     ["Reel", "Venice Art Biennale", "", "vab8", "https://www.instagram.com/reel/C6Enf7coCw2/", "venicebiennale"],
     ["Post", "Venice Architecture Biennale", "", "varch1", "https://www.instagram.com/p/DJbkEycCf6T/", "venicearchitecture"],
     ["Reel", "Hennessy x NBA", "Social media content strategy", "hennessy1", "https://www.instagram.com/reel/CjnvuZDoAI5/", "hennessy"],
+    ["Post", "Hennessy x NBA", "Social media content strategy", "hennessy2", "https://www.instagram.com/p/CjzumaaoGUq/", "hennessy"],
     ["Reel", "VISA", "Content strategy, creative direction", "visa1", "https://www.instagram.com/reel/CjsSPuqIMLe/", "visa"],
     ["Reel", "VISA", "Content strategy, creative direction", "visa2", "https://www.instagram.com/reel/Cj9-ikPj04w/", "visa"],
     ["Reel", "BMW Experience", "Content strategy", "bmw1", "https://www.instagram.com/reel/C8U2yV3IPYn/", "bmw"],
