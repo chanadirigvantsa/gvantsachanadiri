@@ -136,7 +136,11 @@ window.SITE = {
     { "id": "ed71", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/reel/CyJm8RnIMlg/" },
     { "id": "ed72", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/p/Cq7c_anotlz/" },
     { "id": "ed73", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/p/CjGE3YGoLsc/" },
-    { "id": "ed74", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/p/CgROsdIIULp/" }
+    { "id": "ed74", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/p/CgROsdIIULp/" },
+    { "id": "ed75", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/reel/CPu0gkuBIqV/" },
+    { "id": "ed76", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/reel/CPcxJQ7hUdL/" },
+    { "id": "ed77", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/reel/CO5DCGhB9z7/" },
+    { "id": "ed78", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/reel/COCotCdBNXe/" }
   ],
   "ORDER": [
     {"p": "moet", "s": "moet", "m": 1},
