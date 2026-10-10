@@ -45,7 +45,7 @@ window.SITE = {
   "L": { "email": "Chanadirigvanca@gmail.com", "li": "https://www.linkedin.com/in/your-profile", "ig": "https://instagram.com/your-handle" },
   // Order of the Work list. "p" = Work project id, "s" = Social Media project id.
   // Writing & Editorial filter categories
-  "CAT": [{"id":"art","n":"Art"},{"id":"fashion","n":"Fashion"},{"id":"photography","n":"Photography"},{"id":"cinema","n":"Cinema"},{"id":"architecture","n":"Architecture"},{"id":"interviews","n":"Interviews"}],
+  "CAT": [{"id":"art","n":"Art"},{"id":"fashion","n":"Fashion"},{"id":"photography","n":"Photography"},{"id":"cinema","n":"Cinema"},{"id":"architecture","n":"Architecture"},{"id":"sport","n":"Sport"},{"id":"interviews","n":"Interviews"}],
   // Writing & Editorial pieces
   // Magazine articles (flipbooks): cover + page images, opened at #mag-<id>
   "MAG": [
@@ -124,7 +124,9 @@ window.SITE = {
     { "id": "ed59", "t": "", "pub": "", "dt": "", "cat": "architecture", "u": "https://www.instagram.com/p/CxcyDKVoP8C/" },
     { "id": "ed60", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/Cwe3X6OIIG3/" },
     { "id": "ed61", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/Cv-DmG7IqPG/" },
-    { "id": "ed62", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/Cs3ycgHocco/" }
+    { "id": "ed62", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/Cs3ycgHocco/" },
+    { "id": "ed63", "t": "", "pub": "", "dt": "", "cat": "sport", "u": "https://www.instagram.com/p/C9cicQ2IPaU/" },
+    { "id": "ed64", "t": "", "pub": "", "dt": "", "cat": "sport", "u": "https://www.instagram.com/p/C7LuRf5IkYx/" }
   ],
   "ORDER": [
     {"p": "moet", "s": "moet", "m": 1},
