@@ -142,6 +142,7 @@ window.SITE = {
     {"s": "bmw"},
     {"s": "volvo"},
     {"p": "wissol"},
+    {"p": "sarajishvili"},
     {"s": "tbc"},
     {"p": "venicebiennale", "s": "venicebiennale"},
     {"p": "venicearchitecture", "s": "venicearchitecture"},
@@ -152,6 +153,21 @@ window.SITE = {
   "name": "Gvantsa Chanadiri",
   "bw": false,
   "P": [
+    {
+      "id": "sarajishvili",
+      "s": "c",
+      "b": "Sarajishvili",
+      "t": "Campaign content",
+      "d": "Photo",
+      "y": "",
+      "r": "",
+      "o": "",
+      "role": [],
+      "c": "",
+      "gl": "natural",
+      "g": ["2", "3", "6", "4", "5"],
+      "lk": []
+    },
     {
       "id": "wissol",
       "s": "c",
@@ -479,6 +495,12 @@ window.SITE = {
     }
   ],
   "M": {
+    "prsarajishvilih": { "u": "images/sarajishvili/sarajishvili-01.jpg", "t": "i" },
+    "prsarajishvili2": { "u": "images/sarajishvili/sarajishvili-02.jpg", "t": "i" },
+    "prsarajishvili3": { "u": "images/sarajishvili/sarajishvili-03.jpg", "t": "i" },
+    "prsarajishvili6": { "u": "images/sarajishvili/sarajishvili-06w.jpg", "t": "i", "wide": true },
+    "prsarajishvili4": { "u": "images/sarajishvili/sarajishvili-04.jpg", "t": "i", "wide": true },
+    "prsarajishvili5": { "u": "images/sarajishvili/sarajishvili-05.jpg", "t": "i", "wide": true },
     "prwissolh": { "u": "images/wissol/wissol-04.jpg", "t": "i" },
     "prwissol1": { "u": "images/wissol/wissol-01.jpg", "t": "i" },
     "prwissol2": { "u": "images/wissol/wissol-02.jpg", "t": "i" },
