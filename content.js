@@ -484,6 +484,7 @@ window.SITE = {
     ["Reel", "Monkey Shoulder", "Campaign concept, content calendar", "monkey2", "https://www.instagram.com/reel/CcImq5gIgA6/", "monkeyshoulder"],
     ["Reel", "Monkey Shoulder", "Campaign concept, content calendar", "monkey3", "https://www.instagram.com/reel/Ccao8QaoDZG/", "monkeyshoulder"],
     ["Reel", "Monkey Shoulder", "Campaign concept, content calendar", "monkey4", "https://www.instagram.com/reel/CcsrUy2Ien_/", "monkeyshoulder"],
+    ["Post", "Monkey Shoulder", "Campaign concept, content calendar", "monkey5", "https://www.instagram.com/p/CeWc56FIpem/", "monkeyshoulder"],
     ["Reel", "TBC", "", "tbc1", "https://www.instagram.com/reel/C5F89SOIg1f/", "tbc"],
     ["Reel", "TBC", "", "tbc2", "https://www.instagram.com/reel/ChNVKKyIV-A/", "tbc"],
     ["Reel", "TBC", "", "tbc3", "https://www.instagram.com/reel/CcAYrcYoEXD/", "tbc"],
