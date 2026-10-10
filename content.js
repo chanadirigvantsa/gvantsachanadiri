@@ -68,7 +68,6 @@ window.SITE = {
     { "id": "ed1", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/C_cv55jI2_Y/" },
     { "id": "ed3", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/C_P36KuMORN/" },
     { "id": "ed4", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/C-2H3ggoke-/" },
-    { "id": "ed5", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/C9ZpIYjIg_D/" },
     { "id": "ed6", "t": "", "pub": "", "dt": "", "cat": "cinema", "u": "https://www.instagram.com/p/C14LHpJoVzF/" },
     { "id": "ed7", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/Cx3SvpXI-kd/" },
     { "id": "ed9", "t": "", "pub": "", "dt": "", "cat": "architecture", "u": "https://www.instagram.com/p/CwMoGAHo1Cm/" },
