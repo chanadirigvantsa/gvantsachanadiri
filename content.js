@@ -146,7 +146,7 @@ window.SITE = {
     {"s": "tbc"},
     {"p": "venicebiennale", "s": "venicebiennale"},
     {"p": "venicearchitecture", "s": "venicearchitecture"},
-    {"p": "milandesignweek"},
+    {"p": "milandesignweek", "s": "milandesignweek"},
     {"s": "mbfw"},
     {"s": "berlinale"}
   ],
@@ -418,6 +418,7 @@ window.SITE = {
     }
   ],
   "SP": [
+    { "id": "milandesignweek", "r": "", "n": "Milan Design Week", "y": "", "d": "Social media content", "u": "https://" },
     { "id": "venicebiennale", "r": "", "n": "Venice Art Biennale", "y": "", "d": "Social media content", "u": "https://",
       "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E"] },
     { "id": "venicearchitecture", "r": "", "n": "Venice Architecture Biennale", "y": "", "d": "Social media content", "u": "https://",
@@ -446,6 +447,11 @@ window.SITE = {
     { "id": "volvo", "n": "Volvo", "y": "", "d": "Instagram content", "u": "https://" }
   ],
   "IG": [
+    ["Reel", "Milan Design Week", "", "mdw1", "https://www.instagram.com/reel/C58OXMvoega/", "milandesignweek"],
+    ["Reel", "Milan Design Week", "", "mdw2", "https://www.instagram.com/reel/C56TZCzI_BT/", "milandesignweek"],
+    ["Reel", "Milan Design Week", "", "mdw3", "https://www.instagram.com/reel/C56Kv0gorrZ/", "milandesignweek"],
+    ["Reel", "Milan Design Week", "", "mdw4", "https://www.instagram.com/reel/C50VfVmoutL/", "milandesignweek"],
+    ["Reel", "Milan Design Week", "", "mdw5", "https://www.instagram.com/reel/C51I6dvoTwb/", "milandesignweek"],
     ["Reel", "Venice Art Biennale", "", "vab1", "https://www.instagram.com/reel/CsdsF6zI0PM/", "venicebiennale"],
     ["Reel", "Venice Art Biennale", "", "vab2", "https://www.instagram.com/reel/Csgl-MwoxVa/", "venicebiennale"],
     ["Reel", "Venice Art Biennale", "", "vab3", "https://www.instagram.com/reel/Csiv4eGIcxA/", "venicebiennale"],
