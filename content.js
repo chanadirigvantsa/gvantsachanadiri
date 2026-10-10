@@ -143,7 +143,8 @@ window.SITE = {
     { "id": "ed78", "t": "", "pub": "", "dt": "", "cat": "gastronomy", "u": "https://www.instagram.com/reel/COCotCdBNXe/" },
     { "id": "ed79", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/CLeEK5SB-JE/" },
     { "id": "ed80", "t": "", "pub": "", "dt": "", "cat": "architecture", "u": "https://www.instagram.com/p/CKjVlNqhNwT/" },
-    { "id": "ed81", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CKOVrs_h1Tj/" }
+    { "id": "ed81", "t": "", "pub": "", "dt": "", "cat": "art", "u": "https://www.instagram.com/p/CKOVrs_h1Tj/" },
+    { "id": "ed82", "t": "", "pub": "", "dt": "", "cat": "sport", "u": "https://www.instagram.com/p/CA5SYsXhWdD/" }
   ],
   "ORDER": [
     {"p": "moet", "s": "moet", "m": 1},
