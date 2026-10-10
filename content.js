@@ -126,7 +126,10 @@ window.SITE = {
     { "id": "ed61", "t": "", "pub": "", "dt": "", "cat": "photography", "u": "https://www.instagram.com/p/Cv-DmG7IqPG/" },
     { "id": "ed62", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/Cs3ycgHocco/" },
     { "id": "ed63", "t": "", "pub": "", "dt": "", "cat": "sport", "u": "https://www.instagram.com/p/C9cicQ2IPaU/" },
-    { "id": "ed64", "t": "", "pub": "", "dt": "", "cat": "sport", "u": "https://www.instagram.com/p/C7LuRf5IkYx/" }
+    { "id": "ed64", "t": "", "pub": "", "dt": "", "cat": "sport", "u": "https://www.instagram.com/p/C7LuRf5IkYx/" },
+    { "id": "ed65", "t": "", "pub": "", "dt": "", "cat": "architecture", "u": "https://www.instagram.com/p/C6Jeu6GoJ3p/" },
+    { "id": "ed66", "t": "", "pub": "", "dt": "", "cat": "fashion", "u": "https://www.instagram.com/p/C3pcXY9I0ZH/" },
+    { "id": "ed67", "t": "", "pub": "", "dt": "", "cat": "sport", "u": "https://www.instagram.com/p/C22VryTINzx/" }
   ],
   "ORDER": [
     {"p": "moet", "s": "moet", "m": 1},
