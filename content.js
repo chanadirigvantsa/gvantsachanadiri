@@ -498,7 +498,8 @@ window.SITE = {
     ["Post", "Volvo", "", "volvo2", "https://www.instagram.com/p/DOzSQWPDM9x/", "volvo"],
     ["Reel", "Moët & Chandon", "", "moet1", "https://www.instagram.com/reel/Cgt0sSioW1i/", "moet"],
     ["Video", "Moët & Chandon", "", "moet2", "https://www.instagram.com/tv/CgOnxiOFLbL/", "moet"],
-    ["Post", "Moët & Chandon", "", "moet3", "https://www.instagram.com/p/CYDzcPDIpZS/", "moet"]
+    ["Post", "Moët & Chandon", "", "moet3", "https://www.instagram.com/p/CYDzcPDIpZS/", "moet"],
+    ["Post", "Moët & Chandon", "", "moet4", "https://www.instagram.com/p/CX5nM2tI6xh/", "moet"]
   ],
   "PP": [
     {
