@@ -169,7 +169,7 @@ window.SITE = {
     {"s": "berlinale"}
   ],
   "name": "Gvantsa Chanadiri",
-  "sub": "Luxury, fashion, art and culture",
+  "sub": "Luxury, fashion, beauty, art and culture",
   "intro": "I shape how brands and stories look, sound and live across social, digital, video and print, where art, culture, fashion and luxury meet.",
   "bw": false,
   "P": [
