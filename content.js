@@ -164,7 +164,6 @@ window.SITE = {
     {"p": "sarajishvili"},
     {"s": "tbc"},
     {"p": "venicebiennale", "s": "venicebiennale"},
-    {"p": "venicearchitecture", "s": "venicearchitecture"},
     {"p": "milandesignweek", "s": "milandesignweek"},
     {"s": "mbfw"},
     {"s": "berlinale"}
@@ -228,34 +227,17 @@ window.SITE = {
       ]
     },
     {
-      "id": "venicearchitecture",
-      "s": "b",
-      "b": "Venice Architecture Biennale",
-      "t": "Social media content",
-      "d": "Social",
-      "y": "",
-      "r": "",
-      "o": "",
-      "role": [],
-      "c": "",
-      "yt": ["https://youtu.be/ndRkjAUeWMk"],
-      "g": [],
-      "lk": [
-        { "id": "venicearch1", "ty": "Instagram post", "t": "Venice Architecture Biennale post", "s": "Instagram", "u": "https://www.instagram.com/p/DJbkEycCf6T/" }
-      ]
-    },
-    {
       "id": "venicebiennale",
       "s": "b",
-      "b": "Venice Art Biennale",
-      "t": "Video content",
+      "b": "Venice Biennale",
+      "t": "Art and Architecture Biennale: video and social media content",
       "d": "Video",
       "y": "",
       "r": "",
       "o": "",
       "role": [],
       "c": "",
-      "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E"],
+      "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E", "https://youtu.be/ndRkjAUeWMk"],
       "g": [],
       "lk": [
         { "id": "venice1", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/CsdsF6zI0PM/" },
@@ -265,7 +247,8 @@ window.SITE = {
         { "id": "venice5", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Cc29J9toID0/" },
         { "id": "venice6", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Cc0fCiFIBv7/" },
         { "id": "venice7", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Ccnxw7NI150/" },
-        { "id": "venice8", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C6Enf7coCw2/" }
+        { "id": "venice8", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C6Enf7coCw2/" },
+        { "id": "venicearch1", "ty": "Instagram post", "t": "Venice Architecture Biennale post", "s": "Instagram", "u": "https://www.instagram.com/p/DJbkEycCf6T/" }
       ]
     },
     {
@@ -460,10 +443,8 @@ window.SITE = {
   ],
   "SP": [
     { "id": "milandesignweek", "r": "", "n": "Milan Design Week", "y": "", "d": "Social media content", "u": "https://" },
-    { "id": "venicebiennale", "r": "", "n": "Venice Art Biennale", "y": "", "d": "Social media content", "u": "https://",
-      "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E"] },
-    { "id": "venicearchitecture", "r": "", "n": "Venice Architecture Biennale", "y": "", "d": "Social media content", "u": "https://",
-      "yt": ["https://youtu.be/ndRkjAUeWMk"] },
+    { "id": "venicebiennale", "r": "", "n": "Venice Biennale", "y": "", "d": "Social media content", "u": "https://",
+      "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E", "https://youtu.be/ndRkjAUeWMk"] },
     {"id": "hennessy", "r": "Social media content strategy, campaign content creation, event video production", "n": "Hennessy", "y": "2022", "d": "NBA campaign: social media content strategy", "u": "https://", "cl": "Hennessy", "ch": "Bring the Hennessy x NBA collaboration to Hennessy’s audience on social media and capture the brand’s NBA event on video.", "res": "Created the content for the Hennessy x NBA campaign and produced the video for the brand’s event, as part of Hammock’s ongoing partnership with Hennessy."},
     { "id": "visa", "r": "Content strategy and creative direction", "n": "Visa", "y": "2022", "d": "Content strategy and creative direction for Instagram", "u": "https://" },
     { "id": "bmw", "r": "Social media content strategy and production, Instagram story design", "n": "BMW", "y": "2024", "d": "Social media content strategy and production for BMW Experience", "u": "https://", "cl": "BMW", "ch": "Build an engaging Instagram presence for BMW Experience through a clear content strategy and a distinctive visual style.", "res": "Developed and produced BMW Experience’s Instagram content: posts, 5 reels and more than 20 stories, with a custom story design created for the brand.",
@@ -501,7 +482,7 @@ window.SITE = {
     ["Reel", "Venice Art Biennale", "", "vab6", "https://www.instagram.com/reel/Cc0fCiFIBv7/", "venicebiennale"],
     ["Reel", "Venice Art Biennale", "", "vab7", "https://www.instagram.com/reel/Ccnxw7NI150/", "venicebiennale"],
     ["Reel", "Venice Art Biennale", "", "vab8", "https://www.instagram.com/reel/C6Enf7coCw2/", "venicebiennale"],
-    ["Post", "Venice Architecture Biennale", "", "varch1", "https://www.instagram.com/p/DJbkEycCf6T/", "venicearchitecture"],
+    ["Post", "Venice Architecture Biennale", "", "varch1", "https://www.instagram.com/p/DJbkEycCf6T/", "venicebiennale"],
     ["Reel", "Hennessy x NBA", "Social media content strategy", "hennessy1", "https://www.instagram.com/reel/CjnvuZDoAI5/", "hennessy"],
     ["Post", "Hennessy x NBA", "Social media content strategy", "hennessy2", "https://www.instagram.com/p/CjzumaaoGUq/", "hennessy"],
     ["Post", "Hennessy", "Social media content strategy", "hennessy3", "https://www.instagram.com/p/CgTrVhwIlbp/", "hennessy"],
