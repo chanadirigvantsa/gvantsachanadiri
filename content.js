@@ -452,7 +452,7 @@ window.SITE = {
       "hl": [
         { "id": "bmwexp", "t": "BMW Experience", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY4NjY4ODY0OTc1ODcx?story_media_id=3726033781165934727", "f": [] }
       ] },
-    { "id": "monkeyshoulder", "r": "Instagram campaign concept and content calendar", "n": "Monkey Shoulder", "y": "2022", "d": "Instagram campaign concept and content calendar", "u": "https://",
+    { "id": "monkeyshoulder", "r": "Social media concept and content calendar, recipe video and carousel production for Instagram and Facebook", "n": "Monkey Shoulder", "y": "2022", "d": "Instagram campaign concept and content calendar", "u": "https://", "cl": "Monkey Shoulder", "ch": "Inspire people to make Monkey Shoulder cocktails at home with easy, shareable recipe content.", "res": "Created a series of step-by-step Monkey Shoulder cocktail recipes for Instagram and Facebook, told through short videos and photo carousels.",
       "hl": [
         { "id": "monkey1", "t": "Monkey Shoulder", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MTAxMDE3Mzg0MzA1MDM3?story_media_id=2790831856510126501", "f": [] }
       ] },
