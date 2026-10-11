@@ -184,6 +184,7 @@ window.SITE = {
       "o": "Tell the story of Sarajishvili’s heritage through a commercial and an editorial for the brand’s digital channels.",
       "role": [],
       "c": "",
+      "yt": ["https://youtu.be/Pi-j2Is5oy0", "https://youtu.be/Upzowatt2y4"],
       "gl": "natural",
       "g": ["2", "3", "6", "4", "5"],
       "lk": []
