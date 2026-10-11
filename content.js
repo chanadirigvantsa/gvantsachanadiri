@@ -402,7 +402,7 @@ window.SITE = {
     },
     {
       "id": "moet",
-      "res": "Launched minimoet.hammockmagazine.ge, a digital platform where customers ordered MiniMoët together with a digital card designed by an artist. Each card could be sent directly to the recipient or shared on social media, turning every order into a moment to share. The campaign rolled out with nine digital artworks and a mood video.",
+      "res": "MiniMoët sales rose by 15%. The campaign launched minimoet.hammockmagazine.ge, a digital platform where customers ordered MiniMoët together with a digital card designed by an artist. Each card could be sent directly to the recipient or shared on social media, turning every order into a moment to share. The campaign rolled out with nine digital artworks and a mood video.",
       "cl": "Moët & Chandon",
       "s": "b",
       "b": "Moët & Chandon",
