@@ -7,7 +7,6 @@ window.SITE = {
   // About Me page
   "ABOUT": {
     "h": "Head of Content & Creative Strategy",
-    "nums": [["+15%", "MiniMoët sales"], ["10", "team members led"], ["55K+", "Hammock community"], ["3", "international events covered: Venice Biennale, Milan Design Week, Berlinale"], ["Long-term", "partners incl. The Body Shop and Hennessy"]],
     "sub": "I shape how brands and stories look, sound and live across social, digital, video and print, where art, culture, fashion and luxury meet.",
     "sec": [
       {
