@@ -391,7 +391,7 @@ window.SITE = {
       "t": "Editorial: MINI through the eyes of four photographers",
       "d": "Photo",
       "y": "2024",
-      "r": "Content management and creative production",
+      "r": "Photographer selection, content management and creative production",
       "o": "Show MINI from four distinct creative perspectives, each shaped by a renowned photographer’s signature style.",
       "role": [],
       "c": "Hammock Magazine",
