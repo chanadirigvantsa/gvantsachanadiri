@@ -409,7 +409,7 @@ window.SITE = {
       "t": "Summer campaign: digital art and mood video",
       "d": "Digital art",
       "y": "2020",
-      "r": "Campaign concept and creative brief, visual direction, digital and social content planning, campaign management",
+      "r": "Campaign concept and creative brief, visual direction, artist selection and briefing, platform development with designers and developers, mood video direction, digital and social content planning, launch and promotion, client relationship and approvals, budget and campaign management",
       "o": "Turn a summer champagne into a shareable experience: give every MiniMoët order a personal, artistic touch and carry the brand’s summer story across digital and social media.",
       "role": [
         ["Produced", "Nine illustrated scenes for the summer campaign"],
