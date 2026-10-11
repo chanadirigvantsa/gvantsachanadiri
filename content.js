@@ -458,10 +458,7 @@ window.SITE = {
       "hl": [
         { "id": "monkey1", "t": "Monkey Shoulder", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MTAxMDE3Mzg0MzA1MDM3?story_media_id=2790831856510126501", "f": [] }
       ] },
-    { "id": "berlinale", "n": "Berlin Film Festival", "y": "", "d": "Instagram stories", "u": "https://",
-      "hl": [
-        { "id": "berlinale1", "t": "Berlin Film Festival", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY5ODAxMjM1NDgxNDY5?story_media_id=3309109697287613886", "f": [] }
-      ] },
+    { "id": "berlinale", "n": "Berlin Film Festival", "y": "", "d": "Live Instagram stories from the Berlin Film Festival", "u": "https://", "hl": [{"id": "berlinale1", "t": "Berlin Film Festival", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY5ODAxMjM1NDgxNDY5?story_media_id=3309109697287613886", "f": []}], "r": "Content strategy, innovative Instagram storytelling formats, live coverage through Instagram stories", "cl": "Hammock Magazine", "ch": "Cover the Berlin Film Festival, one of the most important events in cinema, live for Hammock Magazine’s audience.", "res": "Covered the Berlin Film Festival live on Instagram, creating story formats that brought the audience into the festival in real time." },
     {"id": "tbc", "n": "TBC", "y": "", "d": "Instagram content strategy and production for the TBC Concept Café", "u": "https://", "r": "Instagram content strategy and production, influencer selection and collaboration, mood video", "cl": "TBC", "ch": "Introduce TBC’s concept café on Instagram and build an inviting mood around the space.", "res": "Created the Instagram content strategy and produced content for the TBC Concept Café, including a mood video featuring three influencers."},
     {"id": "lamborghini", "n": "Lamborghini", "y": "", "d": "Instagram stories and reels for the showroom opening", "u": "https://", "r": "Social media content: Instagram stories and reels", "cl": "Lamborghini", "ch": "Build excitement around the opening of Lamborghini’s new showroom on social media.", "res": "Created Instagram stories and reels covering the opening of Lamborghini’s new showroom."},
     { "id": "mbfw", "n": "Mercedes-Benz Fashion Week", "y": "", "d": "Social media content", "u": "https://",
