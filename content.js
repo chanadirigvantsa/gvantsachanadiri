@@ -462,7 +462,7 @@ window.SITE = {
       "hl": [
         { "id": "berlinale1", "t": "Berlin Film Festival", "u": "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY5ODAxMjM1NDgxNDY5?story_media_id=3309109697287613886", "f": [] }
       ] },
-    {"id": "tbc", "n": "TBC", "y": "", "d": "Instagram content strategy and production for the TBC Concept Café", "u": "https://", "r": "Instagram content strategy and production, mood video, influencer collaboration", "cl": "TBC", "ch": "Introduce TBC’s concept café on Instagram and build an inviting mood around the space.", "res": "Created the Instagram content strategy and produced content for the TBC Concept Café, including a mood video featuring three influencers."},
+    {"id": "tbc", "n": "TBC", "y": "", "d": "Instagram content strategy and production for the TBC Concept Café", "u": "https://", "r": "Instagram content strategy and production, influencer selection and collaboration, mood video", "cl": "TBC", "ch": "Introduce TBC’s concept café on Instagram and build an inviting mood around the space.", "res": "Created the Instagram content strategy and produced content for the TBC Concept Café, including a mood video featuring three influencers."},
     {"id": "lamborghini", "n": "Lamborghini", "y": "", "d": "Instagram stories and reels for the showroom opening", "u": "https://", "r": "Social media content: Instagram stories and reels", "cl": "Lamborghini", "ch": "Build excitement around the opening of Lamborghini’s new showroom on social media.", "res": "Created Instagram stories and reels covering the opening of Lamborghini’s new showroom."},
     { "id": "mbfw", "n": "Mercedes-Benz Fashion Week", "y": "", "d": "Social media content", "u": "https://",
       "yt": ["https://youtu.be/2JqDN6lyRfo"],
