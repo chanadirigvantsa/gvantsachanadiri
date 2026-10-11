@@ -6,7 +6,7 @@ window.SITE = {
   "sides": {"c": {"h": "Content & editorial strategy", "p": "The thinking: what gets made, for whom, and in what voice.", "li": ["Strategy for launches, campaigns and brand moments", "Narratives, content pillars and tone of voice", "Editorial planning, writing and editing", "Web, print and social: Instagram, TikTok, creator-led formats"]}, "p": {"h": "Creative direction & production", "p": "The making: concepts, visuals and the team that brings them to life.", "li": ["Concepts and visual direction for campaigns", "End-to-end production, from brief to rollout", "Leading a team of 10 across content, social, film and styling", "Clients, agencies, influencers and partners"]}},
   // About Me page
   "ABOUT": {
-    "h": "Head of Brand & Creative Content",
+    "h": "Head of Content & Creative Strategy",
     "sub": "I shape how brands and stories look, sound and live across social, digital, video and print, where art, culture, fashion and luxury meet.",
     "sec": [
       {
