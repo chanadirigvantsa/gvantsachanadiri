@@ -6,32 +6,28 @@ window.SITE = {
   "sides": {"c": {"h": "Content & editorial strategy", "p": "The thinking: what gets made, for whom, and in what voice.", "li": ["Strategy for launches, campaigns and brand moments", "Narratives, content pillars and tone of voice", "Editorial planning, writing and editing", "Web, print and social: Instagram, TikTok, creator-led formats"]}, "p": {"h": "Creative direction & production", "p": "The making: concepts, visuals and the team that brings them to life.", "li": ["Concepts and visual direction for campaigns", "End-to-end production, from brief to rollout", "Leading a team of 10 across content, social, film and styling", "Clients, agencies, influencers and partners"]}},
   // About Me page
   "ABOUT": {
-    "h": "Head of Content & Creative Strategy",
-    "sub": "Hammock Magazine & Studio Agency · 5 years",
+    "h": "Head of Brand & Creative Content",
+    "sub": "Hammock Studio & Hammock Magazine",
     "sec": [
       {
-        "h": "Social-First Brand & Content Strategy",
-        "t": "Led content strategies for launches, campaigns and key brand moments, translating brand identity into clear narratives, content pillars and tone of voice across web, print and social platforms, including Instagram, TikTok and creator-led formats."
+        "h": "Social-First Brand & Editorial Content Strategy",
+        "t": "Led social-first content strategy, editorial planning, and storytelling for international premium and luxury brands, alongside magazine coverage spanning art, culture, fashion, beauty, and lifestyle. Translated brand objectives and editorial concepts into compelling narratives, platform-specific content pillars, and distinctive brand voices across social media, digital platforms, video, and print."
       },
       {
-        "h": "Editorial Leadership & Storytelling",
-        "t": "Led editorial planning and wrote, edited and managed content across web, print and social media. Drew on a background in journalism and inspiration from art, culture and society to shape narratives that combine editorial rigor with creativity."
-      },
-      {
-        "h": "Creative Direction & Digital Brand Image",
-        "t": "Developed concepts and visual directions across campaign assets, short-form content and always-on storytelling, ensuring platform relevance and a distinctive, consistent brand expression."
+        "h": "Creative Direction & Visual Storytelling",
+        "t": "Developed integrated campaigns, editorial concepts, and multimedia content, from brand narratives, feature articles, and interviews to fashion editorials, photography, video scripts, and social content. Shaped creative direction and visual identity to strengthen brand positioning and maintain a cohesive editorial aesthetic."
       },
       {
         "h": "Production & Cross-Functional Delivery",
-        "t": "Led end-to-end content production, from brief and concept through post-production and delivery. Partnered with clients, contributors, influencers and external partners, translating complex briefs into clear, impactful, audience-focused content."
+        "t": "Oversaw end-to-end content production, from concept development and creative briefing to execution and publication, managing timelines, budgets, and quality standards. Led on-site editorial and multimedia coverage at major international events, including the Venice Biennale, Berlinale, and Milan Design Week."
       },
       {
-        "h": "Team Management",
-        "t": "Managed and mentored a team of 10, including permanent staff (content managers, social media managers, editors, directors and camera operators) and freelance creative producers, stylists and makeup artists. Oversaw priorities, workflows and creative quality across content development and delivery."
+        "h": "Team Leadership & Creative Collaboration",
+        "t": "Managed a multidisciplinary team of 10, including content managers, social media managers, editors, directors, and camera operators, alongside freelance producers, stylists, and make-up artists. Coordinated workflows, creative priorities, and delivery across brand campaigns and editorial projects."
       },
       {
-        "h": "Performance & Optimization",
-        "t": "Ensured content performance and visibility across digital platforms through SEO and GEO practices, supporting broader brand and corporate communication objectives."
+        "h": "Industry Relations & Creative Partnerships",
+        "t": "Built relationships with luxury brands, artists, designers, photographers, and cultural institutions, developing collaborations and editorial opportunities at the intersection of art, culture, fashion, beauty, and lifestyle."
       }
     ]
   },
