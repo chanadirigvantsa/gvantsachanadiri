@@ -483,7 +483,7 @@ window.SITE = {
       "pg": [{"h": "Backstage Photos", "imgs": ["images/mbfw/backstage-01.jpg","images/mbfw/backstage-02.jpg","images/mbfw/backstage-03.jpg","images/mbfw/backstage-04.jpg","images/mbfw/backstage-05.jpg","images/mbfw/backstage-06.jpg","images/mbfw/backstage-07.jpg","images/mbfw/backstage-08.jpg","images/mbfw/backstage-09.jpg","images/mbfw/backstage-10.jpg"], "pos": ["center 40%","center 35%","center 40%","center 40%","center 40%","center 25%","center 45%","center 40%","center 35%","30% center"]}],
       "links": [ { "t": "Watch on TikTok", "u": "https://vm.tiktok.com/ZN8kpnS74/" } ] },
     { "id": "moet", "n": "Moët & Chandon", "y": "", "d": "Instagram content", "u": "https://" },
-    { "id": "volvo", "n": "Volvo", "y": "", "d": "Instagram content", "u": "https://" }
+    {"id": "volvo", "n": "Volvo", "y": "", "d": "Instagram reels and stories for the Volvo event", "u": "https://", "r": "Social media content: Instagram reels and stories", "cl": "Volvo", "ch": "Bring the Volvo event to life on social media and extend its reach beyond the guests in the room.", "res": "Created Instagram reels and stories covering the Volvo event."}
   ],
   "IG": [
     ["Reel", "Milan Design Week", "", "mdw1", "https://www.instagram.com/reel/C58OXMvoega/", "milandesignweek"],
