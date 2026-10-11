@@ -384,7 +384,7 @@ window.SITE = {
     },
     {
       "id": "mini",
-      "res": "Produced an editorial in which four well-known photographers each captured MINI through their own signature and vision, creating four distinct visual stories of the same car.",
+      "res": "Produced an editorial in which four photographers each captured MINI through their own signature and vision, creating four distinct visual stories of the same car.",
       "cl": "MINI",
       "s": "b",
       "b": "MINI",
@@ -392,7 +392,7 @@ window.SITE = {
       "d": "Photo",
       "y": "2024",
       "r": "Photographer selection, content management and creative production",
-      "o": "Show MINI from four distinct creative perspectives, each shaped by a renowned photographer’s signature style.",
+      "o": "Show MINI from four distinct creative perspectives, each shaped by a photographer’s signature style.",
       "role": [],
       "c": "Hammock Magazine",
       "gl": "natural",
