@@ -402,13 +402,15 @@ window.SITE = {
     },
     {
       "id": "moet",
+      "res": "Launched minimoet.hammockmagazine.ge, a digital platform where customers ordered MiniMoët together with a digital card designed by an artist. Each card could be sent directly to the recipient or shared on social media, turning every order into a moment to share. The campaign rolled out with nine digital artworks and a mood video.",
+      "cl": "Moët & Chandon",
       "s": "b",
       "b": "Moët & Chandon",
       "t": "Summer campaign: digital art and mood video",
       "d": "Digital art",
       "y": "2020",
-      "r": "Campaign artwork, social content",
-      "o": "Summer, told through illustrated Moët moments: city nights, rooftop picnics, beach days and celebrations. Nine digital artworks and a mood video for social media.",
+      "r": "Campaign concept and creative brief, visual direction, digital and social content planning, campaign management",
+      "o": "Turn a summer champagne into a shareable experience: give every MiniMoët order a personal, artistic touch and carry the brand’s summer story across digital and social media.",
       "role": [
         ["Produced", "Nine illustrated scenes for the summer campaign"],
         ["Produced", "Mood video for social media"]
