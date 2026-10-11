@@ -173,13 +173,15 @@ window.SITE = {
   "P": [
     {
       "id": "sarajishvili",
+      "res": "Created a commercial video and a photo editorial emphasizing Sarajishvili’s brand heritage, used across the brand’s digital communication channels.",
+      "cl": "Sarajishvili",
       "s": "b",
       "b": "Sarajishvili",
-      "t": "Campaign content",
+      "t": "Commercial video and photo editorial celebrating brand heritage",
       "d": "Photo",
       "y": "",
-      "r": "",
-      "o": "",
+      "r": "Commercial video and photo editorial production",
+      "o": "Tell the story of Sarajishvili’s heritage through a commercial and an editorial for the brand’s digital channels.",
       "role": [],
       "c": "",
       "gl": "natural",
