@@ -7,31 +7,31 @@ window.SITE = {
   // About Me page
   "ABOUT": {
     "h": "Head of Brand & Creative Content",
-    "sub": "",
+    "sub": "I shape how brands and stories look, sound and live across social, digital, video and print, where art, culture, fashion and luxury meet.",
     "sec": [
       {
-        "h": "Social-First Brand & Editorial Content Strategy",
-        "t": "Led social-first content strategy, editorial planning, and storytelling for a portfolio of international premium and luxury brands, including Hennessy, Moët & Chandon, Monkey Shoulder, Porsche, Lamborghini, BMW, MINI, Tommy Hilfiger, Erborian, Melvita, and Visa, alongside magazine coverage spanning art, culture, fashion, beauty, and lifestyle. Translated strategic briefs and brand objectives into platform-specific content pillars, distinctive brand voices, and integrated content programmes across social, digital, video, and print."
+        "h": "Brand & Editorial Strategy",
+        "t": "I build social-first content strategies for premium and luxury brands, including Hennessy, Moët & Chandon, Monkey Shoulder, Porsche, Lamborghini, BMW, MINI, Tommy Hilfiger, Erborian, Melvita and Visa, turning briefs into clear content pillars and a distinctive voice for every platform."
       },
       {
         "h": "Creative Direction & 360° Campaigns",
-        "t": "Conceived and delivered 360° campaigns and branded content, from brand narratives, feature articles, and interviews to fashion editorials, photography, video scripts, and social content. Shaped creative direction and visual identity to strengthen brand positioning and maintain a cohesive editorial aesthetic."
+        "t": "From first idea to final frame: campaigns, fashion editorials, interviews, photography, video and social content, held together by one cohesive visual language."
       },
       {
-        "h": "Production & Cross-Functional Delivery",
-        "t": "Oversaw end-to-end content production, from concept and creative briefing to execution and publication, managing timelines, budgets, and quality standards. Led on-site editorial and multimedia coverage at major international events, including the Venice Biennale, Berlinale, and Milan Design Week."
+        "h": "Production",
+        "t": "I take ideas from brief to publication, on time and on budget, and lead on-site coverage at international events such as the Venice Biennale, Berlinale and Milan Design Week."
       },
       {
-        "h": "Performance & Audience Growth",
-        "t": "Optimised content performance and discoverability across digital channels using audience insights, platform analytics, SEO, and GEO (Generative Engine Optimisation), building Hammock Magazine's social community to 55K+ followers (30K Facebook, 25K Instagram) and increasing engagement, reach, and brand visibility."
+        "h": "Audience Growth",
+        "t": "Insight-led content, SEO and GEO grew Hammock Magazine’s community to 55K+ followers across Facebook and Instagram, with stronger reach and engagement."
       },
       {
-        "h": "Team Leadership & Creative Collaboration",
-        "t": "Managed a multidisciplinary team of 10, including content managers, social media managers, editors, directors, and camera operators, alongside freelance producers, stylists, and make-up artists. Set creative priorities and coordinated workflows across brand campaigns and editorial projects."
+        "h": "Team Leadership",
+        "t": "I lead a team of 10 (content and social media managers, editors, directors and camera operators) together with freelance producers, stylists and make-up artists."
       },
       {
-        "h": "Industry Relations & Creative Partnerships",
-        "t": "Built relationships with luxury brands, artists, designers, photographers, and cultural institutions, developing collaborations and editorial opportunities at the intersection of art, culture, fashion, beauty, and lifestyle."
+        "h": "Partnerships",
+        "t": "I connect brands with artists, designers, photographers and cultural institutions, creating collaborations where art, fashion and culture meet."
       }
     ]
   },
