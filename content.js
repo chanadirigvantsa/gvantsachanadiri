@@ -7,7 +7,7 @@ window.SITE = {
   // About Me page
   "ABOUT": {
     "h": "Head of Brand & Creative Content",
-    "sub": "Hammock Studio & Hammock Magazine",
+    "sub": "",
     "sec": [
       {
         "h": "Social-First Brand & Editorial Content Strategy",
