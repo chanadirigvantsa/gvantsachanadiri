@@ -33,7 +33,7 @@ var P=[
 var IG=[["Reel","Launch teaser","Plan, edit notes"],["Carousel","Collection story","Copy, sequencing"],["Post","Campaign still","Publishing"],["Reel","Behind the scenes","Produce, capture"],["Story","Launch day","Plan, publish"],["Carousel","Interview excerpt","Edit, copy"],["Post","Product detail","Planning"],["Reel","Film cutdown","Coordinate"],["Post","Community","Moderate"]];
 
 DEF.P=P;DEF.IG=IG;DEF.SP=[{id:"porsche",n:"Porsche",y:"2026",d:"Instagram content and campaign rollout",u:"https://"},{id:"bmw",n:"BMW",y:"2025",d:"Social content and launch posts",u:"https://"}];
-var D=[["All","All"],["c","Content management"],["p","Creative production"]],SL={c:"Content management",p:"Creative production",b:"Content management + production"},G={Managed:"c",Produced:"p",Coordinated:"p",Contributed:"x"},GL={c:"Content management",p:"Creative production",x:"Creative contribution"},f="All";
+var D=[["All","All"],["c","Content management"],["p","Creative production"]],SL={c:"Content management + production",p:"Content management + production",b:"Content management + production"},G={Managed:"c",Produced:"p",Coordinated:"p",Contributed:"x"},GL={c:"Content management",p:"Creative production",x:"Creative contribution"},f="All";
 var BASE=JSON.stringify(window.SITE||null),LOCAL=!window.claude&&/[?&]edit\b/.test(location.search),KEY="portfolio-draft",PREV={};
 function src(m){return PREV[m.u]||m.u||"/_blob/"+m.id}
 var selp=null,S=JSON.parse(JSON.stringify(DEF)),ed=false,can=false,db,assets,doc,tm,cur,app=document.getElementById("app");
@@ -48,7 +48,7 @@ return '<div class="ph md '+(cls||"")+'" role="img" aria-label="'+esc(label)+'">
 function ordRows(){return S.ORDER.map(function(o){var p=o.p&&S.P.filter(function(x){return x.id==o.p})[0],q=o.s&&S.SP.filter(function(x){return x.id==o.s})[0];if(!p&&!q)return "";
 var side=p?p.s:"c",hide=f!="All"&&side!="b"&&side!=f,y=(p&&p.y)||(q&&q.y)||"",lab=p?SL[p.s]+' &nbsp;/&nbsp; '+esc(p.t)+(q?' &nbsp;/&nbsp; Social media':''):'Social media &nbsp;/&nbsp; '+esc(q.d);
 return '<a class="row'+(hide?" hide":"")+'" href="#'+(p?'p-'+p.id:'s-'+q.id)+'"><span class="b serif">'+esc(p?p.b:q.n)+'</span><span class="m">'+esc(y)+'</span><span class="r">'+lab+'</span></a>'}).join("")}
-function idx(){var h='<div class="filters">'+D.map(function(d){return '<button data-f="'+d[0]+'" class="'+(d[0]==f?"on":"")+'">'+d[1]+'</button>'}).join("")+'</div>';
+function idx(){var h='';f="All";
 if(!ed&&S.ORDER)return h+ordRows();
 S.P.forEach(function(p,i){var hide=f!="All"&&p.s!="b"&&p.s!=f,t=ed?"div":"a";h+='<'+t+' class="row'+(hide?" hide":"")+'"'+(ed?'':' href="#p-'+p.id+'"')+'><span class="b serif">'+E("P."+i+".b")+'</span><span class="m">'+E("P."+i+".y")+'</span><span class="r">'+SL[p.s]+' &nbsp;/&nbsp; '+E("P."+i+".t")+(ed?' &nbsp;<a href="#p-'+p.id+'" style="text-decoration:underline">Open page</a> &nbsp;<button data-del="'+i+'" style="text-decoration:underline">Delete</button>':'')+'</span></'+t+'>'});
 return h+(ed?'<button class="add" data-add="p">+ Add project</button>':'')}

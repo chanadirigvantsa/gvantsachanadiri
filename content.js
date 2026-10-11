@@ -174,7 +174,7 @@ window.SITE = {
   "P": [
     {
       "id": "sarajishvili",
-      "s": "c",
+      "s": "b",
       "b": "Sarajishvili",
       "t": "Campaign content",
       "d": "Photo",
@@ -189,7 +189,7 @@ window.SITE = {
     },
     {
       "id": "wissol",
-      "s": "c",
+      "s": "b",
       "b": "Wissol Group",
       "t": "Campaign content",
       "d": "Photo",
@@ -207,7 +207,7 @@ window.SITE = {
     },
     {
       "id": "milandesignweek",
-      "s": "c",
+      "s": "b",
       "b": "Milan Design Week",
       "t": "Social media content",
       "d": "Social",
@@ -227,7 +227,7 @@ window.SITE = {
     },
     {
       "id": "venicearchitecture",
-      "s": "c",
+      "s": "b",
       "b": "Venice Architecture Biennale",
       "t": "Social media content",
       "d": "Social",
@@ -244,7 +244,7 @@ window.SITE = {
     },
     {
       "id": "venicebiennale",
-      "s": "c",
+      "s": "b",
       "b": "Venice Art Biennale",
       "t": "Video content",
       "d": "Video",
@@ -268,7 +268,7 @@ window.SITE = {
     },
     {
       "id": "afflelou",
-      "s": "c",
+      "s": "b",
       "b": "Afflelou Paris",
       "t": "Eyewear campaign",
       "d": "Photo",
@@ -304,7 +304,7 @@ window.SITE = {
     },
     {
       "id": "thebodyshop",
-      "s": "c",
+      "s": "b",
       "b": "The Body Shop",
       "t": "Video content",
       "d": "Video",
@@ -320,7 +320,7 @@ window.SITE = {
     },
     {
       "id": "melvita",
-      "s": "c",
+      "s": "b",
       "b": "Melvita",
       "t": "Editorial and social media content",
       "d": "Social",
@@ -339,7 +339,7 @@ window.SITE = {
     },
     {
       "id": "erborian",
-      "s": "p",
+      "s": "b",
       "b": "Erborian",
       "t": "Beauty campaign",
       "d": "Photo",
@@ -356,7 +356,7 @@ window.SITE = {
     },
     {
       "id": "visa",
-      "s": "c",
+      "s": "b",
       "b": "Visa",
       "t": "Video content",
       "d": "Video",
@@ -387,7 +387,7 @@ window.SITE = {
     },
     {
       "id": "porsche",
-      "s": "c",
+      "s": "b",
       "b": "Porsche",
       "t": "Video content",
       "d": "Video",
@@ -402,7 +402,7 @@ window.SITE = {
     },
     {
       "id": "moet",
-      "s": "p",
+      "s": "b",
       "b": "Moët & Chandon",
       "t": "Summer campaign: digital art and mood video",
       "d": "Digital art",
