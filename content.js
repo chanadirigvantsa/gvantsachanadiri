@@ -11,19 +11,23 @@ window.SITE = {
     "sec": [
       {
         "h": "Social-First Brand & Editorial Content Strategy",
-        "t": "Led social-first content strategy, editorial planning, and storytelling for international premium and luxury brands, alongside magazine coverage spanning art, culture, fashion, beauty, and lifestyle. Translated brand objectives and editorial concepts into compelling narratives, platform-specific content pillars, and distinctive brand voices across social media, digital platforms, video, and print."
+        "t": "Led social-first content strategy, editorial planning, and storytelling for a portfolio of international premium and luxury brands, including Hennessy, Moët & Chandon, Monkey Shoulder, Porsche, Lamborghini, BMW, MINI, Tommy Hilfiger, Erborian, Melvita, and Visa, alongside magazine coverage spanning art, culture, fashion, beauty, and lifestyle. Translated strategic briefs and brand objectives into platform-specific content pillars, distinctive brand voices, and integrated content programmes across social, digital, video, and print."
       },
       {
-        "h": "Creative Direction & Visual Storytelling",
-        "t": "Developed integrated campaigns, editorial concepts, and multimedia content, from brand narratives, feature articles, and interviews to fashion editorials, photography, video scripts, and social content. Shaped creative direction and visual identity to strengthen brand positioning and maintain a cohesive editorial aesthetic."
+        "h": "Creative Direction & 360° Campaigns",
+        "t": "Conceived and delivered 360° campaigns and branded content, from brand narratives, feature articles, and interviews to fashion editorials, photography, video scripts, and social content. Shaped creative direction and visual identity to strengthen brand positioning and maintain a cohesive editorial aesthetic."
       },
       {
         "h": "Production & Cross-Functional Delivery",
-        "t": "Oversaw end-to-end content production, from concept development and creative briefing to execution and publication, managing timelines, budgets, and quality standards. Led on-site editorial and multimedia coverage at major international events, including the Venice Biennale, Berlinale, and Milan Design Week."
+        "t": "Oversaw end-to-end content production, from concept and creative briefing to execution and publication, managing timelines, budgets, and quality standards. Led on-site editorial and multimedia coverage at major international events, including the Venice Biennale, Berlinale, and Milan Design Week."
+      },
+      {
+        "h": "Performance & Audience Growth",
+        "t": "Optimised content performance and discoverability across digital channels using audience insights, platform analytics, SEO, and GEO (Generative Engine Optimisation), building Hammock Magazine's social community to 55K+ followers (30K Facebook, 25K Instagram) and increasing engagement, reach, and brand visibility."
       },
       {
         "h": "Team Leadership & Creative Collaboration",
-        "t": "Managed a multidisciplinary team of 10, including content managers, social media managers, editors, directors, and camera operators, alongside freelance producers, stylists, and make-up artists. Coordinated workflows, creative priorities, and delivery across brand campaigns and editorial projects."
+        "t": "Managed a multidisciplinary team of 10, including content managers, social media managers, editors, directors, and camera operators, alongside freelance producers, stylists, and make-up artists. Set creative priorities and coordinated workflows across brand campaigns and editorial projects."
       },
       {
         "h": "Industry Relations & Creative Partnerships",
