@@ -31,7 +31,7 @@ window.SITE = {
       },
       {
         "h": "Partnerships",
-        "t": "I connect brands with artists, designers, photographers and cultural institutions, creating collaborations where art, fashion and culture meet."
+        "t": "I connect brands with artists, designers, photographers, influencers and cultural institutions, creating collaborations where art, fashion and culture meet."
       }
     ]
   },
