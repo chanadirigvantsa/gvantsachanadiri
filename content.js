@@ -444,7 +444,7 @@ window.SITE = {
       "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E"] },
     { "id": "venicearchitecture", "r": "", "n": "Venice Architecture Biennale", "y": "", "d": "Social media content", "u": "https://",
       "yt": ["https://youtu.be/ndRkjAUeWMk"] },
-    { "id": "hennessy", "r": "Social media content strategy", "n": "Hennessy", "y": "2022", "d": "NBA campaign: social media content strategy", "u": "https://" },
+    {"id": "hennessy", "r": "Social media content strategy, campaign content creation, event video production", "n": "Hennessy", "y": "2022", "d": "NBA campaign: social media content strategy", "u": "https://", "cl": "Hennessy, a long-term partner of Hammock", "ch": "Bring the Hennessy x NBA collaboration to Hennessy’s audience on social media and capture the brand’s NBA event on video.", "res": "Created the content for the Hennessy x NBA campaign and produced the video for the brand’s event, as part of Hammock’s ongoing partnership with Hennessy."},
     { "id": "visa", "r": "Content strategy and creative direction", "n": "Visa", "y": "2022", "d": "Content strategy and creative direction for Instagram", "u": "https://" },
     { "id": "bmw", "r": "Content strategy", "n": "BMW", "y": "2024", "d": "Content strategy for BMW Experience", "u": "https://",
       "hl": [
