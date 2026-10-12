@@ -8,10 +8,11 @@ window.SITE = {
   "ABOUT": {
     "h": "Content & Creative Strategy Manager",
     "sub": "I shape how brands and stories look, sound and live across social, digital, video and print, where art, culture, fashion and luxury meet.",
+    "cv": [{"h": "Experience", "it": [["Communications Officer (End-of-Studies Internship)", "Renault Group, Paris", "2026"], ["Freelance Content & Creative Strategy Consultant", "Independent", "2025"], ["Head of Brand & Creative Content", "Hammock Studio & Hammock Magazine, Tbilisi", "2020 – 2024"], ["Content Manager", "Hammock Magazine, Tbilisi", "2019 – 2020"], ["Content Manager & Editor", "SEED NGO", "2018 – 2019"]]}, {"h": "Education", "it": [["MA in Communication, Media and Creative Industries", "Sciences Po Paris (IEP), School of Management and Impact", "2024 – 2026"], ["BA in Journalism and Communications", "Tbilisi State University", "2014 – 2018"]]}, {"h": "Languages", "it": [["Georgian", "Native", ""], ["English", "C2", ""], ["French", "C1", ""]]}],
     "sec": [
       {
         "h": "Brand & Editorial Strategy",
-        "t": "I build social-first content strategies for premium and luxury brands, including Hennessy, Moët & Chandon, Monkey Shoulder, Porsche, Lamborghini, BMW, MINI, Tommy Hilfiger, Erborian, Melvita and Visa, turning briefs into clear content pillars and a distinctive voice for every platform."
+        "t": "I build social-first content strategies for premium and luxury brands, including Moët & Chandon, Hennessy, Porsche, BMW, Lamborghini, MINI, Tommy Jeans and Visa, turning briefs into clear content pillars and a distinctive voice for every platform."
       },
       {
         "h": "Creative Direction & 360° Campaigns",
@@ -19,7 +20,7 @@ window.SITE = {
       },
       {
         "h": "Production",
-        "t": "I take ideas from brief to publication, on time and on budget, and lead on-site coverage at international events such as the Venice Biennale, Berlinale and Milan Design Week."
+        "t": "I take ideas from brief to publication, on time and on budget, and have led on-site coverage at international events such as the Venice Biennale, Berlinale and Milan Design Week."
       },
       {
         "h": "Audience Growth",
@@ -27,7 +28,7 @@ window.SITE = {
       },
       {
         "h": "Team Leadership",
-        "t": "I lead a team of 10 (content and social media managers, editors, directors and camera operators) together with freelance producers, stylists and make-up artists."
+        "t": "At Hammock Studio & Magazine, I led a team of 10 (content and social media managers, editors, directors and camera operators) together with freelance producers, stylists and make-up artists."
       },
       {
         "h": "Partnerships",
