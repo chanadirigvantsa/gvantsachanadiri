@@ -6,7 +6,7 @@ window.SITE = {
   "sides": {"c": {"h": "Content & editorial strategy", "p": "The thinking: what gets made, for whom, and in what voice.", "li": ["Strategy for launches, campaigns and brand moments", "Narratives, content pillars and tone of voice", "Editorial planning, writing and editing", "Web, print and social: Instagram, TikTok, creator-led formats"]}, "p": {"h": "Creative direction & production", "p": "The making: concepts, visuals and the team that brings them to life.", "li": ["Concepts and visual direction for campaigns", "End-to-end production and budgeting, from brief to rollout", "Leading a team of 10 across content, social, film and styling", "Clients, agencies, influencers and partners"]}},
   // About Me page
   "ABOUT": {
-    "h": "Head of Content & Creative Strategy",
+    "h": "Content & Creative Strategy Manager",
     "sub": "I shape how brands and stories look, sound and live across social, digital, video and print, where art, culture, fashion and luxury meet.",
     "sec": [
       {
@@ -35,11 +35,11 @@ window.SITE = {
       }
     ]
   },
-  "title": "Head of Content & Creative Strategy",
+  "title": "Content & Creative Strategy Manager",
   // Menu order
   "NAV": ["work", "social", "personal", "articles", "about"],
   // Menu and page titles
-  "T": { "n1": "Brand Content", "n2": "Social Media", "n3": "Personal Project", "n4": "About Me", "w1": "Brand Content", "s1": "Social Media", "p0": "Personal Project", "n6": "Writing & Editorial", "ar1": "Writing & Editorial", "h7": "Writing & Editorial", "ar2": "Editorial stories on art, fashion, photography, cinema and architecture.", "f1": "Head of Content & Creative Strategy", "f2": "Chanadirigvanca@gmail.com", "h1": "What I do", "h3": "Social Media", "h4": "All social media" },
+  "T": { "n1": "Brand Content", "n2": "Social Media", "n3": "Personal Project", "n4": "About Me", "w1": "Brand Content", "s1": "Social Media", "p0": "Personal Project", "n6": "Writing & Editorial", "ar1": "Writing & Editorial", "h7": "Writing & Editorial", "ar2": "Editorial stories on art, fashion, photography, cinema and architecture.", "f1": "Content & Creative Strategy Manager", "f2": "Chanadirigvanca@gmail.com", "h1": "What I do", "h3": "Social Media", "h4": "All social media" },
   // Social Media projects shown on the home page
   "HOMEIG": ["hennessy", "lamborghini", "visa"],
   "L": { "email": "Chanadirigvanca@gmail.com", "li": "https://www.linkedin.com/in/gvantsa-chanadiri-65882520b/", "ig": "https://instagram.com/your-handle" },
