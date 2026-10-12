@@ -439,7 +439,7 @@ window.SITE = {
       "b": "Monkey Shoulder",
       "t": "Pop-up shop: Hammock's Tropical Palace",
       "d": "Brand activation",
-      "y": "2019",
+      "y": "2020",
       "r": "Brand activation management and creative strategy",
       "o": "Bring Monkey Shoulder’s brand world off the screen and let audiences experience it first-hand at cultural and sports events.",
       "role": [],
