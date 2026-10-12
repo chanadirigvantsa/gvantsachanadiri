@@ -418,7 +418,7 @@ window.SITE = {
       "b": "Moët & Chandon",
       "t": "MiniMoët summer campaign: digital postcards, platform and mood video",
       "d": "Digital art",
-      "y": "2021–2022",
+      "y": "2020",
       "r": "Campaign concept and creative brief, visual direction, artist selection and briefing, platform development with designers and developers, mood video direction, digital and social content planning, launch and promotion, client relationship and approvals, budget and campaign management",
       "o": "Turn a summer champagne into a shareable experience: give every MiniMoët order a personal, artistic touch and carry the brand’s summer story across digital and social media.",
       "role": [
