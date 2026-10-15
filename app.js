@@ -46,7 +46,7 @@ function E(p){var q=S.st&&S.st[p],sy=q?' style="'+(q.c?"color:"+q.c+";":"")+(q.b
 function M(k,label,cls,x){var m=S.M[k],i=m?(m.t=="v"?'<video src="'+esc(src(m))+'" data-a="'+(m.u?"/_blob/"+m.id:"")+'" muted loop autoplay playsinline'+(ed?' controls':'')+'></video>':'<img alt="'+esc(label)+'" src="'+esc(src(m))+'" data-a="'+(m.u?"/_blob/"+m.id:"")+'">'):'<span>'+esc(label)+'</span>';
 return '<div class="ph md '+(cls||"")+'" role="img" aria-label="'+esc(label)+'">'+i+(ed?'<div class="bar"><button data-up="'+k+'">'+(m?'Replace':'Upload photo / video')+'</button>'+(m?'<button data-rm="'+k+'">Remove</button>':'')+(x||"")+'</div>':'')+'</div>'}
 function ordRows(){return S.ORDER.map(function(o){var p=o.p&&S.P.filter(function(x){return x.id==o.p})[0],q=o.s&&S.SP.filter(function(x){return x.id==o.s})[0];if(!p&&!q)return "";
-var side=p?p.s:"c",hide=f!="All"&&side!="b"&&side!=f,y=(p&&yrsT(p))||(q&&q.y)||"",lab=p?SL[p.s]+' &nbsp;/&nbsp; '+esc(p.t)+(q?' &nbsp;/&nbsp; Social media':''):'Social media &nbsp;/&nbsp; '+esc(q.d);
+var side=p?p.s:"c",hide=f!="All"&&side!="b"&&side!=f,y=(p&&yrsT(p))||(q&&q.y)||"",lab='Content management + production'+(q?' + Social media':'')+' &nbsp;/&nbsp; '+esc(p?p.t:q.d);
 return '<a class="row'+(hide?" hide":"")+'" href="#'+(p?'p-'+p.id:'s-'+q.id)+'"><span class="b serif">'+esc(p?p.b:q.n)+'</span><span class="m">'+esc(y)+'</span><span class="r">'+lab+'</span></a>'}).join("")}
 function idx(){var h='';f="All";
 if(!ed&&S.ORDER)return h+ordRows();
