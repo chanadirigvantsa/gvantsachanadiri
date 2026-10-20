@@ -1,6 +1,6 @@
 # Fondation Louis Vuitton: a history
 
-**The video:** [`out/fondation-louis-vuitton-history.mp4`](out/fondation-louis-vuitton-history.mp4) is one narrated 9:16 film (1080×1920, 30 fps, H.264 + AAC, 2 min 48 s). It fits Instagram's 3-minute Reels limit and also works on TikTok. Use [`out/fondation-louis-vuitton-history-cover.jpg`](out/fondation-louis-vuitton-history-cover.jpg) as the cover frame.
+**The video:** [`out/fondation-louis-vuitton-history.mp4`](out/fondation-louis-vuitton-history.mp4) is one narrated 9:16 film (1080×1920, 30 fps, H.264 + AAC, 2 min 54 s). It fits Instagram's 3-minute Reels limit and also works on TikTok. Use [`out/fondation-louis-vuitton-history-cover.jpg`](out/fondation-louis-vuitton-history-cover.jpg) as the cover frame.
 
 It ends on the Fondation's 12th birthday: it opened on 20 October 2014.
 
@@ -11,7 +11,7 @@ It ends on the Fondation's 12th birthday: it opened on 20 October 2014.
 | 3. The design | The sketch, 19th-century glass, aerospace software, the water, the view |
 | 4. The shows | Buren, Shchukin, Schiele & Basquiat, Morozov, Basquiat × Warhol, Rothko, Hockney, Richter |
 
-Everything is drawn from code: kinetic type and original abstract illustrations, with no photos or artwork reproductions. A narrator reads each scene, and the music ducks under the voice. The voice is [Kokoro](https://huggingface.co/hexgrad/Kokoro-82M), an open-source text-to-speech model under the Apache 2.0 licence, and the music is synthesised, so there are no image, voice or music rights to clear. French names (Arnault, Bois de Boulogne, Fondation Louis Vuitton, Buren, La Défense) are spoken with French pronunciation.
+Everything is drawn from code: kinetic type and original abstract illustrations, with no photos or artwork reproductions. A British male storyteller narrates each scene, and the music ducks under the voice. The voice is [Kokoro](https://huggingface.co/hexgrad/Kokoro-82M), an open-source text-to-speech model under the Apache 2.0 licence, and the music is synthesised, so there are no image, voice or music rights to clear. French names (Arnault, Bois de Boulogne, Fondation Louis Vuitton, Buren, La Défense) are spoken with French pronunciation.
 
 ## Caption
 
@@ -45,6 +45,6 @@ The script needs Python 3 with Pillow and numpy, plus ffmpeg. The voice model (a
 
 - **On-screen text** lives in the `REELS` list in `make_reels.py`. The film (`FILM`) is assembled from those scenes plus three chapter cards and a closing card.
 - **The spoken script** is the `NARRATION` list, one line per scene. Wrap French words in `{braces}` to have them spoken in French, and add names the voice mispronounces to `PRON`.
-- **The voice** is set by `VOICE`. Try `bf_emma` or `bm_george` for a British accent, or `am_michael` for a US male voice. `VO_SPEED` sets the pace.
+- **The voice** is set by `VOICE` (now `bm_fable`, British male storyteller). Other options include `bm_george` (British male), `bf_emma` (British female), `af_heart` (US female) and `am_michael` (US male). `VO_SPEED` sets the pace.
 
 Each scene stretches to fit its narration line, and the progress bar and music follow.

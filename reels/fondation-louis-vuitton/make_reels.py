@@ -949,7 +949,7 @@ def soundtrack(path, starts, total, seed, voice=None):
 # ---------------------------------------------------------------- narration
 # One line per scene. {braces} are spoken with French pronunciation; PRON fixes
 # names the English phonemiser gets wrong. Scenes stretch to fit their line.
-VOICE, VO_SPEED, VO_SR = "af_heart", 1.1, 24000
+VOICE, VO_SPEED, VO_SR = "bm_fable", 1.1, 24000
 TTS_DIR = os.path.join(HERE, "tts")
 TTS_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
 PRON = {
