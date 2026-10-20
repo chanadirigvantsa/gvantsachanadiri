@@ -26,9 +26,7 @@
   }
   canvas {
     display: block;
-    width: min(100%, calc((100vh - 96px) * 0.8));
     max-width: 100%;
-    aspect-ratio: 4 / 5;
     height: auto;
     background: var(--paper);
   }
@@ -44,21 +42,25 @@
     padding: 6px 4px;
     cursor: pointer;
   }
-  button:hover { color: var(--ink); }
+  button:hover, button[aria-pressed="true"] { color: var(--ink); }
+  button[aria-pressed="true"] { text-decoration: underline; text-underline-offset: 5px; }
   button:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
   body.export .bar { display: none; }
   body.export { padding: 0; gap: 0; }
-  body.export canvas { width: 1080px; height: 1350px; }
+  body.export canvas { width: 1080px !important; height: auto; }
 </style>
 
-<canvas id="c" width="1080" height="1350" aria-label="Lily of the valley sprigs blossoming around the edges of a white frame"></canvas>
+<canvas id="c" width="1080" height="1920" aria-label="Lily of the valley sprigs blossoming around the edges of a white frame"></canvas>
 <div class="bar">
   <button id="replay" type="button">Replay</button>
+  <button type="button" data-fmt="reel" aria-pressed="true">Reel 9:16</button>
+  <button type="button" data-fmt="post" aria-pressed="false">Post 4:5</button>
 </div>
 
 <script>
 (() => {
-  const W = 1080, H = 1350;
+  const W = 1080;
+  let H = 1920;
   const cv = document.getElementById('c');
   const ctx = cv.getContext('2d');
 
@@ -114,6 +116,7 @@
   const ids = o => o, both = o => mirrorY(mirrorX(o));
 
   const stems = [], leaves = [];
+  const atY = y => o => ({ ...o, y: o.y - 650 + y });   // move the side sprig to height y
   function place(set, tf, delay) {
     set.stems.forEach(s => {
       const o = tf(s);
@@ -125,14 +128,36 @@
     });
     set.leaves.forEach(l => { const o = tf(l); o.d += delay; o.phase = rnd() * 6.28; leaves.push(o); });
   }
-  place(corner, ids, 0);
-  place(corner, mirrorX, 0.35);
-  place(corner, mirrorY, 0.7);
-  place(corner, both, 1.0);
-  place(sideSet, ids, 0.2);
-  place(sideSet, mirrorX, 0.5);
-  place(midSet, ids, 0.1);
-  place(midSet, both, 0.6);
+  function build(fmt) {
+    seed = 7;
+    stems.length = 0; leaves.length = 0;
+    H = fmt === 'post' ? 1350 : 1920;
+    cv.height = H;
+    cv.style.aspectRatio = `${W} / ${H}`;
+    cv.style.width = `min(100%, calc((100vh - 96px) * ${W / H}))`;
+    // corner and middle sets are drawn for a 1350px frame; keep them on the bottom edge
+    const btm = o => ({ ...o, y: o.y + H - 1350 });
+    const bl = btm, br = o => mirrorX(btm(o)), tl = o => mirrorY(btm(o)), tr = o => both(btm(o));
+    place(corner, bl, 0);
+    place(corner, br, 0.35);
+    place(corner, tl, 0.7);
+    place(corner, tr, 1.0);
+    if (fmt === 'post') {
+      place(sideSet, ids, 0.2);
+      place(sideSet, mirrorX, 0.5);
+    } else {
+      // the taller Reels frame gets two sprigs on each side
+      place(sideSet, atY(H * 0.36), 0.2);
+      place(sideSet, o => mirrorX(atY(H * 0.6)(o)), 0.4);
+      place(sideSet, o => mirrorX(atY(H * 0.36)(o)), 0.6);
+      place(sideSet, atY(H * 0.6), 0.8);
+    }
+    place(midSet, bl, 0.1);
+    place(midSet, tr, 0.6);
+    document.querySelectorAll('[data-fmt]').forEach(b => b.setAttribute('aria-pressed', b.dataset.fmt === fmt));
+  }
+  const params = new URLSearchParams(location.search);
+  build(params.get('format') === 'post' ? 'post' : 'reel');
 
   const GROW = 3.2;   // seconds for a stem to reach full length
 
@@ -326,5 +351,10 @@
     start = performance.now();
     if (reduce) renderAt(9);
   });
+  document.querySelectorAll('[data-fmt]').forEach(b => b.addEventListener('click', () => {
+    build(b.dataset.fmt);
+    start = performance.now();
+    if (reduce) renderAt(9);
+  }));
 })();
 </script>
