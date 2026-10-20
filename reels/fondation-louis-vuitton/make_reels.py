@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Render four 9:16 Instagram reels on the history of the Fondation Louis Vuitton.
+"""Render a 9:16 film (or four short reels) on the history of the Fondation Louis Vuitton.
 
 Every frame is drawn from code (typography plus original abstract illustrations),
 and the soundtrack is synthesised, so there are no third-party images or music to clear.
 
-Usage:  python3 make_reels.py             # all reels, narrated
-        python3 make_reels.py 2 4         # only reels 2 and 4
+Usage:  python3 make_reels.py             # the full film, narrated
+        python3 make_reels.py --shorts    # the four short reels instead
+        python3 make_reels.py 2 4         # only short reels 2 and 4
         python3 make_reels.py --no-voice  # music only
         python3 make_reels.py --preview   # one still per scene into preview/
 Needs Pillow, numpy and ffmpeg. Narration needs `pip install kokoro-onnx`; the
@@ -840,16 +841,28 @@ REELS = [
 def chrome(L, t, reel, idx, local, durs):
     dr = ImageDraw.Draw(L)
     # story-style progress segments
-    n = len(durs)
+    chap = reel.get("chapters")
+    if chap:  # long film: one segment per chapter
+        n = max(chap)
+        spans = [sum(d for d, c in zip(durs, chap) if c == k + 1) for k in range(n)]
+        now = sum(durs[:idx]) + local
+        done = [clamp((now - sum(spans[:k])) / spans[k]) for k in range(n)]
+    else:
+        n = len(durs)
+        done = [1 if i < idx else (local / durs[i] if i == idx else 0) for i in range(n)]
     gap, x, y, total = 8, 60, 120, W - 120
     seg = (total - gap * (n - 1)) / n
     for i in range(n):
         x1 = x + i * (seg + gap)
         dr.rounded_rectangle([x1, y, x1 + seg, y + 6], radius=3, fill=(255, 255, 255, 60))
-        p = 1 if i < idx else (local / durs[i] if i == idx else 0)
-        if p > 0:
-            dr.rounded_rectangle([x1, y, x1 + seg * clamp(p), y + 6], radius=3, fill=(255, 255, 255, 230))
-    im = line_img(f"FLV HISTORY  {reel['n']:02d}/04", F_MONO, 26, (210, 215, 228), 2)
+        if done[i] > 0:
+            dr.rounded_rectangle([x1, y, x1 + seg * clamp(done[i]), y + 6], radius=3, fill=(255, 255, 255, 230))
+    if chap:
+        c = chap[idx]
+        tag = f"FLV HISTORY  {c}/{n} {reel['chapter_names'][c - 1]}"
+    else:
+        tag = f"FLV HISTORY  {reel['n']:02d}/04"
+    im = line_img(tag.upper(), F_MONO, 26, (210, 215, 228), 2)
     put(L, im, 60, 150)
     im = line_img(CREDIT.upper(), F_MONO, 26, (160, 168, 186), 2)
     put(L, im, W - 60 - im.width, 150)
@@ -988,7 +1001,31 @@ NARRATION = {
     ],
 }
 
-def phonemes(line, tok):
+# The full film: one hook, the four stories as chapters, one ending.
+def _from(n, idxs):
+    r = REELS[n - 1]
+    return [(r["scenes"][i], NARRATION[r["slug"]][i]) for i in idxs]
+
+def _card(kicker, title, line):
+    return [(Scene(2.6, sc_hook, kicker=kicker, lines=title), line)]
+
+_film = (
+    _from(1, range(0, 7))
+    + _card("Chapter 2", "The building, in numbers.", "Chapter two. The building, in numbers.") + _from(2, range(1, 7))
+    + _card("Chapter 3", "How Gehry built a cloud of glass.", "Chapter three. How Gehry built a cloud of glass.") + _from(3, range(1, 6))
+    + _card("Chapter 4", "Twelve years of blockbusters.", "Chapter four. Twelve years of blockbusters.") + _from(4, range(1, 9))
+    + [(Scene(4.0, sc_end, big="12 years ago today.", small="Happy birthday, Fondation.",
+              cta="Follow for more art history"),
+        "The Fondation opened twelve years ago today. Happy birthday! Follow for more art history.")]
+)
+FILM = dict(n=5, slug="fondation-louis-vuitton-history", title="The Fondation Louis Vuitton: a history",
+            theme=NIGHT, seed=1, scenes=[sc for sc, _ in _film],
+            chapters=[1] * 7 + [2] * 7 + [3] * 6 + [4] * 9 + [4],
+            chapter_names=["The story", "In numbers", "The design", "The shows"])
+NARRATION[FILM["slug"]] = [ln for _, ln in _film]
+REELS.append(FILM)
+
+def phonemes(line, tok, lang="en-us"):
     out = []
     for part in re.split(r"(\{[^}]+\})", line):
         if not part:
@@ -1001,13 +1038,13 @@ def phonemes(line, tok):
         for w in words:
             if w in PRON:
                 if buf.strip():
-                    out.append(tok.phonemize(buf, "en-us"))
+                    out.append(tok.phonemize(buf, lang))
                 buf = ""
                 out.append(PRON[w])
             else:
                 buf += w
         if buf.strip():
-            ph = tok.phonemize(buf, "en-us")
+            ph = tok.phonemize(buf, lang)
             out.append(ph if buf.strip(" ") == buf else ph + (" " if buf.endswith(" ") else ""))
     joined = re.sub(r"\s+", " ", " ".join(o.strip() for o in out)).strip()
     return re.sub(r"\s+([.,!?:;])", r"\1", joined)
@@ -1032,7 +1069,8 @@ def narrate(reel):
     tok = Tokenizer()
     os.makedirs(os.path.join(HERE, "vo"), exist_ok=True)
     for i, ln in todo:
-        audio, sr = k.create(phonemes(ln, tok), VOICE, VO_SPEED, "en-us", is_phonemes=True)
+        lang = "en-gb" if VOICE.startswith("b") else "en-us"  # British voices get British phonemes
+        audio, sr = k.create(phonemes(ln, tok, lang), VOICE, VO_SPEED, lang, is_phonemes=True)
         pcm = (np.clip(audio, -1, 1) * 32767).astype(np.int16)
         with wave.open(vo_path(reel["slug"], i, ln), "wb") as wv:
             wv.setnchannels(1); wv.setsampwidth(2); wv.setframerate(sr)
@@ -1063,7 +1101,20 @@ def timing(reel, clips=None):
     starts = list(np.cumsum([0] + durs[:-1]))
     return durs, starts, sum(durs)
 
-def render_reel(n, voiced=True):
+def render_video(n, voiced, first, last, path):
+    """Encode frames [first, last) to a silent H.264 file."""
+    reel = next(r for r in REELS if r["n"] == n)
+    durs, starts, _ = timing(reel, load_narration(reel) if voiced else None)
+    cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
+           "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
+           "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", path]
+    p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+    for i in range(first, last):
+        p.stdin.write(render_frame(reel, i / FPS, durs, starts).tobytes())
+    p.stdin.close(); p.wait()
+
+def render_reel(n, voiced=True, parts=1):
+    """Render one reel; `parts` > 1 splits the frames across processes and joins them."""
     reel = next(r for r in REELS if r["n"] == n)
     os.makedirs(OUT, exist_ok=True)
     clips = load_narration(reel) if voiced else None
@@ -1075,18 +1126,25 @@ def render_reel(n, voiced=True):
         voice = [(st + VO_LEAD, np.interp(np.arange(int(len(c) * sr / VO_SR)) * VO_SR / sr, np.arange(len(c)), c))
                  for st, c in zip(starts, clips)]
     soundtrack(wav, starts, total, reel["seed"], voice)
-    mp4 = os.path.join(OUT, f"{reel['slug']}.mp4")
-    cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
-           "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-i", wav,
-           "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
-           "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "44100",
-           "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", mp4]
-    p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     frames = int(total * FPS)
-    for i in range(frames):
-        p.stdin.write(render_frame(reel, i / FPS, durs, starts).tobytes())
-    p.stdin.close(); p.wait()
-    os.remove(wav)
+    cuts = [frames * k // parts for k in range(parts + 1)]
+    chunks = [os.path.join(OUT, f".{reel['slug']}-{k}.mp4") for k in range(parts)]
+    jobs = [(n, voiced, cuts[k], cuts[k + 1], chunks[k]) for k in range(parts)]
+    if parts == 1:
+        render_video(*jobs[0])
+    else:
+        with Pool(parts) as pool:
+            pool.starmap(render_video, jobs)
+    listing = os.path.join(OUT, f".{reel['slug']}.txt")
+    with open(listing, "w") as f:
+        f.writelines(f"file '{os.path.basename(c)}'\n" for c in chunks)
+    mp4 = os.path.join(OUT, f"{reel['slug']}.mp4")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", listing, "-i", wav,
+                    "-map", "0:v", "-map", "1:a", "-c:v", "copy",
+                    "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "44100",
+                    "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", mp4], check=True)
+    for f in chunks + [listing, wav]:
+        os.remove(f)
     # cover image: the hook at full reveal
     render_frame(reel, min(2.6, durs[0] - 0.4), durs, starts).save(
         os.path.join(OUT, f"{reel['slug']}-cover.jpg"), quality=90)
@@ -1100,7 +1158,7 @@ def preview(reel):
 
 if __name__ == "__main__":
     args = sys.argv[1:]
-    want = [int(a) for a in args if a.isdigit()] or [r["n"] for r in REELS]
+    want = [int(a) for a in args if a.isdigit()] or ([1, 2, 3, 4] if "--shorts" in args else [5])
     reels = [r for r in REELS if r["n"] in want]
     voiced = "--no-voice" not in args
     if "--preview" in args:
@@ -1110,7 +1168,10 @@ if __name__ == "__main__":
         if voiced:
             for r in reels:
                 narrate(r)
-        jobs = [(r["n"], voiced) for r in reels]
-        with Pool(min(4, len(reels))) as pool:
-            for mp4, total in pool.starmap(render_reel, jobs):
-                print(f"{os.path.relpath(mp4, HERE)}  {total:.1f}s")
+        if len(reels) == 1:
+            results = [render_reel(reels[0]["n"], voiced, parts=os.cpu_count() or 1)]
+        else:
+            with Pool(min(4, len(reels))) as pool:
+                results = pool.starmap(render_reel, [(r["n"], voiced) for r in reels])
+        for mp4, total in results:
+            print(f"{os.path.relpath(mp4, HERE)}  {total:.1f}s")
