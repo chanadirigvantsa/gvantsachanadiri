@@ -1,0 +1,317 @@
+<title>Sweet Pea Meadow</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+  /* Layout: one tall canvas, centred; hand-drawn sweet peas grow up from the bottom edge only, the rest stays empty for text */
+  :root {
+    --paper: #fbf4ea;
+    --ink-soft: #b08a86;
+    --ink: #8a4f55;
+    --font-ui: Georgia, "Times New Roman", serif;
+    color-scheme: light;
+  }
+  html, body { height: 100%; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding-block: 16px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    box-sizing: border-box;
+  }
+  canvas { display: block; max-width: 100%; height: auto; background: var(--paper); }
+  .bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+  button {
+    font: inherit;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: none;
+    border: 0;
+    padding: 6px 4px;
+    cursor: pointer;
+  }
+  button:hover, button[aria-pressed="true"] { color: var(--ink); }
+  button[aria-pressed="true"] { text-decoration: underline; text-underline-offset: 5px; }
+  button:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
+  body.export .bar { display: none; }
+  body.export { padding: 0; gap: 0; }
+  body.export canvas { width: 1080px !important; }
+</style>
+
+<canvas id="c" width="1080" height="1920" aria-label="Hand-drawn pink sweet peas growing up from the bottom edge and opening"></canvas>
+<div class="bar">
+  <button id="replay" type="button">Replay</button>
+  <button type="button" data-fmt="reel" aria-pressed="true">Reel 9:16</button>
+  <button type="button" data-fmt="post" aria-pressed="false">Post 4:5</button>
+</div>
+
+<script>
+(() => {
+  const W = 1080;
+  let H = 1920;
+  const cv = document.getElementById('c');
+  const ctx = cv.getContext('2d');
+
+  const PAPER = '#fbf4ea';
+  const LINE = 'rgba(128,52,62,0.78)';
+  const G = { stem: '#97b542', stemLine: '#5f7a28', leaf: '#a3c053', leafShade: '#82a23a', leafLine: '#5f7a28' };
+  // sweet pea colourways: [banner, banner shade, wings, wings shade]
+  const PINKS = [
+    ['#f7c9c4', '#efa7a6', '#f2b0ae', '#e48a90'],
+    ['#f4b2ae', '#e98a8f', '#e9767f', '#d4566a'],
+    ['#f9d6d0', '#f1b6b4', '#f4bdb8', '#e79a9c'],
+    ['#ef9a98', '#e0707c', '#dd5a6e', '#c4425c'],
+  ];
+
+  let seed = 11;
+  const rnd = () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+  const ease = t => { t = clamp(t); return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+  const easeOut = t => 1 - Math.pow(1 - clamp(t), 3);
+  const back = t => { t = clamp(t); const c1 = 1.5, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); };
+
+  // a soft, hand-cut blob: an ellipse whose edge wobbles like a ruffled petal
+  function wobble() { return [rnd() * 6.28, rnd() * 6.28, rnd() * 6.28, 2 + Math.floor(rnd() * 3)]; }
+  function blob(cx, cy, rx, ry, rot, wb, amt) {
+    const N = 36, pts = [];
+    for (let i = 0; i < N; i++) {
+      const th = i / N * Math.PI * 2;
+      const k = 1 + amt * (0.55 * Math.sin(th * wb[3] + wb[0]) + 0.3 * Math.sin(th * 5 + wb[1]) + 0.15 * Math.sin(th * 9 + wb[2]));
+      const x = Math.cos(th) * rx * k, y = Math.sin(th) * ry * k;
+      pts.push([cx + x * Math.cos(rot) - y * Math.sin(rot), cy + x * Math.sin(rot) + y * Math.cos(rot)]);
+    }
+    ctx.beginPath();
+    const m = (a, b) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+    let s = m(pts[N - 1], pts[0]);
+    ctx.moveTo(s[0], s[1]);
+    for (let i = 0; i < N; i++) { const e = m(pts[i], pts[(i + 1) % N]); ctx.quadraticCurveTo(pts[i][0], pts[i][1], e[0], e[1]); }
+    ctx.closePath();
+  }
+  function ink(fill, line = LINE, lw = 1.6) {
+    ctx.fillStyle = fill; ctx.fill();
+    ctx.strokeStyle = line; ctx.lineWidth = lw; ctx.lineJoin = 'round'; ctx.stroke();
+  }
+
+  // ---- one sweet pea, local frame: calyx at 0,0, flower faces -y
+  function drawFlower(f, open) {
+    const r = f.r, P = f.pal;
+    if (open < 0.18) {               // closed bud
+      const b = 0.5 + open * 2.5;
+      blob(0, -r * 0.42 * b, r * 0.2 * b, r * 0.42 * b, 0, f.wb1, 0.05);
+      ink(P[3]);
+    } else {
+      const o = (open - 0.18) / 0.82;
+      // banner (the big upright petal)
+      const bx = r * 0.05 * o, by = -r * (0.45 + 0.32 * o), brx = r * (0.28 + 0.78 * o), bry = r * (0.3 + 0.4 * o);
+      blob(bx, by, brx, bry, f.tilt * o, f.wb1, 0.08 + 0.08 * o);
+      ink(P[0]);
+      ctx.save();
+      blob(bx, by, brx, bry, f.tilt * o, f.wb1, 0.08 + 0.08 * o);
+      ctx.clip();
+      blob(bx + r * 0.3, by + r * 0.3, brx * 0.6, bry * 0.6, 0.5, f.wb2, 0.14);  // flat cel shadow
+      ctx.fillStyle = P[1]; ctx.fill();
+      ctx.restore();
+      // soft fold lines on the banner
+      ctx.strokeStyle = 'rgba(128,52,62,0.35)'; ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(0, -r * 0.25); ctx.quadraticCurveTo(-r * 0.05, by, -brx * 0.15, by - bry * 0.75);
+      ctx.moveTo(r * 0.05, -r * 0.3); ctx.quadraticCurveTo(brx * 0.35, by, brx * 0.55, by - bry * 0.45);
+      ctx.stroke();
+      // the two wings in front
+      for (const s of [-1, 1]) {
+        const wx = s * r * (0.08 + 0.14 * o), wy = -r * (0.24 + 0.04 * o);
+        blob(wx, wy, r * (0.13 + 0.11 * o), r * (0.2 + 0.1 * o), s * (0.6 + 0.2 * o), s < 0 ? f.wb2 : f.wb3, 0.1);
+        ink(s < 0 ? P[2] : P[1]);
+      }
+    }
+    // calyx
+    ctx.beginPath();
+    ctx.moveTo(-r * 0.12, -r * 0.08);
+    ctx.quadraticCurveTo(0, r * 0.14, r * 0.12, -r * 0.08);
+    ctx.lineTo(r * 0.03, -r * 0.18); ctx.lineTo(-r * 0.03, -r * 0.08); ctx.lineTo(-r * 0.09, -r * 0.2);
+    ctx.closePath();
+    ink(G.leaf, G.leafLine, 1.3);
+  }
+
+  function drawLeaf(len, wid, g, wb) {
+    if (g <= 0) return;
+    const L = len * g, w = wid * Math.pow(g, 0.7);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(L * 0.3, -w * (0.7 + wb[3] * 0.03), L * 0.78, -w * 0.55, L, 0);
+    ctx.bezierCurveTo(L * 0.74, w * 0.5, L * 0.28, w * 0.62, 0, 0);
+    ctx.closePath();
+    ink(G.leaf, G.leafLine, 1.4);
+    ctx.save(); ctx.clip();
+    ctx.beginPath(); ctx.ellipse(L * 0.55, w * 0.32, L * 0.5, w * 0.32, 0, 0, Math.PI * 2);
+    ctx.fillStyle = G.leafShade; ctx.fill();
+    ctx.restore();
+    ctx.strokeStyle = G.leafLine; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(L * 0.08, 0); ctx.quadraticCurveTo(L * 0.5, -w * 0.08, L * 0.9, 0); ctx.stroke();
+  }
+
+  function drawTendril(len, g, dir) {
+    if (g <= 0) return;
+    const N = Math.floor(48 * g);
+    ctx.beginPath();
+    let x = 0, y = 0, a = 0;
+    ctx.moveTo(0, 0);
+    for (let i = 0; i < N; i++) {
+      const u = i / 48;
+      a += dir * (0.02 + u * u * 0.5);
+      x += Math.cos(a) * len / 48 * (1.2 - u * 0.8);
+      y += Math.sin(a) * len / 48 * (1.2 - u * 0.8);
+      ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = G.stemLine; ctx.lineWidth = 1.6; ctx.lineCap = 'round'; ctx.stroke();
+  }
+
+  // ---- the meadow: stems spread along the bottom edge, taller at the sides so the middle stays open
+  const stems = [];
+  const GROW = 2.8;
+  function build(fmt) {
+    seed = 11;
+    stems.length = 0;
+    H = fmt === 'post' ? 1350 : 1920;
+    cv.height = H;
+    cv.style.width = `min(100%, calc((100vh - 96px) * ${W / H}))`;
+    const scale = fmt === 'post' ? 0.78 : 1;
+    const N = 15;
+    const order = [];
+    for (let i = 0; i < N; i++) order.push(i);
+    order.forEach(i => {
+      const u = i / (N - 1);
+      const side = u - 0.5;
+      const x = 80 + (W - 160) * u + (rnd() - 0.5) * 40;
+      const L = (250 + 380 * Math.pow(Math.abs(side) * 2, 1.3) + rnd() * 260) * scale;
+      const s = {
+        x, y: H + 12,
+        a: -Math.PI / 2 + side * 0.32 + (rnd() - 0.5) * 0.2,
+        bend: side * 0.2 + (rnd() - 0.5) * 0.35,
+        L,
+        d: 0.15 + Math.abs(side) * 1.2 + rnd() * 0.9,
+        phase: rnd() * 6.28,
+        flowers: [], leaves: [], tendrils: [],
+      };
+      const nf = 2 + Math.floor(rnd() * 3);
+      let sideF = rnd() < 0.5 ? -1 : 1;
+      for (let k = 0; k < nf; k++) {
+        s.flowers.push({
+          u: 0.55 + 0.4 * (k / Math.max(1, nf - 1)),
+          side: sideF, pl: (26 + rnd() * 26) * scale,
+          r: (54 + rnd() * 22 - k * 4) * scale,
+          pal: PINKS[Math.floor(rnd() * PINKS.length)],
+          tilt: (rnd() - 0.5) * 0.5, spin: (rnd() - 0.5) * 0.6,
+          wb1: wobble(), wb2: wobble(), wb3: wobble(), budOnly: false,
+        });
+        sideF = -sideF;
+      }
+      s.flowers[s.flowers.length - 1].u = 1;
+      if (rnd() < 0.6) s.flowers[s.flowers.length - 1].budOnly = true;
+      for (const lu of [0.28, 0.5]) {
+        if (lu * L < 120 * scale && lu > 0.3) continue;
+        for (const sd of [-1, 1]) s.leaves.push({ u: lu + (rnd() - 0.5) * 0.06, side: sd, len: (70 + rnd() * 40) * scale, wid: (30 + rnd() * 12) * scale, wb: wobble() });
+      }
+      if (rnd() < 0.9) s.tendrils.push({ u: 0.56 + rnd() * 0.08, side: rnd() < 0.5 ? -1 : 1, len: (100 + rnd() * 60) * scale });
+      stems.push(s);
+    });
+    stems.sort((p, q) => p.L - q.L).reverse();   // tall ones behind
+    document.querySelectorAll('[data-fmt]').forEach(b => b.setAttribute('aria-pressed', b.dataset.fmt === fmt));
+  }
+
+  function stemPoints(s, t) {
+    const N = 60, pts = [];
+    const breeze = clamp((t - s.d - GROW * 0.6) / 2);
+    const sway = (Math.sin(t * 0.9 + s.phase) * 0.045 + Math.sin(t * 0.37 + s.phase * 2) * 0.02) * breeze;
+    let x = s.x, y = s.y;
+    pts.push({ x, y, a: s.a });
+    for (let i = 1; i <= N; i++) {
+      const u = i / N;
+      const a = s.a + (s.bend + sway) * Math.pow(u, 1.4);
+      x += Math.cos(a) * s.L / N; y += Math.sin(a) * s.L / N;
+      pts.push({ x, y, a });
+    }
+    return pts;
+  }
+  const at = (pts, u) => pts[Math.round(clamp(u) * (pts.length - 1))];
+
+  function drawStem(s, t) {
+    const prog = ease((t - s.d) / GROW);
+    if (prog <= 0) return;
+    const pts = stemPoints(s, t);
+    const n = Math.max(1, Math.round(prog * (pts.length - 1)));
+    // leaves and tendrils sit behind the flowers
+    s.leaves.forEach(l => {
+      if (prog < l.u) return;
+      const g = easeOut((t - s.d - GROW * l.u) / 1.1);
+      const p = at(pts, l.u);
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a + l.side * 0.85 + Math.sin(t + s.phase) * 0.03);
+      drawLeaf(l.len, l.wid, g, l.wb); ctx.restore();
+    });
+    s.tendrils.forEach(td => {
+      if (prog < td.u) return;
+      const g = easeOut((t - s.d - GROW * td.u) / 1.6);
+      const p = at(pts, td.u);
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a + td.side * 0.6);
+      drawTendril(td.len, g, td.side); ctx.restore();
+    });
+    // stem: dark line under a lighter fill, like an inked cel
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    for (const [col, extra] of [[G.stemLine, 2.4], [G.stem, 0]]) {
+      ctx.strokeStyle = col;
+      for (let i = 0; i < n; i++) {
+        const u = i / (pts.length - 1);
+        ctx.lineWidth = 6.5 - 3.5 * u + extra;
+        ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[i + 1].x, pts[i + 1].y); ctx.stroke();
+      }
+    }
+    s.flowers.forEach((f, k) => {
+      if (prog < f.u - 0.001) return;
+      const born = s.d + GROW * Math.min(f.u, 0.98);
+      const g = back((t - born) / 0.7);
+      if (g <= 0) return;
+      const open = f.budOnly ? 0.12 : ease((t - born - 0.35) / 1.4);
+      const p = at(pts, f.u);
+      const pa = f.u >= 1 ? p.a : p.a + f.side * 0.75;
+      const ex = p.x + Math.cos(pa) * f.pl * g, ey = p.y + Math.sin(pa) * f.pl * g;
+      ctx.strokeStyle = G.stemLine; ctx.lineWidth = 2.4;
+      ctx.beginPath(); ctx.moveTo(p.x, p.y);
+      ctx.quadraticCurveTo(p.x + Math.cos(pa) * f.pl * 0.6 * g, p.y + Math.sin(pa) * f.pl * 0.6 * g - 6, ex, ey); ctx.stroke();
+      ctx.save();
+      ctx.translate(ex, ey);
+      ctx.rotate(pa + Math.PI / 2 + f.spin + Math.sin(t * 1.2 + s.phase + k) * 0.05);
+      ctx.scale(g, g);
+      drawFlower(f, open);
+      ctx.restore();
+    });
+  }
+
+  function renderAt(t) {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.fillStyle = PAPER;
+    ctx.fillRect(0, 0, W, H);
+    stems.forEach(s => drawStem(s, t));
+  }
+  window.renderAt = renderAt;
+
+  const params = new URLSearchParams(location.search);
+  build(params.get('format') === 'post' ? 'post' : 'reel');
+  if (params.has('export')) { document.body.classList.add('export'); renderAt(0); return; }
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let start = performance.now();
+  function loop(now) { renderAt((now - start) / 1000); requestAnimationFrame(loop); }
+  if (reduce) renderAt(10); else requestAnimationFrame(loop);
+  document.getElementById('replay').addEventListener('click', () => { start = performance.now(); if (reduce) renderAt(10); });
+  document.querySelectorAll('[data-fmt]').forEach(b => b.addEventListener('click', () => {
+    build(b.dataset.fmt); start = performance.now(); if (reduce) renderAt(10);
+  }));
+})();
+</script>
