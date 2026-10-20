@@ -1,0 +1,391 @@
+<title>Muguet Meadow Reel</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=block">
+<style>
+  /* Layout: one tall canvas, centred; a hand-drawn meadow of lily of the valley grows from the bottom edge, the Dior quote sits in the middle */
+  :root {
+    --paper: #fffdf8;
+    --ink-soft: #8b9a8f;
+    --ink: #2f4a3a;
+    --font-ui: "Gloria Hallelujah", "Comic Sans MS", cursive;
+    color-scheme: light;
+  }
+  html, body { height: 100%; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding-block: 16px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    box-sizing: border-box;
+  }
+  canvas { display: block; max-width: 100%; height: auto; background: var(--paper); box-shadow: 0 0 0 1px #efeee8; }
+  .bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+  button {
+    font: inherit;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    background: none;
+    border: 0;
+    padding: 6px 4px;
+    cursor: pointer;
+  }
+  button:hover, button[aria-pressed="true"] { color: var(--ink); }
+  button[aria-pressed="true"] { text-decoration: underline; text-underline-offset: 5px; }
+  button:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
+  body.export .bar { display: none; }
+  body.export { padding: 0; gap: 0; }
+  body.export canvas { width: 1080px !important; box-shadow: none; }
+</style>
+
+<canvas id="c" width="1080" height="1920" aria-label="A hand-drawn meadow of lily of the valley growing from the bottom edge beneath the quote: After Women, flowers are the most divine creations. Christian Dior"></canvas>
+<div class="bar">
+  <button id="replay" type="button">Replay</button>
+  <button id="text" type="button" aria-pressed="true">Quote</button>
+  <button type="button" data-fmt="reel" aria-pressed="true">Reel 9:16</button>
+  <button type="button" data-fmt="post" aria-pressed="false">Post 4:5</button>
+</div>
+
+<script>
+(() => {
+  const W = 1080;
+  let H = 1920, SC = 1;
+  const cv = document.getElementById('c');
+  const ctx = cv.getContext('2d');
+
+  const QUOTE = ['After Women,', 'flowers are the most', 'divine creations', 'Christian Dior'];
+  const FONT = '"Gloria Hallelujah", "Comic Sans MS", cursive';
+  let showText = true;
+
+  // flat, inked colours in the manner of a hand-painted animation cel
+  const C = {
+    paper: '#fffdf8',
+    ink: '#1d1d1b',
+    line: '#3d6a35',
+    stem: '#7db257',
+    leaf: '#78b25a', leafShade: '#5a9446', leafLight: '#a9d27e',
+    leafBack: '#5f9c4c', leafBackShade: '#4a8040',
+    grass: '#8cbf63', grassShade: '#6fa64e',
+    bellLine: '#5b7f63', bellShade: '#dce9e2', bud: '#d6ebc2',
+  };
+
+  let seed = 21;
+  const rnd = () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+  const ease = t => { t = clamp(t); return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+  const easeOut = t => 1 - Math.pow(1 - clamp(t), 3);
+  const back = t => { t = clamp(t); const c1 = 1.4, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); };
+  const off = (w, h) => { const c = document.createElement('canvas'); c.width = Math.ceil(w); c.height = Math.ceil(h); return c; };
+
+  // ---------- broad leaf, inked once into its own canvas
+  function leafPath(g, L, w, c) {
+    g.beginPath();
+    g.moveTo(0, 0);
+    g.bezierCurveTo(L * 0.22, -w * 0.5, L * 0.62, -w * 0.62 + c * 0.5, L, c);
+    g.bezierCurveTo(L * 0.64, w * 0.42 + c * 0.5, L * 0.24, w * 0.44, 0, 0);
+    g.closePath();
+  }
+  function paintLeaf(L, w, curl, backRow) {
+    const pad = 12, cw = L + pad * 2, ch = w * 1.6 + Math.abs(curl * L) * 2 + pad * 2;
+    const cnv = off(cw, ch), g = cnv.getContext('2d');
+    const ox = pad, oy = ch / 2;
+    g.translate(ox, oy);
+    const c = curl * L;
+    leafPath(g, L, w, c);
+    g.fillStyle = backRow ? C.leafBack : C.leaf; g.fill();
+    g.save(); leafPath(g, L, w, c); g.clip();
+    // one hard-edged shadow on the far half of the blade
+    g.beginPath();
+    g.moveTo(0, 0);
+    g.quadraticCurveTo(L * 0.5, c * 0.4 + w * 0.05, L, c);
+    g.lineTo(L, c + w); g.lineTo(0, w); g.closePath();
+    g.fillStyle = backRow ? C.leafBackShade : C.leafShade; g.fill();
+    // a painted highlight streak
+    if (!backRow) {
+      g.beginPath();
+      g.moveTo(L * 0.2, -w * 0.16);
+      g.quadraticCurveTo(L * 0.5, -w * 0.32 + c * 0.3, L * 0.8, -w * 0.12 + c * 0.7);
+      g.quadraticCurveTo(L * 0.5, -w * 0.2 + c * 0.3, L * 0.2, -w * 0.16);
+      g.fillStyle = C.leafLight; g.fill();
+    }
+    g.restore();
+    g.strokeStyle = C.line; g.lineJoin = 'round';
+    g.lineWidth = 2.2; leafPath(g, L, w, c); g.stroke();
+    g.lineWidth = 1.4;
+    g.beginPath(); g.moveTo(L * 0.05, 0); g.quadraticCurveTo(L * 0.5, c * 0.4 + w * 0.05, L * 0.94, c); g.stroke();
+    return { cnv, ox, oy };
+  }
+
+  // ---------- bell sprites: 11 opening stages, flat white with a cel shadow
+  const BELL = 100, BELLS = [];
+  function bellPath(g, h, open) {
+    const w = h * (0.82 + 0.12 * open);
+    const f = open * w * 0.3;
+    const lip = h * (0.86 - open * 0.1);
+    g.beginPath();
+    g.moveTo(0, 0);
+    g.bezierCurveTo(w * 0.44, 0, w * 0.56, h * 0.36, w * 0.5, h * 0.72);
+    g.bezierCurveTo(w * 0.5, h * 0.86, w * 0.5 + f * 0.6, h * 0.86, w * 0.5 + f * 1.25, lip);
+    g.quadraticCurveTo(w * 0.44, h * 1.0, w * 0.22, h * 0.96);
+    g.quadraticCurveTo(w * 0.07, h * (1.0 + open * 0.14), 0, h * (1.04 + open * 0.14));
+    g.quadraticCurveTo(-w * 0.07, h * (1.0 + open * 0.14), -w * 0.22, h * 0.96);
+    g.quadraticCurveTo(-w * 0.44, h * 1.0, -(w * 0.5 + f * 1.25), lip);
+    g.bezierCurveTo(-(w * 0.5 + f * 0.6), h * 0.86, -w * 0.5, h * 0.86, -w * 0.5, h * 0.72);
+    g.bezierCurveTo(-w * 0.56, h * 0.36, -w * 0.44, 0, 0, 0);
+    g.closePath();
+  }
+  function paintBells() {
+    BELLS.length = 0;
+    for (let s = 0; s <= 10; s++) {
+      const open = s / 10, h = BELL;
+      const cnv = off(h * 1.8, h * 1.5), g = cnv.getContext('2d');
+      g.translate(h * 0.9, h * 0.12);
+      bellPath(g, h, open);
+      g.fillStyle = open < 0.5 ? C.bud : '#ffffff'; g.fill();
+      g.save(); bellPath(g, h, open); g.clip();
+      g.beginPath(); g.ellipse(h * 0.42, h * 0.62, h * 0.28, h * 0.62, -0.15, 0, Math.PI * 2);
+      g.fillStyle = open < 0.5 ? '#c3e0aa' : C.bellShade; g.fill();
+      if (open > 0.4) { g.beginPath(); g.ellipse(0, h * 0.97, h * 0.46, h * 0.08, 0, 0, Math.PI * 2); g.fillStyle = '#cfe0d6'; g.fill(); }
+      g.restore();
+      g.strokeStyle = C.bellLine; g.lineJoin = 'round'; g.lineWidth = 4.2;
+      bellPath(g, h, open); g.stroke();
+      g.fillStyle = C.stem; g.strokeStyle = C.line; g.lineWidth = 3;
+      g.beginPath(); g.ellipse(0, h * 0.04, h * 0.1, h * 0.07, 0, 0, Math.PI * 2); g.fill(); g.stroke();
+      BELLS.push({ cnv, ox: h * 0.9, oy: h * 0.12 });
+    }
+  }
+
+  // ---------- the meadow
+  const leaves = [], stems = [], grass = [];
+  const GROW = 3.0;
+  function build(fmt) {
+    seed = 21;
+    leaves.length = 0; stems.length = 0; grass.length = 0;
+    H = fmt === 'post' ? 1350 : 1920;
+    SC = fmt === 'post' ? 0.78 : 1;
+    cv.height = H;
+    cv.style.width = `min(100%, calc((100vh - 96px) * ${W / H}))`;
+    const by = H + 30;
+
+    // short grass along the very bottom
+    for (let i = 0; i < 46; i++) {
+      grass.push({
+        x: (i / 45) * W + (rnd() - 0.5) * 30, y: by,
+        a: -Math.PI / 2 + (rnd() - 0.5) * 0.7,
+        L: (70 + rnd() * 110) * SC, w: (12 + rnd() * 8) * SC,
+        d: 0.1 + rnd() * 1.2, phase: rnd() * 6.28,
+      });
+    }
+
+    // nine clumps across the width, taller towards the sides so the quote stays clear
+    const NC = 9;
+    for (let ci = 0; ci < NC; ci++) {
+      const u = ci / (NC - 1), side = u - 0.5;
+      const h = 0.4 + 0.6 * Math.pow(Math.abs(side) * 2, 1.2);
+      const x = 30 + (W - 60) * u + (rnd() - 0.5) * 50;
+      const d0 = 0.2 + rnd() * 1.4;
+      for (let k = 0; k < 2; k++) {
+        const backRow = k === 0;
+        const L = (200 + 230 * h + rnd() * 90) * SC * (backRow ? 1.05 : 0.9);
+        const w = (88 + rnd() * 30) * SC;
+        leaves.push({
+          x: x + (rnd() - 0.5) * 40, y: by,
+          a: -Math.PI / 2 + (k ? 0.26 : -0.26) + (rnd() - 0.5) * 0.25,
+          d: d0 + k * 0.25, phase: rnd() * 6.28, front: !backRow,
+          sprite: paintLeaf(L, w, (rnd() - 0.5) * 0.12, backRow),
+        });
+      }
+      const ns = 2 + (rnd() < 0.45 ? 1 : 0);
+      for (let k = 0; k < ns; k++) {
+        const dir = (k % 2 ? 1 : -1) * (side < 0 ? 1 : -1) * (rnd() < 0.2 ? -1 : 1);
+        const bells = 8 + Math.floor(rnd() * 4);
+        const s = {
+          x: x + (rnd() - 0.5) * 50, y: by,
+          a: -Math.PI / 2 + dir * (0.04 + rnd() * 0.12),
+          bend: dir * (1.1 + rnd() * 0.4),
+          L: (360 + 300 * h + rnd() * 110) * SC * (k === 2 ? 0.8 : 1),
+          bells, d: d0 + 0.5 + k * 0.35 + rnd() * 0.3, phase: rnd() * 6.28, sizes: [],
+        };
+        for (let i = 0; i < bells; i++) s.sizes.push(0.88 + rnd() * 0.24);
+        stems.push(s);
+      }
+    }
+    stems.sort((p, q) => q.L - p.L);   // taller stems behind
+    paintBells();
+    document.querySelectorAll('[data-fmt]').forEach(b => b.setAttribute('aria-pressed', b.dataset.fmt === fmt));
+  }
+
+  function drawGrass(b, t) {
+    const g = easeOut((t - b.d) / 1.4);
+    if (g <= 0) return;
+    const sway = Math.sin(t * 1.1 + b.phase) * 0.04;
+    const L = b.L * g;
+    ctx.save();
+    ctx.translate(b.x, b.y);
+    ctx.rotate(b.a + sway + Math.PI / 2);
+    ctx.beginPath();
+    ctx.moveTo(-b.w / 2, 0);
+    ctx.quadraticCurveTo(-b.w * 0.3, -L * 0.6, b.w * 0.6, -L);
+    ctx.quadraticCurveTo(b.w * 0.2, -L * 0.5, b.w / 2, 0);
+    ctx.closePath();
+    ctx.fillStyle = b.phase > 3.14 ? C.grass : C.grassShade; ctx.fill();
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1.6; ctx.lineJoin = 'round'; ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawLeaf(l, t) {
+    const g0 = (t - l.d) / 1.8;
+    if (g0 <= 0) return;
+    const g = easeOut(g0);
+    const sway = Math.sin(t * 0.7 + l.phase) * 0.014 * clamp(g0 - 1);
+    ctx.save();
+    ctx.translate(l.x, l.y);
+    ctx.rotate(l.a + sway + (1 - g) * 0.2 * Math.sign(l.a + Math.PI / 2 || 1));
+    ctx.scale(g, Math.pow(g, 0.6));
+    ctx.drawImage(l.sprite.cnv, -l.sprite.ox, -l.sprite.oy);
+    ctx.restore();
+  }
+
+  function stemPoints(s, t) {
+    const N = 70, pts = [];
+    const sway = Math.sin(t * 0.8 + s.phase) * 0.05 * clamp((t - s.d - GROW) / 1.5);
+    let x = s.x, y = s.y;
+    pts.push({ x, y, a: s.a });
+    for (let i = 1; i <= N; i++) {
+      const u = i / N;
+      const a = s.a + (s.bend + sway) * Math.pow(u, 2.6);
+      x += Math.cos(a) * s.L / N; y += Math.sin(a) * s.L / N;
+      pts.push({ x, y, a });
+    }
+    return pts;
+  }
+
+  function drawStem(pts, prog) {
+    const n = Math.max(1, Math.floor(prog * (pts.length - 1)));
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    for (const [col, extra] of [[C.line, 2.4], [C.stem, 0]]) {
+      ctx.strokeStyle = col;
+      for (let i = 0; i < n; i++) {
+        const u = i / (pts.length - 1);
+        ctx.lineWidth = (5 - 2.8 * u) * SC + extra;
+        ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[i + 1].x, pts[i + 1].y); ctx.stroke();
+      }
+    }
+  }
+
+  function drawBells(s, pts, t, prog) {
+    const n = s.bells;
+    for (let i = 0; i < n; i++) {
+      const fr = 0.6 + 0.38 * (i / (n - 1));
+      if (prog < fr) continue;
+      const born = s.d + GROW * fr + 0.05;
+      const bud = easeOut((t - born) / 0.7);
+      if (bud <= 0) continue;
+      const tipRank = n - 1 - i;
+      const maxOpen = tipRank === 0 ? 0 : tipRank === 1 ? 0.3 : 1;
+      const open = maxOpen * ease((t - born - 0.5) / 1.2);
+      const size = (42 - 20 * (i / (n - 1))) * s.sizes[i] * SC;
+
+      const p = pts[Math.round(fr * (pts.length - 1))];
+      let nx = -Math.sin(p.a), ny = Math.cos(p.a);
+      if (ny < 0 || (Math.abs(ny) < 0.25 && nx * Math.sign(s.bend) < 0)) { nx = -nx; ny = -ny; }
+      const swing = Math.sin(t * 1.3 + s.phase + i * 0.7) * 0.07;
+      const ax = Math.sin(swing) + nx * 0.15, ay = Math.cos(swing);
+      const al = Math.hypot(ax, ay);
+      const pl = (12 + size * 0.5) * back(bud);
+      const p1x = p.x + nx * pl * 0.75, p1y = p.y + ny * pl * 0.75;
+      const p2x = p1x + ax / al * pl * 0.55, p2y = p1y + ay / al * pl * 0.55;
+
+      ctx.strokeStyle = C.line; ctx.lineWidth = 1.8 * SC;
+      ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.quadraticCurveTo(p1x, p1y, p2x, p2y); ctx.stroke();
+
+      const grow = 0.55 + 0.45 * Math.max(open, tipRank > 1 ? bud * 0.3 : 0);
+      const k = size * grow * back(bud) / BELL;
+      const sp = BELLS[Math.round(open * 10)];
+      ctx.save();
+      ctx.translate(p2x, p2y);
+      ctx.rotate(Math.atan2(ay, ax) - Math.PI / 2);
+      ctx.scale(k, k);
+      ctx.drawImage(sp.cnv, -sp.ox, -sp.oy);
+      ctx.restore();
+    }
+  }
+
+  function drawQuote(t) {
+    if (!showText) return;
+    const fs = 64 * SC, lh = 112 * SC;
+    const top = H * 0.37 - lh * 1.5;
+    ctx.save();
+    ctx.font = `${fs}px ${FONT}`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    try { ctx.letterSpacing = `${4 * SC}px`; } catch (e) {}
+    ctx.fillStyle = C.ink;
+    QUOTE.forEach((line, i) => {
+      const a = ease((t - 0.6 - i * 0.55) / 1.3);
+      if (a <= 0) return;
+      ctx.globalAlpha = a;
+      const dx = i === 3 ? 40 * SC : 0;            // signature sits a little to the right, as in the design
+      ctx.fillText(line, W / 2 + dx, top + i * lh + (1 - a) * 14);
+    });
+    ctx.restore();
+  }
+
+  function renderAt(t) {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = C.paper;
+    ctx.fillRect(0, 0, W, H);
+    leaves.filter(l => !l.front).forEach(l => drawLeaf(l, t));
+    stems.forEach(s => {
+      s._prog = ease((t - s.d) / GROW);
+      if (s._prog <= 0) return;
+      s._pts = stemPoints(s, t);
+      drawStem(s._pts, s._prog);
+    });
+    leaves.filter(l => l.front).forEach(l => drawLeaf(l, t));
+    stems.forEach(s => { if (s._prog > 0) drawBells(s, s._pts, t, s._prog); });
+    grass.forEach(b => drawGrass(b, t));
+    drawQuote(t);
+  }
+  window.renderAt = renderAt;
+
+  const params = new URLSearchParams(location.search);
+  const fontReady = Promise.race([
+    document.fonts.load(`64px "Gloria Hallelujah"`).catch(() => {}),
+    new Promise(r => setTimeout(r, 2500)),
+  ]);
+  if (params.get('text') === 'off') showText = false;
+  build(params.get('format') === 'post' ? 'post' : 'reel');
+  renderAt(0);
+
+  if (params.has('export')) {
+    document.body.classList.add('export');
+    window.ready = fontReady.then(() => true);
+    return;
+  }
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let start = performance.now();
+  function loop(now) { renderAt((now - start) / 1000); requestAnimationFrame(loop); }
+  fontReady.then(() => {
+    start = performance.now();
+    if (reduce) renderAt(10); else requestAnimationFrame(loop);
+  });
+  const again = () => { start = performance.now(); if (reduce) renderAt(10); };
+  document.getElementById('replay').addEventListener('click', again);
+  document.getElementById('text').addEventListener('click', e => {
+    showText = !showText;
+    e.currentTarget.setAttribute('aria-pressed', showText);
+    if (reduce) renderAt(10);
+  });
+  document.querySelectorAll('[data-fmt]').forEach(b => b.addEventListener('click', () => { build(b.dataset.fmt); again(); }));
+})();
+</script>
