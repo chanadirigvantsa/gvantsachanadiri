@@ -57,6 +57,8 @@
 (() => {
   const W = 1080;
   let H = 1920, SC = 1;
+  // render resolution multiplier (?res=2 paints a 2160x3840 master)
+  const R = Math.max(1, Math.min(3, +new URLSearchParams(location.search).get('res') || 1));
   const cv = document.getElementById('c');
   const ctx = cv.getContext('2d');
 
@@ -94,8 +96,9 @@
   }
   function paintLeaf(L, w, curl, backRow) {
     const pad = 12, cw = L + pad * 2, ch = w * 1.6 + Math.abs(curl * L) * 2 + pad * 2;
-    const cnv = off(cw, ch), g = cnv.getContext('2d');
+    const cnv = off(cw * R, ch * R), g = cnv.getContext('2d');
     const ox = pad, oy = ch / 2;
+    g.scale(R, R);
     g.translate(ox, oy);
     const c = curl * L;
     leafPath(g, L, w, c);
@@ -124,7 +127,7 @@
   }
 
   // ---------- bell sprites: 11 opening stages, flat white with a cel shadow
-  const BELL = 100, BELLS = [];
+  const BELL = 200, BELLS = [];
   function bellPath(g, h, open) {
     const w = h * (0.82 + 0.12 * open);
     const f = open * w * 0.3;
@@ -154,9 +157,9 @@
       g.fillStyle = open < 0.5 ? '#c3e0aa' : C.bellShade; g.fill();
       if (open > 0.4) { g.beginPath(); g.ellipse(0, h * 0.97, h * 0.46, h * 0.08, 0, 0, Math.PI * 2); g.fillStyle = '#cfe0d6'; g.fill(); }
       g.restore();
-      g.strokeStyle = C.bellLine; g.lineJoin = 'round'; g.lineWidth = 4.2;
+      g.strokeStyle = C.bellLine; g.lineJoin = 'round'; g.lineWidth = 4.2 * BELL / 100;
       bellPath(g, h, open); g.stroke();
-      g.fillStyle = C.stem; g.strokeStyle = C.line; g.lineWidth = 3;
+      g.fillStyle = C.stem; g.strokeStyle = C.line; g.lineWidth = 3 * BELL / 100;
       g.beginPath(); g.ellipse(0, h * 0.04, h * 0.1, h * 0.07, 0, 0, Math.PI * 2); g.fill(); g.stroke();
       BELLS.push({ cnv, ox: h * 0.9, oy: h * 0.12 });
     }
@@ -170,7 +173,7 @@
     leaves.length = 0; stems.length = 0; grass.length = 0;
     H = fmt === 'post' ? 1350 : 1920;
     SC = fmt === 'post' ? 0.78 : 1;
-    cv.height = H;
+    cv.width = W * R; cv.height = H * R;
     cv.style.width = `min(100%, calc((100vh - 96px) * ${W / H}))`;
     const by = H + 30;
 
@@ -249,7 +252,7 @@
     ctx.translate(l.x, l.y);
     ctx.rotate(l.a + sway + (1 - g) * 0.2 * Math.sign(l.a + Math.PI / 2 || 1));
     ctx.scale(g, Math.pow(g, 0.6));
-    ctx.drawImage(l.sprite.cnv, -l.sprite.ox, -l.sprite.oy);
+    ctx.drawImage(l.sprite.cnv, -l.sprite.ox, -l.sprite.oy, l.sprite.cnv.width / R, l.sprite.cnv.height / R);
     ctx.restore();
   }
 
@@ -339,7 +342,7 @@
   }
 
   function renderAt(t) {
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.setTransform(R, 0, 0, R, 0, 0);
     ctx.globalAlpha = 1;
     ctx.fillStyle = C.paper;
     ctx.fillRect(0, 0, W, H);
