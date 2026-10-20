@@ -4,12 +4,14 @@
 Every frame is drawn from code (typography plus original abstract illustrations),
 and the soundtrack is synthesised, so there are no third-party images or music to clear.
 
-Usage:  python3 make_reels.py            # all reels
-        python3 make_reels.py 2 4        # only reels 2 and 4
-        python3 make_reels.py --preview  # one still per scene into preview/
-Needs Pillow, numpy and ffmpeg.
+Usage:  python3 make_reels.py             # all reels, narrated
+        python3 make_reels.py 2 4         # only reels 2 and 4
+        python3 make_reels.py --no-voice  # music only
+        python3 make_reels.py --preview   # one still per scene into preview/
+Needs Pillow, numpy and ffmpeg. Narration needs `pip install kokoro-onnx`; the
+voice model (~350 MB) downloads into tts/ on first run.
 """
-import math, os, random, subprocess, sys, wave
+import hashlib, math, os, random, re, subprocess, sys, urllib.request, wave
 from functools import lru_cache
 from multiprocessing import Pool
 
@@ -859,8 +861,8 @@ def render_frame(reel, t, durs, starts):
     sc = reel["scenes"][idx]
     bg = background(t, reel["theme"], reel["seed"])
     L = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    sc.fn(L, local, sc.dur, **sc.kw)
-    fade = clamp((sc.dur - local) / 0.32)
+    sc.fn(L, local, durs[idx], **sc.kw)
+    fade = clamp((durs[idx] - local) / 0.32)
     if idx == len(durs) - 1:
         fade = 1.0
     L.putalpha(L.getchannel("A").point([int(v * fade) for v in range(256)]))
@@ -870,7 +872,7 @@ def render_frame(reel, t, durs, starts):
 
 
 # ---------------------------------------------------------------- soundtrack
-def soundtrack(path, starts, total, seed):
+def soundtrack(path, starts, total, seed, voice=None):
     sr = 44100
     n = int(total * sr) + sr
     tt = np.arange(n) / sr
@@ -912,28 +914,172 @@ def soundtrack(path, starts, total, seed):
     fade = np.clip((total - tt) / 1.5, 0, 1) * np.clip(tt / 0.4, 0, 1)
     out = out * fade
     out = out / (np.max(np.abs(out)) + 1e-9) * 0.7
+    if voice is not None:  # duck the music under the narrator
+        vo = np.zeros(n)
+        for st, clip in voice:
+            a = int(st * sr)
+            vo[a:a + len(clip)] += clip[: n - a]
+        win = int(0.25 * sr)  # moving average of "voice active", via cumulative sum
+        c = np.concatenate([[0], np.cumsum((np.abs(vo) > 0.01).astype(float))])
+        idx = np.arange(n)
+        env = (c[np.minimum(idx + win // 2, n)] - c[np.maximum(idx - win // 2, 0)]) / win
+        duck = 1 - 0.72 * np.clip(env * 3, 0, 1)
+        vo = vo / (np.max(np.abs(vo)) + 1e-9) * 0.92
+        out = out * duck * 0.55 + vo
+        out = out / max(1.0, np.max(np.abs(out)) / 0.95)
     pcm = (out[: int(total * sr)] * 32767).astype(np.int16)
     with wave.open(path, "wb") as wv:
         wv.setnchannels(1); wv.setsampwidth(2); wv.setframerate(sr)
         wv.writeframes(pcm.tobytes())
 
 
+# ---------------------------------------------------------------- narration
+# One line per scene. {braces} are spoken with French pronunciation; PRON fixes
+# names the English phonemiser gets wrong. Scenes stretch to fit their line.
+VOICE, VO_SPEED, VO_SR = "af_heart", 1.1, 24000
+TTS_DIR = os.path.join(HERE, "tts")
+TTS_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
+PRON = {
+    "Gehry": "ɡˈɛɹi", "Gehry's": "ɡˈɛɹiz", "Basquiat": "bɑːskiˈɑː", "Shchukin": "ʃtʃˈuːkɪn",
+    "Schiele": "ʃˈiːlə", "Morozov": "mˈɔːɹəzˌɔf", "Gauguin": "ɡoʊɡˈæn", "Richter": "ɹˈɪktɚ",
+}
+
+NARRATION = {
+    "01-thirteen-years": [
+        "It took thirteen years, three thousand six hundred panes of glass, and an act of Parliament. This is the story of a ship in the woods.",
+        "Two thousand one. {Bernard Arnault} meets the architect Frank Gehry. He had seen Gehry's Guggenheim in Bilbao, and he wanted something just as bold for Paris.",
+        "In two thousand six, the project is unveiled: an art foundation in the {Bois de Boulogne}, on land granted by the City of Paris.",
+        "Construction begins in two thousand eight. Every curved glass panel is one of a kind.",
+        "Then, in twenty eleven, a twist. A court cancels the building permit. Work could stop.",
+        "Parliament steps in, and declares it a major work of art, for the whole world.",
+        "On the twentieth of October, twenty fourteen, the {Fondation Louis Vuitton} opens its doors.",
+        "That was twelve years ago today. Happy birthday! Next: the building, in numbers.",
+    ],
+    "02-by-the-numbers": [
+        "One building. Numbers that sound made up. Count along.",
+        "Twelve glass sails, wrapping the building like a ship under full canvas.",
+        "About three thousand six hundred glass panels, each one curved to fit its own place.",
+        "Nineteen thousand panels of fibre-reinforced concrete clad the white iceberg underneath.",
+        "Eleven galleries, of every shape and size.",
+        "A three hundred and fifty seat auditorium, for concerts, talks and performance.",
+        "And fifty-five years. That's how long the land is granted, before the building passes to the City of Paris.",
+        "Which number surprised you? Next: how Gehry did it.",
+    ],
+    "03-how-gehry-did-it": [
+        "It started as a few loose lines on paper. Here's how Frank Gehry built a cloud of glass.",
+        "One: the sketch. Fast, looping lines. A sail, a cloud, a ship moving through the trees.",
+        "Two: the memory. Nineteenth-century glass, like the roof of the {Grand Palais}, and the old glasshouses next door.",
+        "Three: the code. The sails were modelled with software first built for aircraft. No two panels are alike.",
+        "Four: the water. The building sits on a cascading basin, so it seems to float.",
+        "Five: the view. Rooftop terraces frame {La Défense} on one side, and Paris on the other.",
+        "The building is the first artwork in the collection. Save this for your next trip to Paris.",
+    ],
+    "04-blockbusters": [
+        "Twelve years. Some of the biggest art shows Paris has ever seen.",
+        "Twenty sixteen: {Daniel Buren} turns the glass sails into a kaleidoscope of colour.",
+        "The Shchukin Collection. Matisse, Picasso, Gauguin. Over one point two million visitors, a French record at the time.",
+        "Egon Schiele and Jean-Michel Basquiat: two artists who both died at twenty-eight.",
+        "The Morozov Collection. The second great Moscow collection comes to Paris.",
+        "Basquiat and Warhol, painting four hands.",
+        "Mark Rothko, across the whole building.",
+        "David Hockney. More than four hundred works, and over nine hundred thousand visitors.",
+        "And Gerhard Richter: six decades of painting.",
+        "Which one did you see? Follow for more art history.",
+    ],
+}
+
+def phonemes(line, tok):
+    out = []
+    for part in re.split(r"(\{[^}]+\})", line):
+        if not part:
+            continue
+        if part.startswith("{"):
+            out.append(tok.phonemize(part[1:-1], "fr-fr"))
+            continue
+        words = re.split(r"(\b[\w']+\b)", part)
+        buf = ""
+        for w in words:
+            if w in PRON:
+                if buf.strip():
+                    out.append(tok.phonemize(buf, "en-us"))
+                buf = ""
+                out.append(PRON[w])
+            else:
+                buf += w
+        if buf.strip():
+            ph = tok.phonemize(buf, "en-us")
+            out.append(ph if buf.strip(" ") == buf else ph + (" " if buf.endswith(" ") else ""))
+    joined = re.sub(r"\s+", " ", " ".join(o.strip() for o in out)).strip()
+    return re.sub(r"\s+([.,!?:;])", r"\1", joined)
+
+def vo_path(slug, i, line):
+    key = hashlib.sha1(f"{VOICE}|{VO_SPEED}|{line}|{sorted(PRON.items())}".encode()).hexdigest()[:10]
+    return os.path.join(HERE, "vo", f"{slug}-{i}-{key}.wav")
+
+def narrate(reel):
+    lines = NARRATION[reel["slug"]]
+    assert len(lines) == len(reel["scenes"]), reel["slug"]
+    todo = [(i, ln) for i, ln in enumerate(lines) if not os.path.exists(vo_path(reel["slug"], i, ln))]
+    if not todo:
+        return
+    from kokoro_onnx import Kokoro
+    from kokoro_onnx.tokenizer import Tokenizer
+    os.makedirs(TTS_DIR, exist_ok=True)
+    for f in ("kokoro-v1.0.onnx", "voices-v1.0.bin"):
+        if not os.path.exists(os.path.join(TTS_DIR, f)):
+            print("downloading", f); urllib.request.urlretrieve(TTS_URL + f, os.path.join(TTS_DIR, f))
+    k = Kokoro(os.path.join(TTS_DIR, "kokoro-v1.0.onnx"), os.path.join(TTS_DIR, "voices-v1.0.bin"))
+    tok = Tokenizer()
+    os.makedirs(os.path.join(HERE, "vo"), exist_ok=True)
+    for i, ln in todo:
+        audio, sr = k.create(phonemes(ln, tok), VOICE, VO_SPEED, "en-us", is_phonemes=True)
+        pcm = (np.clip(audio, -1, 1) * 32767).astype(np.int16)
+        with wave.open(vo_path(reel["slug"], i, ln), "wb") as wv:
+            wv.setnchannels(1); wv.setsampwidth(2); wv.setframerate(sr)
+            wv.writeframes(pcm.tobytes())
+        print(f"  voice {reel['slug']} #{i}: {len(audio) / sr:.1f}s")
+
+def load_narration(reel, required=True):
+    clips = []
+    for i, ln in enumerate(NARRATION[reel["slug"]]):
+        p = vo_path(reel["slug"], i, ln)
+        if not os.path.exists(p):
+            if required:
+                raise FileNotFoundError(p)
+            return None
+        with wave.open(p) as wv:
+            clips.append(np.frombuffer(wv.readframes(wv.getnframes()), np.int16).astype(np.float64) / 32767)
+    return clips
+
+
 # ---------------------------------------------------------------- render
-def timing(reel):
+VO_LEAD, VO_TAIL = 0.35, 0.55
+
+def timing(reel, clips=None):
+    """Scene durations: the designed length, stretched so each narration line fits."""
     durs = [s.dur for s in reel["scenes"]]
+    if clips:
+        durs = [max(d, VO_LEAD + len(c) / VO_SR + VO_TAIL) for d, c in zip(durs, clips)]
     starts = list(np.cumsum([0] + durs[:-1]))
     return durs, starts, sum(durs)
 
-def render_reel(n):
+def render_reel(n, voiced=True):
     reel = next(r for r in REELS if r["n"] == n)
     os.makedirs(OUT, exist_ok=True)
-    durs, starts, total = timing(reel)
+    clips = load_narration(reel) if voiced else None
+    durs, starts, total = timing(reel, clips)
     wav = os.path.join(OUT, f".{reel['slug']}.wav")
-    soundtrack(wav, starts, total, reel["seed"])
+    voice = None
+    if clips:
+        sr = 44100
+        voice = [(st + VO_LEAD, np.interp(np.arange(int(len(c) * sr / VO_SR)) * VO_SR / sr, np.arange(len(c)), c))
+                 for st, c in zip(starts, clips)]
+    soundtrack(wav, starts, total, reel["seed"], voice)
     mp4 = os.path.join(OUT, f"{reel['slug']}.mp4")
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
            "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-i", wav,
            "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
+           "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "44100",
            "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", mp4]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     frames = int(total * FPS)
@@ -948,7 +1094,7 @@ def render_reel(n):
 
 def preview(reel):
     d = os.path.join(HERE, "preview"); os.makedirs(d, exist_ok=True)
-    durs, starts, _ = timing(reel)
+    durs, starts, _ = timing(reel, load_narration(reel, required=False))
     for i, (s, du) in enumerate(zip(starts, durs)):
         render_frame(reel, s + du * 0.8, durs, starts).save(os.path.join(d, f"{reel['slug']}-{i}.jpg"), quality=80)
 
@@ -956,10 +1102,15 @@ if __name__ == "__main__":
     args = sys.argv[1:]
     want = [int(a) for a in args if a.isdigit()] or [r["n"] for r in REELS]
     reels = [r for r in REELS if r["n"] in want]
+    voiced = "--no-voice" not in args
     if "--preview" in args:
         for r in reels:
             preview(r)
     else:
+        if voiced:
+            for r in reels:
+                narrate(r)
+        jobs = [(r["n"], voiced) for r in reels]
         with Pool(min(4, len(reels))) as pool:
-            for mp4, total in pool.map(render_reel, [r["n"] for r in reels]):
+            for mp4, total in pool.starmap(render_reel, jobs):
                 print(f"{os.path.relpath(mp4, HERE)}  {total:.1f}s")
