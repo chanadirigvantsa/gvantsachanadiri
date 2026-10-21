@@ -311,10 +311,21 @@ svg.draw{overflow:visible;fill:none;stroke:var(--pen);stroke-width:4;stroke-line
     document.body.classList.add('exporting');
     try{
       const w=slide.offsetWidth,h=slide.offsetHeight;
-      const url=await htmlToImage.toPng(slide,{width:w,height:h,pixelRatio:1,style:{transform:'none'}});
-      const a=document.createElement('a');a.href=url;a.download='dialogue-en-pause-'+slide.dataset.name+'.png';a.click();
+      const opts={width:w,height:h,pixelRatio:1,style:{transform:'none'}};
+      const name='dialogue-en-pause-'+slide.dataset.name+'.png';
+      const dl=await downloads;
+      if(dl){
+        const blob=await htmlToImage.toBlob(slide,opts);
+        document.body.classList.remove('exporting');
+        try{await dl.save({filename:name,data:blob})}catch(e){if(e&&e.code!=='declined')console.warn(e)}
+        return;
+      }
+      const url=await htmlToImage.toPng(slide,opts);
+      const a=document.createElement('a');a.href=url;a.download=name;a.click();
     }finally{document.body.classList.remove('exporting');}
   }
+  // inside the Claude artifact viewer, saving goes through the downloads capability; elsewhere a plain link works
+  const downloads=(window.claude&&window.claude.use)?window.claude.use('downloads').catch(()=>null):Promise.resolve(null);
   document.querySelectorAll('[data-dl]').forEach(b=>b.onclick=async()=>{b.disabled=true;try{await exportSlide(b.closest('figure').querySelector('.slide'))}finally{b.disabled=false}});
   const all=document.getElementById('all');
   all.onclick=async()=>{all.disabled=true;try{for(const s of document.querySelectorAll('.slide')){await exportSlide(s);await new Promise(r=>setTimeout(r,400));}}finally{all.disabled=false}};
