@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dialogue en Pause</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link crossorigin="anonymous" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Homemade+Apple&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Courier+Prime&display=swap">
+<style>
+:root{
+  --bg:#f4f1ec;--fg:#1c1a17;--mute:#7a7268;--line:#dcd5ca;--btn:#1c1a17;--btn-fg:#f4f1ec;
+  /* slide palette — fixed, never themed */
+  --paper:#ece5d8;--paper-2:#e3d9c7;--print:#faf8f3;--ink:#1c1a17;--pen:#1f2a44;
+  --oxblood:#5e1a1d;--grease:#b8232b;--sepia:#8a7a66;--noir:#141210;
+  --script:"Mrs Saint Delafield",cursive;--hand:"Homemade Apple",cursive;
+  --serif:"Cormorant Garamond",Georgia,serif;--type:"Courier Prime","Courier New",monospace;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .16 0 0 0 0 .1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121110;--fg:#ece5d8;--mute:#9a9187;--line:#2c2926;--btn:#ece5d8;--btn-fg:#121110}}
+:root[data-theme="dark"]{--bg:#121110;--fg:#ece5d8;--mute:#9a9187;--line:#2c2926;--btn:#ece5d8;--btn-fg:#121110}
+
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.55 var(--serif);-webkit-font-smoothing:antialiased}
+.page{max-width:1240px;margin:0 auto;padding:40px 16px 100px}
+.top h1{font:400 clamp(64px,12vw,128px)/1 var(--script);letter-spacing:.01em}
+.top h1 small{display:block;font:400 13px/1 var(--type);letter-spacing:.32em;text-transform:uppercase;color:var(--mute);margin-top:8px}
+.top p{max-width:620px;margin-top:18px;font-size:19px}
+.how{display:grid;gap:10px 28px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:28px 0 8px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:16px}
+.how b{display:block;font:400 11px/1.4 var(--type);letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-bottom:2px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 6px}
+button{font:400 12px/1 var(--type);letter-spacing:.16em;text-transform:uppercase;background:var(--btn);color:var(--btn-fg);border:0;padding:11px 16px;cursor:pointer;border-radius:0}
+button.ghost{background:none;color:var(--fg);border:1px solid var(--line)}
+button:disabled{opacity:.5;cursor:wait}
+.grid{display:grid;gap:56px 36px;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));margin-top:30px}
+.grid .story{grid-row:span 2}
+figure.item figcaption{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-top:12px}
+figure.item figcaption span{font:400 11px/1.5 var(--type);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+figure.item figcaption em{display:block;font-size:20px;color:var(--fg);letter-spacing:0;text-transform:none;font-family:var(--serif)}
+figure.item figcaption button{padding:9px 12px;flex:none}
+.frame{position:relative;width:100%;overflow:hidden;box-shadow:0 1px 0 var(--line),0 20px 50px -30px rgba(0,0,0,.45)}
+.notes{margin-top:80px;display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));border-top:1px solid var(--line);padding-top:30px}
+.notes h3{font:400 54px/1 var(--script);margin-bottom:10px}
+.notes p,.notes li{font-size:17px}
+.notes ul{padding-left:18px}
+.sw{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.sw i{display:block;width:44px;height:44px;border:1px solid var(--line)}
+.f1{font:400 44px/1.1 var(--script)}.f2{font:400 20px/1.6 var(--hand)}.f3{font:italic 400 26px/1.2 var(--serif)}.f4{font:400 15px/1.4 var(--type);letter-spacing:.14em;text-transform:uppercase}
+
+/* ───────── slides (1080 × 1350 / 1080 × 1920) ───────── */
+.slide{position:absolute;top:0;left:0;width:1080px;height:1350px;overflow:hidden;transform-origin:0 0;background:var(--paper);color:var(--ink);font-family:var(--serif)}
+.slide.tall{height:1920px}
+.slide::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.35;mix-blend-mode:multiply;pointer-events:none;z-index:50}
+.slide.noir{background:var(--noir);color:#ece5d8}.slide.noir::after{opacity:.5;mix-blend-mode:screen;filter:invert(1)}
+.slide.ox{background:var(--oxblood);color:#efe6d6}.slide.ox::after{opacity:.4}
+.slide>*{position:absolute}
+[data-edit]{outline:none;cursor:text}
+[data-edit]:hover{box-shadow:0 0 0 2px rgba(94,26,29,.25)}
+.exporting [data-edit]:hover{box-shadow:none}
+
+.type{font:400 22px/1.5 var(--type);letter-spacing:.22em;text-transform:uppercase}
+.script{font-family:var(--script);font-weight:400;line-height:1;white-space:nowrap}
+.hand{font-family:var(--hand);color:var(--pen);line-height:1.9}
+.it{font-style:italic}
+
+/* printed photograph */
+.print{background:var(--print);padding:24px;box-shadow:0 1px 1px rgba(40,30,20,.12),0 24px 40px -18px rgba(40,30,20,.55)}
+.print.wide-b{padding-bottom:84px}
+.ph{position:relative;width:100%;height:100%;overflow:hidden;background:#cfc6b6;cursor:pointer}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;filter:sepia(.14) contrast(1.05) saturate(.88)}
+.ph::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.28;mix-blend-mode:multiply;pointer-events:none}
+.ph:hover::before{content:"replace photo";position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);font:400 18px/1 var(--type);letter-spacing:.2em;text-transform:uppercase;background:rgba(250,248,243,.92);color:var(--ink);padding:12px 16px;white-space:nowrap}
+.exporting .ph:hover::before{display:none}
+.bw img{filter:grayscale(1) contrast(1.1)}
+.tape{width:170px;height:48px;background:rgba(226,216,192,.78);box-shadow:0 1px 3px rgba(0,0,0,.1);z-index:5;
+  clip-path:polygon(0 8%,4% 0,9% 10%,13% 2%,100% 0,97% 14%,100% 30%,96% 48%,100% 66%,97% 84%,100% 100%,8% 96%,3% 100%,5% 82%,0 64%,4% 46%,0 28%)}
+.clip{width:46px;height:120px;z-index:6}
+svg.draw{overflow:visible;fill:none;stroke:var(--pen);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.rule{height:1px;background:currentColor;opacity:.5}
+.seal{width:132px;height:132px;border-radius:52% 48% 50% 46%/48% 52% 46% 54%;background:radial-gradient(circle at 38% 34%,#8b2a2e,#5e1a1d 55%,#3c0e10);box-shadow:inset 0 0 0 9px rgba(0,0,0,.14),inset 0 0 0 11px rgba(255,255,255,.07),0 6px 12px -4px rgba(0,0,0,.45);display:grid;place-items:center;color:rgba(239,230,214,.55);font:italic 500 52px/1 var(--serif);text-shadow:0 -1px 0 rgba(0,0,0,.4)}
+.pause{display:inline-flex;gap:12px}.pause i{display:block;width:10px;height:44px;background:currentColor;border-radius:2px}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <h1>Dialogue en pause<small>Instagram template kit · art × luxury fashion</small></h1>
+    <p>Eight editorial templates built from printed photographs, tape, letters and archive cards, with handwriting and a classic serif. Click any text to rewrite it, click any photo to swap in your own, then download each slide as a full‑size PNG for Instagram.</p>
+  </header>
+
+  <section class="how">
+    <div><b>01 · Edit</b>Click any text on a slide and type over it. Keep handwritten notes short, around 3 to 8 words.</div>
+    <div><b>02 · Photos</b>Click a photo to upload your own. Each one is framed like a print and gets a light film grain.</div>
+    <div><b>03 · Export</b>Use “PNG” under a slide, or “Download all”. Posts export at 1080×1350 (4:5) and the story at 1080×1920.</div>
+    <div><b>04 · Rhythm</b>On the grid, alternate light paper slides with one noir or oxblood slide every three posts.</div>
+  </section>
+
+  <div class="bar">
+    <button id="all">Download all</button>
+    <button class="ghost" id="reset">Reset edits</button>
+  </div>
+
+  <div class="grid" id="grid">
+
+    <!-- 01 COVER -->
+    <figure class="item"><div class="frame" data-w="1080" data-h="1350">
+      <div class="slide" data-name="01-couverture">
+        <div class="type" style="left:80px;top:70px" data-edit>N° 01</div>
+        <div class="pause" style="left:522px;top:62px;color:var(--oxblood)"><i></i><i></i></div>
+        <div class="type" style="right:80px;top:70px" data-edit>Art × Mode</div>
+        <div class="print" style="left:170px;top:170px;width:740px;height:820px;transform:rotate(-1.6deg)">
+          <div class="ph"><img src="img/look-red.jpg" alt=""></div>
+        </div>
+        <div class="tape" style="left:130px;top:160px;transform:rotate(-38deg)"></div>
+        <div class="tape" style="left:790px;top:150px;transform:rotate(34deg)"></div>
+        <div class="script" style="left:70px;top:905px;font-size:270px;transform:rotate(-5deg)" data-edit>Dialogue</div>
+        <div class="it" style="left:610px;top:1115px;font-size:66px;letter-spacing:.06em" data-edit>en pause</div>
+        <div class="hand" style="left:96px;top:1225px;font-size:30px;transform:rotate(-2deg)" data-edit>when a painting learns to walk…</div>
+        <div class="type" style="right:80px;bottom:64px;font-size:17px;text-align:right" data-edit>Chapter one<br>Schiaparelli × Dalí</div>
+      </div>
+    </div><figcaption><span>01 · <em>La Couverture</em></span><button data-dl>PNG</button></figcaption></figure>
+
+    <!-- 02 DIALOGUE -->
+    <figure class="item"><div class="frame" data-w="1080" data-h="1350">
+      <div class="slide" data-name="02-le-dialogue">
+        <div class="type" style="left:80px;top:70px" data-edit>II — Le Dialogue</div>
+        <div class="rule" style="left:80px;right:80px;top:122px"></div>
+        <div class="print" style="left:76px;top:200px;width:520px;height:600px;transform:rotate(-3.2deg)">
+          <div class="ph bw"><img src="img/studio.jpg" alt=""></div>
+        </div>
+        <div class="print wide-b" style="left:500px;top:430px;width:500px;height:700px;transform:rotate(2.6deg)">
+          <div class="ph"><img src="img/hearts.jpg" alt=""></div>
+        </div>
+        <div class="tape" style="left:430px;top:400px;transform:rotate(-20deg)"></div>
+        <div class="hand" style="left:690px;top:200px;font-size:32px;transform:rotate(3deg)" data-edit>the dress</div>
+        <svg class="draw" style="left:760px;top:270px;width:120px;height:140px" viewBox="0 0 120 140"><path d="M20 8 C 60 30, 80 70, 70 128"/><path d="M50 108 L70 130 L88 104"/></svg>
+        <div class="hand" style="left:96px;top:850px;font-size:32px;transform:rotate(-3deg)" data-edit>the canvas</div>
+        <svg class="draw" style="left:300px;top:790px;width:120px;height:90px" viewBox="0 0 120 90"><path d="M8 80 C 50 78, 90 54, 104 10"/><path d="M84 24 L104 8 L114 32"/></svg>
+        <div class="script" style="left:70px;top:1110px;font-size:150px;transform:rotate(-4deg)" data-edit>in conversation</div>
+        <div class="type" style="left:80px;bottom:56px;font-size:16px;letter-spacing:.14em;color:var(--sepia)" data-edit>Salvador Dalí, Lobster Telephone, 1936 — Elsa Schiaparelli, Lobster Dress, 1937</div>
+      </div>
+    </div><figcaption><span>02 · <em>Le Dialogue</em></span><button data-dl>PNG</button></figcaption></figure>
+
+    <!-- 03 LETTER -->
+    <figure class="item"><div class="frame" data-w="1080" data-h="1350">
+      <div class="slide" data-name="03-la-lettre" style="background:var(--paper-2)">
+        <div style="left:110px;top:110px;width:860px;height:1110px;background:#f7f2e8 repeating-linear-gradient(transparent 0 65px,rgba(31,42,68,.13) 65px 66px) 0 196px/100% calc(100% - 300px) no-repeat;transform:rotate(.8deg);box-shadow:0 2px 2px rgba(40,30,20,.08),0 30px 50px -24px rgba(40,30,20,.5)">
+          <div class="hand" style="position:absolute;right:70px;top:70px;font-size:26px" data-edit>Paris, 21 · X · 26</div>
+          <div class="type" style="position:absolute;left:70px;top:76px;font-size:16px;color:var(--sepia)">Dialogue en pause</div>
+          <div class="hand" style="position:absolute;left:70px;right:70px;top:170px;font-size:30px;line-height:66px" data-edit>Dear reader,<br>some dresses are not made, they are painted. This week I followed one brushstroke from a studio wall onto a runway, and back again.</div>
+          <div class="script" style="position:absolute;left:300px;top:760px;font-size:130px;color:var(--pen);transform:rotate(-4deg)" data-edit>Gvantsa</div>
+        </div>
+        <div class="print" style="left:690px;top:870px;width:320px;height:380px;padding:16px 16px 60px;transform:rotate(7deg)">
+          <div class="ph"><img src="img/look-gold.jpg" alt=""></div>
+        </div>
+        <svg class="clip" style="left:800px;top:830px;transform:rotate(7deg)" viewBox="0 0 46 120"><path d="M14 104 V 22 a 9 9 0 0 1 18 0 V 96 a 14 14 0 0 1 -28 0 V 30" fill="none" stroke="#8f8a82" stroke-width="4" stroke-linecap="round"/></svg>
+        <div class="seal" style="left:150px;top:1095px;transform:rotate(-8deg)" data-edit>dp</div>
+      </div>
+    </div><figcaption><span>03 · <em>La Lettre</em></span><button data-dl>PNG</button></figcaption></figure>
+
+    <!-- 04 ARCHIVE -->
+    <figure class="item"><div class="frame" data-w="1080" data-h="1350">
+      <div class="slide" data-name="04-l-archive">
+        <div class="type" style="left:80px;top:70px" data-edit>Archive · Fiche N° 014</div>
+        <div class="print" style="left:70px;top:160px;width:600px;height:830px;transform:rotate(-1.2deg)">
+          <div class="ph"><img src="img/look-gold.jpg" alt=""></div>
+        </div>
+        <div class="hand" style="left:700px;top:210px;width:320px;font-size:28px;line-height:1.7;transform:rotate(4deg)" data-edit>look at the gold, it’s Klimt’s Adele</div>
+        <svg class="draw" style="left:560px;top:360px;width:190px;height:120px" viewBox="0 0 190 120"><path d="M180 10 C 150 60, 90 90, 18 96"/><path d="M42 76 L16 96 L44 112"/></svg>
+        <div style="left:620px;top:620px;width:400px;height:560px;background:#fbf9f4;border:1px solid #d8cfbf;transform:rotate(2.2deg);padding:44px 40px;box-shadow:0 18px 30px -18px rgba(40,30,20,.5)">
+          <div class="type" style="font-size:15px;color:var(--sepia)">Objet</div>
+          <div class="it" style="font-size:36px;line-height:1.1;margin:2px 0 20px" data-edit>The golden gown</div>
+          <div class="type" style="font-size:15px;color:var(--sepia)">Maison</div>
+          <div class="it" style="font-size:36px;line-height:1.1;margin:2px 0 20px" data-edit>Atelier unknown</div>
+          <div class="type" style="font-size:15px;color:var(--sepia)">Année</div>
+          <div class="it" style="font-size:36px;line-height:1.1;margin:2px 0 20px" data-edit>2026</div>
+          <div class="type" style="font-size:15px;color:var(--sepia)">En dialogue avec</div>
+          <div class="hand" style="font-size:26px;line-height:1.6" data-edit>Gustav Klimt, 1907</div>
+        </div>
+        <div class="tape" style="left:740px;top:600px;transform:rotate(-4deg);width:150px"></div>
+        <div class="script" style="left:80px;top:1080px;font-size:190px;transform:rotate(-5deg)" data-edit>l’archive</div>
+      </div>
+    </div><figcaption><span>04 · <em>L’Archive</em></span><button data-dl>PNG</button></figcaption></figure>
+
+    <!-- 05 FILM / NOIR -->
+    <figure class="item"><div class="frame" data-w="1080" data-h="1350">
+      <div class="slide noir" data-name="05-le-contact">
+        <div class="type" style="left:80px;top:70px;color:#cfc4b2" data-edit>V — Behind the frame</div>
+        <div style="left:-60px;top:210px;width:1200px;height:600px;background:#0a0908;transform:rotate(-3deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.8)">
+          <div style="position:absolute;left:0;right:0;top:22px;height:26px;background:repeating-linear-gradient(90deg,transparent 0 22px,#2b2723 22px 46px)"></div>
+          <div style="position:absolute;left:0;right:0;bottom:22px;height:26px;background:repeating-linear-gradient(90deg,transparent 0 22px,#2b2723 22px 46px)"></div>
+          <div style="position:absolute;left:100px;top:52px;font:400 15px var(--type);letter-spacing:.3em;color:#c98a3a">DEP 400 ▸ 11A</div>
+          <div style="position:absolute;left:700px;bottom:52px;font:400 15px var(--type);letter-spacing:.3em;color:#c98a3a">▸ 12 &nbsp; ▸ 12A</div>
+          <div style="position:absolute;left:100px;top:84px;width:300px;height:432px"><div class="ph"><img src="img/love.jpg" alt=""></div></div>
+          <div style="position:absolute;left:430px;top:84px;width:300px;height:432px"><div class="ph"><img src="img/look-suit.jpg" alt=""></div></div>
+          <div style="position:absolute;left:760px;top:84px;width:300px;height:432px"><div class="ph"><img src="img/contact.jpg" alt=""></div></div>
+        </div>
+        <svg class="draw" style="left:430px;top:200px;width:330px;height:580px;stroke:var(--grease);stroke-width:7;opacity:.92" viewBox="0 0 330 580"><path d="M150 24 C 300 20, 330 160, 318 300 C 306 470, 250 566, 140 560 C 30 552, 10 420, 14 280 C 18 130, 60 30, 190 30 C 230 32, 250 40, 262 52"/></svg>
+        <div style="left:770px;top:780px;font:400 34px/1.4 var(--hand);color:var(--grease);transform:rotate(-6deg)" data-edit>this one.</div>
+        <div class="it" style="left:80px;top:910px;width:780px;font-size:70px;line-height:1.12;color:#ece5d8" data-edit>An artist’s studio is a fitting room for ideas.</div>
+        <div class="script" style="left:560px;top:1140px;font-size:120px;color:#ece5d8;transform:rotate(-4deg)" data-edit>notes from set</div>
+      </div>
+    </div><figcaption><span>05 · <em>Le Contact</em>, noir</span><button data-dl>PNG</button></figcaption></figure>
+
+    <!-- 06 QUOTE / OXBLOOD -->
+    <figure class="item"><div class="frame" data-w="1080" data-h="1350">
+      <div class="slide ox" data-name="06-la-citation">
+        <div style="left:60px;top:40px;font:italic 400 560px/1 var(--serif);color:rgba(239,230,214,.12)">“</div>
+        <div class="print" style="left:760px;top:90px;width:240px;height:300px;padding:14px 14px 46px;transform:rotate(6deg)">
+          <div class="ph bw"><img src="img/facade.jpg" alt=""></div>
+        </div>
+        <div class="tape" style="left:820px;top:76px;width:120px;height:38px;transform:rotate(-8deg)"></div>
+        <div class="it" style="left:90px;top:440px;width:900px;font-size:84px;line-height:1.08" data-edit>Fashion is not something that exists in dresses only. Fashion is in the sky, in the street.</div>
+        <div class="script" style="left:420px;top:1010px;font-size:140px;transform:rotate(-4deg)" data-edit>Coco Chanel</div>
+        <div class="rule" style="left:90px;right:90px;bottom:130px"></div>
+        <div class="type" style="left:90px;bottom:72px;font-size:18px" data-edit>Dialogue en pause</div>
+        <div class="pause" style="right:90px;bottom:64px"><i style="height:30px;width:7px"></i><i style="height:30px;width:7px"></i></div>
+      </div>
+    </div><figcaption><span>06 · <em>La Citation</em>, oxblood</span><button data-dl>PNG</button></figcaption></figure>
+
+    <!-- 07 CLOSING -->
+    <figure class="item"><div class="frame" data-w="1080" data-h="1350">
+      <div class="slide" data-name="07-a-suivre">
+        <div class="print" style="left:-60px;top:120px;width:380px;height:460px;padding:18px 18px 70px;transform:rotate(-9deg)">
+          <div class="ph"><img src="img/hearts.jpg" alt=""></div>
+        </div>
+        <div class="tape" style="left:160px;top:96px;transform:rotate(18deg)"></div>
+        <div class="print" style="left:770px;top:930px;width:400px;height:480px;padding:18px 18px 70px;transform:rotate(8deg)">
+          <div class="ph bw"><img src="img/contact.jpg" alt=""></div>
+        </div>
+        <div class="tape" style="left:850px;top:910px;transform:rotate(-14deg)"></div>
+        <svg class="draw" style="left:478px;top:330px;width:124px;height:150px;stroke:var(--oxblood);stroke-width:14" viewBox="0 0 124 150"><path d="M30 12 C 28 50, 34 100, 30 138"/><path d="M92 10 C 96 56, 90 96, 94 140"/></svg>
+        <div class="script" style="left:0;right:0;top:500px;text-align:center;font-size:250px;transform:rotate(-4deg)" data-edit>à suivre</div>
+        <div class="it" style="left:0;right:0;top:800px;text-align:center;font-size:44px" data-edit>the conversation continues next week</div>
+        <div class="hand" style="left:150px;top:940px;font-size:28px;transform:rotate(-3deg)" data-edit>save it for your next museum visit</div>
+        <div class="type" style="left:80px;bottom:70px;font-size:20px" data-edit>@dialogueenpause</div>
+      </div>
+    </div><figcaption><span>07 · <em>À Suivre</em></span><button data-dl>PNG</button></figcaption></figure>
+
+    <!-- 08 STORY -->
+    <figure class="item story"><div class="frame" data-w="1080" data-h="1920">
+      <div class="slide tall" data-name="08-story">
+        <div class="type" style="left:0;right:0;top:250px;text-align:center" data-edit>New chapter</div>
+        <div class="pause" style="left:522px;top:180px;color:var(--oxblood)"><i></i><i></i></div>
+        <div class="print" style="left:120px;top:340px;width:840px;height:1060px;transform:rotate(-1.4deg)">
+          <div class="ph"><img src="img/look-suit.jpg" alt=""></div>
+        </div>
+        <div class="tape" style="left:460px;top:316px;transform:rotate(-3deg);width:180px"></div>
+        <div class="script" style="left:60px;top:1300px;font-size:240px;transform:rotate(-5deg)" data-edit>Nouvel épisode</div>
+        <div class="it" style="left:0;right:0;top:1560px;text-align:center;font-size:50px" data-edit>Yves Saint Laurent & Mondrian</div>
+        <div class="hand" style="left:600px;top:1650px;font-size:30px;transform:rotate(-4deg)" data-edit>tap the link</div>
+        <svg class="draw" style="left:860px;top:1630px;width:90px;height:80px" viewBox="0 0 90 80"><path d="M8 70 C 30 50, 56 30, 78 10"/><path d="M52 12 L80 8 L76 36"/></svg>
+      </div>
+    </div><figcaption><span>08 · <em>Story</em>, 9:16</span><button data-dl>PNG</button></figcaption></figure>
+
+  </div>
+
+  <section class="notes">
+    <div>
+      <h3>Typefaces</h3>
+      <p class="f1">Mrs Saint Delafield</p><p style="color:var(--mute);font-size:14px;margin-bottom:10px">Titles and signatures. Use big, 120px and up, one or two words.</p>
+      <p class="f2">Homemade Apple</p><p style="color:var(--mute);font-size:14px;margin-bottom:10px">Ink notes and arrows, as if you annotated the print by hand.</p>
+      <p class="f3">Cormorant Garamond</p><p style="color:var(--mute);font-size:14px;margin-bottom:10px">Body text, quotes, captions with a fashion‑magazine feel.</p>
+      <p class="f4">Courier Prime</p><p style="color:var(--mute);font-size:14px">Archive labels, chapter numbers, dates.</p>
+    </div>
+    <div>
+      <h3>Palette</h3>
+      <div class="sw"><i style="background:#ece5d8" title="paper"></i><i style="background:#faf8f3" title="print"></i><i style="background:#1c1a17" title="ink"></i><i style="background:#1f2a44" title="fountain pen"></i><i style="background:#5e1a1d" title="oxblood"></i><i style="background:#8a7a66" title="sepia"></i><i style="background:#141210" title="noir"></i></div>
+      <p style="margin-top:12px">Paper, print white and ink do most of the work. Use oxblood for one accent per slide. Use the red grease pencil only to circle details.</p>
+    </div>
+    <div>
+      <h3>Rules</h3>
+      <ul>
+        <li>One script word per slide. Luxury comes from restraint.</li>
+        <li>Tilt every print between 1° and 4°, never straight.</li>
+        <li>Pair each artwork with a garment and name both in the typewriter caption.</li>
+        <li>A 7‑slide carousel: cover → dialogue → archive → contact → letter → quote → à suivre.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<input type="file" id="file" accept="image/*" hidden>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+<script>
+(function(){
+  const frames=[...document.querySelectorAll('.frame')];
+  function fit(){frames.forEach(f=>{const w=+f.dataset.w,h=+f.dataset.h,s=f.clientWidth/w;f.style.height=h*s+'px';f.firstElementChild.style.transform='scale('+s+')';});}
+  addEventListener('resize',fit);fit();
+  if(document.fonts)document.fonts.ready.then(fit);
+
+  const edits=[...document.querySelectorAll('[data-edit]')];
+  const KEY='dep-kit-v1';
+  let saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  edits.forEach((el,i)=>{
+    el.dataset.orig=el.innerHTML;
+    if(saved[i]!=null)el.innerHTML=saved[i];
+    el.contentEditable='true';el.spellcheck=false;
+    el.addEventListener('input',()=>{saved[i]=el.innerHTML;try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}});
+  });
+  document.getElementById('reset').onclick=()=>{edits.forEach(el=>el.innerHTML=el.dataset.orig);saved={};try{localStorage.removeItem(KEY)}catch(e){}};
+
+  const file=document.getElementById('file');let target=null;
+  document.addEventListener('click',e=>{const ph=e.target.closest('.ph');if(!ph)return;target=ph.querySelector('img');file.value='';file.click();});
+  file.addEventListener('change',()=>{const f=file.files[0];if(!f||!target)return;const r=new FileReader();r.onload=()=>{target.src=r.result};r.readAsDataURL(f);});
+
+  async function exportSlide(slide){
+    if(!window.htmlToImage){alert('The export library did not load. Check your connection and reload the page.');throw new Error('no lib');}
+    document.activeElement&&document.activeElement.blur();
+    document.body.classList.add('exporting');
+    try{
+      const w=slide.offsetWidth,h=slide.offsetHeight;
+      const url=await htmlToImage.toPng(slide,{width:w,height:h,pixelRatio:1,style:{transform:'none'}});
+      const a=document.createElement('a');a.href=url;a.download='dialogue-en-pause-'+slide.dataset.name+'.png';a.click();
+    }finally{document.body.classList.remove('exporting');}
+  }
+  document.querySelectorAll('[data-dl]').forEach(b=>b.onclick=async()=>{b.disabled=true;try{await exportSlide(b.closest('figure').querySelector('.slide'))}finally{b.disabled=false}});
+  const all=document.getElementById('all');
+  all.onclick=async()=>{all.disabled=true;try{for(const s of document.querySelectorAll('.slide')){await exportSlide(s);await new Promise(r=>setTimeout(r,400));}}finally{all.disabled=false}};
+})();
+</script>
+</body>
+</html>
