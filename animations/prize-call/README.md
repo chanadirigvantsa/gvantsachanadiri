@@ -1,6 +1,6 @@
 # მოგებული ტელევიზორი · The Prize Call
 
-A one-minute comedic 3D cartoon (fictional). Nana is at home in her cozy Tbilisi
+A one-minute comedic 3D cartoon (fictional). Tsiuri is at home in her cozy Tbilisi
 apartment when an unknown number calls. The caller is phoning from a prison cell. She has "won" a giant television and only
 needs to send a little money first. She's thrilled, pays straight away and waits
 proudly for her prize. One week later, she's still waiting.
@@ -10,7 +10,7 @@ proudly for her prize. One week later, she's still waiting.
 
 The dialogue is spoken in English, with Georgian subtitles. The voices are
 synthesized with espeak-ng's English voices, and the mouths are lip-synced to each
-voice line's loudness, frame by frame. Nana pays with a card drawn in the style of the classic
+voice line's loudness, frame by frame. Tsiuri pays with a card drawn in the style of the classic
 Georgian "Mono" phone card (no operator logo). The banking app is a generic design.
 
 ## Rebuild

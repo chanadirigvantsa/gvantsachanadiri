@@ -446,13 +446,13 @@ home.add(sun, sun.target);
 const lampLight = new THREE.PointLight(0xffc977, 3, 6, 1.5); lampLight.position.set(-1.75, 1.6, -2.3); home.add(lampLight);
 const fill = new THREE.DirectionalLight(0xc7dcff, 0.6); fill.position.set(4, 3, 3); home.add(fill);
 
-// Nana
-const nana = makePerson({
+// Tsiuri
+const tsiuri = makePerson({
   skin: 0xf2c4a0, legs: 0x9b6b55, shoes: 0xc0392b, pompom: 0xffffff, skirt: 0x1d3557, top: 0xc0392b, dress: 0x264f8a,
   sleeve: 0xc0392b, cuff: 0xffffff, cardigan: true, hair: 'bun', hairColor: 0x3b2418, brows: 0x3b2418, blush: 0xff7f7f,
   earrings: true, lashes: true, lipColor: 0x9e2a2b, nose: 0.052,
 });
-home.add(nana.root);
+home.add(tsiuri.root);
 
 // her phone (a generic smartphone) and bank card (no real brand)
 const phoneCanvas = document.createElement('canvas'); phoneCanvas.width = 360; phoneCanvas.height = 720;
@@ -682,7 +682,7 @@ function talk(who, t) { // lip-sync opening from the voice envelope
 }
 const isTalking = (who, t) => talk(who, t) > 0.05;
 
-// chest-space hand targets for Nana
+// chest-space hand targets for Tsiuri
 const NT = {
   restL: v3(0.24, -0.38, 0.12), restR: v3(-0.24, -0.38, 0.12),
   lapL: v3(0.12, -0.36, 0.3), lapR: v3(-0.12, -0.36, 0.3),
@@ -706,8 +706,8 @@ function poseLegs(P, sit) {
 
 const tvSpotWorld = v3(-4.4, 1.45, -0.9);
 
-function poseNana(t) {
-  const P = nana;
+function poseTsiuri(t) {
+  const P = tsiuri;
   P.root.visible = true;
   const final = t >= M.final;
   // --- where she is and how she sits/stands
@@ -824,7 +824,7 @@ function poseNana(t) {
   solveArm(P.arms[1], R, poleR);
 
   // --- face
-  const o = talk('nana', t);
+  const o = talk('tsiuri', t);
   const f = { t, open: o * 0.9, smile: 0.35, lid: 0.18 + blink(t, 0.3) * 0.82 };
   if (t < M.ring) Object.assign(f, { lid: 0.42 + blink(t, 0.3) * 0.58, smile: 0.1, lookX: 0.0 }); // bored
   if (t > M.startle && t < M.ring + 1.4) Object.assign(f, { eye: 1.35, pupil: 0.7, lid: 0, brow: 1, open: 0.8 * (1 - seg(t, M.startle + 0.5, M.ring + 1.4)), smile: 0 });
@@ -851,7 +851,7 @@ function toChest(P, world) {
 
 function poseProps(t) {
   // tea glass: in her left hand at first; flies up when the phone rings, lands on the table
-  const handL = new THREE.Vector3(); nana.arms[0].hand.getWorldPosition(handL);
+  const handL = new THREE.Vector3(); tsiuri.arms[0].hand.getWorldPosition(handL);
   const teaTable = v3(-0.05, 0.455, -0.9);
   if (t < M.startle) { tea.position.copy(handL).add(v3(0, -0.02, 0.03)); tea.rotation.set(0, 0, 0); }
   else if (t < M.startle + 1.1) {
@@ -875,17 +875,17 @@ function poseProps(t) {
       phone.rotateZ(Math.sin(t * 70) * 0.08);
     }
   } else {
-    placeOnHand(phone, nana, 1, v3(0, 0, 0));
-    nana.head.updateWorldMatrix(true, false);
-    const head = new THREE.Vector3(); nana.head.getWorldPosition(head);
+    placeOnHand(phone, tsiuri, 1, v3(0, 0, 0));
+    tsiuri.head.updateWorldMatrix(true, false);
+    const head = new THREE.Vector3(); tsiuri.head.getWorldPosition(head);
     const atEar = (t >= M.answer && t < M.bank - 0.15) ? seg(t, M.grab + 0.3, M.answer) * (1 - seg(t, M.bank - 0.55, M.bank - 0.15)) : 0;
     // held flat in front of her face vs pressed to the ear
     const front = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().lookAt(phone.position, head.clone().add(v3(0, 0.05, 0)), v3(0, 1, 0)));
     front.multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0, Math.PI, 0)));
-    const ear = nana.head.getWorldQuaternion(new THREE.Quaternion()).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0.1, -Math.PI / 2, 0.2)));
+    const ear = tsiuri.head.getWorldQuaternion(new THREE.Quaternion()).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0.1, -Math.PI / 2, 0.2)));
     phone.quaternion.copy(front).slerp(ear, atEar);
     if (atEar > 0.5) {
-      const earPos = new THREE.Vector3(-0.33, 0.0, 0.03); nana.head.localToWorld(earPos);
+      const earPos = new THREE.Vector3(-0.33, 0.0, 0.03); tsiuri.head.localToWorld(earPos);
       phone.position.lerp(earPos, (atEar - 0.5) * 2);
     }
   }
@@ -896,11 +896,11 @@ function poseProps(t) {
   // card
   card.visible = t > M.card - 0.2 && t < M.paid + 1.2;
   if (card.visible) {
-    placeOnHand(card, nana, 0, v3(0.0, 0.05, 0.03));
+    placeOnHand(card, tsiuri, 0, v3(0.0, 0.05, 0.03));
     const shine = t < M.bank ? Math.sin(clamp((t - M.card) / 0.5) * Math.PI) * 0.5 : 0;
     card.quaternion.setFromEuler(new THREE.Euler(-0.1, -0.35 + shine, 0.15));
     if (t > M.bank - 0.4) {
-      const head = new THREE.Vector3(); nana.head.getWorldPosition(head);
+      const head = new THREE.Vector3(); tsiuri.head.getWorldPosition(head);
       card.lookAt(head); card.rotateX(-0.3);
     }
   }
@@ -911,7 +911,7 @@ function poseDream(t) {
   const k = t < a ? 0 : t < b ? backOut((t - a) / 0.5) * (1 - seg(t, b - 0.4, b)) : 0;
   dream.visible = k > 0.01;
   if (!dream.visible) return;
-  const head = new THREE.Vector3(); nana.head.getWorldPosition(head);
+  const head = new THREE.Vector3(); tsiuri.head.getWorldPosition(head);
   dream.position.set(head.x + 1.15, head.y + 0.55 + Math.sin(t * 2) * 0.04, head.z + 0.2);
   dream.scale.setScalar(k * 0.85);
   dream.lookAt(camera.position.x, dream.position.y, camera.position.z);
@@ -1059,22 +1059,22 @@ function poseGogi(t) {
 // ---------------------------------------------------------------- shots
 // Each shot: [start, which set, camera function(t, local k)].
 const DEN = 40;
-const nanaHead = () => { const p = new THREE.Vector3(); nana.head.getWorldPosition(p); return p; };
+const tsiuriHead = () => { const p = new THREE.Vector3(); tsiuri.head.getWorldPosition(p); return p; };
 const gogiHead = () => { const p = new THREE.Vector3(); gogi.head.getWorldPosition(p); return p; };
 const SHOTS = [
   [0, 'home', (t) => { const k = seg(t, 0, M.ring); return [lerpV(v3(3.6, 2.9, 4.6), v3(1.7, 1.7, 2.1), k), lerpV(v3(0.3, 1.0, -1.6), v3(0.1, 1.05, -1.8), k), 42]; }],
   [M.ring + 0.6, 'home', (t) => { const k = seg(t, M.ring + 0.6, M.grab); return [lerpV(v3(1.2, 1.0, 0.4), v3(1.0, 0.9, -0.1), k), v3(0.4, 0.5, -0.95), 38]; }],
   [M.grab, 'home', (t) => { const k = seg(t, M.grab, M.congrats); return [lerpV(v3(1.6, 1.4, 0.9), v3(1.0, 1.3, 0.2), k), lerpV(v3(0.1, 0.9, -1.7), v3(-0.05, 1.15, -1.9), k), 38]; }],
   [M.congrats - 0.15, 'den', (t) => { const k = seg(t, M.congrats, M.congrats + 3.6); return [lerpV(v3(1.5, 1.55, DEN + 3.6), v3(0.55, 1.45, DEN + 2.3), k), v3(0, 1.3, DEN - 0.3), 40]; }],
-  [M.congrats + 3.7, 'home', (t) => { const k = seg(t, M.congrats + 3.7, M.reaction); const h = nanaHead(); return [lerpV(v3(0.8, 1.4, 0.5), v3(0.55, 1.35, 0.1), k), h, 36]; }],
-  [M.reaction, 'home', (t) => { const k = backOut((t - M.reaction) / 0.25); const h = nanaHead(); return [lerpV(v3(0.6, 1.4, 0.3), v3(0.42, 1.35, -0.3), k), h, 36]; }],
+  [M.congrats + 3.7, 'home', (t) => { const k = seg(t, M.congrats + 3.7, M.reaction); const h = tsiuriHead(); return [lerpV(v3(0.8, 1.4, 0.5), v3(0.55, 1.35, 0.1), k), h, 36]; }],
+  [M.reaction, 'home', (t) => { const k = backOut((t - M.reaction) / 0.25); const h = tsiuriHead(); return [lerpV(v3(0.6, 1.4, 0.3), v3(0.42, 1.35, -0.3), k), h, 36]; }],
   [M.vaime + 0.1, 'home', (t) => { const k = seg(t, M.vaime + 0.1, M.pay); return [lerpV(v3(0.6, 1.6, 1.8), v3(1.9, 1.9, 2.3), k), v3(0.35, 1.55, -1.7), 46]; }],
   [M.pay - 0.1, 'den', (t) => { const k = seg(t, M.pay, M.pay + 3.0); return [lerpV(v3(-0.85, 1.4, DEN + 1.0), v3(-0.45, 1.45, DEN + 0.85), k), v3(0, 1.4, DEN - 0.3), 40]; }],
-  [M.pay + 3.2, 'home', (t) => { const k = seg(t, M.pay + 3.2, M.now); const h = nanaHead(); return [lerpV(v3(-0.4, 1.45, -0.3), v3(-0.25, 1.5, -0.7), k), h.clone().add(v3(0, -0.1, 0)), 38]; }],
-  [M.now, 'home', (t) => { const k = seg(t, M.now, M.bank); const h = nanaHead(); return [lerpV(v3(0.9, 1.35, 0.0), v3(0.6, 1.3, -0.5), k), h.clone().add(v3(0.1, -0.35, 0)), 40]; }],
+  [M.pay + 3.2, 'home', (t) => { const k = seg(t, M.pay + 3.2, M.now); const h = tsiuriHead(); return [lerpV(v3(-0.4, 1.45, -0.3), v3(-0.25, 1.5, -0.7), k), h.clone().add(v3(0, -0.1, 0)), 38]; }],
+  [M.now, 'home', (t) => { const k = seg(t, M.now, M.bank); const h = tsiuriHead(); return [lerpV(v3(0.9, 1.35, 0.0), v3(0.6, 1.3, -0.5), k), h.clone().add(v3(0.1, -0.35, 0)), 40]; }],
   [M.bank, 'insert', (t) => { const k = seg(t, M.bank, M.thanks); return [lerpV(v3(-0.06, 0.02, -40 + 0.42), v3(-0.03, 0.0, -40 + 0.33), k), v3(-0.035, -0.005, -40), 40]; }],
   [M.thanks - 0.1, 'den', (t) => { const k = seg(t, M.thanks, M.luck); return [lerpV(v3(0.1, 1.35, DEN + 0.95), v3(0.0, 1.5, DEN + 3.6), k), lerpV(v3(0, 1.35, DEN - 0.3), v3(0, 1.2, DEN - 0.3), k), 44]; }],
-  [M.luck - 0.15, 'home', (t) => { const k = seg(t, M.luck, M.later); const h = nanaHead(); return [lerpV(v3(0.6, 1.4, 0.2), v3(0.35, 1.45, -0.55), k), h.clone().add(v3(0, -0.15, 0)), 40]; }],
+  [M.luck - 0.15, 'home', (t) => { const k = seg(t, M.luck, M.later); const h = tsiuriHead(); return [lerpV(v3(0.6, 1.4, 0.2), v3(0.35, 1.45, -0.55), k), h.clone().add(v3(0, -0.15, 0)), 40]; }],
   [M.later, 'black', () => [v3(0, 0, 0), v3(0, 0, -1), 40]],
   [M.final, 'home', (t) => { const k = seg(t, M.final, M.end); return [lerpV(v3(-0.2, 1.7, 2.2), v3(-1.0, 1.6, 1.4), k), lerpV(v3(-3.6, 1.25, -0.55), v3(-3.5, 1.2, -0.5), k), 46]; }],
 ];
@@ -1118,8 +1118,8 @@ function drawOverlay(t) {
     og.font = `700 50px ${KA}`;
     const ka = wrap(og, l.ka, W - 300);
     let y = H - 60 - (ka.length - 1) * 62;
-    const name = l.who === 'nana' ? 'ნანა' : 'ზარი';
-    og.font = `900 28px ${KA}`; og.fillStyle = l.who === 'nana' ? '#ffb4a2' : '#9ad1ff';
+    const name = l.who === 'tsiuri' ? 'ციური' : 'ზარი';
+    og.font = `900 28px ${KA}`; og.fillStyle = l.who === 'tsiuri' ? '#ffb4a2' : '#9ad1ff';
     og.lineWidth = 6; og.strokeStyle = 'rgba(0,0,0,0.85)';
     og.strokeText(name, W / 2, y - 58); og.fillText(name, W / 2, y - 58);
     og.font = `700 50px ${KA}`; og.lineWidth = 10;
@@ -1146,7 +1146,7 @@ export function renderAt(t) {
   phone.visible = home.visible; card.visible = card.visible && home.visible; tea.visible = home.visible;
   handset.visible = den.visible;
 
-  poseNana(t);
+  poseTsiuri(t);
   poseProps(t);
   if (!home.visible) { phone.visible = card.visible = tea.visible = false; }
   poseHome(t);

@@ -18,18 +18,18 @@ const SR = 44100;
 const FPS = 30;
 
 const VOICES = {
-  nana: ['-v', 'en-us+f4', '-p', '75', '-s', '150', '-a', '170'],
+  tsiuri: ['-v', 'en-us+f4', '-p', '75', '-s', '150', '-a', '170'],
   gogi: ['-v', 'en-us+m3', '-p', '30', '-s', '158', '-a', '170'],
 };
 
 const LINES = {
-  alo:      { who: 'nana', ka: 'ალო? გისმენთ!', en: 'Hello? I\'m listening!' },
+  alo:      { who: 'tsiuri', ka: 'ალო? გისმენთ!', en: 'Hello? I\'m listening!' },
   congrats: { who: 'gogi', ka: 'გილოცავთ, ქალბატონო! თქვენ მოიგეთ ახალთახალი, უზარმაზარი ტელევიზორი!', en: 'Congratulations, madam! You\'ve won a brand-new, enormous television!' },
-  vaime:    { who: 'nana', ka: 'ვაიმე! მართლა?! ტელევიზორი?! მე?!', en: 'Oh my! Really?! A television?! Me?!' },
+  vaime:    { who: 'tsiuri', ka: 'ვაიმე! მართლა?! ტელევიზორი?! მე?!', en: 'Oh my! Really?! A television?! Me?!' },
   pay:      { who: 'gogi', ka: 'დიახ, დიახ! პრიზის მისაღებად, უბრალოდ, პატარა თანხა უნდა გადმოგვირიცხოთ.', en: 'Yes, yes! To claim your prize, you just need to send us a small amount.' },
-  now:      { who: 'nana', ka: 'ახლავე, შვილო, ახლავე! აი, ბარათიც აქ მაქვს!', en: 'Right away, dear, right away! Here\'s my card!' },
+  now:      { who: 'tsiuri', ka: 'ახლავე, შვილო, ახლავე! აი, ბარათიც აქ მაქვს!', en: 'Right away, dear, right away! Here\'s my card!' },
   thanks:   { who: 'gogi', ka: 'ჰა, ჰა, ჰა! დიდი მადლობა, ქალბატონო! ტელევიზორი... აუცილებლად მოვა!', en: 'Ha, ha, ha! Thank you so much, madam! The television... will definitely arrive!' },
-  luck:     { who: 'nana', ka: 'აი, ეს არის იღბალი! ახლა მთელი უბანი ჩემთან უყურებს ფეხბურთს!', en: 'Now that\'s luck! The whole neighbourhood will watch football at my place!' },
+  luck:     { who: 'tsiuri', ka: 'აი, ეს არის იღბალი! ახლა მთელი უბანი ჩემთან უყურებს ფეხბურთს!', en: 'Now that\'s luck! The whole neighbourhood will watch football at my place!' },
 };
 
 // ---------- wav io ----------
