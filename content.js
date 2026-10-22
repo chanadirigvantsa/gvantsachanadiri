@@ -335,11 +335,7 @@ window.SITE = {
       "c": "",
       "gl": "natural",
       "g": ["1", "3", "4", "5", "6"],
-      "lk": [
-        { "id": "melvita1", "ty": "Instagram post", "t": "Melvita reel", "s": "Instagram", "u": "https://www.instagram.com/reel/DK9L8dAtDOD/" },
-        { "id": "melvita2", "ty": "Instagram post", "t": "Melvita reel", "s": "Instagram", "u": "https://www.instagram.com/reel/DK_wCg1MHO8/" },
-        { "id": "melvita3", "ty": "Instagram post", "t": "Melvita reel", "s": "Instagram", "u": "https://www.instagram.com/reel/DLPMv4iNRjO/" }
-      ]
+      "lk": [{"id": "melvitav1", "ty": "Video file", "t": "Melvita teaser", "s": "Video", "u": "images/melvita/melvita-teaser.mp4", "v": "images/melvita/melvita-teaser.mp4", "p": "images/melvita/melvita-teaser.jpg"}, {"id": "melvitav2", "ty": "Video file", "t": "Melvita film with Tina Dalakishvili", "s": "Video", "u": "images/melvita/melvita-film.mp4", "v": "images/melvita/melvita-film.mp4", "p": "images/melvita/melvita-film.jpg"}]
     },
     {
       "id": "erborian",
