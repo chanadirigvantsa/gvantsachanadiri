@@ -508,87 +508,113 @@ for (let i = 0; i < 90; i++) {
   c.userData = { x: (confR() - 0.5) * 3.2, z: (confR() - 0.5) * 1.6, d: confR() * 1.2, v: 0.6 + confR() * 0.5, s: confR() * 6, w: 1 + confR() * 3 };
 }
 
-// ---------------------------------------------------------------- the caller's den
+// ---------------------------------------------------------------- the caller's prison cell
+// The "prize centre" is a jail cell: concrete walls, black iron bars, a cot
+// with a grey blanket and a white pillow. The caller phones from in there.
 const den = new THREE.Group(); scene.add(den); den.position.set(0, 0, 40);
-const denWall = canvasTex(256, 256, (g, w, h) => {
-  g.fillStyle = '#3b4a43'; g.fillRect(0, 0, w, h);
+const concrete = canvasTex(512, 512, (g, w, h) => {
+  g.fillStyle = '#6f6a63'; g.fillRect(0, 0, w, h);
   const r = rng(11);
-  for (let i = 0; i < 70; i++) { g.fillStyle = `rgba(20,30,25,${0.2 + r() * 0.3})`; g.beginPath(); g.arc(r() * w, r() * h, 3 + r() * 14, 0, 7); g.fill(); }
+  for (let i = 0; i < 260; i++) { const v = 80 + r() * 50; g.fillStyle = `rgba(${v},${v - 4},${v - 10},${0.15 + r() * 0.25})`; g.beginPath(); g.arc(r() * w, r() * h, 2 + r() * 22, 0, 7); g.fill(); }
+  const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, 'rgba(0,0,0,0.35)'); gr.addColorStop(0.5, 'rgba(0,0,0,0)'); gr.addColorStop(1, 'rgba(0,0,0,0.3)');
+  g.fillStyle = gr; g.fillRect(0, 0, w, h);
+  // tally marks scratched into the wall
+  g.strokeStyle = 'rgba(30,28,25,0.75)'; g.lineWidth = 3;
+  for (let k = 0; k < 6; k++) { const x0 = 330 + (k % 3) * 52, y0 = 250 + Math.floor(k / 3) * 60;
+    for (let i = 0; i < 4; i++) { g.beginPath(); g.moveTo(x0 + i * 9, y0); g.lineTo(x0 + i * 9 + 2, y0 + 38); g.stroke(); }
+    g.beginPath(); g.moveTo(x0 - 6, y0 + 30); g.lineTo(x0 + 34, y0 + 6); g.stroke(); }
 });
-denWall.wrapS = denWall.wrapT = THREE.RepeatWrapping; denWall.repeat.set(3, 1);
-at(mesh(new THREE.PlaneGeometry(8, 3.4), toon(0xffffff, { map: denWall }), { cast: false }), 0, 1.7, -1.6, den);
-const denFloor = at(mesh(new THREE.PlaneGeometry(8, 6), toon(0x2b2b2b), { cast: false }), 0, 0, 0.5, den); denFloor.rotation.x = -Math.PI / 2;
-// desk with a row of old phones and cash
-const desk = at(new THREE.Group(), 0, 0, 0.55, den);
-at(box(2.4, 0.08, 0.9, 0x5a3b26, { outline: 0.01 }), 0, 0.76, 0, desk);
-for (const s of [-1, 1]) at(box(0.08, 0.76, 0.8, 0x4a3020), s * 1.1, 0.38, 0, desk);
-const denPhones = [];
-for (let i = 0; i < 5; i++) {
-  if (i === 2) continue;
-  const p = at(new THREE.Group(), -0.95 + i * 0.47, 0.8, 0.12, desk);
-  at(box(0.22, 0.09, 0.18, [0xc0392b, 0x2d3436, 0xf1c40f, 0x2d3436, 0x16a085][i], { outline: 0.03 }), 0, 0.045, 0, p);
-  const hs = at(cap(0.025, 0.18, 0x111111), 0, 0.12, 0, p); hs.rotation.z = Math.PI / 2;
-  denPhones.push(p);
+const backCell = at(mesh(new THREE.PlaneGeometry(3.6, 3.2), toon(0xffffff, { map: concrete }), { cast: false }), 0, 1.6, -1.6, den);
+const darkMat = toon(0x24221f);
+at(mesh(new THREE.PlaneGeometry(10, 3.4), darkMat, { cast: false }), 0, 1.7, -3.5, den); // corridor beyond the side bars
+const denFloor = at(mesh(new THREE.PlaneGeometry(10, 8), toon(0x55524d), { cast: false }), 0, 0, 0.5, den); denFloor.rotation.x = -Math.PI / 2;
+// iron bars: front wall with a door, and side walls, like a classic cell block
+const barMat = toon(0x1e1c1a);
+function barWall(len, h, vertical) {
+  const g = new THREE.Group();
+  for (let x = -len / 2; x <= len / 2 + 1e-6; x += 0.19) at(cyl(0.017, 0.017, h, barMat), x, h / 2, 0, g);
+  for (const y of [0.05, 0.95, 1.85, h - 0.05]) at(box(len + 0.06, 0.05, 0.035, barMat), 0, y, 0, g);
+  return g;
 }
-const cash = at(new THREE.Group(), 0.7, 0.8, -0.2, desk);
-for (let i = 0; i < 5; i++) at(box(0.2, 0.025, 0.1, 0x6ab04c, { outline: 0.03 }), (i % 2) * 0.03, 0.013 + i * 0.026, (i % 3) * 0.01, cash).rotation.y = i * 0.15;
-// neon-ish sign
-const denSignTex = canvasTex(700, 160, (g, w, h) => {
-  g.fillStyle = '#1b1b1b'; g.fillRect(0, 0, w, h);
-  g.strokeStyle = '#f5c542'; g.lineWidth = 8; g.strokeRect(10, 10, w - 20, h - 20);
-  g.fillStyle = '#ffe066'; g.font = `900 64px ${KA}`; g.textAlign = 'center'; g.textBaseline = 'middle';
-  g.shadowColor = '#ffcc00'; g.shadowBlur = 20;
-  g.fillText('★ პრიზების ცენტრი ★', w / 2, h / 2 + 4);
+const frontBars = at(barWall(3.4, 2.6), 0, 0, 1.15, den);
+const doorG = at(new THREE.Group(), 0.38, 0, 1.17, den); // the cell door, a heavier frame
+for (const [x, y, w, h] of [[0, 1.3, 0.06, 2.55], [0.86, 1.3, 0.06, 2.55], [0.43, 2.55, 0.92, 0.07], [0.43, 1.45, 0.92, 0.06], [0.43, 0.75, 0.92, 0.05]]) at(box(w, h, 0.05, barMat), x, y, 0, doorG);
+at(box(0.22, 0.2, 0.06, barMat), 0.8, 1.15, 0.01, doorG); // lock plate
+const sideL = at(barWall(2.75, 2.6), -1.7, 0, -0.22, den); sideL.rotation.y = Math.PI / 2;
+const sideR = at(barWall(2.75, 2.6), 1.7, 0, -0.22, den); sideR.rotation.y = Math.PI / 2;
+at(box(3.5, 0.08, 2.9, barMat), 0, 2.62, -0.22, den); // ceiling frame
+// the cot: steel frame, grey striped blanket, white pillow
+const cot = at(new THREE.Group(), -0.25, 0, -0.62, den);
+at(box(1.95, 0.05, 0.72, 0x3a3835, { outline: 0.01 }), 0, 0.36, 0, cot);
+for (const [x, z] of [[-0.95, -0.33], [0.95, -0.33], [-0.95, 0.33], [0.95, 0.33]]) at(box(0.05, 0.36, 0.05, 0x3a3835), x, 0.18, z, cot);
+const blanketTex = canvasTex(256, 128, (g, w, h) => {
+  g.fillStyle = '#8d8a84'; g.fillRect(0, 0, w, h);
+  g.fillStyle = '#5f5c57'; g.fillRect(0, 34, w, 6); g.fillRect(0, 88, w, 6);
 });
-const denSign = at(mesh(new THREE.PlaneGeometry(2.1, 0.48), flat(0xffffff, { map: denSignTex })), 0.1, 2.35, -1.58, den); denSign.rotation.z = 0.06;
+at(box(1.9, 0.1, 0.7, toon(0xffffff, { map: blanketTex }), { outline: 0.01 }), 0, 0.44, 0, cot);
+const cotPillow = at(sph(0.2, 0xf4f4f0, { outline: 0.03 }), -0.72, 0.55, 0, cot); cotPillow.scale.set(1.2, 0.4, 1.4);
+// high barred window with moonlight
+const winG = at(new THREE.Group(), 0.95, 2.25, -1.58, den);
+at(mesh(new THREE.PlaneGeometry(0.6, 0.4), flat(0x2b3a66)), 0, 0, 0, winG);
+at(sph(0.06, flat(0xfff8c4)), 0.15, 0.08, 0.01, winG);
+for (let i = 0; i < 5; i++) at(cyl(0.012, 0.012, 0.4, barMat), -0.24 + i * 0.12, 0, 0.02, winG);
+// a hand-written paper "prize centre" sign taped to the concrete
+const denSignTex = canvasTex(700, 220, (g, w, h) => {
+  g.fillStyle = '#f6f1e1'; g.fillRect(0, 0, w, h);
+  g.fillStyle = 'rgba(240,220,120,0.8)'; g.fillRect(-10, 0, 90, 30); g.fillRect(w - 80, h - 30, 90, 30);
+  g.fillStyle = '#c0392b'; g.font = `900 70px ${KA}`; g.textAlign = 'center'; g.textBaseline = 'middle';
+  g.fillText('★ პრიზების ცენტრი ★', w / 2, 92);
+  g.fillStyle = '#1d3557'; g.font = `700 32px ${KA}`; g.fillText('ოფიციალური! 100% ნამდვილი!', w / 2, 168);
+});
+const denSign = at(mesh(new THREE.PlaneGeometry(1.5, 0.47), flat(0xffffff, { map: denSignTex })), -0.1, 1.95, -1.58, den); denSign.rotation.z = 0.05;
 const posterTex = canvasTex(200, 280, (g, w, h) => {
-  g.fillStyle = '#e63946'; g.fillRect(0, 0, w, h);
-  g.fillStyle = '#fff'; g.font = `900 40px ${KA}`; g.textAlign = 'center'; g.fillText('მოგება', w / 2, 80);
-  g.font = '900 86px "DejaVu Sans", sans-serif'; g.fillText('100%', w / 2, 180);
-  g.font = '700 30px "DejaVu Sans", sans-serif'; g.fillText('₾₾₾', w / 2, 240);
+  g.fillStyle = '#f6f1e1'; g.fillRect(0, 0, w, h);
+  g.fillStyle = '#c0392b'; g.font = `900 40px ${KA}`; g.textAlign = 'center'; g.fillText('მოგება', w / 2, 80);
+  g.font = '900 78px "DejaVu Sans", sans-serif'; g.fillText('100%', w / 2, 175);
+  g.fillStyle = '#2d6a4f'; g.font = '700 34px "DejaVu Sans", sans-serif'; g.fillText('₾₾₾', w / 2, 240);
 });
-const poster = at(mesh(new THREE.PlaneGeometry(0.6, 0.84), toon(0xffffff, { map: posterTex }), { cast: false }), -1.9, 1.6, -1.58, den); poster.rotation.z = -0.12;
-const blindsTex = canvasTex(128, 128, (g, w, h) => {
-  g.fillStyle = '#0d1b3a'; g.fillRect(0, 0, w, h);
-  g.fillStyle = '#fff8c4'; g.beginPath(); g.arc(90, 36, 14, 0, 7); g.fill();
-  g.fillStyle = '#6b6b6b'; for (let y = 0; y < h; y += 14) g.fillRect(0, y, w, 7);
-});
-at(mesh(new THREE.PlaneGeometry(0.9, 0.9), flat(0xffffff, { map: blindsTex })), 2.0, 1.75, -1.58, den);
-// hanging bulb
-const bulbG = at(new THREE.Group(), 0, 2.4, 0.2, den);
-at(cyl(0.005, 0.005, 1.0, 0x111111), 0, 0.5, 0, bulbG);
-at(cyl(0.05, 0.3, 0.2, 0x2d6a4f, { outline: 0.03 }), 0, 0, 0, bulbG);
-at(sph(0.07, flat(0xfff2b0)), 0, -0.1, 0, bulbG);
-const denLight = new THREE.SpotLight(0xffd98a, 30, 6, 0.9, 0.6, 1.4);
-denLight.position.set(0, 2.3, 40.2); denLight.target.position.set(0, 0.8, 40.4);
-denLight.castShadow = true; denLight.shadow.mapSize.set(1024, 1024);
+const poster = at(mesh(new THREE.PlaneGeometry(0.42, 0.59), flat(0xffffff, { map: posterTex })), -1.25, 1.45, -1.58, den); poster.rotation.z = -0.12;
+// tin mug and a small stash of cash on the cot
+at(cyl(0.05, 0.045, 0.1, 0x9aa0a6, { outline: 0.04 }), 0.55, 0.05, -1.3, den);
+const cash = at(new THREE.Group(), 0.55, 0.5, -0.75, den);
+for (let i = 0; i < 4; i++) at(box(0.2, 0.025, 0.1, 0x6ab04c, { outline: 0.03 }), (i % 2) * 0.03, 0.013 + i * 0.026, (i % 3) * 0.01, cash).rotation.y = i * 0.15;
+// caged bulb overhead
+const bulbG = at(new THREE.Group(), 0, 2.45, 0.1, den);
+at(cyl(0.12, 0.12, 0.04, barMat), 0, 0.1, 0, bulbG);
+at(sph(0.07, flat(0xfff2b0)), 0, 0, 0, bulbG);
+for (let i = 0; i < 6; i++) { const a = i / 6 * Math.PI * 2; at(cyl(0.006, 0.006, 0.18, barMat), Math.cos(a) * 0.1, 0, Math.sin(a) * 0.1, bulbG); }
+const denLight = new THREE.SpotLight(0xffe2b0, 16, 7, 0.95, 0.55, 1.3);
+denLight.position.set(0, 2.4, 40.4); denLight.target.position.set(0, 0.6, 39.8);
+denLight.castShadow = true; denLight.shadow.mapSize.set(2048, 2048);
 scene.add(denLight, denLight.target);
-const denHemi = new THREE.HemisphereLight(0x6f86c6, 0x1a1a1a, 0.7); den.add(denHemi);
-const denRim = new THREE.DirectionalLight(0x7aa2ff, 1.2); denRim.position.set(3, 2, -2); den.add(denRim);
-const denFill = new THREE.DirectionalLight(0xffd9b0, 1.3); denFill.position.set(-1, 1.6, 4); den.add(denFill);
+const denHemi = new THREE.HemisphereLight(0xb8c4d6, 0x2a2622, 0.9); den.add(denHemi);
+const denRim = new THREE.DirectionalLight(0x8fa8ff, 0.9); denRim.position.set(3, 2, -2); den.add(denRim);
+const denFill = new THREE.DirectionalLight(0xffe0c0, 1.1); denFill.position.set(-1, 1.6, 4); den.add(denFill);
 // money rain
 const moneyRain = new THREE.Group(); den.add(moneyRain);
 const mr = rng(77);
 for (let i = 0; i < 40; i++) {
   const b = at(mesh(new THREE.PlaneGeometry(0.16, 0.08), toon(0x6ab04c, { side: THREE.DoubleSide })), 0, 0, 0, moneyRain);
-  b.userData = { x: (mr() - 0.5) * 2.6, z: 0.2 + mr() * 1.0, d: mr() * 1.6, s: mr() * 6 };
+  b.userData = { x: (mr() - 0.5) * 2.6, z: -0.6 + mr() * 1.4, d: mr() * 1.6, s: mr() * 6 };
 }
 
-// Gogi, the caller
+// Gogi, the caller, in an orange prison jumpsuit with inmate number
 const gogi = makePerson({
-  skin: 0xe0a882, legs: 0x22222a, shoes: 0x111111, top: 0x1f1f24, sleeve: 0x1f1f24, collar: 0x1f1f24,
-  hair: 'cap', capColor: 0x3d3d46, brows: 0x1c1410, mustache: true, shades: true, chain: true, goldTooth: true,
+  skin: 0xe0a882, legs: 0xe8711c, shoes: 0x2b2b2b, top: 0xe8711c, sleeve: 0xe8711c, collar: 0xe8711c,
+  hair: 'none', brows: 0x1c1410, mustache: true, shades: true, chain: true, goldTooth: true,
   lipColor: 0x5a2a20, nose: 0.065, noseColor: 0xd99676,
 });
+const numTex = canvasTex(160, 64, (g, w, h) => { g.fillStyle = '#fff'; g.fillRect(0, 0, w, h); g.fillStyle = '#111'; g.font = '900 40px "DejaVu Sans", sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('№ 777', w / 2, h / 2 + 2); });
+const patch = at(mesh(new THREE.PlaneGeometry(0.17, 0.068), flat(0xffffff, { map: numTex })), 0.11, 0.3, 0.222, gogi.spine); patch.rotation.y = 0.35;
+// stubble on the shaved head
+const stubble = at(mesh(new THREE.SphereGeometry(0.312, 32, 12, 0, Math.PI * 2, 0, Math.PI * 0.42), toon(0x6b5446)), 0, 0.0, -0.025, gogi.head); stubble.rotation.x = -0.4;
 gogi.root.position.set(0, 0, 0);
 den.add(gogi.root);
+// a cheap smuggled mobile phone
 const handset = new THREE.Group();
-at(cap(0.03, 0.2, 0x111111, { outline: 0.05 }), 0, 0, 0, handset);
-at(sph(0.045, 0x111111), 0, 0.13, 0.02, handset); at(sph(0.045, 0x111111), 0, -0.13, 0.02, handset);
+at(box(0.06, 0.12, 0.018, 0x222222, { outline: 0.05 }), 0, 0, 0, handset);
+at(mesh(new THREE.PlaneGeometry(0.045, 0.05), flat(0x7fd1ff)), 0, 0.025, 0.0095, handset);
 scene.add(handset);
-const chair = at(new THREE.Group(), 0, 0, -0.35, den);
-at(box(0.6, 0.08, 0.55, 0x222222), 0, 0.46, 0, chair);
-at(box(0.6, 0.7, 0.08, 0x222222, { outline: 0.01 }), 0, 0.85, -0.27, chair);
 
 // ---------------------------------------------------------------- phone close-up insert
 // A separate little set: her hand holding the phone, card in the other hand,
@@ -1027,7 +1053,7 @@ function poseGogi(t) {
   P.root.updateMatrixWorld(true);
   // handset to the ear
   placeOnHand(handset, P, 1);
-  handset.quaternion.copy(P.head.getWorldQuaternion(new THREE.Quaternion())).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0.2, 0, 0.3)));
+  handset.quaternion.copy(P.head.getWorldQuaternion(new THREE.Quaternion())).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0.1, -Math.PI / 2, 0.2)));
   const earPos = new THREE.Vector3(-0.32, -0.02, 0.05); P.head.localToWorld(earPos);
   handset.position.lerp(earPos, 0.6);
   // money rain after the payment
@@ -1038,7 +1064,6 @@ function poseGogi(t) {
     b.position.set(u.x + Math.sin(lt * 2 + u.s) * 0.2, Math.max(0.03, 2.6 - lt * 0.9), u.z);
     b.rotation.set(lt * 3 + u.s, lt * 2, u.s);
   }
-  denPhones.forEach((p, i) => { p.rotation.z = (t > M.congrats && t < M.congrats + 3 && i % 2) ? Math.sin(t * 60) * 0.05 : 0; });
 }
 
 // ---------------------------------------------------------------- shots
@@ -1050,15 +1075,15 @@ const SHOTS = [
   [0, 'home', (t) => { const k = seg(t, 0, M.ring); return [lerpV(v3(3.6, 2.9, 4.6), v3(1.7, 1.7, 2.1), k), lerpV(v3(0.3, 1.0, -1.6), v3(0.1, 1.05, -1.8), k), 42]; }],
   [M.ring + 0.6, 'home', (t) => { const k = seg(t, M.ring + 0.6, M.grab); return [lerpV(v3(1.2, 1.0, 0.4), v3(1.0, 0.9, -0.1), k), v3(0.4, 0.5, -0.95), 38]; }],
   [M.grab, 'home', (t) => { const k = seg(t, M.grab, M.congrats); return [lerpV(v3(1.6, 1.4, 0.9), v3(1.0, 1.3, 0.2), k), lerpV(v3(0.1, 0.9, -1.7), v3(-0.05, 1.15, -1.9), k), 38]; }],
-  [M.congrats - 0.15, 'den', (t) => { const k = seg(t, M.congrats, M.congrats + 3.6); return [lerpV(v3(1.3, 1.6, DEN + 2.6), v3(0.55, 1.5, DEN + 1.7), k), v3(0, 1.35, DEN - 0.2), 40]; }],
+  [M.congrats - 0.15, 'den', (t) => { const k = seg(t, M.congrats, M.congrats + 3.6); return [lerpV(v3(1.5, 1.55, DEN + 3.6), v3(0.55, 1.45, DEN + 2.3), k), v3(0, 1.3, DEN - 0.3), 40]; }],
   [M.congrats + 3.7, 'home', (t) => { const k = seg(t, M.congrats + 3.7, M.reaction); const h = nanaHead(); return [lerpV(v3(0.8, 1.4, 0.5), v3(0.55, 1.35, 0.1), k), h, 36]; }],
   [M.reaction, 'home', (t) => { const k = backOut((t - M.reaction) / 0.25); const h = nanaHead(); return [lerpV(v3(0.6, 1.4, 0.3), v3(0.42, 1.35, -0.3), k), h, 36]; }],
   [M.vaime + 0.1, 'home', (t) => { const k = seg(t, M.vaime + 0.1, M.pay); return [lerpV(v3(0.6, 1.6, 1.8), v3(1.9, 1.9, 2.3), k), v3(0.35, 1.55, -1.7), 46]; }],
-  [M.pay - 0.1, 'den', (t) => { const k = seg(t, M.pay, M.pay + 3.0); return [lerpV(v3(-1.0, 1.4, DEN + 1.9), v3(-0.45, 1.45, DEN + 1.3), k), v3(0, 1.4, DEN - 0.25), 38]; }],
+  [M.pay - 0.1, 'den', (t) => { const k = seg(t, M.pay, M.pay + 3.0); return [lerpV(v3(-0.85, 1.4, DEN + 1.0), v3(-0.45, 1.45, DEN + 0.85), k), v3(0, 1.4, DEN - 0.3), 40]; }],
   [M.pay + 3.2, 'home', (t) => { const k = seg(t, M.pay + 3.2, M.now); const h = nanaHead(); return [lerpV(v3(-0.4, 1.45, -0.3), v3(-0.25, 1.5, -0.7), k), h.clone().add(v3(0, -0.1, 0)), 38]; }],
   [M.now, 'home', (t) => { const k = seg(t, M.now, M.bank); const h = nanaHead(); return [lerpV(v3(0.9, 1.35, 0.0), v3(0.6, 1.3, -0.5), k), h.clone().add(v3(0.1, -0.35, 0)), 40]; }],
   [M.bank, 'insert', (t) => { const k = seg(t, M.bank, M.thanks); return [lerpV(v3(-0.06, 0.02, -40 + 0.42), v3(-0.03, 0.0, -40 + 0.33), k), v3(-0.035, -0.005, -40), 40]; }],
-  [M.thanks - 0.1, 'den', (t) => { const k = seg(t, M.thanks, M.luck); return [lerpV(v3(0.1, 1.3, DEN + 1.5), v3(0.0, 1.45, DEN + 2.4), k), lerpV(v3(0, 1.35, DEN - 0.3), v3(0, 1.3, DEN - 0.3), k), 44]; }],
+  [M.thanks - 0.1, 'den', (t) => { const k = seg(t, M.thanks, M.luck); return [lerpV(v3(0.1, 1.35, DEN + 0.95), v3(0.0, 1.5, DEN + 3.6), k), lerpV(v3(0, 1.35, DEN - 0.3), v3(0, 1.2, DEN - 0.3), k), 44]; }],
   [M.luck - 0.15, 'home', (t) => { const k = seg(t, M.luck, M.later); const h = nanaHead(); return [lerpV(v3(0.6, 1.4, 0.2), v3(0.35, 1.45, -0.55), k), h.clone().add(v3(0, -0.15, 0)), 40]; }],
   [M.later, 'black', () => [v3(0, 0, 0), v3(0, 0, -1), 40]],
   [M.final, 'home', (t) => { const k = seg(t, M.final, M.end); return [lerpV(v3(-0.2, 1.7, 2.2), v3(-1.0, 1.6, 1.4), k), lerpV(v3(-3.6, 1.25, -0.55), v3(-3.5, 1.2, -0.5), k), 46]; }],
@@ -1145,7 +1170,7 @@ export function renderAt(t) {
   insert.visible = set === 'insert';
   denLight.visible = set === 'den';
   sun.visible = set === 'home';
-  scene.background = new THREE.Color(set === 'den' ? 0x0b0f1a : set === 'black' ? 0x140c08 : 0xf4dcb0);
+  scene.background = new THREE.Color(set === 'den' ? 0x1a1816 : set === 'black' ? 0x140c08 : 0xf4dcb0);
   phone.visible = home.visible; card.visible = card.visible && home.visible; tea.visible = home.visible;
   handset.visible = den.visible;
 

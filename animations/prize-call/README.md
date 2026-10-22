@@ -1,7 +1,7 @@
 # მოგებული ტელევიზორი · The Prize Call
 
 A one-minute comedic 3D cartoon (fictional). Nana is at home in her cozy Tbilisi
-apartment when an unknown number calls: she has "won" a giant television and only
+apartment when an unknown number calls. The caller is phoning from a prison cell. She has "won" a giant television and only
 needs to send a little money first. She's thrilled, pays straight away and waits
 proudly for her prize. One week later, she's still waiting.
 
