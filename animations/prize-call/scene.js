@@ -469,14 +469,29 @@ at(box(0.085, 0.17, 0.012, 0xe85d75, { outline: 0.04 }), 0, 0, -0.002, phone);
 const phoneScreen = at(mesh(new THREE.PlaneGeometry(0.076, 0.152), flat(0xffffff, { map: phoneTex })), 0, 0, 0.0045, phone);
 home.add(phone);
 const card = new THREE.Group();
-const cardTex = canvasTex(428, 270, (g, w, h) => {
-  const gr = g.createLinearGradient(0, 0, w, h); gr.addColorStop(0, '#1b1b2f'); gr.addColorStop(1, '#3d2c6b');
-  g.fillStyle = gr; g.beginPath(); g.roundRect(0, 0, w, h, 26); g.fill();
-  g.fillStyle = '#e9c46a'; g.beginPath(); g.roundRect(40, 90, 62, 48, 8); g.fill();
-  g.strokeStyle = '#b8902f'; g.lineWidth = 2; for (let i = 0; i < 3; i++) { g.beginPath(); g.moveTo(40, 102 + i * 12); g.lineTo(102, 102 + i * 12); g.stroke(); }
-  g.fillStyle = '#ffffff'; g.font = '600 30px "DejaVu Sans Mono", monospace'; g.fillText('••••  ••••  ••••  4242', 40, 200);
-  g.font = `700 22px ${KA}`; g.fillText('ნანა გ.', 40, 242);
-  g.fillStyle = '#ff6fa5'; g.beginPath(); g.arc(w - 70, 60, 26, 0, 7); g.fill(); g.fillStyle = '#ffb347'; g.beginPath(); g.arc(w - 45, 60, 26, 0, 7); g.fill();
+const cardTex = canvasTex(476, 300, (g, w, h) => {
+  // in the style of the classic Georgian "Mono" phone card: black, lilac letters, orange circles
+  const lilac = '#b9a7d6', orange = '#f0662b';
+  g.fillStyle = '#111111'; g.beginPath(); g.roundRect(0, 0, w, h, 22); g.fill();
+  g.textBaseline = 'alphabetic';
+  g.fillStyle = orange;
+  for (const [x, y, r] of [[46, 62, 36], [158, 66, 32]]) { g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); }
+  g.globalCompositeOperation = 'source-over';
+  g.fillStyle = lilac; g.font = `900 80px ${KA}`; g.fillText('მონო', 10, 100);
+  g.fillStyle = orange; g.globalAlpha = 0.85;
+  for (const [x, y, r] of [[46, 62, 36], [158, 66, 32]]) { g.beginPath(); g.arc(x, y, r, Math.PI * 0.95, Math.PI * 1.9); g.fill(); }
+  g.globalAlpha = 1;
+  g.fillStyle = lilac; g.font = '900 120px "DejaVu Sans", sans-serif'; g.textAlign = 'right'; g.fillText('30', w - 18, 112);
+  g.textAlign = 'center'; g.font = `700 19px ${KA}`; g.fillText('ისარგებლეთ საერთაშორისო კავშირით - 00', w / 2, 158);
+  g.textAlign = 'left'; g.font = '900 112px "DejaVu Sans", sans-serif';
+  // MONO with orange-filled O's
+  let x = 10; const y = 278;
+  for (const ch of 'MONO') {
+    const cw = g.measureText(ch).width;
+    if (ch === 'O') { g.fillStyle = orange; g.beginPath(); g.arc(x + cw / 2, y - 40, 40, 0, 7); g.fill(); g.fillStyle = '#111'; g.beginPath(); g.arc(x + cw / 2, y - 40, 14, 0, 7); g.fill(); }
+    else { g.fillStyle = lilac; g.fillText(ch, x, y); }
+    x += cw - 6;
+  }
 });
 at(mesh(new THREE.PlaneGeometry(0.17, 0.107), flat(0xffffff, { map: cardTex, side: THREE.DoubleSide })), 0, 0, 0, card);
 home.add(card);
@@ -641,7 +656,7 @@ const insThumb = at(new THREE.Group(), -0.055, -0.07, 0.01, insPhone);
 const th = at(sph(1, skinI, { outline: 0.06 }), 0, 0.035, 0.0, insThumb); th.scale.set(0.017, 0.045, 0.017);
 const insCard = at(new THREE.Group(), -0.17, -0.02, -0.08, insert);
 at(mesh(new THREE.PlaneGeometry(0.17, 0.107), flat(0xffffff, { map: cardTex, side: THREE.DoubleSide })), 0, 0, 0, insCard);
-const cardHand = at(sph(1, skinI, { outline: 0.06 }), -0.07, -0.04, -0.01, insCard); cardHand.scale.set(0.05, 0.045, 0.03);
+const cardHand = at(sph(1, skinI, { outline: 0.06 }), -0.1, -0.005, -0.01, insCard); cardHand.scale.set(0.035, 0.045, 0.03);
 insCard.rotation.set(-0.1, 0.45, 0.2);
 const insLight = new THREE.DirectionalLight(0xfff0d8, 2.2); insLight.position.set(1, 2, 3); insert.add(insLight, insLight.target);
 insert.add(new THREE.HemisphereLight(0xfff3dc, 0x7a5a40, 1.2));
@@ -1009,8 +1024,10 @@ function drawPhone(t) {
     const amount = digits.slice(0, n) || '0';
     g.fillStyle = '#1b1b2f'; g.font = '900 56px "DejaVu Sans", sans-serif'; g.fillText(amount + ' ₾', 44, 372);
     if (Math.floor(t * 2.5) % 2 === 0 && n < 3) { const mw = g.measureText(amount).width; g.fillRect(44 + mw + 4, 330, 4, 50); }
-    g.fillStyle = '#2b2440'; g.beginPath(); g.roundRect(24, 420, w - 48, 70, 18); g.fill();
-    g.fillStyle = '#fff'; g.font = '700 22px "DejaVu Sans Mono", monospace'; g.fillText('•••• 4242', 44, 465);
+    g.fillStyle = '#111'; g.beginPath(); g.roundRect(24, 420, w - 48, 70, 18); g.fill();
+    g.fillStyle = '#f0662b'; g.beginPath(); g.arc(62, 455, 16, 0, 7); g.fill();
+    g.fillStyle = '#b9a7d6'; g.font = '900 24px "DejaVu Sans", sans-serif'; g.fillText('MONO', 90, 464);
+    g.font = `700 20px ${KA}`; g.fillText('მონო 30', 190, 463);
     const pressed = t > M.tap - 0.05;
     g.fillStyle = pressed ? '#3d2690' : '#5b3cc4'; g.beginPath(); g.roundRect(24, 560, w - 48, 84, 42); g.fill();
     center('გადარიცხვა', 612, `900 28px ${KA}`);

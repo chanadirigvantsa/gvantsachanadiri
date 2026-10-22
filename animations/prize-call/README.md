@@ -10,8 +10,8 @@ proudly for her prize. One week later, she's still waiting.
 
 All dialogue is in Georgian, with Georgian and English subtitles. The voices are
 synthesized with espeak-ng's Georgian voice, and the mouths are lip-synced to each
-voice line's loudness, frame by frame. The bank card and banking app are generic
-designs and show no real bank's branding.
+voice line's loudness, frame by frame. Nana pays with a card drawn in the style of the classic
+Georgian "Mono" phone card (no operator logo). The banking app is a generic design.
 
 ## Rebuild
 
