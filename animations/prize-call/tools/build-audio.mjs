@@ -3,6 +3,7 @@
 // per-frame mouth-opening envelopes for lip sync).
 //
 //   node animations/prize-call/tools/build-audio.mjs
+//   node animations/prize-call/tools/build-audio.mjs --no-voices   # music + effects only
 //
 // Needs espeak-ng and ffmpeg on PATH. The film is spoken in English with
 // Georgian subtitles (the `ka` text below).
@@ -16,6 +17,7 @@ const OUT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const TMP = mkdtempSync(join(tmpdir(), 'prize-call-'));
 const SR = 44100;
 const FPS = 30;
+const NO_VOICES = process.argv.includes('--no-voices');
 
 const VOICES = {
   tsiuri: ['-v', 'en-us+f4', '-p', '75', '-s', '150', '-a', '170'],
@@ -231,8 +233,10 @@ for (const l of lines) {
   for (let i = Math.max(0, a); i < Math.min(total, b); i++) duck[i] = 0.45;
 }
 let d = 1;
-for (let i = 0; i < total; i++) { d += (duck[i] - d) * 0.0008; L[i] *= d; R[i] *= d; }
-for (const l of lines) add(voice[l.id], l.start, 1.0, l.who === 'gogi' ? 0.08 : -0.05);
+if (!NO_VOICES) {
+  for (let i = 0; i < total; i++) { d += (duck[i] - d) * 0.0008; L[i] *= d; R[i] *= d; }
+  for (const l of lines) add(voice[l.id], l.start, 1.0, l.who === 'gogi' ? 0.08 : -0.05);
+}
 
 // fade out + normalise
 let peak = 0;
@@ -246,7 +250,7 @@ for (let i = 0; i < total; i++) {
 
 const wav = join(TMP, 'mix.wav');
 writeWav(wav, [L.subarray(0, Math.round(M.end * SR)), R.subarray(0, Math.round(M.end * SR))]);
-execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', wav, '-c:a', 'aac', '-b:a', '160k', join(OUT, 'soundtrack.m4a')]);
+execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', wav, '-c:a', 'aac', '-b:a', '160k', join(OUT, NO_VOICES ? 'soundtrack-no-voices.m4a' : 'soundtrack.m4a')]);
 
 for (const k of Object.keys(M)) M[k] = +M[k].toFixed(3);
 writeFileSync(join(OUT, 'timeline.js'),

@@ -6,6 +6,7 @@ needs to send a little money first. She's thrilled, pays straight away and waits
 proudly for her prize. One week later, she's still waiting.
 
 - `prize-call.mp4`: the rendered film (1920×1080, 16:9, 30 fps, about 57 s)
+- `prize-call-no-voices.mp4`: the same film with no talking, just music, sound effects and Georgian subtitles
 - `index.html`: the same animation playing live in the browser (Three.js), with a seek bar
 
 The dialogue is spoken in English, with Georgian subtitles. The voices are
@@ -18,6 +19,8 @@ Georgian "Mono" phone card (no operator logo). The banking app is a generic desi
 ```sh
 # voices, music, sound effects -> soundtrack.m4a + timeline.js
 node animations/prize-call/tools/build-audio.mjs
+# music + effects only -> soundtrack-no-voices.m4a
+node animations/prize-call/tools/build-audio.mjs --no-voices
 # frames -> prize-call.mp4 (needs Playwright + ffmpeg)
 node animations/prize-call/tools/render.mjs
 # or just a few test frames
