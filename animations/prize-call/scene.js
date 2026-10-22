@@ -573,15 +573,6 @@ const winG = at(new THREE.Group(), 0.95, 2.25, -1.58, den);
 at(mesh(new THREE.PlaneGeometry(0.6, 0.4), flat(0x2b3a66)), 0, 0, 0, winG);
 at(sph(0.06, flat(0xfff8c4)), 0.15, 0.08, 0.01, winG);
 for (let i = 0; i < 5; i++) at(cyl(0.012, 0.012, 0.4, barMat), -0.24 + i * 0.12, 0, 0.02, winG);
-// a hand-written paper "prize centre" sign taped to the concrete
-const denSignTex = canvasTex(700, 220, (g, w, h) => {
-  g.fillStyle = '#f6f1e1'; g.fillRect(0, 0, w, h);
-  g.fillStyle = 'rgba(240,220,120,0.8)'; g.fillRect(-10, 0, 90, 30); g.fillRect(w - 80, h - 30, 90, 30);
-  g.fillStyle = '#c0392b'; g.font = `900 70px ${KA}`; g.textAlign = 'center'; g.textBaseline = 'middle';
-  g.fillText('★ პრიზების ცენტრი ★', w / 2, 92);
-  g.fillStyle = '#1d3557'; g.font = `700 32px ${KA}`; g.fillText('ოფიციალური! 100% ნამდვილი!', w / 2, 168);
-});
-const denSign = at(mesh(new THREE.PlaneGeometry(1.5, 0.47), flat(0xffffff, { map: denSignTex })), -0.1, 1.95, -1.58, den); denSign.rotation.z = 0.05;
 const posterTex = canvasTex(200, 280, (g, w, h) => {
   g.fillStyle = '#f6f1e1'; g.fillRect(0, 0, w, h);
   g.fillStyle = '#c0392b'; g.font = `900 40px ${KA}`; g.textAlign = 'center'; g.fillText('მოგება', w / 2, 80);
