@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>მოგებული ტელევიზორი · The Prize Call</title>
+<style>
+  @font-face { font-family: "Noto Sans Georgian"; font-weight: 700; src: url(vendor/noto-sans-georgian-georgian-700-normal.woff2) format("woff2"); }
+  @font-face { font-family: "Noto Sans Georgian"; font-weight: 900; src: url(vendor/noto-sans-georgian-georgian-900-normal.woff2) format("woff2"); }
+  html, body { margin: 0; height: 100%; background: #140c08; color: #f1e3c4; font: 16px/1.4 system-ui, sans-serif; }
+  .stage { position: relative; width: min(100vw, calc(100vh * 16 / 9)); aspect-ratio: 16 / 9; margin: 0 auto; top: 50%; transform: translateY(-50%); }
+  .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .bar { position: absolute; left: 0; right: 0; bottom: 0; display: flex; gap: 12px; align-items: center; padding: 10px 16px; background: linear-gradient(transparent, rgba(0,0,0,.6)); opacity: 0; transition: opacity .3s; }
+  .stage:hover .bar, .bar.show { opacity: 1; }
+  button { font: inherit; background: #ffe066; color: #3b1a10; border: 0; border-radius: 999px; padding: 6px 16px; font-weight: 700; cursor: pointer; }
+  input[type=range] { flex: 1; accent-color: #ffe066; }
+  .play { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(20,12,8,.35); cursor: pointer; border: 0; border-radius: 0; padding: 0; }
+  .play span { background: #ffe066; color: #3b1a10; border-radius: 999px; padding: 18px 34px; font-size: 24px; font-weight: 800; }
+  .play[hidden] { display: none; }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <button class="play" id="big"><span>▶ ყურება · Play</span></button>
+  <div class="bar" id="bar"><button id="toggle">▶</button><input id="seek" type="range" min="0" max="1000" value="0"><span id="time">0:00</span></div>
+</div>
+<audio id="audio" src="soundtrack.m4a" preload="auto"></audio>
+<script type="module">
+  await Promise.all([document.fonts.load('700 40px "Noto Sans Georgian"'), document.fonts.load('900 40px "Noto Sans Georgian"')]);
+  const S = await import('./scene.js');
+  const stage = document.getElementById('stage');
+  stage.prepend(S.canvas); S.canvas.after(S.overlayCanvas);
+  const audio = document.getElementById('audio'), seek = document.getElementById('seek'), time = document.getElementById('time');
+  const toggle = document.getElementById('toggle'), big = document.getElementById('big');
+  const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+
+  // export hook used by tools/render.mjs: draws one frame and returns it as JPEG
+  const out = document.createElement('canvas'); out.width = S.W; out.height = S.H;
+  window.frameAt = t => { S.renderAt(t); const g = out.getContext('2d'); g.drawImage(S.canvas, 0, 0); g.drawImage(S.overlayCanvas, 0, 0); return out.toDataURL('image/jpeg', 0.93); };
+  window.DURATION = S.DURATION;
+
+  let playing = false;
+  S.renderAt(1.2);
+  function loop() {
+    const t = audio.currentTime;
+    S.renderAt(t);
+    seek.value = Math.round(t / S.DURATION * 1000);
+    time.textContent = fmt(t);
+    if (audio.ended) { playing = false; toggle.textContent = '↺'; }
+    if (playing) requestAnimationFrame(loop);
+  }
+  function play() { if (audio.ended) audio.currentTime = 0; audio.play(); playing = true; big.hidden = true; toggle.textContent = '❚❚'; requestAnimationFrame(loop); }
+  function pause() { audio.pause(); playing = false; toggle.textContent = '▶'; }
+  big.onclick = play;
+  toggle.onclick = () => playing ? pause() : play();
+  seek.oninput = () => { audio.currentTime = seek.value / 1000 * S.DURATION; if (!playing) { S.renderAt(audio.currentTime); time.textContent = fmt(audio.currentTime); } };
+  stage.onclick = e => { if (e.target === S.overlayCanvas) playing ? pause() : play(); };
+</script>
+</body>
+</html>
