@@ -433,13 +433,6 @@ at(sph(0.04, 0xf5c542), 0.38, 1.0, 0.06, door);
 const tvSpot = at(new THREE.Group(), -4.46, 1.45, -0.9, home); tvSpot.rotation.y = Math.PI / 2;
 const tape = 0xf2c84b;
 for (const [x, y, w, h] of [[0, 0.62, 2.3, 0.07], [0, -0.62, 2.3, 0.07], [-1.15, 0, 0.07, 1.31], [1.15, 0, 0.07, 1.31]]) at(box(w, h, 0.01, tape), x, y, 0, tvSpot);
-const signTex = canvasTex(512, 160, (g, w, h) => {
-  g.fillStyle = '#fffdf3'; g.fillRect(0, 0, w, h);
-  g.fillStyle = '#c0392b'; g.font = `900 46px ${KA}`; g.textAlign = 'center'; g.textBaseline = 'middle';
-  g.fillText('აქ იქნება', w / 2, 50); g.fillText('ჩემი ტელევიზორი!', w / 2, 110);
-  g.fillStyle = '#e63946'; for (const x of [30, w - 30]) { g.beginPath(); g.arc(x, 80, 10, 0, 7); g.fill(); }
-});
-const sign = at(mesh(new THREE.PlaneGeometry(1.0, 0.31), flat(0xffffff, { map: signTex })), 0, 0, 0.01, tvSpot); sign.rotation.z = -0.05;
 const cobweb = at(new THREE.Group(), 0, 0, 0, home);
 
 // lights
@@ -999,9 +992,6 @@ function drawPhone(t) {
     g.fillStyle = '#5b3cc4'; g.fillRect(0, 0, w, 130);
     status();
     center('გადარიცხვა', 100, `900 30px ${KA}`);
-    g.fillStyle = '#fff'; g.beginPath(); g.roundRect(24, 160, w - 48, 90, 18); g.fill();
-    g.fillStyle = '#6b6b80'; g.textAlign = 'left'; g.font = `700 18px ${KA}`; g.fillText('მიმღები', 44, 192);
-    g.fillStyle = '#1b1b2f'; g.font = `900 22px ${KA}`; g.fillText('„პრიზების ცენტრი“', 44, 228);
     g.fillStyle = '#fff'; g.beginPath(); g.roundRect(24, 270, w - 48, 130, 18); g.fill();
     g.fillStyle = '#6b6b80'; g.font = `700 18px ${KA}`; g.fillText('თანხა', 44, 302);
     const digits = '500', n = clamp(Math.floor((t - M.bank - 0.9) / 0.32) + 1, 0, 3);
@@ -1024,7 +1014,6 @@ function drawPhone(t) {
     g.beginPath(); g.moveTo(w / 2 - 42 * k, 262); g.lineTo(w / 2 - 10 * k, 296 * (0.85 + 0.15 * k)); g.lineTo(w / 2 + 46 * k, 228); g.stroke();
     center('გადარიცხულია!', 420, `900 34px ${KA}`, '#1b6b3a');
     center('500 ₾', 480, '900 40px "DejaVu Sans", sans-serif', '#1b1b2f');
-    center('„პრიზების ცენტრი“', 525, `700 20px ${KA}`, '#6b6b80');
   }
   g.restore();
   phoneTex.needsUpdate = true;
