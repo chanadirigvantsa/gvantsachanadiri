@@ -573,13 +573,6 @@ const winG = at(new THREE.Group(), 0.95, 2.25, -1.58, den);
 at(mesh(new THREE.PlaneGeometry(0.6, 0.4), flat(0x2b3a66)), 0, 0, 0, winG);
 at(sph(0.06, flat(0xfff8c4)), 0.15, 0.08, 0.01, winG);
 for (let i = 0; i < 5; i++) at(cyl(0.012, 0.012, 0.4, barMat), -0.24 + i * 0.12, 0, 0.02, winG);
-const posterTex = canvasTex(200, 280, (g, w, h) => {
-  g.fillStyle = '#f6f1e1'; g.fillRect(0, 0, w, h);
-  g.fillStyle = '#c0392b'; g.font = `900 40px ${KA}`; g.textAlign = 'center'; g.fillText('მოგება', w / 2, 80);
-  g.font = '900 78px "DejaVu Sans", sans-serif'; g.fillText('100%', w / 2, 175);
-  g.fillStyle = '#2d6a4f'; g.font = '700 34px "DejaVu Sans", sans-serif'; g.fillText('₾₾₾', w / 2, 240);
-});
-const poster = at(mesh(new THREE.PlaneGeometry(0.42, 0.59), flat(0xffffff, { map: posterTex })), -1.25, 1.45, -1.58, den); poster.rotation.z = -0.12;
 // tin mug and a small stash of cash on the cot
 at(cyl(0.05, 0.045, 0.1, 0x9aa0a6, { outline: 0.04 }), 0.55, 0.05, -1.3, den);
 const cash = at(new THREE.Group(), 0.55, 0.5, -0.75, den);
