@@ -1094,23 +1094,11 @@ function drawOverlay(t) {
   vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(40,20,10,0.35)');
   og.fillStyle = vg; og.fillRect(0, 0, W, H);
 
-  // opening title
-  const ta = clamp(t / 0.4) * (1 - seg(t, 2.3, 2.9));
-  if (ta > 0) {
-    og.save(); og.globalAlpha = ta; og.textAlign = 'center';
-    const s = 1 + 0.1 * (1 - backOut(t / 0.6));
-    og.translate(W / 2, 210); og.scale(s, s);
-    og.font = `900 112px ${KA}`; og.lineJoin = 'round'; og.lineWidth = 18; og.strokeStyle = '#7a1f1f'; og.strokeText('მოგებული ტელევიზორი', 0, 0);
-    og.fillStyle = '#ffe066'; og.fillText('მოგებული ტელევიზორი', 0, 0);
-    og.font = '700 40px "DejaVu Sans", sans-serif'; og.lineWidth = 8; og.strokeText('The Prize Call', 0, 70); og.fillStyle = '#fff'; og.fillText('The Prize Call', 0, 70);
-    og.restore();
-  }
   // "one week later" card
   if (t >= M.later && t < M.final + 0.3) {
     const a = clamp((t - M.later) / 0.3) * (1 - seg(t, M.final, M.final + 0.3));
     og.save(); og.globalAlpha = 1; og.fillStyle = `rgba(20,12,8,${t < M.final ? 1 : 1 - seg(t, M.final, M.final + 0.3)})`; og.fillRect(0, 0, W, H);
     og.globalAlpha = a; og.textAlign = 'center'; og.fillStyle = '#ffe066'; og.font = `900 96px ${KA}`; og.fillText('ერთი კვირის შემდეგ...', W / 2, H / 2);
-    og.fillStyle = '#d8cfc4'; og.font = 'italic 600 40px "DejaVu Sans", sans-serif'; og.fillText('One week later...', W / 2, H / 2 + 80);
     og.restore();
   }
   // closing title
@@ -1119,8 +1107,7 @@ function drawOverlay(t) {
     og.save(); og.globalAlpha = a; og.textAlign = 'center';
     og.font = `900 76px ${KA}`; og.lineJoin = 'round'; og.lineWidth = 14; og.strokeStyle = '#3b1a10';
     og.strokeText('ტელევიზორი ჯერ კიდევ გზაშია...', W / 2, 150); og.fillStyle = '#ffe066'; og.fillText('ტელევიზორი ჯერ კიდევ გზაშია...', W / 2, 150);
-    og.font = 'italic 700 36px "DejaVu Sans", sans-serif'; og.lineWidth = 8; og.strokeText('The TV is still on its way...', W / 2, 210); og.fillStyle = '#fff'; og.fillText('The TV is still on its way...', W / 2, 210);
-    og.font = `700 26px ${KA}`; og.lineWidth = 6; og.strokeText('გამოგონილი კომედიური ისტორია · fictional comedy', W / 2, H - 40); og.fillStyle = '#f1e3c4'; og.fillText('გამოგონილი კომედიური ისტორია · fictional comedy', W / 2, H - 40);
+    og.font = `700 26px ${KA}`; og.lineWidth = 6; og.strokeText('გამოგონილი კომედიური ისტორია', W / 2, H - 40); og.fillStyle = '#f1e3c4'; og.fillText('გამოგონილი კომედიური ისტორია', W / 2, H - 40);
     og.restore();
   }
   // subtitles
@@ -1130,18 +1117,13 @@ function drawOverlay(t) {
     og.save(); og.globalAlpha = a; og.textAlign = 'center'; og.lineJoin = 'round';
     og.font = `700 50px ${KA}`;
     const ka = wrap(og, l.ka, W - 300);
-    og.font = 'italic 600 30px "DejaVu Sans", sans-serif';
-    const en = wrap(og, l.en, W - 300);
-    let y = H - 70 - en.length * 40 - (ka.length - 1) * 62;
+    let y = H - 60 - (ka.length - 1) * 62;
     const name = l.who === 'nana' ? 'ნანა' : 'ზარი';
     og.font = `900 28px ${KA}`; og.fillStyle = l.who === 'nana' ? '#ffb4a2' : '#9ad1ff';
     og.lineWidth = 6; og.strokeStyle = 'rgba(0,0,0,0.85)';
     og.strokeText(name, W / 2, y - 58); og.fillText(name, W / 2, y - 58);
     og.font = `700 50px ${KA}`; og.lineWidth = 10;
     for (const line of ka) { og.strokeText(line, W / 2, y); og.fillStyle = '#ffffff'; og.fillText(line, W / 2, y); y += 62; }
-    og.font = 'italic 600 30px "DejaVu Sans", sans-serif'; og.lineWidth = 6;
-    y += -10;
-    for (const line of en) { og.strokeText(line, W / 2, y); og.fillStyle = '#ffe9a8'; og.fillText(line, W / 2, y); y += 40; }
     og.restore();
   }
   // fade from / to black

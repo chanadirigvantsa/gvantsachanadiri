@@ -1,10 +1,11 @@
-// Builds the Georgian voice lines (espeak-ng), sound effects and music,
+// Builds the English voice lines (espeak-ng), sound effects and music,
 // mixes them into soundtrack.m4a and writes timeline.js (cue times plus
 // per-frame mouth-opening envelopes for lip sync).
 //
 //   node animations/prize-call/tools/build-audio.mjs
 //
-// Needs espeak-ng (with the Georgian "ka" voice) and ffmpeg on PATH.
+// Needs espeak-ng and ffmpeg on PATH. The film is spoken in English with
+// Georgian subtitles (the `ka` text below).
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -17,8 +18,8 @@ const SR = 44100;
 const FPS = 30;
 
 const VOICES = {
-  nana: ['-v', 'ka+f4', '-p', '78', '-s', '150', '-a', '170'],
-  gogi: ['-v', 'ka+m3', '-p', '28', '-s', '162', '-a', '170'],
+  nana: ['-v', 'en-us+f4', '-p', '75', '-s', '150', '-a', '170'],
+  gogi: ['-v', 'en-us+m3', '-p', '30', '-s', '158', '-a', '170'],
 };
 
 const LINES = {
@@ -84,7 +85,7 @@ function trimSilence(s) {
 const voice = {};
 for (const [id, line] of Object.entries(LINES)) {
   const f = join(TMP, id + '.wav');
-  execFileSync('espeak-ng', [...VOICES[line.who], '-w', f, line.ka]);
+  execFileSync('espeak-ng', [...VOICES[line.who], '-w', f, line.en]);
   let s = trimSilence(readWav(f));
   // gentle warmth: one-pole low-pass to soften the synth edge
   const out = new Float32Array(s.length);

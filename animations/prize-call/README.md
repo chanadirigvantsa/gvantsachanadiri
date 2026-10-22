@@ -5,11 +5,11 @@ apartment when an unknown number calls. The caller is phoning from a prison cell
 needs to send a little money first. She's thrilled, pays straight away and waits
 proudly for her prize. One week later, she's still waiting.
 
-- `prize-call.mp4`: the rendered film (1920×1080, 16:9, 30 fps, about 60 s)
+- `prize-call.mp4`: the rendered film (1920×1080, 16:9, 30 fps, about 57 s)
 - `index.html`: the same animation playing live in the browser (Three.js), with a seek bar
 
-All dialogue is in Georgian, with Georgian and English subtitles. The voices are
-synthesized with espeak-ng's Georgian voice, and the mouths are lip-synced to each
+The dialogue is spoken in English, with Georgian subtitles. The voices are
+synthesized with espeak-ng's English voices, and the mouths are lip-synced to each
 voice line's loudness, frame by frame. Nana pays with a card drawn in the style of the classic
 Georgian "Mono" phone card (no operator logo). The banking app is a generic design.
 
