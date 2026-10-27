@@ -148,7 +148,6 @@ window.SITE = {
     { "id": "ed82", "t": "", "pub": "", "dt": "", "cat": "sport", "u": "https://www.instagram.com/p/CA5SYsXhWdD/" }
   ],
   "ORDER": [
-    {"p": "hammockrebrand"},
     {"p": "moet", "s": "moet", "m": 1},
     {"p": "tommyjeans"},
     {"p": "visa", "s": "visa", "m": 1},
@@ -169,7 +168,8 @@ window.SITE = {
     {"p": "wissol"},
     {"p": "afflelou"},
     {"s": "tbc"},
-    {"s": "volvo"}
+    {"s": "volvo"},
+    {"p": "hammockrebrand"}
   ],
   "name": "Gvantsa Chanadiri",
   "sub": "Luxury, fashion, beauty, art and culture",
