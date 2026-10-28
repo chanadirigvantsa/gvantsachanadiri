@@ -320,7 +320,7 @@ window.SITE = {
       "lk": []
     },
     {
-      "id": "melvita",
+      "id": "melvita", "vf": 1,
       "res": "Delivered a photo shoot, short reels and behind-the-scenes reels for social media, and a product placement video for Melvita.",
       "cl": "Melvita (freelance)",
       "s": "b",
