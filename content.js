@@ -337,7 +337,7 @@ window.SITE = {
       "lk": [{"id": "melvitav1", "ty": "Video file", "t": "Melvita teaser", "s": "Video", "u": "images/melvita/melvita-teaser.mp4", "v": "images/melvita/melvita-teaser.mp4", "p": "images/melvita/melvita-teaser.jpg"}, {"id": "melvitav2", "ty": "Video file", "t": "Melvita film with Tina Dalakishvili", "s": "Video", "u": "images/melvita/melvita-film.mp4", "v": "images/melvita/melvita-film.mp4", "p": "images/melvita/melvita-film.jpg"}]
     },
     {
-      "id": "erborian",
+      "id": "erborian", "vf": 1,
       "res": "Concepted and produced a beauty editorial shoot from brief to final images. Erborian used the photographs across its digital channels.",
       "cl": "Erborian (freelance)",
       "s": "b",
@@ -351,9 +351,7 @@ window.SITE = {
       "c": "",
       "gl": "natural",
       "g": ["2", "3", "4", "9", "5", "6", "7", "8"],
-      "lk": [
-        { "id": "erborian1", "ty": "Instagram post", "t": "Erborian reel", "s": "Instagram", "u": "https://www.instagram.com/reel/DRfRPI5ANMr/" }
-      ]
+      "lk": [{"id": "erborianv1", "ty": "Video file", "t": "Hammock × Erborian film", "s": "Video", "u": "images/erborian/erborian-film.mp4", "v": "images/erborian/erborian-film.mp4", "p": "images/erborian/erborian-film.jpg"}]
     },
     {
       "id": "visa",
