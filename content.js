@@ -252,7 +252,7 @@ window.SITE = {
       "c": "",
       "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E", "https://youtu.be/ndRkjAUeWMk"],
       "g": [],
-      "lk": [{"id": "venicev1", "ty": "Video file", "t": "Venice Art Biennale × Visa, live coverage", "s": "Video", "u": "images/venicebiennale/venice-film.mp4", "v": "images/venicebiennale/venice-film.mp4", "p": "images/venicebiennale/venice-film.jpg"}]
+      "lk": [{"id": "venicev1", "ty": "Video file", "t": "Venice Art Biennale × Visa, live coverage", "s": "Video", "u": "images/venicebiennale/venice-film.mp4", "v": "images/venicebiennale/venice-film.mp4", "p": "images/venicebiennale/venice-film.jpg"}, {"id": "venicev2", "ty": "Video file", "t": "Venice Architecture Biennale × Visa, Georgian Pavilion", "s": "Video", "u": "images/venicebiennale/venice-architecture.mp4", "v": "images/venicebiennale/venice-architecture.mp4", "p": "images/venicebiennale/venice-architecture.jpg"}]
     },
     {
       "id": "afflelou",
