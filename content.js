@@ -232,7 +232,7 @@ window.SITE = {
       "lk": [{"id": "milanv1", "ty": "Video file", "t": "Villa Borsani, Alcova 2024", "s": "Video", "u": "images/milandesignweek/alcova-villa-borsani.mp4", "v": "images/milandesignweek/alcova-villa-borsani.mp4", "p": "images/milandesignweek/alcova-villa-borsani.jpg", "ar": "9/16"}, {"id": "milanv2", "ty": "Video file", "t": "Villa Bagatti Valsecchi, Alcova 2024", "s": "Video", "u": "images/milandesignweek/alcova-villa-bagatti.mp4", "v": "images/milandesignweek/alcova-villa-bagatti.mp4", "p": "images/milandesignweek/alcova-villa-bagatti.jpg", "ar": "9/16"}, {"id": "milanv3", "ty": "Video file", "t": "Milan Design Week 2024 across the city", "s": "Video", "u": "images/milandesignweek/milan-city.mp4", "v": "images/milandesignweek/milan-city.mp4", "p": "images/milandesignweek/milan-city.jpg", "ar": "9/16"}]
     },
     {
-      "id": "venicebiennale",
+      "id": "venicebiennale", "vf": 1,
       "res": "Built the whole content strategy for the Venice Biennale and created innovative Instagram storytelling formats, publishing live through stories, reels and videos, alongside long-form documentary videos and articles.",
       "cl": "Hammock Magazine",
       "s": "b",
@@ -246,7 +246,7 @@ window.SITE = {
       "c": "",
       "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E", "https://youtu.be/ndRkjAUeWMk"],
       "g": [],
-      "lk": []
+      "lk": [{"id": "venicev1", "ty": "Video file", "t": "Venice Art Biennale, Giardini", "s": "Video", "u": "images/venicebiennale/venice-giardini.mp4", "v": "images/venicebiennale/venice-giardini.mp4", "p": "images/venicebiennale/venice-giardini.jpg", "ar": "9/16"}]
     },
     {
       "id": "afflelou",
