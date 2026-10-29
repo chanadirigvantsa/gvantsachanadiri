@@ -238,7 +238,7 @@ window.SITE = {
       ]
     },
     {
-      "id": "venicebiennale",
+      "id": "venicebiennale", "vf": 1,
       "res": "Built the whole content strategy for the Venice Biennale and created innovative Instagram storytelling formats, publishing live through stories, reels and videos, alongside long-form documentary videos and articles.",
       "cl": "Hammock Magazine",
       "s": "b",
@@ -252,17 +252,7 @@ window.SITE = {
       "c": "",
       "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E", "https://youtu.be/ndRkjAUeWMk"],
       "g": [],
-      "lk": [
-        { "id": "venice1", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/CsdsF6zI0PM/" },
-        { "id": "venice2", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Csgl-MwoxVa/" },
-        { "id": "venice3", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Csiv4eGIcxA/" },
-        { "id": "venice4", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Cs3CIaTom_T/" },
-        { "id": "venice5", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Cc29J9toID0/" },
-        { "id": "venice6", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Cc0fCiFIBv7/" },
-        { "id": "venice7", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/Ccnxw7NI150/" },
-        { "id": "venice8", "ty": "Instagram post", "t": "Venice Art Biennale reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C6Enf7coCw2/" },
-        { "id": "venicearch1", "ty": "Instagram post", "t": "Venice Architecture Biennale post", "s": "Instagram", "u": "https://www.instagram.com/p/DJbkEycCf6T/" }
-      ]
+      "lk": [{"id": "venicev1", "ty": "Video file", "t": "Venice Art Biennale × Visa, live coverage", "s": "Video", "u": "images/venicebiennale/venice-film.mp4", "v": "images/venicebiennale/venice-film.mp4", "p": "images/venicebiennale/venice-film.jpg"}]
     },
     {
       "id": "afflelou",
