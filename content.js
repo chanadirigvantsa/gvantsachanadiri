@@ -411,7 +411,7 @@ window.SITE = {
         ["Produced", "Mood video for social media"]
       ],
       "c": "Moët & Chandon",
-      "yt": "https://youtu.be/xefuBOJzwKU",
+      "yt": "",
       "gl": "wide",
       "g": ["2", "3", "4", "5", "6", "7", "8", "9"],
       "lk": []
