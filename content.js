@@ -344,7 +344,7 @@ window.SITE = {
       "lk": [{"id": "erborianv1", "ty": "Video file", "t": "Hammock × Erborian film", "s": "Video", "u": "images/erborian/erborian-film.mp4", "v": "images/erborian/erborian-film.mp4", "p": "images/erborian/erborian-film.jpg"}]
     },
     {
-      "id": "visa",
+      "id": "visa", "vf": 1,
       "res": "Created “Music Belongs to Everyone”, a campaign of four cinematic films and photo shoots, one film dedicated to each of the four musicians, and managed the final rollout across Visa’s digital and social media channels.",
       "cl": "Visa",
       "s": "b",
@@ -356,10 +356,10 @@ window.SITE = {
       "o": "Bring Visa’s message that music belongs to everyone to life through the stories of individual musicians.",
       "role": [],
       "c": "",
-      "yt": ["https://youtu.be/h6c97OslT94", "https://youtu.be/_u-0jIrRos8", "https://youtu.be/O0OU0cRffI0", "https://youtu.be/Dvzh21KFhaA"],
+      "yt": [],
       "gl": "natural",
       "g": ["2", "3", "4", "5", "6", "7", "8", "9"],
-      "lk": []
+      "lk": [{"id": "visav1", "ty": "Video file", "t": "Visa “Music Belongs to Everyone”", "s": "Video", "u": "images/visa/visa-film.mp4", "v": "images/visa/visa-film.mp4", "p": "images/visa/visa-film.jpg", "ar": "4/5"}]
     },
     {
       "id": "mini",
