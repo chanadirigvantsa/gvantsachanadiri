@@ -146,3 +146,10 @@ footer{text-transform:none;letter-spacing:0;font-size:12px;font-weight:600}
 .afr{margin-top:44px;max-width:560px;padding-top:18px;border-top:1px solid var(--line)}.afr h3{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}.afr p{font-size:17px;line-height:1.55;font-weight:500}
 .vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:24px;margin-bottom:30px}.vid{position:relative;margin:0}.vid video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#111}.vid figcaption{font-size:13px;font-weight:700;margin-top:8px}.snd{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.55);color:#fff;border:0;border-radius:20px;padding:6px 12px;font:600 12px/1 inherit;font-family:inherit;cursor:pointer}
 @media(max-width:700px){.vids .vid{grid-column:auto!important}}
+.hero{gap:34px}
+.htop{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;padding-bottom:26px;border-bottom:1px solid var(--ink)}
+.hero .htop h1{font-size:clamp(44px,6.6vw,96px);line-height:.92;letter-spacing:-.045em;white-space:nowrap}
+.htop .hmeta{text-align:right;padding-bottom:6px}
+.hero .htop p.t{margin:0;font-size:18px}
+.htop .hs{margin-top:4px;color:var(--mute);font-weight:600}
+@media(max-width:820px){.htop{flex-direction:column;align-items:flex-start;gap:16px}.htop .hmeta{text-align:left}.hero .htop h1{white-space:normal;font-size:clamp(44px,13vw,72px)}}
