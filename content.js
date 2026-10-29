@@ -216,7 +216,7 @@ window.SITE = {
       ]
     },
     {
-      "id": "milandesignweek",
+      "id": "milandesignweek", "vf": 1,
       "res": "Built the whole content strategy for Milan Design Week and created innovative Instagram storytelling formats, publishing live through stories, reels and videos, alongside long-form documentary videos and articles.",
       "cl": "Hammock Magazine",
       "s": "b",
@@ -229,13 +229,7 @@ window.SITE = {
       "role": [],
       "c": "",
       "g": [],
-      "lk": [
-        { "id": "milan1", "ty": "Instagram post", "t": "Milan Design Week reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C58OXMvoega/" },
-        { "id": "milan2", "ty": "Instagram post", "t": "Milan Design Week reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C56TZCzI_BT/" },
-        { "id": "milan3", "ty": "Instagram post", "t": "Milan Design Week reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C56Kv0gorrZ/" },
-        { "id": "milan4", "ty": "Instagram post", "t": "Milan Design Week reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C50VfVmoutL/" },
-        { "id": "milan5", "ty": "Instagram post", "t": "Milan Design Week reel", "s": "Instagram", "u": "https://www.instagram.com/reel/C51I6dvoTwb/" }
-      ]
+      "lk": [{"id": "milanv1", "ty": "Video file", "t": "Villa Borsani, Alcova 2024", "s": "Video", "u": "images/milandesignweek/alcova-villa-borsani.mp4", "v": "images/milandesignweek/alcova-villa-borsani.mp4", "p": "images/milandesignweek/alcova-villa-borsani.jpg", "ar": "9/16"}]
     },
     {
       "id": "venicebiennale",
@@ -436,7 +430,7 @@ window.SITE = {
     }
   ],
   "SP": [
-    { "id": "milandesignweek", "r": "Content strategy, innovative Instagram storytelling formats, live coverage through stories, reels and videos, long-form documentary videos and articles", "n": "Milan Design Week", "y": "2024", "d": "Live Instagram coverage and documentary content", "u": "https://", "cl": "Hammock Magazine", "ch": "Cover Milan Design Week, one of the most important events in design, live and in depth for Hammock Magazine’s audience.", "res": "Built the whole content strategy for Milan Design Week and created innovative Instagram storytelling formats, publishing live through stories, reels and videos, alongside long-form documentary videos and articles." },
+    { "vids": [{"t": "Villa Borsani, Alcova 2024", "v": "images/milandesignweek/alcova-villa-borsani.mp4", "p": "images/milandesignweek/alcova-villa-borsani.jpg", "ar": "9/16"}], "id": "milandesignweek", "r": "Content strategy, innovative Instagram storytelling formats, live coverage through stories, reels and videos, long-form documentary videos and articles", "n": "Milan Design Week", "y": "2024", "d": "Live Instagram coverage and documentary content", "u": "https://", "cl": "Hammock Magazine", "ch": "Cover Milan Design Week, one of the most important events in design, live and in depth for Hammock Magazine’s audience.", "res": "Built the whole content strategy for Milan Design Week and created innovative Instagram storytelling formats, publishing live through stories, reels and videos, alongside long-form documentary videos and articles." },
     { "vids": [{"t": "Venice Art Biennale × Visa, live coverage", "v": "images/venicebiennale/venice-film.mp4", "p": "images/venicebiennale/venice-film.jpg"}, {"t": "Venice Architecture Biennale × Visa, Georgian Pavilion", "v": "images/venicebiennale/venice-architecture.mp4", "p": "images/venicebiennale/venice-architecture.jpg"}], "id": "venicebiennale", "r": "Content strategy, innovative Instagram storytelling formats, live coverage through stories, reels and videos, long-form documentary videos and articles", "n": "Venice Biennale", "y": "2022–2025", "d": "Live Instagram coverage of the Art and Architecture Biennale", "u": "https://", "yt": ["https://youtu.be/75sjBFTLekc", "https://youtu.be/btKha_pmXCw", "https://youtu.be/6Cv28_LKl4E", "https://youtu.be/ndRkjAUeWMk"], "cl": "Hammock Magazine", "ch": "Cover the Venice Biennale, one of the most important events in art and architecture, live and in depth for Hammock Magazine’s audience.", "res": "Built the whole content strategy for the Venice Biennale and created innovative Instagram storytelling formats, publishing live through stories, reels and videos, alongside long-form documentary videos and articles." },
     {"id": "hennessy", "r": "Social media content strategy, campaign content creation, event video production", "n": "Hennessy", "y": "2022", "d": "NBA campaign: social media content strategy", "u": "https://", "cl": "Hennessy", "ch": "Bring the Hennessy x NBA collaboration to Hennessy’s audience on social media and capture the brand’s NBA event on video.", "res": "Created the content for the Hennessy x NBA campaign and produced the video for the brand’s event, as part of Hammock’s ongoing partnership with Hennessy."},
     { "id": "visa", "r": "Content strategy and creative direction, Instagram reels and event content", "n": "Visa", "y": "2022", "d": "Instagram reels and content for Visa events", "u": "https://", "cl": "Visa", "ch": "Bring Visa’s events to life on Instagram and extend their reach beyond the people attending.", "res": "Created reels and Instagram content covering Visa’s events." },
