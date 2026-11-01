@@ -572,8 +572,6 @@ window.SITE = {
     "prmini10": { "u": "images/mini/mini-10.jpg", "t": "i" },
     "prmini11": { "u": "images/mini/mini-11.jpg", "t": "i" },
     "prmini12": { "u": "images/mini/mini-12.jpg", "t": "i" },
-    // CV link on the About and Contact pages. Upload your CV to the repo as cv.pdf.
-    "cv": { "u": "cv.pdf", "t": "f" },
     "hlcberlinale1": { "u": "images/berlinale/berlinale-logo.jpg", "t": "i" },
     "hlcmonkey1": { "u": "images/monkeyshoulder/monkeyshoulder-logo.jpg", "t": "i" },
     "hlcbmwexp": { "u": "images/bmw/bmw-logo.svg", "t": "i" },

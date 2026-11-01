@@ -89,7 +89,7 @@ return '<section class="cols" style="padding-top:30px"><div><h1 class="big serif
 function cvBlock(){var C=S.ABOUT.cv;if(!C)return "";return C.map(function(g,k){var P="ABOUT.cv."+k+".";return '<div class="abcv"><h3>'+E(P+"h")+'</h3>'+g.it.map(function(r,j){var Q=P+"it."+j+".";return '<div class="acr"><div><b>'+E(Q+"0")+'</b><span>'+E(Q+"1")+'</span></div><span class="acy">'+(ed||r[2]?E(Q+"2"):'')+'</span></div>'}).join("")+'</div>'}).join("")}
 function contactBlock(){return '<section class="ctc"><h2 class="serif">Contact</h2>'+aboutEmail()+links()+'</section>'}
 function aboutEmail(){return ed?'<div class="lk">Email: '+E("L.email")+'</div>':'<a class="lk" href="mailto:'+esc(S.L.email)+'">Email: '+esc(S.L.email)+'</a>'}
-function links(){var c=S.M.cv;return '<a class="lk" href="'+(c?esc(src(c)):'#')+'"'+(c&&!ed?' target="_blank" rel="noopener noreferrer"':'')+'>'+(c?E("T.l3"):'CV (PDF) not uploaded')+'</a>'+(ed?'<div class="u"><button class="add" style="margin:0" data-up="cv">Upload CV PDF</button></div>':'')+
+function links(){var c=S.M.cv;return (c||ed?'<a class="lk" href="'+(c?esc(src(c)):'#')+'"'+(c&&!ed?' target="_blank" rel="noopener noreferrer"':'')+'>'+(c?E("T.l3"):'CV (PDF) not uploaded')+'</a>':'')+(ed?'<div class="u"><button class="add" style="margin:0" data-up="cv">Upload CV PDF</button></div>':'')+
 '<a class="lk" href="'+safe(S.L.li)+'"'+(ed?'':' target="_blank" rel="noopener noreferrer"')+'>'+E("T.l1")+'</a>'+(ed?'<div class="u">'+E("L.li")+'</div>':'')}
 function spCount(c,h){var o=[];if(c||!h)o.push(c+(c==1?" post":" posts"));if(h)o.push(h+(h==1?" highlight":" highlights"));return o.join(" · ")}
 function spRows(){var h='';S.SP.forEach(function(q,j){var c=S.IG.filter(function(g){return g[5]==q.id}).length,t=ed?"div":"a";
