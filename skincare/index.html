@@ -9,73 +9,112 @@
 <meta property="og:title" content="My Skincare Shelf | Gvantsa Chanadiri">
 <meta property="og:description" content="Every skincare product I use: morning, evening and weekly.">
 <meta property="og:url" content="https://gvantsachanadiri.com/skincare/">
-<meta name="theme-color" content="#f6f1ec">
+<meta name="theme-color" content="#fbe8ee">
+<meta name="color-scheme" content="light">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap">
 <style>
-:root{--bg:#f6f1ec;--card:#fffdfb;--ink:#151312;--mute:#7a716b;--line:#e4dbd3;--ac:#2a14e6;--tag:#efe6de;--ph1:#ecdfd4;--ph2:#d9c5b5}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161413;--card:#1f1c1a;--ink:#f3eee9;--mute:#a39890;--line:#332e2b;--ac:#9d93ff;--tag:#2b2623;--ph1:#2a2522;--ph2:#3a322d}}
-:root[data-theme="dark"]{--bg:#161413;--card:#1f1c1a;--ink:#f3eee9;--mute:#a39890;--line:#332e2b;--ac:#9d93ff;--tag:#2b2623;--ph1:#2a2522;--ph2:#3a322d}
+/* Baby pink, beauty-magazine palette (light only, on purpose) */
+:root{
+  --bg:#fbe8ee;        /* baby pink paper */
+  --bg2:#f7d9e3;       /* deeper blush band */
+  --card:#fff7f9;      /* almost-white pink */
+  --ink:#2b1a21;       /* plum-black type */
+  --mute:#8c6672;      /* dusty rose grey */
+  --line:#eec3d1;      /* blush rule */
+  --rose:#e0789b;      /* accent rose */
+  --rose-d:#c75680;
+  --ph1:#fde3eb;--ph2:#f4bfd0;
+}
 *{box-sizing:border-box;margin:0}
 html{-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--ink);font:300 16px/1.55 "Hanken Grotesk",Helvetica,Arial,sans-serif;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
 a,button{color:inherit;font:inherit;background:none;border:0;cursor:pointer;text-decoration:none}
 :focus-visible{outline:1.5px solid var(--ink);outline-offset:3px;border-radius:4px}
-.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400}
-.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
-@media(min-width:700px){.wrap{padding:0 32px}}
+.serif{font-family:"Bodoni Moda","Didot",Georgia,serif;font-weight:400}
+.caps{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+@media(min-width:700px){.wrap{padding:0 36px}}
 
-header.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-size:14px}
-header.top a{color:var(--mute)}header.top a:hover{color:var(--ink)}
+/* ── Masthead strip ── */
+.strip{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--ink)}
+.strip a:hover{color:var(--rose-d)}
+.strip .mid{display:none}
+@media(min-width:700px){.strip .mid{display:block}}
 
-.hero{padding:56px 0 40px}
-.hero h1{font-size:clamp(52px,12vw,128px);line-height:.9;letter-spacing:-.015em}
-.hero h1 em{font-style:italic}
-.hero p.lead{max-width:520px;margin-top:22px;font-size:19px;line-height:1.45}
-.hero .skin{margin-top:14px;color:var(--mute);font-size:14px}
-.hero .skin b{font-weight:500;color:var(--ink)}
+/* ── Cover ── */
+.cover{position:relative;padding:28px 0 36px;border-bottom:1px solid var(--ink)}
+.kicker{color:var(--rose-d)}
+.cover h1{font-family:"Bodoni Moda","Didot",Georgia,serif;font-weight:400;font-size:clamp(64px,17vw,210px);line-height:.82;letter-spacing:-.035em;margin-top:12px}
+.cover h1 em{font-style:italic;color:var(--rose-d);font-weight:400}
+.cover .row{display:grid;gap:28px;margin-top:30px}
+@media(min-width:820px){.cover .row{grid-template-columns:1.1fr 1fr;align-items:end}}
+.cover p.lead{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;font-size:clamp(20px,2.4vw,26px);line-height:1.3;max-width:520px}
+.cover .skin{margin-top:14px;font-size:14px;color:var(--mute)}
+.cover .skin b{font-weight:600;color:var(--ink)}
+.coverlines{list-style:none;padding:0;border-top:1px solid var(--line)}
+.coverlines li{display:flex;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line)}
+.coverlines .n{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;color:var(--rose-d);font-size:22px;min-width:34px}
+.coverlines span{font-size:15px}
+.coverlines b{font-weight:600}
+.seal{position:absolute;top:66px;right:0;width:104px;height:104px;border-radius:50%;background:var(--rose);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(12deg);box-shadow:0 6px 22px rgba(199,86,128,.25)}
+.seal b{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;font-weight:400;font-size:30px;line-height:1}
+.seal span{font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-top:4px;font-weight:600}
+@media(max-width:699px){.cover h1{font-size:21vw}.seal{width:82px;height:82px;top:56px}.seal b{font-size:24px}.seal span{font-size:7.5px}}
 
-nav.tabs{position:sticky;top:0;z-index:3;background:var(--bg);display:flex;gap:6px;overflow-x:auto;padding:12px 0;border-bottom:1px solid var(--line);scrollbar-width:none}
+/* ── Contents tabs ── */
+nav.tabs{position:sticky;top:0;z-index:3;background:var(--bg);display:flex;gap:4px 22px;overflow-x:auto;padding:14px 0 12px;border-bottom:1px solid var(--line);scrollbar-width:none;align-items:baseline}
 nav.tabs::-webkit-scrollbar{display:none}
-nav.tabs button{flex:none;padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;color:var(--mute);transition:all .2s}
-nav.tabs button:hover{color:var(--ink);border-color:var(--ink)}
-nav.tabs button.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-nav.tabs .n{opacity:.6;margin-left:4px;font-size:12px}
+nav.tabs .lbl{flex:none;color:var(--mute)}
+nav.tabs button{flex:none;font-family:"Bodoni Moda",Georgia,serif;font-size:19px;padding:2px 0;color:var(--mute);border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+nav.tabs button:hover{color:var(--ink)}
+nav.tabs button.on{color:var(--ink);font-style:italic;border-color:var(--rose)}
+nav.tabs sup{font-family:"Hanken Grotesk",sans-serif;font-size:10px;color:var(--rose-d);margin-left:2px;font-style:normal}
 
-section.routine{padding:48px 0 8px}
+/* ── Chapters ── */
+section.routine{padding:56px 0 10px}
 section.routine[hidden]{display:none}
-.rhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:22px}
-.rhead h2{font-size:clamp(36px,6vw,56px);line-height:1}
-.rhead span{color:var(--mute);font-size:14px;white-space:nowrap}
+.chead{display:grid;gap:6px;margin-bottom:30px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+@media(min-width:760px){.chead{grid-template-columns:1fr auto;align-items:end;gap:8px 24px}.chead .ch{grid-column:1/-1}}
+.chead .ch{color:var(--rose-d)}
+.chead h2{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;font-size:clamp(46px,8vw,92px);line-height:.9;letter-spacing:-.02em}
+.chead h2 em{font-style:italic}
+.chead .sub{color:var(--mute);font-size:14px}
 
-.grid{display:grid;gap:14px;grid-template-columns:1fr}
+.grid{display:grid;gap:20px 18px;grid-template-columns:1fr}
 @media(min-width:620px){.grid{grid-template-columns:1fr 1fr}}
-@media(min-width:960px){.grid{grid-template-columns:1fr 1fr 1fr}}
+@media(min-width:980px){.grid{grid-template-columns:1fr 1fr 1fr}}
 
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-@media(max-width:619px){.card .img{aspect-ratio:16/9!important}}
-.card .img{aspect-ratio:4/3;background:linear-gradient(160deg,var(--ph1),var(--ph2));display:flex;align-items:center;justify-content:center;position:relative}
+/* ── Product feature ── */
+.card{position:relative;display:flex;flex-direction:column;background:var(--card);border-radius:4px;box-shadow:0 1px 0 var(--line)}
+.card .img{position:relative;aspect-ratio:4/5;background:radial-gradient(120% 90% at 30% 20%,#fff 0,var(--ph1) 45%,var(--ph2) 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:4px 4px 0 0}
+@media(max-width:619px){.card .img{aspect-ratio:5/4}}
 .card .img img{width:100%;height:100%;object-fit:cover;display:block}
-.card .img .no{font-family:"Instrument Serif",Georgia,serif;font-size:64px;color:var(--card);opacity:.9;line-height:1}
-.card .num{position:absolute;top:12px;left:12px;background:var(--card);border-radius:999px;font-size:12px;padding:3px 10px;font-weight:500}
-.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
-.card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
-.card .tag{background:var(--tag);border-radius:999px;font-size:12px;padding:3px 10px;color:var(--mute)}
-.card .tag.fav{color:var(--ac);font-weight:500}
-.card .brand{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.card h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:27px;line-height:1.05}
-.card p{color:var(--mute);font-size:15px;line-height:1.5}
-.card .buy{margin-top:auto;padding-top:12px;font-size:14px;font-weight:500;display:inline-flex;gap:6px;align-items:center;align-self:flex-start;border-bottom:1px solid currentColor}
-.card .buy:hover{color:var(--ac)}
+.card .img .no{font-family:"Bodoni Moda",Georgia,serif;font-size:88px;line-height:1;color:#fff;text-shadow:0 2px 24px rgba(199,86,128,.25)}
+.card .img .no small{display:block;font-family:"Hanken Grotesk",sans-serif;font-style:normal;font-size:10px;letter-spacing:.24em;text-transform:uppercase;text-align:center;margin-bottom:4px;color:var(--rose-d);text-shadow:none;font-weight:600}
+.card .step{position:absolute;left:14px;bottom:14px;background:var(--card);padding:5px 11px;border-radius:999px;color:var(--ink)}
+.pick{position:absolute;top:-12px;right:-6px;z-index:2;width:74px;height:74px;border-radius:50%;background:var(--rose);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-12deg);box-shadow:0 4px 16px rgba(199,86,128,.3)}
+.pick b{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;font-weight:400;font-size:17px;line-height:1}
+.pick span{font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-top:2px}
+@media(max-width:619px){.pick{right:6px}}
+.card .body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .brand{color:var(--rose-d)}
+.card h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;font-size:28px;line-height:1.05;letter-spacing:-.01em}
+.card blockquote{margin-top:6px;font-family:"Bodoni Moda",Georgia,serif;font-style:italic;font-size:16.5px;line-height:1.4;color:var(--mute);padding-left:14px;border-left:2px solid var(--rose)}
+.card .buy{margin-top:auto;padding-top:16px;align-self:flex-start;display:inline-flex;gap:8px;align-items:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--ink);padding-bottom:2px}
+.card .buy:hover{color:var(--rose-d);border-color:var(--rose-d)}
 
-.share{margin:72px 0 0;padding:36px 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between}
-.share p{font-size:clamp(26px,4vw,36px);line-height:1.1;max-width:520px}
-.share button{background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:999px;font-size:15px;font-weight:500}
-.share button:hover{opacity:.85}
-footer{padding:0 0 40px;color:var(--mute);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+/* ── Back page ── */
+.share{margin:80px 0 0;padding:44px 0;background:var(--bg2);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);text-align:center}
+.share .caps{color:var(--rose-d)}
+.share p{font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(30px,5vw,52px);line-height:1.05;margin:10px auto 22px;max-width:640px;padding:0 16px}
+.share p em{font-style:italic;color:var(--rose-d)}
+.share button{background:var(--ink);color:var(--bg);padding:13px 26px;border-radius:999px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.share button:hover{background:var(--rose-d)}
+footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 .note{font-size:13px;color:var(--mute)}
 #toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:all .25s}
 #toast.show{opacity:1;transform:translate(-50%,0)}
@@ -83,24 +122,35 @@ footer{padding:0 0 40px;color:var(--mute);font-size:13px;display:flex;flex-wrap:
 </head>
 <body>
 <div class="wrap">
-  <header class="top">
-    <span class="serif" style="font-size:20px">Gvantsa's shelf</span>
-    <a href="../">Portfolio ↗</a>
-  </header>
-
-  <div class="hero">
-    <h1 class="serif" id="title"></h1>
-    <p class="lead" id="intro"></p>
-    <p class="skin" id="skin"></p>
+  <div class="strip caps">
+    <span id="issue">The Skin Edit</span>
+    <span class="mid">The beauty issue</span>
+    <a href="../">Gvantsa Chanadiri ↗</a>
   </div>
+
+  <header class="cover">
+    <div class="caps kicker">Exclusive · Her full routine, revealed</div>
+    <h1 id="title"></h1>
+    <div class="seal" aria-hidden="true"><b id="sealN">8</b><span>Products<br>I swear by</span></div>
+    <div class="row">
+      <div>
+        <p class="lead" id="intro"></p>
+        <p class="skin" id="skin"></p>
+      </div>
+      <ul class="coverlines" id="coverlines"></ul>
+    </div>
+  </header>
 
   <nav class="tabs" id="tabs" aria-label="Filter by routine"></nav>
   <main id="list"></main>
+</div>
 
-  <div class="share">
-    <p class="serif">Know someone who keeps asking too?</p>
-    <button id="shareBtn" type="button">Share this page</button>
-  </div>
+<div class="share">
+  <div class="caps">Pass it on</div>
+  <p>Know someone who keeps <em>asking</em> too?</p>
+  <button id="shareBtn" type="button">Share this page</button>
+</div>
+<div class="wrap">
   <footer>
     <span id="updated"></span>
     <span>Not sponsored. Just what works for my skin; patch test new things.</span>
@@ -113,14 +163,16 @@ footer{padding:0 0 40px;color:var(--mute);font-size:13px;display:flex;flex-wrap:
 (function(){
   var D = window.SKINCARE || {products:[]};
   var R = [
-    {key:"morning", label:"Morning", sub:"AM routine"},
-    {key:"evening", label:"Evening", sub:"PM routine"},
-    {key:"weekly",  label:"Weekly & extras", sub:"Once or twice a week"}
+    {key:"morning", label:"Morning", ch:"Chapter I",   title:"The <em>morning</em> ritual", sub:"Fresh, light, SPF always"},
+    {key:"evening", label:"Evening", ch:"Chapter II",  title:"After <em>dark</em>",          sub:"Cleanse, treat, repair"},
+    {key:"weekly",  label:"Extras",  ch:"Chapter III", title:"The <em>extras</em>",          sub:"Once or twice a week"}
   ];
+  var ROMAN=["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"];
   function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
   function safeUrl(u){u=String(u||"").trim();return /^(https?:\/\/|images\/|\.\/)/i.test(u)?u:""}
+  function pad(n){return n<10?"0"+n:""+n}
 
-  // Title: italicise the last word for a little editorial flair
+  // Cover
   var t = esc(D.title||"My skincare shelf").split(" ");
   if(t.length>1){t[t.length-1]="<em>"+t[t.length-1]+"</em>"}
   document.getElementById("title").innerHTML = t.join(" ");
@@ -128,30 +180,39 @@ footer{padding:0 0 40px;color:var(--mute);font-size:13px;display:flex;flex-wrap:
   var skin = document.getElementById("skin");
   if(D.skinType){skin.innerHTML = "My skin: <b>"+esc(D.skinType)+"</b>"} else {skin.remove()}
   document.getElementById("updated").textContent = D.updated ? "Last updated "+D.updated : "";
+  if(D.updated){document.getElementById("issue").textContent = "The Skin Edit · "+D.updated}
+  document.getElementById("sealN").textContent = D.products.length;
 
   var groups = R.map(function(r){
     return {r:r, items:D.products.filter(function(p){return (p.routine||"").toLowerCase()===r.key})};
   }).filter(function(g){return g.items.length});
 
+  // Cover lines
+  var favs = D.products.filter(function(p){return p.favourite}).length;
+  var lines = groups.map(function(g){return "The <b>"+g.items.length+"-step</b> "+g.r.label.toLowerCase()+(g.r.key==="weekly"?" I can't skip":" routine")});
+  if(favs){lines.push("<b>"+favs+" holy grail"+(favs>1?"s":"")+"</b> I'd repurchase forever")}
+  document.getElementById("coverlines").innerHTML = lines.map(function(l,i){return '<li><span class="n">'+(i+1)+'</span><span>'+l+'</span></li>'}).join("");
+
   // Tabs
   var tabs = document.getElementById("tabs");
   var all = [{key:"all",label:"Everything",n:D.products.length}].concat(groups.map(function(g){return {key:g.r.key,label:g.r.label,n:g.items.length}}));
-  tabs.innerHTML = all.map(function(a){return '<button type="button" data-k="'+a.key+'">'+esc(a.label)+'<span class="n">'+a.n+'</span></button>'}).join("");
+  tabs.innerHTML = '<span class="lbl caps">Contents</span>'+all.map(function(a){return '<button type="button" data-k="'+a.key+'">'+esc(a.label)+'<sup>'+a.n+'</sup></button>'}).join("");
 
-  // Sections
-  var list = document.getElementById("list");
+  // Chapters
+  var list = document.getElementById("list"), no = 0;
   list.innerHTML = groups.map(function(g){
-    return '<section class="routine" data-k="'+g.r.key+'"><div class="rhead"><h2 class="serif">'+esc(g.r.label)+'</h2><span>'+g.items.length+' step'+(g.items.length>1?'s':'')+' · '+esc(g.r.sub)+'</span></div><div class="grid">'+
+    return '<section class="routine" data-k="'+g.r.key+'"><div class="chead"><span class="caps ch">'+g.r.ch+'</span><h2>'+g.r.title+'</h2><span class="sub">'+g.items.length+' step'+(g.items.length>1?'s':'')+' · '+esc(g.r.sub)+'</span></div><div class="grid">'+
       g.items.map(function(p,i){
+        no++;
         var img = safeUrl(p.image), link = safeUrl(p.link);
-        return '<article class="card"><div class="img">'+
-          (img ? '<img src="'+esc(img)+'" alt="'+esc((p.brand?p.brand+" ":"")+p.name)+'" loading="lazy">' : '<span class="no">'+(i+1)+'</span>')+
-          '<span class="num">Step '+(i+1)+'</span></div><div class="body"><div class="tags">'+
-          (p.step?'<span class="tag">'+esc(p.step)+'</span>':'')+
-          (p.favourite?'<span class="tag fav">★ Holy grail</span>':'')+
-          '</div>'+(p.brand?'<div class="brand">'+esc(p.brand)+'</div>':'')+
-          '<h3>'+esc(p.name)+'</h3>'+(p.why?'<p>'+esc(p.why)+'</p>':'')+
-          (link?'<a class="buy" href="'+esc(link)+'" target="_blank" rel="noopener">Where to buy ↗</a>':'')+
+        return '<article class="card">'+
+          (p.favourite?'<div class="pick"><b>Holy grail</b><span>Editor\'s pick</span></div>':'')+
+          '<div class="img">'+
+          (img ? '<img src="'+esc(img)+'" alt="'+esc((p.brand?p.brand+" ":"")+p.name)+'" loading="lazy">' : '<span class="no"><small>No.</small>'+pad(no)+'</span>')+
+          '<span class="step caps">Step '+(ROMAN[i]||i+1)+(p.step?' · '+esc(p.step):'')+'</span></div><div class="body">'+
+          (p.brand?'<div class="brand caps">'+esc(p.brand)+'</div>':'')+
+          '<h3>'+esc(p.name)+'</h3>'+(p.why?'<blockquote>“'+esc(p.why)+'”</blockquote>':'')+
+          (link?'<a class="buy" href="'+esc(link)+'" target="_blank" rel="noopener">Shop it ↗</a>':'')+
           '</div></article>';
       }).join("")+'</div></section>';
   }).join("") || '<p class="note" style="padding:48px 0">No products yet.</p>';
