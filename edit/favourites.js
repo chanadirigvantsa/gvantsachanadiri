@@ -44,5 +44,23 @@ window.EDIT = {
 
     { category: "bags", brand: "Bag brand", why: "Example: replace with your brand.", link: "", image: "", favourite: true },
     { category: "bags", brand: "Bag brand",   why: "Example: replace with your brand.", link: "", image: "", favourite: false }
+  ],
+
+  // ── NEWS ───────────────────────────────────────────────────
+  // Newest first. Each story:
+  //   date:  shown above the headline
+  //   title: the headline
+  //   image: photo in edit/images/ (optional)
+  //   body:  a list of paragraphs
+  news: [
+    {
+      date: "4 ნოემბერი 2026",
+      title: "ნათია ჭინჭარაული დღეს ბავშვებთან ერთად სახლშია",
+      image: "images/news-natia.jpg",
+      body: [
+        "ნათია ჭინჭარაული დღეს სახლში ბავშვებთან ერთად მარტოა. აკია სამსახურშია, ამიტომ ბავშვები დღის განმავლობაში ნათიასთან დარჩნენ.",
+        "აკია სახლში საღამოს დაბრუნდება."
+      ]
+    }
   ]
 };
