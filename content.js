@@ -442,7 +442,7 @@ window.SITE = {
       "o": "Bring Monkey Shoulder’s brand world off the screen and let audiences experience it first-hand at cultural and sports events.",
       "role": [],
       "c": "Hammock Magazine",
-      "yt": ["https://youtu.be/QPxStHZZY6U"],
+      "yt": [],
       "gl": "natural",
       "g": ["3", "7", "2", "5", "4", "6"],
       "lk": [{"id": "monkeypopupv1", "ty": "Video file", "t": "Hammock’s Tropical Palace × Monkey Shoulder", "s": "Video", "u": "images/monkeyshoulder-popup/popup-film.mp4", "v": "images/monkeyshoulder-popup/popup-film.mp4", "p": "images/monkeyshoulder-popup/popup-film.jpg", "ar": "16/9"}]
