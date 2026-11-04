@@ -161,3 +161,4 @@ footer{text-transform:none;letter-spacing:0;font-size:12px;font-weight:600}
 .ctc{margin-top:60px}
 main{padding-bottom:40px}
 footer{margin-top:0}
+@media(min-width:800px){.cols>div:first-child{position:sticky;top:90px;align-self:start}}
