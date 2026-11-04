@@ -167,6 +167,7 @@ window.SITE = {
     {"p": "sarajishvili"},
     {"p": "wissol"},
     {"p": "afflelou"},
+    {"p": "smart"},
     {"s": "tbc"},
     {"s": "volvo"},
     {"p": "hammockrebrand"}
@@ -247,6 +248,23 @@ window.SITE = {
       "yt": [],
       "g": [],
       "lk": [{"id": "venicev1", "ty": "Video file", "t": "Venice Art Biennale, Giardini", "s": "Video", "u": "images/venicebiennale/venice-giardini.mp4", "v": "images/venicebiennale/venice-giardini.mp4", "p": "images/venicebiennale/venice-giardini.jpg", "ar": "9/16"}, {"id": "venicev2", "ty": "Video file", "t": "Venice Biennale, Dries Van Noten", "s": "Video", "u": "images/venicebiennale/venice-dries-van-noten.mp4", "v": "images/venicebiennale/venice-dries-van-noten.mp4", "p": "images/venicebiennale/venice-dries-van-noten.jpg", "ar": "9/16"}]
+    },
+    {
+      "id": "smart",
+      "res": "Created a lifestyle photo shoot for Smart Market & Café, showing its products in a fresh, youthful setting for digital and social channels.",
+      "cl": "Smart",
+      "s": "b",
+      "b": "Smart Market & Café",
+      "t": "Lifestyle photo shoot for digital and social channels",
+      "d": "Photo",
+      "y": "",
+      "r": "Concept, photo shoot production and content for digital channels",
+      "o": "Present Smart Market & Café products in a lifestyle setting that feels young and desirable.",
+      "role": [],
+      "c": "",
+      "gl": "natural",
+      "g": ["1", "2"],
+      "lk": []
     },
     {
       "id": "afflelou",
@@ -530,6 +548,8 @@ window.SITE = {
     "prvisa7": { "u": "images/visa/visa-07.jpg", "t": "i", "wide": true },
     "prvisa8": { "u": "images/visa/visa-08.jpg", "t": "i" },
     "prvisa9": { "u": "images/visa/visa-09.jpg", "t": "i" },
+    "prsmart1": { "u": "images/smart/smart-01.jpg", "t": "i" },
+    "prsmart2": { "u": "images/smart/smart-02.jpg", "t": "i" },
     "prafflelou1": { "u": "images/afflelou/afflelou-01.jpg", "t": "i" },
     "prafflelou2": { "u": "images/afflelou/afflelou-02.jpg", "t": "i" },
     "prafflelou3": { "u": "images/afflelou/afflelou-03.jpg", "t": "i" },
