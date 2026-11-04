@@ -157,7 +157,7 @@ window.SITE = {
     {"p": "erborian"},
     {"p": "melvita"},
     {"p": "thebodyshop"},
-    {"p": "venicebiennale", "s": "venicebiennale"},
+    {"s": "venicebiennale", "so": 1},
     {"s": "mbfw"},
     {"p": "milandesignweek", "s": "milandesignweek"},
     {"s": "berlinale"},
