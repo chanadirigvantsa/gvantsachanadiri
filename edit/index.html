@@ -108,7 +108,9 @@ section.routine.flat{padding-top:40px}
 .card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line)}
 .card .img{position:relative;aspect-ratio:1/1;background:var(--ph1);display:flex;align-items:center;justify-content:center;overflow:hidden;}
 @media(max-width:619px){.card .img{aspect-ratio:16/9}}
-.card .img img{width:100%;height:100%;object-fit:cover;display:block}
+.card .img.photo{background:var(--card);border-bottom:1px solid var(--line)}
+.card .img.photo .step{display:none}
+.card .img img{width:100%;height:100%;object-fit:contain;display:block}
 .card .img .no{font-family:"Bodoni Moda",Georgia,serif;font-size:88px;line-height:1;color:var(--ink);text-align:center}
 .card .img .no small{display:block;font-family:"Hanken Grotesk",sans-serif;font-size:10px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:4px;color:var(--rose-d);text-shadow:none;font-weight:600}
 .card .img .mono{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;font-size:120px;line-height:1;color:var(--ink)}
@@ -194,7 +196,7 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
   ];
   var ROMAN=["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"];
   function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
-  function safeUrl(u){u=String(u||"").trim();return /^(https?:\/\/|images\/|\.\/)/i.test(u)?u:""}
+  function safeUrl(u){u=String(u||"").trim();return /^(https?:\/\/|images\/|\.\/|data:image\/)/i.test(u)?u:""}
   function pad(n){return n<10?"0"+n:""+n}
   function plural(n,w){return n+" "+w+(n===1?"":"s")}
 
@@ -248,7 +250,7 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
     var img = safeUrl(p.image), link = safeUrl(p.link), initial = esc(String(p.brand||"?").trim().charAt(0).toUpperCase());
     return '<article class="card">'+
       (p.favourite?'<div class="pick"><b>'+(isSkin?'Holy grail':'Obsessed')+'</b><span>Editor\'s pick</span></div>':'')+
-      '<div class="img">'+(img?'<img src="'+esc(img)+'" alt="'+esc(p.brand)+'" loading="lazy">':'<span class="mono">'+initial+'</span>')+
+      '<div class="img'+(img?' photo':'')+'">'+(img?'<img src="'+esc(img)+'" alt="'+esc(p.brand)+'" loading="lazy">':'<span class="mono">'+initial+'</span>')+
       '<span class="step caps">'+esc(g.c.label)+'</span></div><div class="body">'+
       '<h3>'+esc(p.brand)+'</h3>'+
       (p.why?'<blockquote>“'+esc(p.why)+'”</blockquote>':'')+

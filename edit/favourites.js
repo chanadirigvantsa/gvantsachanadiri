@@ -18,11 +18,11 @@ window.EDIT = {
   //   image:     photo in edit/images/, e.g. "images/serum.jpg" (optional)
   //   favourite: true adds a "Holy grail" sticker
   skincare: [
-    { brand: "La Roche-Posay", why: "", link: "", image: "", favourite: false },
-    { brand: "Anua", why: "", link: "", image: "", favourite: false },
-    { brand: "Beauty of Joseon", why: "", link: "", image: "", favourite: false },
-    { brand: "SkinCeuticals", why: "", link: "", image: "", favourite: false },
-    { brand: "K-Secret", why: "", link: "", image: "", favourite: false }
+    { brand: "La Roche-Posay", why: "", link: "", image: "images/la-roche-posay.jpg", favourite: false },
+    { brand: "Anua", why: "", link: "", image: "images/anua.jpg", favourite: false },
+    { brand: "Beauty of Joseon", why: "", link: "", image: "images/beauty-of-joseon.jpg", favourite: false },
+    { brand: "SkinCeuticals", why: "", link: "", image: "images/skinceuticals.jpg", favourite: false },
+    { brand: "Celimax", why: "", link: "", image: "images/celimax.jpg", favourite: false }
   ],
 
   // ── PART TWO: FASHION ──────────────────────────────────────
