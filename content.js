@@ -263,7 +263,7 @@ window.SITE = {
       "role": [],
       "c": "",
       "gl": "natural",
-      "g": ["1", "2"],
+      "g": ["3", "1", "2"],
       "lk": []
     },
     {
@@ -550,6 +550,7 @@ window.SITE = {
     "prvisa9": { "u": "images/visa/visa-09.jpg", "t": "i" },
     "prsmart1": { "u": "images/smart/smart-01.jpg", "t": "i" },
     "prsmart2": { "u": "images/smart/smart-02.jpg", "t": "i" },
+    "prsmart3": { "u": "images/smart/smart-03.jpg", "t": "i", "wide": true },
     "prafflelou1": { "u": "images/afflelou/afflelou-01.jpg", "t": "i" },
     "prafflelou2": { "u": "images/afflelou/afflelou-02.jpg", "t": "i" },
     "prafflelou3": { "u": "images/afflelou/afflelou-03.jpg", "t": "i" },
