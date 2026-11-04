@@ -163,3 +163,8 @@ main{padding-bottom:40px}
 footer{margin-top:0}
 @media(min-width:800px){.cols>div:first-child{position:sticky;top:90px;align-self:start}}
 @media(min-width:800px){.pgrid .gn3{grid-column:span 4}}
+.vids{display:flex!important;overflow-x:auto;scrollbar-width:thin;gap:8px!important;padding-bottom:4px}
+.vids .vid{flex:0 0 calc((100% - 32px)/5);min-width:0}
+.vids .vid[style*="span 2"]{flex:0 0 calc((100% - 32px)/5*2 + 8px)}
+.vids .vid figcaption{font-size:12px}
+@media(max-width:700px){.vids .vid{flex:0 0 calc((100% - 8px)/2)}.vids .vid[style*="span 2"]{flex:0 0 100%}}
