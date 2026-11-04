@@ -187,3 +187,4 @@ footer{margin-top:0}
 .bct .bad{display:block;width:100%;aspect-ratio:4/5;background:#eee}
 button.bct{padding:0;border:0;background:none;text-align:left;cursor:pointer;font:inherit}
 button.bct img{aspect-ratio:1240/1754}
+.wid{font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.35;max-width:640px;margin:0 0 24px}
