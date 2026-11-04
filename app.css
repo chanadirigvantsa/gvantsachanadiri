@@ -185,3 +185,5 @@ footer{margin-top:0}
 .bct:hover span{color:var(--ac)}
 @media(max-width:700px){.bct{flex:0 0 calc((100% - 8px)/2)}}
 .bct .bad{display:block;width:100%;aspect-ratio:4/5;background:#eee}
+button.bct{padding:0;border:0;background:none;text-align:left;cursor:pointer;font:inherit}
+button.bct img{aspect-ratio:1240/1754}
