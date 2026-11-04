@@ -178,3 +178,10 @@ footer{margin-top:0}
 @media(max-width:700px){.vmore{flex:0 0 calc((100% - 8px)/2)}}
 .vmore{aspect-ratio:9/16;min-height:0;align-self:flex-start}
 .vmore2{font-size:13px;font-weight:700;color:var(--ink);text-decoration:none}.vmore2:hover{color:var(--ac)}
+.bcr{display:flex;overflow-x:auto;gap:8px;scrollbar-width:thin;padding-bottom:4px}
+.bct{flex:0 0 calc((100% - 32px)/5);color:var(--ink);text-decoration:none}
+.bct img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.bct span{display:block;font-size:15px;font-weight:700;margin-top:8px}
+.bct:hover span{color:var(--ac)}
+@media(max-width:700px){.bct{flex:0 0 calc((100% - 8px)/2)}}
+.bct .bad{display:block;width:100%;aspect-ratio:4/5;background:#eee}
