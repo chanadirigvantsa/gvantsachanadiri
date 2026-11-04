@@ -20,16 +20,14 @@ window.EDIT = {
   //   image:     photo in edit/images/, e.g. "images/serum.jpg" (optional)
   //   favourite: true adds a pink "Holy grail" sticker
   skincare: [
-    { routine: "morning", step: "Cleanser",    brand: "Brand", name: "Gentle gel cleanser", why: "Example: replace with your product. Soft, doesn't leave my skin tight.", link: "", image: "", favourite: false },
-    { routine: "morning", step: "Serum",       brand: "Brand", name: "Vitamin C serum",     why: "Example: replace with your product.", link: "", image: "", favourite: true },
-    { routine: "morning", step: "Moisturiser", brand: "Brand", name: "Daily moisturiser",   why: "Example: replace with your product.", link: "", image: "", favourite: false },
-    { routine: "morning", step: "SPF",         brand: "Brand", name: "Sunscreen SPF 50",    why: "Example: replace with your product. Every day, even in winter.", link: "", image: "", favourite: false },
+    // Morning
+    { routine: "morning", step: "Vitamin C", brand: "SkinCeuticals", name: "Vitamin C serum", why: "", link: "", image: "", favourite: false },
+    { routine: "morning", step: "SPF",       brand: "Beauty of Joseon", name: "Sunscreen", why: "", link: "", image: "", favourite: false },
 
-    { routine: "evening", step: "Makeup remover", brand: "Brand", name: "Cleansing balm", why: "Example: replace with your product.", link: "", image: "", favourite: false },
-    { routine: "evening", step: "Treatment",      brand: "Brand", name: "Retinol serum",  why: "Example: replace with your product. Two or three nights a week.", link: "", image: "", favourite: false },
-    { routine: "evening", step: "Night cream",    brand: "Brand", name: "Night cream",    why: "Example: replace with your product.", link: "", image: "", favourite: false },
-
-    { routine: "weekly", step: "Mask", brand: "Brand", name: "Hydrating sheet mask", why: "Example: replace with your product.", link: "", image: "", favourite: false }
+    // Evening
+    { routine: "evening", step: "Treatment",  brand: "Anua", name: "Azelaic acid serum", why: "", link: "", image: "", favourite: false },
+    { routine: "evening", step: "Eye cream",  brand: "K-Secret", name: "Seoul 1988 retinal eye cream", why: "", link: "", image: "", favourite: false },
+    { routine: "evening", step: "Repair balm", brand: "La Roche-Posay", name: "Cicaplast Baume B5+", why: "", link: "", image: "", favourite: false }
   ],
 
   // ── PART TWO: FASHION ──────────────────────────────────────
