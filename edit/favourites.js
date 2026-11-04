@@ -6,28 +6,24 @@
 
 window.EDIT = {
   title: "Skin & Style",
-  intro: "Everything I actually use and wear, because you keep asking. My skincare routine, plus the clothes, shoe and bag brands I love.",
-  skinType: "Combination, a little sensitive",   // shown on the cover ("" to hide)
+  intro: "Everything I actually use and wear, because you keep asking. The skincare, clothes, shoe and bag brands I love.",
+  skinType: "",   // e.g. "Combination, a little sensitive" (shown on the cover, "" to hide)
   updated: "November 2026",                     // shown at the top and in the footer ("" to hide)
 
   // ── PART ONE: SKINCARE ─────────────────────────────────────
-  // Each product:
-  //   routine:   "morning", "evening" or "weekly"
-  //   step:      what it is (Cleanser, Serum, SPF, Mask…)
-  //   brand, name
-  //   why:       why you love it, a sentence or two
+  // Each brand:
+  //   brand:     the brand name
+  //   product:   what you use from them (optional)
+  //   why:       why you love it, a sentence or two (optional)
   //   link:      where to buy (optional, "" for none)
   //   image:     photo in edit/images/, e.g. "images/serum.jpg" (optional)
-  //   favourite: true adds a pink "Holy grail" sticker
+  //   favourite: true adds a "Holy grail" sticker
   skincare: [
-    // Morning
-    { routine: "morning", step: "Vitamin C", brand: "SkinCeuticals", name: "Vitamin C serum", why: "", link: "", image: "", favourite: false },
-    { routine: "morning", step: "SPF",       brand: "Beauty of Joseon", name: "Sunscreen", why: "", link: "", image: "", favourite: false },
-
-    // Evening
-    { routine: "evening", step: "Treatment",  brand: "Anua", name: "Azelaic acid serum", why: "", link: "", image: "", favourite: false },
-    { routine: "evening", step: "Eye cream",  brand: "K-Secret", name: "Seoul 1988 retinal eye cream", why: "", link: "", image: "", favourite: false },
-    { routine: "evening", step: "Repair balm", brand: "La Roche-Posay", name: "Cicaplast Baume B5+", why: "", link: "", image: "", favourite: false }
+    { brand: "La Roche-Posay",   product: "Cicaplast Baume B5+",          why: "", link: "", image: "", favourite: false },
+    { brand: "Anua",             product: "Azelaic acid serum",           why: "", link: "", image: "", favourite: false },
+    { brand: "Beauty of Joseon", product: "Sunscreen",                    why: "", link: "", image: "", favourite: false },
+    { brand: "SkinCeuticals",    product: "Vitamin C serum",              why: "", link: "", image: "", favourite: false },
+    { brand: "K-Secret",         product: "Seoul 1988 retinal eye cream", why: "", link: "", image: "", favourite: false }
   ],
 
   // ── PART TWO: FASHION ──────────────────────────────────────

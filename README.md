@@ -49,11 +49,11 @@ Tip: compress large photos before uploading (under ~1 MB each is ideal) so the s
 
 ## Skin & Style page
 
-A separate page for friends, live at `https://gvantsachanadiri.com/edit/`. It has two parts: **Skincare** (morning, evening and extras) and **Fashion** (clothes, shoes, bags and, optionally, accessories). It isn't linked from the portfolio menu, so only people you send the link to will find it. The old `/skincare/` link forwards to the skincare part.
+A separate page for friends, with two brand lists: **Skincare** and **Fashion** (clothes, shoes, bags and, optionally, accessories). The portfolio doesn't link to it.
 
 - **Edit it:** open `edit/favourites.js` on GitHub, click the pencil, and edit the two lists:
-  - `skincare`: routine (`morning`, `evening` or `weekly`), step, brand, product name, why you love it, an optional shop link and an optional photo.
+  - `skincare`: brand, what you use from them, why you love it, an optional shop link and an optional photo.
   - `fashion`: category (`clothes`, `shoes`, `bags` or `accessories`), brand, what you buy from them, why you love them, an optional link and an optional photo.
-  - `favourite: true` adds a pink sticker ("Holy grail" for skincare, "Obsessed" for fashion).
+  - `favourite: true` adds a black sticker ("Holy grail" for skincare, "Obsessed" for fashion).
 - **Photos:** upload them to `edit/images/` and set `image: "images/your-file.jpg"`.
-- **Link straight to one section:** add `#skincare`, `#fashion`, `#morning`, `#evening`, `#weekly`, `#clothes`, `#shoes`, `#bags` or `#accessories` to the end of the address.
+- **Link straight to one section:** add `#skincare`, `#fashion`, `#clothes`, `#shoes`, `#bags` or `#accessories` to the end of the address.

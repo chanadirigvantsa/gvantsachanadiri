@@ -92,6 +92,7 @@ nav.tabs sup{font-family:"Hanken Grotesk",sans-serif;font-size:10px;color:var(--
 /* ── Chapters ── */
 section.routine{padding:56px 0 10px}
 section.routine[hidden]{display:none}
+section.routine.flat{padding-top:40px}
 .chead{display:grid;gap:6px;margin-bottom:30px;padding-bottom:18px;border-bottom:1px solid var(--line)}
 @media(min-width:760px){.chead{grid-template-columns:1fr auto;align-items:end;gap:8px 24px}.chead .ch{grid-column:1/-1}}
 .chead .ch{color:var(--rose-d)}
@@ -184,11 +185,8 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
   var SKIN = D.skincare || [], STYLE = D.fashion || [];
 
   var PARTS = [
-    {key:"skincare", label:"Skincare", no:"Part One", title:"The <em>skin</em> edit",  sub:"My routine, step by step",
-     field:"routine", items:SKIN, chapters:[
-      {key:"morning", label:"Morning", title:"The <em>morning</em> ritual", sub:"Fresh, light, SPF always"},
-      {key:"evening", label:"Evening", title:"After <em>dark</em>",          sub:"Cleanse, treat, repair"},
-      {key:"weekly",  label:"Extras",  title:"The <em>extras</em>",          sub:"Once or twice a week"}]},
+    {key:"skincare", label:"Skincare", no:"Part One", title:"The <em>skin</em> edit",  sub:"The brands on my shelf",
+     flat:true, items:SKIN, chapters:[{key:"skin", label:"Skincare"}]},
     {key:"fashion", label:"Fashion", no:"Part Two", title:"The <em>style</em> edit", sub:"The brands I keep coming back to",
      field:"category", items:STYLE, chapters:[
       {key:"clothes",     label:"Clothes",     title:"In my <em>wardrobe</em>",  sub:"Clothing brands I live in"},
@@ -204,6 +202,7 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
 
   // Group items into chapters, drop empty ones
   PARTS.forEach(function(p){
+    if(p.flat){p.groups = p.items.length ? [{c:p.chapters[0], items:p.items}] : []; return}
     p.groups = p.chapters.map(function(c){
       return {c:c, items:p.items.filter(function(it){return String(it[p.field]||"").toLowerCase()===c.key})};
     }).filter(function(g){return g.items.length});
@@ -223,8 +222,7 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
 
   // Cover lines
   var lines = [];
-  var am = SKIN.filter(function(p){return p.routine==="morning"}).length, pm = SKIN.filter(function(p){return p.routine==="evening"}).length;
-  if(am||pm){lines.push("My full <b>"+[am?am+"-step morning":"",pm?pm+"-step night":""].filter(Boolean).join(" &amp; ")+"</b> routine")}
+  if(SKIN.length){lines.push("<b>"+plural(SKIN.length,"skincare brand")+"</b> on my shelf")}
   var fg = parts.filter(function(p){return p.key==="fashion"})[0];
   if(fg){fg.groups.forEach(function(g){
     var n=g.items.length;
@@ -243,34 +241,22 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
   parts.forEach(function(p){
     keys.push(p.key);
     th += '<span class="sep" aria-hidden="true"></span><button type="button" class="ptab" data-k="'+p.key+'">'+p.label+'<sup>'+p.items.length+'</sup></button>';
-    p.groups.forEach(function(g){keys.push(g.c.key); th += '<button type="button" data-k="'+g.c.key+'">'+esc(g.c.label)+'<sup>'+g.items.length+'</sup></button>'});
+    if(!p.flat) p.groups.forEach(function(g){keys.push(g.c.key); th += '<button type="button" data-k="'+g.c.key+'">'+esc(g.c.label)+'<sup>'+g.items.length+'</sup></button>'});
   });
   tabs.innerHTML = th;
 
-  // Cards
-  var skinNo = 0;
-  function skinCard(p,i){
-    skinNo++;
-    var img = safeUrl(p.image), link = safeUrl(p.link);
-    return '<article class="card">'+
-      (p.favourite?'<div class="pick"><b>Holy grail</b><span>Editor\'s pick</span></div>':'')+
-      '<div class="img">'+(img?'<img src="'+esc(img)+'" alt="'+esc((p.brand?p.brand+" ":"")+p.name)+'" loading="lazy">':'<span class="no"><small>No.</small>'+pad(skinNo)+'</span>')+
-      '<span class="step caps">Step '+(ROMAN[i]||i+1)+(p.step?' · '+esc(p.step):'')+'</span></div><div class="body">'+
-      (p.brand?'<div class="brand caps">'+esc(p.brand)+'</div>':'')+
-      '<h3>'+esc(p.name)+'</h3>'+(p.why?'<blockquote>“'+esc(p.why)+'”</blockquote>':'')+
-      (link?'<a class="buy" href="'+esc(link)+'" target="_blank" rel="noopener">Shop it ↗</a>':'')+
-      '</div></article>';
-  }
-  function styleCard(p,i,g){
+  // Brand card (same for skincare and fashion)
+  function card(p,g,isSkin){
     var img = safeUrl(p.image), link = safeUrl(p.link), initial = esc(String(p.brand||"?").trim().charAt(0).toUpperCase());
+    var what = p.product || p.piece;
     return '<article class="card">'+
-      (p.favourite?'<div class="pick"><b>Obsessed</b><span>Editor\'s pick</span></div>':'')+
+      (p.favourite?'<div class="pick"><b>'+(isSkin?'Holy grail':'Obsessed')+'</b><span>Editor\'s pick</span></div>':'')+
       '<div class="img">'+(img?'<img src="'+esc(img)+'" alt="'+esc(p.brand)+'" loading="lazy">':'<span class="mono">'+initial+'</span>')+
       '<span class="step caps">'+esc(g.c.label)+'</span></div><div class="body">'+
       '<h3>'+esc(p.brand)+'</h3>'+
-      (p.piece?'<div class="piece">What I buy: <b>'+esc(p.piece)+'</b></div>':'')+
+      (what?'<div class="piece">'+(isSkin?'What I use':'What I buy')+': <b>'+esc(what)+'</b></div>':'')+
       (p.why?'<blockquote>“'+esc(p.why)+'”</blockquote>':'')+
-      (link?'<a class="buy" href="'+esc(link)+'" target="_blank" rel="noopener">Shop the brand ↗</a>':'')+
+      (link?'<a class="buy" href="'+esc(link)+'" target="_blank" rel="noopener">'+(isSkin?'Shop it':'Shop the brand')+' ↗</a>':'')+
       '</div></article>';
   }
 
@@ -279,10 +265,10 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
   parts.forEach(function(p){
     html += '<div class="part bleed '+p.key+'" data-part="'+p.key+'"><div class="part-open"><div class="caps">'+p.no+'</div><h2>'+p.title+'</h2><p>'+esc(p.sub)+'</p></div>';
     p.groups.forEach(function(g){
-      chNo++;
-      var n=g.items.length, count = p.key==="skincare" ? plural(n,"step") : plural(n,"brand");
-      html += '<section class="routine" id="'+g.c.key+'" data-k="'+g.c.key+'"><div class="chead"><span class="caps ch">Chapter '+ROMAN[chNo-1]+'</span><h2>'+g.c.title+'</h2><span class="sub">'+count+' · '+esc(g.c.sub)+'</span></div><div class="grid">'+
-        g.items.map(function(it,i){return p.key==="skincare"?skinCard(it,i):styleCard(it,i,g)}).join("")+'</div></section>';
+      var head = "";
+      if(!p.flat){chNo++; head = '<div class="chead"><span class="caps ch">Chapter '+ROMAN[chNo-1]+'</span><h2>'+g.c.title+'</h2><span class="sub">'+plural(g.items.length,"brand")+' · '+esc(g.c.sub)+'</span></div>'}
+      html += '<section class="routine'+(p.flat?' flat':'')+'" id="'+g.c.key+'" data-k="'+g.c.key+'">'+head+'<div class="grid">'+
+        g.items.map(function(it){return card(it,g,p.flat)}).join("")+'</div></section>';
     });
     html += '</div>';
   });
