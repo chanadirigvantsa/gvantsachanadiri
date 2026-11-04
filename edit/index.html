@@ -30,7 +30,10 @@
   --ph1:#fde3eb;--ph2:#f4bfd0;
 }
 *{box-sizing:border-box;margin:0}
-html{-webkit-text-size-adjust:100%;scroll-padding-top:70px}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:70px;overflow-x:clip}
+:root{--pad:16px;--gutter:max(var(--pad),calc((100vw - 1120px)/2 + var(--pad)))}
+@media(min-width:700px){:root{--pad:36px}}
+.bleed{width:100vw;margin-left:calc(50% - 50vw);padding-left:var(--gutter);padding-right:var(--gutter)}
 body{background:var(--bg);color:var(--ink);font:300 16px/1.55 "Hanken Grotesk",Helvetica,Arial,sans-serif;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
 a,button{color:inherit;font:inherit;background:none;border:0;cursor:pointer;text-decoration:none}
 :focus-visible{outline:1.5px solid var(--ink);outline-offset:3px;border-radius:4px}
@@ -66,21 +69,33 @@ a,button{color:inherit;font:inherit;background:none;border:0;cursor:pointer;text
 @media(max-width:699px){.cover h1{font-size:21vw}.seal{width:84px;height:84px;top:56px}.seal b{font-size:24px}.seal span{font-size:7.5px}}
 
 /* ── Contents tabs ── */
-nav.tabs{position:sticky;top:0;z-index:3;background:var(--bg);display:flex;gap:4px 20px;overflow-x:auto;padding:14px 0 12px;border-bottom:1px solid var(--line);scrollbar-width:none;align-items:baseline}
+nav.tabs{position:sticky;top:0;z-index:3;background:var(--bg);display:flex;gap:4px 20px;overflow-x:auto;padding-top:14px;padding-bottom:12px;border-bottom:1px solid var(--line);scrollbar-width:none;align-items:center}
 nav.tabs::-webkit-scrollbar{display:none}
 nav.tabs .lbl{flex:none;color:var(--mute)}
 nav.tabs .sep{flex:none;width:1px;height:16px;background:var(--line);align-self:center}
 nav.tabs button{flex:none;font-family:"Bodoni Moda",Georgia,serif;font-size:19px;padding:2px 0;color:var(--mute);border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
-nav.tabs button.part{color:var(--ink)}
+nav.tabs button.ptab{color:var(--ink)}
 nav.tabs button:hover{color:var(--ink)}
 nav.tabs button.on{color:var(--rose-d);font-style:italic;border-color:var(--rose)}
 nav.tabs sup{font-family:"Hanken Grotesk",sans-serif;font-size:10px;color:var(--rose-d);margin-left:2px;font-style:normal}
 
+/* ── Parts ── */
+.part{margin-top:64px}
+.part[hidden]{display:none}
+/* Skincare part: Pantone 3519 C (#E1A6AD), full-bleed band */
+.part.skincare{
+  --band:#e1a6ad;
+  --card:#fcf0f2; --ink:#2b1a21; --mute:#6b3a46; --line:#cc8c96;
+  --rose:#a9475f; --rose-d:#7e2b43;
+  --ph1:#f6dade; --ph2:#eab9bf;
+  background:var(--band);padding-top:44px;padding-bottom:64px;color:var(--ink)}
+.part.skincare{margin-top:0}
+.part.skincare .card{box-shadow:0 1px 0 rgba(126,43,67,.15)}
+.part.skincare + .part{margin-top:0;padding-top:64px}
 /* ── Part openers ── */
-.part-open{margin-top:64px;padding:40px 0 34px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);text-align:center;position:relative}
-.part-open[hidden]{display:none}
+.part-open{padding:40px 0 34px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);text-align:center;position:relative}
 .part-open .caps{color:var(--rose-d)}
-.part-open h2{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;font-size:clamp(60px,13vw,150px);line-height:.9;letter-spacing:-.03em;margin:8px 0 10px}
+.part-open h2{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;font-size:clamp(60px,13vw,150px);line-height:.9;letter-spacing:-.03em;margin:8px 0 26px}
 .part-open h2 em{font-style:italic;color:var(--rose-d)}
 .part-open p{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;color:var(--mute);font-size:18px}
 
@@ -154,7 +169,7 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
     </div>
   </header>
 
-  <nav class="tabs" id="tabs" aria-label="Contents"></nav>
+  <nav class="tabs bleed" id="tabs" aria-label="Contents"></nav>
   <main id="list"></main>
 </div>
 
@@ -233,10 +248,10 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
 
   // Contents tabs
   var tabs = document.getElementById("tabs"), keys = ["all"];
-  var th = '<span class="lbl caps">Contents</span><button type="button" class="part" data-k="all">Everything</button>';
+  var th = '<span class="lbl caps">Contents</span><button type="button" class="ptab" data-k="all">Everything</button>';
   parts.forEach(function(p){
     keys.push(p.key);
-    th += '<span class="sep" aria-hidden="true"></span><button type="button" class="part" data-k="'+p.key+'">'+p.label+'<sup>'+p.items.length+'</sup></button>';
+    th += '<span class="sep" aria-hidden="true"></span><button type="button" class="ptab" data-k="'+p.key+'">'+p.label+'<sup>'+p.items.length+'</sup></button>';
     p.groups.forEach(function(g){keys.push(g.c.key); th += '<button type="button" data-k="'+g.c.key+'">'+esc(g.c.label)+'<sup>'+g.items.length+'</sup></button>'});
   });
   tabs.innerHTML = th;
@@ -271,23 +286,25 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
   // Parts & chapters
   var chNo = 0, html = "";
   parts.forEach(function(p){
-    html += '<div class="part-open" data-part="'+p.key+'"><div class="caps">'+p.no+'</div><h2>'+p.title+'</h2><p>'+esc(p.sub)+'</p></div>';
+    html += '<div class="part bleed '+p.key+'" data-part="'+p.key+'"><div class="part-open"><div class="caps">'+p.no+'</div><h2>'+p.title+'</h2><p>'+esc(p.sub)+'</p></div>';
     p.groups.forEach(function(g){
       chNo++;
       var n=g.items.length, count = p.key==="skincare" ? plural(n,"step") : plural(n,"brand");
-      html += '<section class="routine" id="'+g.c.key+'" data-part="'+p.key+'" data-k="'+g.c.key+'"><div class="chead"><span class="caps ch">Chapter '+ROMAN[chNo-1]+'</span><h2>'+g.c.title+'</h2><span class="sub">'+count+' · '+esc(g.c.sub)+'</span></div><div class="grid">'+
+      html += '<section class="routine" id="'+g.c.key+'" data-k="'+g.c.key+'"><div class="chead"><span class="caps ch">Chapter '+ROMAN[chNo-1]+'</span><h2>'+g.c.title+'</h2><span class="sub">'+count+' · '+esc(g.c.sub)+'</span></div><div class="grid">'+
         g.items.map(function(it,i){return p.key==="skincare"?skinCard(it,i):styleCard(it,i,g)}).join("")+'</div></section>';
     });
+    html += '</div>';
   });
   var list = document.getElementById("list");
   list.innerHTML = html || '<p class="note" style="padding:48px 0">Nothing here yet.</p>';
 
   function show(k){
     tabs.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b.dataset.k===k);b.setAttribute("aria-pressed",b.dataset.k===k)});
-    var partOf = null;
-    list.querySelectorAll("section").forEach(function(s){if(s.dataset.k===k)partOf=s.dataset.part});
-    list.querySelectorAll("section").forEach(function(s){s.hidden = !(k==="all" || s.dataset.part===k || s.dataset.k===k)});
-    list.querySelectorAll(".part-open").forEach(function(o){o.hidden = !(k==="all" || o.dataset.part===k || o.dataset.part===partOf)});
+    list.querySelectorAll(".part").forEach(function(part){
+      var whole = k==="all" || part.dataset.part===k, has = !!part.querySelector('section[data-k="'+k+'"]');
+      part.hidden = !(whole || has);
+      part.querySelectorAll("section").forEach(function(s){s.hidden = !(whole || s.dataset.k===k)});
+    });
     revealTab();
   }
   function revealTab(){
