@@ -66,6 +66,20 @@ a,button{color:inherit;font:inherit;background:none;border:0;cursor:pointer;text
 .seal span{font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-top:4px;font-weight:600}
 @media(max-width:699px){.cover h1{font-size:21vw}.seal{width:84px;height:84px;top:56px}.seal b{font-size:24px}.seal span{font-size:7.5px}}
 
+/* Cover photo: right of the title on wide screens, under it on phones */
+.cover-photo{margin:22px 0 0;aspect-ratio:4/5;max-width:100%;overflow:hidden;background:var(--ph1)}
+.cover-photo img{width:100%;height:100%;object-fit:cover;display:block}
+@media(min-width:820px){
+  .cover.has-photo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);grid-template-rows:auto auto 1fr auto;column-gap:48px;grid-template-areas:"k p" "t p" "l p" "c c"}
+  .cover.has-photo .kicker{grid-area:k}
+  .cover.has-photo h1{grid-area:t;font-size:clamp(64px,12vw,170px)}
+  .cover.has-photo .cover-photo{grid-area:p;margin:0}
+  .cover.has-photo .row{display:contents}
+  .cover.has-photo .row>div{grid-area:l;align-self:end;padding-bottom:4px}
+  .cover.has-photo .coverlines{grid-area:c;margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));column-gap:24px}
+  .cover.has-photo .seal{top:6px;right:-18px;z-index:2}
+}
+@media(max-width:819px){.cover.has-photo .cover-photo{aspect-ratio:1/1}}
 /* ── Contents tabs ── */
 nav.tabs{position:sticky;top:0;z-index:3;background:var(--bg);display:flex;gap:4px 20px;overflow-x:auto;padding-top:14px;padding-bottom:12px;border-bottom:1px solid var(--line);scrollbar-width:none;align-items:center}
 nav.tabs::-webkit-scrollbar{display:none}
@@ -151,6 +165,7 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
   <header class="cover">
     <div class="caps kicker">Exclusive · Her favourite brands, revealed</div>
     <h1 id="title"></h1>
+    <figure class="cover-photo" id="coverPhoto" hidden><img id="coverImg" alt=""></figure>
     <div class="seal" aria-hidden="true"><b id="sealN"></b><span>Favourites<br>I swear by</span></div>
     <div class="row">
       <div>
@@ -214,6 +229,8 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
   if(t.length>1){t[t.length-1]="<em>"+t[t.length-1]+"</em>"}
   document.getElementById("title").innerHTML = t.join(" ");
   document.getElementById("intro").textContent = D.intro||"";
+  var cp = safeUrl(D.coverPhoto);
+  if(cp){var ci=document.getElementById("coverImg");ci.src=cp;ci.alt=(D.title||"")+" cover photo";document.getElementById("coverPhoto").hidden=false;document.querySelector(".cover").classList.add("has-photo")}
   var skin = document.getElementById("skin");
   if(D.skinType){skin.innerHTML = "My skin: <b>"+esc(D.skinType)+"</b>"} else {skin.remove()}
   document.getElementById("updated").textContent = D.updated ? "Last updated "+D.updated : "";

@@ -8,6 +8,7 @@ window.EDIT = {
   title: "Skin & Style",
   intro: "Because you keep asking: the skincare, clothes, shoe and bag brands I love.",
   skinType: "",   // e.g. "Combination, a little sensitive" (shown on the cover, "" to hide)
+  coverPhoto: "images/cover.jpg",            // the big photo on the cover ("" to hide)
   updated: "November 2026",                     // shown at the top and in the footer ("" to hide)
 
   // ── PART ONE: SKINCARE ─────────────────────────────────────
