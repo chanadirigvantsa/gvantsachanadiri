@@ -177,3 +177,4 @@ footer{margin-top:0}
 .vmore:hover{color:var(--ac);border-color:var(--ac)}
 @media(max-width:700px){.vmore{flex:0 0 calc((100% - 8px)/2)}}
 .vmore{aspect-ratio:9/16;min-height:0;align-self:flex-start}
+.vmore2{font-size:13px;font-weight:700;color:var(--ink);text-decoration:none}.vmore2:hover{color:var(--ac)}
