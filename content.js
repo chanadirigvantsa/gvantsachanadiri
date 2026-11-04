@@ -264,7 +264,7 @@ window.SITE = {
       "c": "",
       "gl": "natural",
       "strip": 1,
-      "g": ["5", "1", "6", "2", "4", "3"],
+      "g": ["5", "7", "1", "6", "2", "4", "3"],
       "lk": []
     },
     {
@@ -555,6 +555,7 @@ window.SITE = {
     "prsmart4": { "u": "images/smart/smart-04.jpg", "t": "i" },
     "prsmart5": { "u": "images/smart/smart-05.jpg", "t": "i" },
     "prsmart6": { "u": "images/smart/smart-06.jpg", "t": "i" },
+    "prsmart7": { "u": "images/smart/smart-07.jpg", "t": "i" },
     "prafflelou1": { "u": "images/afflelou/afflelou-01.jpg", "t": "i" },
     "prafflelou2": { "u": "images/afflelou/afflelou-02.jpg", "t": "i" },
     "prafflelou3": { "u": "images/afflelou/afflelou-03.jpg", "t": "i" },
