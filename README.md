@@ -52,8 +52,8 @@ Tip: compress large photos before uploading (under ~1 MB each is ideal) so the s
 A separate page for friends, with two brand lists: **Skincare** and **Fashion** (clothes, shoes, bags and, optionally, accessories). The portfolio doesn't link to it.
 
 - **Edit it:** open `edit/favourites.js` on GitHub, click the pencil, and edit the two lists:
-  - `skincare`: brand, what you use from them, why you love it, an optional shop link and an optional photo.
-  - `fashion`: category (`clothes`, `shoes`, `bags` or `accessories`), brand, what you buy from them, why you love them, an optional link and an optional photo.
+  - `skincare`: brand, why you love it (optional), an optional shop link and an optional photo.
+  - `fashion`: category (`clothes`, `shoes`, `bags` or `accessories`), brand, why you love them (optional), an optional link and an optional photo.
   - `favourite: true` adds a black sticker ("Holy grail" for skincare, "Obsessed" for fashion).
 - **Photos:** upload them to `edit/images/` and set `image: "images/your-file.jpg"`.
 - **Link straight to one section:** add `#skincare`, `#fashion`, `#clothes`, `#shoes`, `#bags` or `#accessories` to the end of the address.
