@@ -46,3 +46,11 @@ In the repo, click **Add file → Upload files**, drop in your CV PDF renamed to
 **Discard draft** throws away your browser draft and goes back to what is published.
 
 Tip: compress large photos before uploading (under ~1 MB each is ideal) so the site loads fast.
+
+## Skincare page
+
+A separate page for friends, live at `https://gvantsachanadiri.com/skincare/`. It isn't linked from the portfolio menu, so only people you send the link to will find it.
+
+- **Edit products:** open `skincare/products.js` on GitHub, click the pencil, and edit the list. Each product has a routine (`morning`, `evening` or `weekly`), step, brand, name, a short "why I love it", an optional shop link, and an optional photo. Set `favourite: true` to add a ★ Holy grail tag.
+- **Photos:** upload them to `skincare/images/` and set `image: "images/your-file.jpg"`.
+- **Link to one routine:** `…/skincare/#morning`, `#evening` or `#weekly`.
