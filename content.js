@@ -263,7 +263,8 @@ window.SITE = {
       "role": [],
       "c": "",
       "gl": "natural",
-      "g": ["3", "1", "2"],
+      "c3": 1,
+      "g": ["3", "1", "2", "4"],
       "lk": []
     },
     {
@@ -551,6 +552,7 @@ window.SITE = {
     "prsmart1": { "u": "images/smart/smart-01.jpg", "t": "i" },
     "prsmart2": { "u": "images/smart/smart-02.jpg", "t": "i" },
     "prsmart3": { "u": "images/smart/smart-03.jpg", "t": "i", "wide": true },
+    "prsmart4": { "u": "images/smart/smart-04.jpg", "t": "i" },
     "prafflelou1": { "u": "images/afflelou/afflelou-01.jpg", "t": "i" },
     "prafflelou2": { "u": "images/afflelou/afflelou-02.jpg", "t": "i" },
     "prafflelou3": { "u": "images/afflelou/afflelou-03.jpg", "t": "i" },
