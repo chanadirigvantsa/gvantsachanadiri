@@ -288,9 +288,13 @@ footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wr
     list.querySelectorAll("section").forEach(function(s){if(s.dataset.k===k)partOf=s.dataset.part});
     list.querySelectorAll("section").forEach(function(s){s.hidden = !(k==="all" || s.dataset.part===k || s.dataset.k===k)});
     list.querySelectorAll(".part-open").forEach(function(o){o.hidden = !(k==="all" || o.dataset.part===k || o.dataset.part===partOf)});
-    var on = tabs.querySelector("button.on");
-    if(on && tabs.scrollWidth > tabs.clientWidth){tabs.scrollLeft = Math.max(0, on.offsetLeft - tabs.offsetLeft - 60)}
+    revealTab();
   }
+  function revealTab(){
+    var on = tabs.querySelector("button.on");
+    if(on && tabs.scrollWidth > tabs.clientWidth){tabs.scrollLeft += on.getBoundingClientRect().left - tabs.getBoundingClientRect().left - 60}
+  }
+  if(document.fonts && document.fonts.ready){document.fonts.ready.then(revealTab)}
   tabs.addEventListener("click",function(e){
     var b=e.target.closest("button"); if(!b)return;
     show(b.dataset.k);
