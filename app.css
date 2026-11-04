@@ -172,3 +172,8 @@ footer{margin-top:0}
 .efg.pstrip .sv{position:relative;flex:0 0 auto;margin:0;height:calc((100cqw - 32px)/5*1.3)}
 .efg.pstrip .sv video{height:100%;width:auto;display:block;object-fit:cover;background:#000}
 @media(max-width:600px){.efg.pstrip .sv{height:calc((100cqw - 8px)/3*1.3)}}
+.vmore{flex:0 0 calc((100% - 32px)/5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;font-size:15px;min-height:200px}
+.vmore .va{font-size:40px;line-height:1}
+.vmore:hover{color:var(--ac);border-color:var(--ac)}
+@media(max-width:700px){.vmore{flex:0 0 calc((100% - 8px)/2)}}
+.vmore{aspect-ratio:9/16;min-height:0;align-self:flex-start}
