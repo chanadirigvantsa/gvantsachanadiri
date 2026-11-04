@@ -47,10 +47,13 @@ In the repo, click **Add file → Upload files**, drop in your CV PDF renamed to
 
 Tip: compress large photos before uploading (under ~1 MB each is ideal) so the site loads fast.
 
-## Skincare page
+## Skin & Style page
 
-A separate page for friends, live at `https://gvantsachanadiri.com/skincare/`. It isn't linked from the portfolio menu, so only people you send the link to will find it.
+A separate page for friends, live at `https://gvantsachanadiri.com/edit/`. It has two parts: **Skincare** (morning, evening and extras) and **Fashion** (clothes, shoes, bags and, optionally, accessories). It isn't linked from the portfolio menu, so only people you send the link to will find it. The old `/skincare/` link forwards to the skincare part.
 
-- **Edit products:** open `skincare/products.js` on GitHub, click the pencil, and edit the list. Each product has a routine (`morning`, `evening` or `weekly`), step, brand, name, a short "why I love it", an optional shop link, and an optional photo. Set `favourite: true` to add a ★ Holy grail tag.
-- **Photos:** upload them to `skincare/images/` and set `image: "images/your-file.jpg"`.
-- **Link to one routine:** `…/skincare/#morning`, `#evening` or `#weekly`.
+- **Edit it:** open `edit/favourites.js` on GitHub, click the pencil, and edit the two lists:
+  - `skincare`: routine (`morning`, `evening` or `weekly`), step, brand, product name, why you love it, an optional shop link and an optional photo.
+  - `fashion`: category (`clothes`, `shoes`, `bags` or `accessories`), brand, what you buy from them, why you love them, an optional link and an optional photo.
+  - `favourite: true` adds a pink sticker ("Holy grail" for skincare, "Obsessed" for fashion).
+- **Photos:** upload them to `edit/images/` and set `image: "images/your-file.jpg"`.
+- **Link straight to one section:** add `#skincare`, `#fashion`, `#morning`, `#evening`, `#weekly`, `#clothes`, `#shoes`, `#bags` or `#accessories` to the end of the address.

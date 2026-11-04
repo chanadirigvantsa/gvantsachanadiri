@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Skin &amp; Style | Gvantsa Chanadiri</title>
+<meta name="description" content="My skincare routine plus the clothes, shoe and bag brands I love.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Skin &amp; Style | Gvantsa Chanadiri">
+<meta property="og:description" content="My skincare routine plus the clothes, shoe and bag brands I love.">
+<meta property="og:url" content="https://gvantsachanadiri.com/edit/">
+<meta name="theme-color" content="#fbe8ee">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap">
+<style>
+/* Baby pink, beauty-magazine palette (light only, on purpose) */
+:root{
+  --bg:#fbe8ee;        /* baby pink paper */
+  --bg2:#f7d9e3;       /* deeper blush band */
+  --card:#fff7f9;      /* almost-white pink */
+  --ink:#2b1a21;       /* plum-black type */
+  --mute:#8c6672;      /* dusty rose grey */
+  --line:#eec3d1;      /* blush rule */
+  --rose:#e0789b;      /* accent rose */
+  --rose-d:#c75680;
+  --ph1:#fde3eb;--ph2:#f4bfd0;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--ink);font:300 16px/1.55 "Hanken Grotesk",Helvetica,Arial,sans-serif;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+a,button{color:inherit;font:inherit;background:none;border:0;cursor:pointer;text-decoration:none}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:3px;border-radius:4px}
+.serif{font-family:"Bodoni Moda","Didot",Georgia,serif;font-weight:400}
+.caps{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+@media(min-width:700px){.wrap{padding:0 36px}}
+
+/* ── Masthead strip ── */
+.strip{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--ink)}
+.strip a:hover{color:var(--rose-d)}
+.strip .mid{display:none}
+@media(min-width:700px){.strip .mid{display:block}}
+
+/* ── Cover ── */
+.cover{position:relative;padding:28px 0 36px;border-bottom:1px solid var(--ink)}
+.kicker{color:var(--rose-d)}
+.cover h1{font-family:"Bodoni Moda","Didot",Georgia,serif;font-weight:400;font-size:clamp(64px,17vw,210px);line-height:.86;letter-spacing:-.035em;margin-top:12px}
+.cover h1 em{font-style:italic;color:var(--rose-d);font-weight:400}
+.cover .row{display:grid;gap:28px;margin-top:30px}
+@media(min-width:820px){.cover .row{grid-template-columns:1.1fr 1fr;align-items:end}}
+.cover p.lead{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;font-size:clamp(20px,2.4vw,26px);line-height:1.3;max-width:520px}
+.cover .skin{margin-top:14px;font-size:14px;color:var(--mute)}
+.cover .skin b{font-weight:600;color:var(--ink)}
+.coverlines{list-style:none;padding:0;border-top:1px solid var(--line)}
+.coverlines li{display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
+.coverlines .n{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;color:var(--rose-d);font-size:22px;min-width:34px}
+.coverlines span{font-size:15px}
+.coverlines b{font-weight:600}
+.seal{position:absolute;top:66px;right:0;width:108px;height:108px;border-radius:50%;background:var(--rose);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(12deg);box-shadow:0 6px 22px rgba(199,86,128,.25)}
+.seal b{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;font-weight:400;font-size:30px;line-height:1}
+.seal span{font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-top:4px;font-weight:600}
+@media(max-width:699px){.cover h1{font-size:21vw}.seal{width:84px;height:84px;top:56px}.seal b{font-size:24px}.seal span{font-size:7.5px}}
+
+/* ── Contents tabs ── */
+nav.tabs{position:sticky;top:0;z-index:3;background:var(--bg);display:flex;gap:4px 20px;overflow-x:auto;padding:14px 0 12px;border-bottom:1px solid var(--line);scrollbar-width:none;align-items:baseline}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs .lbl{flex:none;color:var(--mute)}
+nav.tabs .sep{flex:none;width:1px;height:16px;background:var(--line);align-self:center}
+nav.tabs button{flex:none;font-family:"Bodoni Moda",Georgia,serif;font-size:19px;padding:2px 0;color:var(--mute);border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+nav.tabs button.part{color:var(--ink)}
+nav.tabs button:hover{color:var(--ink)}
+nav.tabs button.on{color:var(--rose-d);font-style:italic;border-color:var(--rose)}
+nav.tabs sup{font-family:"Hanken Grotesk",sans-serif;font-size:10px;color:var(--rose-d);margin-left:2px;font-style:normal}
+
+/* ── Part openers ── */
+.part-open{margin-top:64px;padding:40px 0 34px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);text-align:center;position:relative}
+.part-open[hidden]{display:none}
+.part-open .caps{color:var(--rose-d)}
+.part-open h2{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;font-size:clamp(60px,13vw,150px);line-height:.9;letter-spacing:-.03em;margin:8px 0 10px}
+.part-open h2 em{font-style:italic;color:var(--rose-d)}
+.part-open p{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;color:var(--mute);font-size:18px}
+
+/* ── Chapters ── */
+section.routine{padding:56px 0 10px}
+section.routine[hidden]{display:none}
+.chead{display:grid;gap:6px;margin-bottom:30px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+@media(min-width:760px){.chead{grid-template-columns:1fr auto;align-items:end;gap:8px 24px}.chead .ch{grid-column:1/-1}}
+.chead .ch{color:var(--rose-d)}
+.chead h2{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;font-size:clamp(46px,8vw,92px);line-height:.9;letter-spacing:-.02em}
+.chead h2 em{font-style:italic}
+.chead .sub{color:var(--mute);font-size:14px}
+
+.grid{display:grid;gap:20px 18px;grid-template-columns:1fr}
+@media(min-width:620px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.grid{grid-template-columns:1fr 1fr 1fr}}
+
+/* ── Feature card ── */
+.card{position:relative;display:flex;flex-direction:column;background:var(--card);border-radius:4px;box-shadow:0 1px 0 var(--line)}
+.card .img{position:relative;aspect-ratio:4/5;background:radial-gradient(120% 90% at 30% 20%,#fff 0,var(--ph1) 45%,var(--ph2) 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:4px 4px 0 0}
+@media(max-width:619px){.card .img{aspect-ratio:5/4}}
+.card .img img{width:100%;height:100%;object-fit:cover;display:block}
+.card .img .no{font-family:"Bodoni Moda",Georgia,serif;font-size:88px;line-height:1;color:#fff;text-shadow:0 2px 24px rgba(199,86,128,.25);text-align:center}
+.card .img .no small{display:block;font-family:"Hanken Grotesk",sans-serif;font-size:10px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:4px;color:var(--rose-d);text-shadow:none;font-weight:600}
+.card .img .mono{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;font-size:120px;line-height:1;color:#fff;text-shadow:0 2px 24px rgba(199,86,128,.25)}
+.card .step{position:absolute;left:14px;bottom:14px;background:var(--card);padding:5px 11px;border-radius:999px;color:var(--ink)}
+.pick{position:absolute;top:-12px;right:-6px;z-index:2;width:74px;height:74px;border-radius:50%;background:var(--rose);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-12deg);box-shadow:0 4px 16px rgba(199,86,128,.3)}
+.pick b{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;font-weight:400;font-size:17px;line-height:1}
+.pick span{font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-top:2px}
+@media(max-width:619px){.pick{right:6px}}
+.card .body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .brand{color:var(--rose-d)}
+.card h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;font-size:28px;line-height:1.05;letter-spacing:-.01em}
+.card .piece{font-size:14px;color:var(--mute)}
+.card .piece b{font-weight:600;color:var(--ink)}
+.card blockquote{margin-top:6px;font-family:"Bodoni Moda",Georgia,serif;font-style:italic;font-size:16.5px;line-height:1.4;color:var(--mute);padding-left:14px;border-left:2px solid var(--rose)}
+.card .buy{margin-top:auto;padding-top:16px;align-self:flex-start;display:inline-flex;gap:8px;align-items:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--ink);padding-bottom:2px}
+.card .buy:hover{color:var(--rose-d);border-color:var(--rose-d)}
+
+/* ── Back page ── */
+.share{margin:80px 0 0;padding:44px 0;background:var(--bg2);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);text-align:center}
+.share .caps{color:var(--rose-d)}
+.share p{font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(30px,5vw,52px);line-height:1.05;margin:10px auto 22px;max-width:640px;padding:0 16px}
+.share p em{font-style:italic;color:var(--rose-d)}
+.share button{background:var(--ink);color:var(--bg);padding:13px 26px;border-radius:999px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.share button:hover{background:var(--rose-d)}
+footer{padding:22px 0 44px;color:var(--mute);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+.note{font-size:13px;color:var(--mute)}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:all .25s}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="strip caps">
+    <span id="issue">The Edit</span>
+    <span class="mid">The beauty &amp; style issue</span>
+    <a href="../">Gvantsa Chanadiri ↗</a>
+  </div>
+
+  <header class="cover">
+    <div class="caps kicker">Exclusive · Her routine &amp; wardrobe, revealed</div>
+    <h1 id="title"></h1>
+    <div class="seal" aria-hidden="true"><b id="sealN"></b><span>Favourites<br>I swear by</span></div>
+    <div class="row">
+      <div>
+        <p class="lead" id="intro"></p>
+        <p class="skin" id="skin"></p>
+      </div>
+      <ul class="coverlines" id="coverlines"></ul>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Contents"></nav>
+  <main id="list"></main>
+</div>
+
+<div class="share">
+  <div class="caps">Pass it on</div>
+  <p>Know someone who keeps <em>asking</em> too?</p>
+  <button id="shareBtn" type="button">Share this page</button>
+</div>
+<div class="wrap">
+  <footer>
+    <span id="updated"></span>
+    <span>Not sponsored. Just what works for me; patch test new skincare.</span>
+  </footer>
+</div>
+<div id="toast" role="status"></div>
+
+<script src="favourites.js"></script>
+<script>
+(function(){
+  var D = window.EDIT || {};
+  var SKIN = D.skincare || [], STYLE = D.fashion || [];
+
+  var PARTS = [
+    {key:"skincare", label:"Skincare", no:"Part One", title:"The <em>skin</em> edit",  sub:"My routine, step by step",
+     field:"routine", items:SKIN, chapters:[
+      {key:"morning", label:"Morning", title:"The <em>morning</em> ritual", sub:"Fresh, light, SPF always"},
+      {key:"evening", label:"Evening", title:"After <em>dark</em>",          sub:"Cleanse, treat, repair"},
+      {key:"weekly",  label:"Extras",  title:"The <em>extras</em>",          sub:"Once or twice a week"}]},
+    {key:"fashion", label:"Fashion", no:"Part Two", title:"The <em>style</em> edit", sub:"The brands I keep coming back to",
+     field:"category", items:STYLE, chapters:[
+      {key:"clothes",     label:"Clothes",     title:"In my <em>wardrobe</em>",  sub:"Clothing brands I live in"},
+      {key:"shoes",       label:"Shoes",       title:"Best <em>foot</em> forward", sub:"Shoe brands I keep rebuying"},
+      {key:"bags",        label:"Bags",        title:"It <em>bags</em>",           sub:"Worth every penny"},
+      {key:"accessories", label:"Accessories", title:"The <em>finishing</em> touches", sub:"Jewellery, sunglasses & more"}]}
+  ];
+  var ROMAN=["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"];
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+  function safeUrl(u){u=String(u||"").trim();return /^(https?:\/\/|images\/|\.\/)/i.test(u)?u:""}
+  function pad(n){return n<10?"0"+n:""+n}
+  function plural(n,w){return n+" "+w+(n===1?"":"s")}
+
+  // Group items into chapters, drop empty ones
+  PARTS.forEach(function(p){
+    p.groups = p.chapters.map(function(c){
+      return {c:c, items:p.items.filter(function(it){return String(it[p.field]||"").toLowerCase()===c.key})};
+    }).filter(function(g){return g.items.length});
+  });
+  var parts = PARTS.filter(function(p){return p.groups.length});
+
+  // Cover
+  var t = esc(D.title||"Skin & Style").split(" ");
+  if(t.length>1){t[t.length-1]="<em>"+t[t.length-1]+"</em>"}
+  document.getElementById("title").innerHTML = t.join(" ");
+  document.getElementById("intro").textContent = D.intro||"";
+  var skin = document.getElementById("skin");
+  if(D.skinType){skin.innerHTML = "My skin: <b>"+esc(D.skinType)+"</b>"} else {skin.remove()}
+  document.getElementById("updated").textContent = D.updated ? "Last updated "+D.updated : "";
+  if(D.updated){document.getElementById("issue").textContent = "The Edit · "+D.updated}
+  document.getElementById("sealN").textContent = SKIN.length + STYLE.length;
+
+  // Cover lines
+  var lines = [];
+  var am = SKIN.filter(function(p){return p.routine==="morning"}).length, pm = SKIN.filter(function(p){return p.routine==="evening"}).length;
+  if(am||pm){lines.push("My full <b>"+[am?am+"-step morning":"",pm?pm+"-step night":""].filter(Boolean).join(" &amp; ")+"</b> routine")}
+  var fg = parts.filter(function(p){return p.key==="fashion"})[0];
+  if(fg){fg.groups.forEach(function(g){
+    var n=g.items.length;
+    lines.push({clothes:"The <b>"+plural(n,"clothing brand")+"</b> I live in",
+                shoes:"<b>"+plural(n,"shoe brand")+"</b> I keep rebuying",
+                bags:"<b>"+plural(n,"bag brand")+"</b> worth every penny",
+                accessories:"<b>"+plural(n,"accessory brand")+"</b> for the finishing touch"}[g.c.key]);
+  })}
+  var grails = SKIN.concat(STYLE).filter(function(p){return p.favourite}).length;
+  if(grails){lines.push("<b>"+grails+" holy grail"+(grails>1?"s":"")+"</b>, revealed")}
+  document.getElementById("coverlines").innerHTML = lines.map(function(l,i){return '<li><span class="n">'+(i+1)+'</span><span>'+l+'</span></li>'}).join("");
+
+  // Contents tabs
+  var tabs = document.getElementById("tabs"), keys = ["all"];
+  var th = '<span class="lbl caps">Contents</span><button type="button" class="part" data-k="all">Everything</button>';
+  parts.forEach(function(p){
+    keys.push(p.key);
+    th += '<span class="sep" aria-hidden="true"></span><button type="button" class="part" data-k="'+p.key+'">'+p.label+'<sup>'+p.items.length+'</sup></button>';
+    p.groups.forEach(function(g){keys.push(g.c.key); th += '<button type="button" data-k="'+g.c.key+'">'+esc(g.c.label)+'<sup>'+g.items.length+'</sup></button>'});
+  });
+  tabs.innerHTML = th;
+
+  // Cards
+  var skinNo = 0;
+  function skinCard(p,i){
+    skinNo++;
+    var img = safeUrl(p.image), link = safeUrl(p.link);
+    return '<article class="card">'+
+      (p.favourite?'<div class="pick"><b>Holy grail</b><span>Editor\'s pick</span></div>':'')+
+      '<div class="img">'+(img?'<img src="'+esc(img)+'" alt="'+esc((p.brand?p.brand+" ":"")+p.name)+'" loading="lazy">':'<span class="no"><small>No.</small>'+pad(skinNo)+'</span>')+
+      '<span class="step caps">Step '+(ROMAN[i]||i+1)+(p.step?' · '+esc(p.step):'')+'</span></div><div class="body">'+
+      (p.brand?'<div class="brand caps">'+esc(p.brand)+'</div>':'')+
+      '<h3>'+esc(p.name)+'</h3>'+(p.why?'<blockquote>“'+esc(p.why)+'”</blockquote>':'')+
+      (link?'<a class="buy" href="'+esc(link)+'" target="_blank" rel="noopener">Shop it ↗</a>':'')+
+      '</div></article>';
+  }
+  function styleCard(p,i,g){
+    var img = safeUrl(p.image), link = safeUrl(p.link), initial = esc(String(p.brand||"?").trim().charAt(0).toUpperCase());
+    return '<article class="card">'+
+      (p.favourite?'<div class="pick"><b>Obsessed</b><span>Editor\'s pick</span></div>':'')+
+      '<div class="img">'+(img?'<img src="'+esc(img)+'" alt="'+esc(p.brand)+'" loading="lazy">':'<span class="mono">'+initial+'</span>')+
+      '<span class="step caps">'+esc(g.c.label)+'</span></div><div class="body">'+
+      '<h3>'+esc(p.brand)+'</h3>'+
+      (p.piece?'<div class="piece">What I buy: <b>'+esc(p.piece)+'</b></div>':'')+
+      (p.why?'<blockquote>“'+esc(p.why)+'”</blockquote>':'')+
+      (link?'<a class="buy" href="'+esc(link)+'" target="_blank" rel="noopener">Shop the brand ↗</a>':'')+
+      '</div></article>';
+  }
+
+  // Parts & chapters
+  var chNo = 0, html = "";
+  parts.forEach(function(p){
+    html += '<div class="part-open" data-part="'+p.key+'"><div class="caps">'+p.no+'</div><h2>'+p.title+'</h2><p>'+esc(p.sub)+'</p></div>';
+    p.groups.forEach(function(g){
+      chNo++;
+      var n=g.items.length, count = p.key==="skincare" ? plural(n,"step") : plural(n,"brand");
+      html += '<section class="routine" id="'+g.c.key+'" data-part="'+p.key+'" data-k="'+g.c.key+'"><div class="chead"><span class="caps ch">Chapter '+ROMAN[chNo-1]+'</span><h2>'+g.c.title+'</h2><span class="sub">'+count+' · '+esc(g.c.sub)+'</span></div><div class="grid">'+
+        g.items.map(function(it,i){return p.key==="skincare"?skinCard(it,i):styleCard(it,i,g)}).join("")+'</div></section>';
+    });
+  });
+  var list = document.getElementById("list");
+  list.innerHTML = html || '<p class="note" style="padding:48px 0">Nothing here yet.</p>';
+
+  function show(k){
+    tabs.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b.dataset.k===k);b.setAttribute("aria-pressed",b.dataset.k===k)});
+    var partOf = null;
+    list.querySelectorAll("section").forEach(function(s){if(s.dataset.k===k)partOf=s.dataset.part});
+    list.querySelectorAll("section").forEach(function(s){s.hidden = !(k==="all" || s.dataset.part===k || s.dataset.k===k)});
+    list.querySelectorAll(".part-open").forEach(function(o){o.hidden = !(k==="all" || o.dataset.part===k || o.dataset.part===partOf)});
+    var on = tabs.querySelector("button.on");
+    if(on && tabs.scrollWidth > tabs.clientWidth){tabs.scrollLeft = Math.max(0, on.offsetLeft - tabs.offsetLeft - 60)}
+  }
+  tabs.addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b)return;
+    show(b.dataset.k);
+    try{history.replaceState(null,"",b.dataset.k==="all"?location.pathname:"#"+b.dataset.k)}catch(_){}
+    var top = tabs.getBoundingClientRect().top + window.scrollY;
+    if(window.scrollY > top) window.scrollTo({top:top,behavior:"smooth"});
+  });
+  var h=location.hash.slice(1);
+  show(keys.indexOf(h)>-1?h:"all");
+
+  // Share
+  var toast=document.getElementById("toast"),tt;
+  function say(m){toast.textContent=m;toast.classList.add("show");clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show")},2200)}
+  document.getElementById("shareBtn").addEventListener("click",function(){
+    var url=location.origin+location.pathname;
+    if(navigator.share){navigator.share({title:document.title,url:url}).catch(function(){});return}
+    if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){say("Link copied")},function(){say(url)})}else{say(url)}
+  });
+})();
+</script>
+</body>
+</html>
