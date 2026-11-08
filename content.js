@@ -64,7 +64,7 @@ window.SITE = {
     {"id": "casa-malaparte", "h": "Casa Malaparte and Godard in Jacquemus’s Latest Collection", "cover": "images/mag/casa-malaparte/cover.jpg", "pages": ["images/mag/casa-malaparte/page-01.jpg", "images/mag/casa-malaparte/page-02.jpg"], "cat": "fashion"},
     {"id": "vivienne-westwood", "h": "Vivienne Westwood — No-Man's Land: Against Climate Change", "cover": "images/mag/vivienne-westwood/cover.jpg", "pages": ["images/mag/vivienne-westwood/page-01.jpg", "images/mag/vivienne-westwood/page-02.jpg"], "cat": "fashion"},
     {"id": "sergei-parajanov", "h": "Sergei Parajanov — Shadows of Forgotten Ancestors", "cover": "images/mag/sergei-parajanov/cover.jpg", "pages": ["images/mag/sergei-parajanov/page-01.jpg", "images/mag/sergei-parajanov/page-02.jpg"], "cat": "cinema"},
-    {"id": "antonioni", "h": "Think of a Number: The Cinema of Michelangelo Antonioni", "cover": "images/mag/antonioni/cover.jpg", "pages": ["images/mag/antonioni/page-01.jpg", "images/mag/antonioni/page-02.jpg", "images/mag/antonioni/page-03.jpg", "images/mag/antonioni/page-04.jpg"], "cat": "cinema"},
+    {"id": "antonioni", "h": "The Cinema of Michelangelo Antonioni", "cover": "images/mag/antonioni/cover.jpg?v=2", "pages": ["images/mag/antonioni/page-01.jpg?v=2", "images/mag/antonioni/page-02.jpg", "images/mag/antonioni/page-03.jpg", "images/mag/antonioni/page-04.jpg"], "cat": "cinema"},
     {"id": "authors-column", "h": "Author's Column — The Story Behind One Artwork", "cover": "images/mag/authors-column/cover.jpg", "pages": ["images/mag/authors-column/page-01.jpg", "images/mag/authors-column/page-02.jpg", "images/mag/authors-column/page-03.jpg", "images/mag/authors-column/page-04.jpg"], "cat": "art"}
   ],
   // Editorial Features: headline + photo grid
