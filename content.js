@@ -41,7 +41,7 @@ window.SITE = {
   // Menu order
   "NAV": ["work", "social", "articles", "about"],
   // Menu and page titles
-  "T": { "n1": "Brand Content", "n2": "Social Media", "n3": "Personal Project", "n4": "About Me", "w1": "Brand Content", "s1": "Social Media", "p0": "Personal Project", "n6": "Writing & Editorial", "ar1": "Writing & Editorial", "h7": "Writing & Editorial", "ar2": "Editorial stories on art, fashion, photography, cinema and architecture.", "f1": "Creative Content & Communications Manager", "f2": "Chanadirigvanca@gmail.com", "h1": "What I do", "h3": "Social Media", "h4": "All social media" },
+  "T": { "n1": "Brand Content", "n2": "Social Media", "n3": "Personal Project", "n4": "About Me", "w1": "Brand Content", "s1": "Social Media", "p0": "Personal Project", "n6": "Magazine Articles & Fashion Shoots", "ar1": "Magazine Articles & Fashion Shoots", "h7": "Magazine Articles & Fashion Shoots", "ar2": "Editorial stories on art, fashion, photography, cinema and architecture.", "f1": "Creative Content & Communications Manager", "f2": "Chanadirigvanca@gmail.com", "h1": "What I do", "h3": "Social Media", "h4": "All social media" },
   // Social Media projects shown on the home page
   "HOMEIG": ["hennessy", "lamborghini", "visa"],
   "L": { "email": "Chanadirigvanca@gmail.com", "li": "https://www.linkedin.com/in/gvantsa-chanadiri-65882520b/", "ig": "https://instagram.com/your-handle" },
@@ -236,10 +236,7 @@ window.SITE = {
       "c": "",
       "gl": "natural",
       "g": ["1", "2", "3", "5", "6"],
-      "lk": [
-        { "id": "wissol1", "ty": "Instagram post", "t": "Wissol Group video", "s": "Instagram", "u": "https://www.instagram.com/tv/CfrSMdiFReQ/" },
-        { "id": "wissol2", "ty": "Instagram post", "t": "Wissol Group post", "s": "Instagram", "u": "https://www.instagram.com/p/Cf1LojBIuPO/" }
-      ]
+      "lk": []
     },
     {
       "id": "milandesignweek", "vf": 1,
