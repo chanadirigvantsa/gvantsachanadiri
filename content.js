@@ -74,6 +74,7 @@ window.SITE = {
     {"id": "helmut-newton", "h": "Luxury, Eroticism and Fantasy in the Work of Helmut Newton", "cover": "images/mag/helmut-newton/cover.jpg", "pages": ["images/mag/helmut-newton/page-01.jpg", "images/mag/helmut-newton/page-02.jpg", "images/mag/helmut-newton/page-03.jpg", "images/mag/helmut-newton/page-04.jpg", "images/mag/helmut-newton/page-05.jpg"], "cat": "photography"},
     {"id": "mario-testino", "h": "The Photography of Mario Testino", "cover": "images/mag/mario-testino/cover.jpg", "pages": ["images/mag/mario-testino/page-01.jpg", "images/mag/mario-testino/page-02.jpg"], "cat": "photography"},
     {"id": "glen-luchford", "h": "The Photography of Glen Luchford", "cover": "images/mag/glen-luchford/cover.jpg", "pages": ["images/mag/glen-luchford/page-01.jpg", "images/mag/glen-luchford/page-02.jpg"], "cat": "photography"},
+    {"id": "andy-warhol", "h": "The Pop Culture of the 1960s in Andy Warhol’s Polaroids", "cover": "images/mag/andy-warhol/cover.jpg", "pages": ["images/mag/andy-warhol/page-01.jpg", "images/mag/andy-warhol/page-02.jpg", "images/mag/andy-warhol/page-03.jpg", "images/mag/andy-warhol/page-04.jpg"], "cat": "art"},
     {"id": "authors-column", "h": "Author's Column — The Story Behind One Artwork", "cover": "images/mag/authors-column/cover.jpg", "pages": ["images/mag/authors-column/page-01.jpg", "images/mag/authors-column/page-02.jpg", "images/mag/authors-column/page-03.jpg", "images/mag/authors-column/page-04.jpg"], "cat": "art"}
   ],
   // Editorial Features: headline + photo grid
