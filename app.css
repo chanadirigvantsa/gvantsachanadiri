@@ -195,3 +195,4 @@ button.bct img{aspect-ratio:1240/1754}
 @media(max-width:700px){.films2 .snd{font-size:10px;padding:3px 7px;top:5px;right:5px}}
 .do{margin:8px 0 90px;border-bottom:1px solid var(--line)}.do>div{display:grid;gap:4px;padding:14px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.5}.do b{font-weight:700}.do span{color:var(--mute)}
 @media(min-width:800px){.do>div{grid-template-columns:220px 1fr;gap:24px}}
+@media(min-width:701px){.vids.hv{display:grid!important;grid-template-columns:repeat(6,1fr);gap:16px 8px!important;overflow:visible}.vids.hv .snd{font-size:11px;padding:3px 8px;top:6px;right:6px}.vids.hv figcaption a{font-size:13px!important}}
