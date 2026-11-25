@@ -292,7 +292,7 @@ window.SITE = {
       "role": [],
       "c": "",
       "gl": "natural",
-      "g": ["1", "2", "3", "4"],
+      "g": ["1", "2", "3", "7", "4", "5", "6", "8"],
       "lk": []
     },
     {
@@ -530,6 +530,10 @@ window.SITE = {
     "prafflelou2": { "u": "images/afflelou/afflelou-02.jpg", "t": "i" },
     "prafflelou3": { "u": "images/afflelou/afflelou-03.jpg", "t": "i" },
     "prafflelou4": { "u": "images/afflelou/afflelou-04.jpg", "t": "i" },
+    "prafflelou5": { "u": "images/afflelou/afflelou-05.jpg", "t": "i" },
+    "prafflelou6": { "u": "images/afflelou/afflelou-06.jpg", "t": "i" },
+    "prafflelou7": { "u": "images/afflelou/afflelou-07.jpg", "t": "i" },
+    "prafflelou8": { "u": "images/afflelou/afflelou-08.jpg", "t": "i" },
     "prtommyjeansh": { "u": "images/tommyjeans/tommyjeans-02.jpg", "t": "i" },
     "prtommyjeans1": { "u": "images/tommyjeans/tommyjeans-01.jpg", "t": "i", "wide": true },
     "prerborianh": { "u": "images/erborian/erborian-01.jpg", "t": "i" },

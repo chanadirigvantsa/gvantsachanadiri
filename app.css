@@ -217,3 +217,9 @@ button.bct img{aspect-ratio:1240/1754}
 .htop{flex-direction:column;align-items:flex-start;gap:8px}.htop .hmeta{text-align:left;padding-bottom:0}
 .hero .htop h1{font-size:clamp(34px,4.2vw,56px);white-space:normal}
 .hero .htop p.t{font-size:clamp(16px,1.5vw,20px);color:var(--mute);font-weight:600}
+.efg.pstrip.pgal.pv-afflelou{display:grid!important;grid-template-columns:repeat(3,1fr);gap:10px;column-count:auto!important}
+.efg.pstrip.pgal.pv-afflelou>*{margin:0}.efg.pstrip.pgal.pv-afflelou img{aspect-ratio:2/3!important;height:100%!important;object-fit:cover}
+.efg.pstrip.pgal.pv-afflelou button:has(img[src*="afflelou-07"]){grid-column:span 2}
+@media(max-width:600px){.efg.pstrip.pgal.pv-afflelou{grid-template-columns:1fr 1fr;gap:6px}.efg.pstrip.pgal.pv-afflelou button:has(img[src*="afflelou-07"]){grid-column:span 2}.efg.pstrip.pgal.pv-afflelou button:has(img[src*="afflelou-07"]) img{aspect-ratio:3/2!important}}
+.efg.pstrip.pgal.pv-afflelou{grid-auto-rows:calc((100cqw - 20px)/3*1.5);grid-auto-flow:dense}.efg.pstrip.pgal.pv-afflelou button{height:100%}.efg.pstrip.pgal.pv-afflelou img{aspect-ratio:auto!important;height:100%!important}
+@media(max-width:600px){.efg.pstrip.pgal.pv-afflelou{grid-auto-rows:calc((100cqw - 6px)/2*1.5)}.efg.pstrip.pgal.pv-afflelou button:has(img[src*="afflelou-07"]){grid-row:auto}}
