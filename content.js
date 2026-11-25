@@ -6,7 +6,7 @@ window.SITE = {
   "sides": {"c": {"h": "Content & editorial strategy", "p": "The thinking: what gets made, for whom, and in what voice.", "li": ["Strategy for launches, campaigns and brand moments", "Narratives, content pillars and tone of voice", "Editorial planning, writing and editing", "Web and social: Instagram, TikTok, creator-led formats"]}, "p": {"h": "Creative direction & production", "p": "The making: concepts, visuals and the team that brings them to life.", "li": ["Concepts and visual direction for campaigns", "End-to-end production and budgeting, from brief to rollout", "Leading a team of 10 across content, social, film and styling", "Clients, agencies, influencers and partners"]}},
   // About Me page
   "ABOUT": {
-    "h": "Creative Content & Communications Manager",
+    "h": "Brand Image & Content Manager",
     "sub": "I shape what brands say and how they look, from the first brief to the final image.",
     "cv": [{"h": "Experience", "it": [["Communications Officer", "Renault Group, Paris · Master’s final internship", "Feb – Jul 2026"], ["Brand Image & Content Manager", "Hammock Studio, Tbilisi", "2020 – 2024"], ["Editorial Lead & Writer", "Hammock Magazine, Tbilisi", "2020 – 2024"], ["Editorial Project Manager", "Hammock Magazine, Tbilisi", "2018 – 2020"], ["Editorial Project Manager & Writer", "SEED, digital magazine", "2017 – 2018"], ["Editorial Project Manager, internship", "JRC (Tok.TV)", "2016 – 2017"], ["Press Relations Assistant, internship", "Tbilisi Transport Company", "2015"]]}, {"h": "Education", "it": [["Master’s in Communication, Media and Creative Industries", "Sciences Po Paris, School of Management and Impact", "2024 – 2026"], ["Bachelor’s in Journalism and Communication", "Tbilisi State University", "2014 – 2018"]]}, {"h": "Certifications", "it": [["Fashion and Sustainability: Understanding Luxury Fashion", "London College of Fashion × Kering", "2023"], ["Understanding Fashion: From Business to Culture", "Institut Français de la Mode", "2023"], ["Sustainable Practices Across the Fashion Ecosystem", "Parsons School of Design", "2023"]]}, {"h": "Languages", "it": [["French", "C1", ""], ["English", "C2", ""], ["Georgian", "Native", ""]]}],
     "sec": [
@@ -32,11 +32,11 @@ window.SITE = {
       }
     ]
   },
-  "title": "Creative Content & Communications Manager",
+  "title": "Brand Image & Content Manager",
   // Menu order
   "NAV": ["work", "social", "articles", "about"],
   // Menu and page titles
-  "T": { "n1": "Brand Content", "n2": "Social Media", "n3": "Personal Project", "n4": "About Me", "w1": "Brand Content", "s1": "Social Media", "p0": "Personal Project", "n6": "Articles & Fashion Shoots", "ar1": "Articles & Fashion Shoots", "h7": "Articles & Fashion Shoots", "ar2": "Editorial stories on art, fashion, photography, cinema and architecture.", "f1": "Creative Content & Communications Manager", "f2": "Chanadirigvanca@gmail.com", "h1": "What I do", "h3": "Social Media", "h4": "All social media" },
+  "T": { "n1": "Brand Content", "n2": "Social Media", "n3": "Personal Project", "n4": "About Me", "w1": "Brand Content", "s1": "Social Media", "p0": "Personal Project", "n6": "Articles & Fashion Shoots", "ar1": "Articles & Fashion Shoots", "h7": "Articles & Fashion Shoots", "ar2": "Editorial stories on art, fashion, photography, cinema and architecture.", "f1": "Brand Image & Content Manager", "f2": "Chanadirigvanca@gmail.com", "h1": "What I do", "h3": "Social Media", "h4": "All social media" },
   // Social Media projects shown on the home page
   "HOMEIG": ["hennessy", "lamborghini", "visa"],
   "L": { "email": "Chanadirigvanca@gmail.com", "li": "https://www.linkedin.com/in/gvantsa-chanadiri-65882520b/", "ig": "https://instagram.com/your-handle" },
