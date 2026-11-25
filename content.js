@@ -409,7 +409,7 @@ window.SITE = {
       "t": "Video: an artist’s new design for the Porsche Macan",
       "d": "Video",
       "y": "2024",
-      "r": "Content strategy and management, from brief to final video",
+      "r": "Content strategy and management, narrative and copywriting, from brief to final video",
       "o": "Present Porsche’s new collaboration with an artist by showing how the new Porsche Macan design came to life.",
       "role": [],
       "c": "",
