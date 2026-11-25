@@ -208,3 +208,9 @@ button.bct img{aspect-ratio:1240/1754}
 .efg.pstrip.pv-visa .sv{grid-row:span 2;height:auto;align-self:stretch}.efg.pstrip.pv-visa .sv video{width:100%;height:100%;aspect-ratio:auto!important}
 .pv-visa button:nth-last-child(-n+2){grid-column:span 2}
 @media(max-width:600px){.efg.pstrip.pv-visa{grid-template-columns:1fr 1fr;gap:4px}.efg.pstrip.pv-visa .sv{grid-column:span 2;grid-row:auto}.efg.pstrip.pv-visa .sv video{aspect-ratio:4/5!important;height:auto}.pv-visa button:nth-last-child(-n+2){grid-column:auto}}
+.efg.pstrip.pgal:not(.pv-visa){display:block;column-gap:10px;overflow:visible;padding:0}
+.efg.pstrip.pgal:not(.pv-visa)>*{break-inside:avoid;display:block;width:100%;margin:0 0 10px}
+.efg.pstrip.pgal:not(.pv-visa) img{width:100%;height:auto!important;aspect-ratio:auto!important;object-fit:contain}
+.efg.pstrip.pgal:not(.pv-visa) .sv{height:auto}.efg.pstrip.pgal:not(.pv-visa) .sv video{width:100%;height:auto}
+.efg.pstrip.pv-visa{column-count:auto!important}
+@media(max-width:600px){.efg.pstrip.pgal:not(.pv-visa){column-count:2!important;column-gap:6px}.efg.pstrip.pgal:not(.pv-visa)>*{margin-bottom:6px}}
