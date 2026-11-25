@@ -193,3 +193,5 @@ button.bct img{aspect-ratio:1240/1754}
 
 .films2{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 12px;margin-bottom:30px}.films2 .vid video{aspect-ratio:16/9;width:100%;height:auto;object-fit:cover}.films2 figcaption{margin-top:6px}@media(max-width:700px){.films2{grid-template-columns:1fr 1fr;gap:10px 8px}.films2 figcaption a,.films2 figcaption span{font-size:13px!important}}
 @media(max-width:700px){.films2 .snd{font-size:10px;padding:3px 7px;top:5px;right:5px}}
+.two.do h3{font-size:clamp(22px,2.2vw,28px)}.two.do p{color:#fff;opacity:.85;max-width:none;margin:10px 0 0;line-height:1.5}
+@media(min-width:800px){.two.do{grid-template-columns:repeat(3,1fr);gap:0 36px}}
