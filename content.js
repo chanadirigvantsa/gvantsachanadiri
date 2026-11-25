@@ -7,33 +7,29 @@ window.SITE = {
   // About Me page
   "ABOUT": {
     "h": "Creative Content & Communications Manager",
-    "sub": "I shape how brands and stories look, sound and live across social, digital and video.",
+    "sub": "I shape what brands say and how they look, from the first brief to the final image.",
     "fr": "Responsable contenus créatifs et communication, diplômée du Master Communication, Médias et Industries Créatives de Sciences Po. Pendant plus de six ans chez Hammock, agence de création et magazine, j’ai conçu et produit des contenus et des campagnes pour des marques de luxe, de beauté et premium comme Moët & Chandon, Hennessy, Porsche, BMW, Erborian ou Melvita : stratégie social media, brief créatif, tournages et suivi des résultats. J’ai ensuite rejoint Renault Group en communication corporate.",
     "cv": [{"h": "Experience", "it": [["Communications Officer", "Renault Group, Paris", "Feb – Jul 2026"], ["Content Manager (Freelance)", "Hammock Studio & Hammock Magazine, alongside Master’s studies at Sciences Po", "2025"], ["Head of Brand & Creative Content", "Hammock Studio & Hammock Magazine, Tbilisi", "2020 – 2024"], ["Content Manager", "Hammock Studio & Hammock Magazine, Tbilisi", "2019 – 2020"], ["Content Manager & Editor", "SEED NGO", "2018 – 2019"]]}, {"h": "Education", "it": [["MA in Communication, Media and Creative Industries", "Sciences Po Paris (IEP), School of Management and Impact", "2024 – 2026"], ["BA in Journalism and Communications", "Tbilisi State University", "2014 – 2018"]]}, {"h": "Languages", "it": [["Georgian", "Native", ""], ["English", "C2", ""], ["French", "C1", ""]]}],
     "sec": [
       {
-        "h": "Brand & Editorial Strategy",
-        "t": "I build social-first content strategies for premium and luxury brands, including Moët & Chandon, Hennessy, Porsche, BMW, Lamborghini, MINI, Tommy Jeans and Visa, turning briefs into clear content pillars and a distinctive voice for every platform."
+        "h": "Content Strategy",
+        "t": "I decide what a brand should say and when: launches, campaigns and key moments, each with a clear narrative, content pillars and tone of voice."
       },
       {
-        "h": "Creative Direction & 360° Campaigns",
-        "t": "From first idea to final frame: campaigns, fashion editorials, interviews, photography, video and social content, held together by one cohesive visual language."
+        "h": "Creative Direction",
+        "t": "Concepts, moodboards, image references and creative briefs, shaped by a constant eye on trends, art and photography."
       },
       {
-        "h": "Production",
-        "t": "I take ideas from brief to publication, on time and on budget, and have led on-site coverage at international events such as the Venice Biennale, Berlinale and Milan Design Week."
+        "h": "Shoots & Production",
+        "t": "Fashion, beauty and product shoots run end to end, often for several brands at once: photographers, talent, suppliers, schedules, retouching and final delivery."
       },
       {
-        "h": "Audience Growth",
-        "t": "Insight-led content, SEO and GEO grew Hammock Magazine’s community to 55K+ followers across Facebook and Instagram, with stronger reach and engagement."
+        "h": "Brand Image",
+        "t": "Visual guidelines that keep every image true to a brand’s identity and heritage, with social-first formats built for Instagram."
       },
       {
-        "h": "Team Leadership",
-        "t": "At Hammock Studio & Magazine, I led a team of 10 (content and social media managers, editors, directors and camera operators) together with freelance producers, stylists and make-up artists."
-      },
-      {
-        "h": "Partnerships",
-        "t": "I connect brands with artists, designers, photographers, influencers and cultural institutions, creating collaborations where art, fashion and culture meet."
+        "h": "Editorial & Social",
+        "t": "As editorial lead of an art and fashion magazine: topics, fashion editorials, interviews and a recognisable Instagram look, from photo selection and layout to type and copy. Every story checked online, and a community grown to 55K+."
       }
     ]
   },
