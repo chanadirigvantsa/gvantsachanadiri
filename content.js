@@ -303,10 +303,7 @@ window.SITE = {
       "c": "",
       "gl": "natural",
       "g": ["1", "2", "3", "4"],
-      "lk": [
-        { "id": "afflelou1", "ty": "Instagram post", "t": "Afflelou Paris reel", "s": "Instagram", "u": "https://www.instagram.com/reel/CylVX6ML7uK/" },
-        { "id": "afflelou2", "ty": "Instagram post", "t": "Afflelou Paris reel", "s": "Instagram", "u": "https://www.instagram.com/reel/CfUJIbBomjg/" }
-      ]
+      "lk": []
     },
     {
       "id": "tommyjeans",
