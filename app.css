@@ -203,3 +203,8 @@ button.bct img{aspect-ratio:1240/1754}
 .abt .asec{margin:0 0 24px}.abt .asec p{color:var(--mute);font-size:16px}
 .abt .abcv:first-child{margin-top:0}.abt .abcv h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
 .abt .abcv{margin-top:40px}
+.efg.pstrip.pv-visa{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;overflow:visible}
+.pv-visa>*{min-width:0}.pv-visa img{width:100%;height:100%!important;aspect-ratio:3/2!important;object-fit:cover}
+.efg.pstrip.pv-visa .sv{grid-row:span 2;height:auto;align-self:stretch}.efg.pstrip.pv-visa .sv video{width:100%;height:100%;aspect-ratio:auto!important}
+.pv-visa button:nth-last-child(-n+2){grid-column:span 2}
+@media(max-width:600px){.efg.pstrip.pv-visa{grid-template-columns:1fr 1fr;gap:4px}.efg.pstrip.pv-visa .sv{grid-column:span 2;grid-row:auto}.efg.pstrip.pv-visa .sv video{aspect-ratio:4/5!important;height:auto}.pv-visa button:nth-last-child(-n+2){grid-column:auto}}
