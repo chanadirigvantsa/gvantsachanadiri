@@ -29,7 +29,7 @@ window.SITE = {
       },
       {
         "h": "Editorial & Social",
-        "t": "As editorial lead of an art and fashion magazine: topics, fashion editorials, interviews and a recognisable Instagram look, from photo selection and layout to type and copy. Every story checked online, and a community grown to 55K+."
+        "t": "As editorial lead of an art and fashion magazine: topics, fashion editorials, interviews and a recognisable Instagram look, from photo selection and layout to type and copy."
       }
     ]
   },
