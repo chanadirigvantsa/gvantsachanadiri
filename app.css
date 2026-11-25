@@ -197,3 +197,9 @@ button.bct img{aspect-ratio:1240/1754}
 @media(min-width:800px){.do>div{grid-template-columns:220px 1fr;gap:24px}}
 @media(min-width:701px){.vids.hv{display:grid!important;grid-template-columns:repeat(6,1fr);gap:16px 8px!important;overflow:visible}.vids.hv .snd{font-size:11px;padding:3px 8px;top:6px;right:6px}.vids.hv figcaption a{font-size:13px!important}}
 @media(min-width:701px){.bcr{display:grid;align-items:start;grid-template-columns:repeat(8,1fr);gap:16px 8px;overflow:visible}.bcr+.bcr{grid-template-columns:repeat(7,1fr)}.bct span{font-size:13px}}
+.abt{padding-top:30px}.abtop{padding-bottom:40px;border-bottom:1px solid var(--line)}.abtop .abh{margin:0}
+.abgrid{display:grid;gap:56px;margin-top:44px}@media(min-width:900px){.abgrid{grid-template-columns:1fr 1.15fr;gap:80px}}
+.abl{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 18px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.abt .asec{margin:0 0 24px}.abt .asec p{color:var(--mute);font-size:16px}
+.abt .abcv:first-child{margin-top:0}.abt .abcv h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.abt .abcv{margin-top:40px}
